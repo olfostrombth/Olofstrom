@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @step.name %>
+</p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @step.desc %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @step.category %>
+</p>
+
+<%= link_to 'Edit', edit_step_path(@step) %> |
+<%= link_to 'Back', steps_path %>
