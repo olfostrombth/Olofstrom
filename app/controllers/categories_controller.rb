@@ -4,7 +4,11 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.all
+    if current_user
+      @categories = Category.all
+    else
+      redirect_to login_url
+    end
   end
 
   # GET /categories/1
