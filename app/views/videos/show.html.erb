@@ -6,8 +6,7 @@
 </p>
 
 <p>
-  <strong>Url:</strong>
-  <%= @video.url %>
+  <%= raw(youtube_embed(@video.url)) %>
 </p>
 
 <p>

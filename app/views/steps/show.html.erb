@@ -14,6 +14,12 @@
   <strong>Category:</strong>
   <%= @step.category %>
 </p>
+<br>
+<% @videos.each do |v| %>
+    <%= raw(youtube_embed(v.url)) %>
+<% end  %>
+<br>
 
 <%= link_to 'Edit', edit_step_path(@step) %> |
 <%= link_to 'Back', steps_path %>
+

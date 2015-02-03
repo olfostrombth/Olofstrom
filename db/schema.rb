@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150202100009) do
+ActiveRecord::Schema.define(version: 20150203123051) do
 
   create_table "assignments", force: :cascade do |t|
     t.string   "name"
@@ -60,11 +60,9 @@ ActiveRecord::Schema.define(version: 20150202100009) do
   add_index "guides", ["step_id"], name: "index_guides_on_step_id"
 
   create_table "questions", force: :cascade do |t|
-    t.string   "name"
     t.string   "question"
     t.string   "option1"
     t.string   "option2"
-    t.string   "option3"
     t.string   "answer"
     t.integer  "quiz_id"
     t.datetime "created_at", null: false
@@ -74,6 +72,7 @@ ActiveRecord::Schema.define(version: 20150202100009) do
   add_index "questions", ["quiz_id"], name: "index_questions_on_quiz_id"
 
   create_table "quizzes", force: :cascade do |t|
+    t.string   "name"
     t.integer  "step_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -87,6 +86,7 @@ ActiveRecord::Schema.define(version: 20150202100009) do
     t.integer  "category_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "placement"
   end
 
   add_index "steps", ["category_id"], name: "index_steps_on_category_id"

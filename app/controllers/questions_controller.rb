@@ -14,6 +14,7 @@ class QuestionsController < ApplicationController
 
   # GET /questions/new
   def new
+    @questions = Question.all
     @question = Question.new
   end
 
@@ -25,10 +26,11 @@ class QuestionsController < ApplicationController
   # POST /questions.json
   def create
     @question = Question.new(question_params)
+    @quiz = @question.quiz_id
 
     respond_to do |format|
       if @question.save
-        format.html { redirect_to @question, notice: 'Question was successfully created.' }
+        format.html { redirect_to quizzes_path(@quiz), notice: 'Question was successfully created.' }
         format.json { render :show, status: :created, location: @question }
       else
         format.html { render :new }
