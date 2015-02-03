@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'sessions/create' => 'sessions#create'
+
+  get 'sessions/destroy' => 'sessions#destroy'
+
+  root 'categories#index'
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'sessions#destroy', as: 'signout'
+  get 'login', to: 'sessions#login', as: 'login'
+  resources :sessions, only: [:create, :destroy]
   resources :comments
 
   resources :questions

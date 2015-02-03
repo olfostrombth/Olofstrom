@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150203083607) do
+ActiveRecord::Schema.define(version: 20150203125742) do
 
   create_table "assignments", force: :cascade do |t|
     t.string   "name"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20150203083607) do
     t.integer  "step_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "placement"
   end
 
   add_index "assignments", ["step_id"], name: "index_assignments_on_step_id"
@@ -55,6 +56,7 @@ ActiveRecord::Schema.define(version: 20150203083607) do
     t.integer  "step_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "placement"
   end
 
   add_index "guides", ["step_id"], name: "index_guides_on_step_id"
@@ -77,6 +79,7 @@ ActiveRecord::Schema.define(version: 20150203083607) do
     t.integer  "step_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "placement"
   end
 
   add_index "quizzes", ["step_id"], name: "index_quizzes_on_step_id"
@@ -92,12 +95,26 @@ ActiveRecord::Schema.define(version: 20150203083607) do
 
   add_index "steps", ["category_id"], name: "index_steps_on_category_id"
 
+  create_table "users", force: :cascade do |t|
+    t.string   "provider"
+    t.string   "name"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
+    t.string   "completion"
+    t.string   "email"
+    t.string   "uid"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.boolean  "admin"
+  end
+
   create_table "videos", force: :cascade do |t|
     t.string   "name"
     t.string   "url"
     t.integer  "step_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "placement"
   end
 
   add_index "videos", ["step_id"], name: "index_videos_on_step_id"
