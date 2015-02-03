@@ -10,14 +10,13 @@
   <%= @quiz.step %>
 </p>
 
-<br>
 <% @questions.each do |q| %>
-    Questions:<br>
     <%= q.question %><br>
     <%= q.option1 %><br>
     <%= q.option2 %><br>
-    <%= q.answer %><br>
+    <%= q.answer %><br><br>
 <% end %>
+
 <br>
 
 <br>
