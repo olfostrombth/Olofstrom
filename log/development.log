@@ -2912,3 +2912,16 @@ Processing by QuizzesController#show as HTML
   Rendered questions/_form.html.erb (15.6ms)
   Rendered quizzes/show.html.erb within layouts/application (168.2ms)
 Completed 200 OK in 1158ms (Views: 1090.5ms | ActiveRecord: 32.6ms)
+
+
+Started GET "/quizzes/3" for 10.0.2.2 at 2015-02-04 09:21:10 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (1.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by QuizzesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mQuiz Load (2.3ms)[0m  SELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  [1m[35mStep Load (1.4ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mQuestion Load (2.6ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?[0m  [["quiz_id", 3]]
+  Rendered questions/_form.html.erb (166.0ms)
+  Rendered quizzes/show.html.erb within layouts/application (337.9ms)
+Completed 200 OK in 1579ms (Views: 871.5ms | ActiveRecord: 9.6ms)
