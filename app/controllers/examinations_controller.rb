@@ -6,6 +6,7 @@ class ExaminationsController < ApplicationController
   def index
     @examinations = Examination.all
     @categories = Category.all
+
   end
 
   # GET /examinations/1
@@ -26,10 +27,11 @@ class ExaminationsController < ApplicationController
   # POST /examinations.json
   def create
     @examination = Examination.new(examination_params)
+    @category = @examination.category_id
 
     respond_to do |format|
       if @examination.save
-        format.html { redirect_to @examination, notice: 'Examination was successfully created.' }
+        format.html { redirect_to category_path(@category), notice: 'Examination was successfully created.' }
         format.json { render :show, status: :created, location: @examination }
       else
         format.html { render :new }

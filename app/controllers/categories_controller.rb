@@ -16,6 +16,10 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     @comments = @category.comments
+    
+    @examinations = @category.examinations
+    @examination = @examinations.new
+
   end
 
   # GET /categories/new
@@ -31,6 +35,7 @@ class CategoriesController < ApplicationController
   # POST /categories.json
   def create
     @category = Category.new(category_params)
+
 
     respond_to do |format|
       if @category.save

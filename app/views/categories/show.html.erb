@@ -3,7 +3,10 @@
 <p>
   <strong>Name:</strong>
   <%= @category.name %>
+
 </p>
+
+<% @category.id  %>
 
 <p>
   <strong>Desc:</strong>
@@ -15,6 +18,11 @@
     <%= c.msg %><br>
 <% end %>
 <br><br>
+
+
+
+<%= render '/examinations/form' %>
+
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>
