@@ -216,3 +216,120 @@ ActionController::RoutingError (No route matches [GET] "/hej"):
   Rendered /home/kevin/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.5ms)
   Rendered /home/kevin/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.1ms)
   Rendered /home/kevin/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (105.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-02 10:47:19 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (6.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/railties-4.2.0/lib/rails/templates/rails/welcome/index.html.erb (35.2ms)
+Completed 200 OK in 389ms (Views: 261.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home" for 10.0.2.2 at 2015-02-02 10:47:32 +0000
+
+ActionController::RoutingError (No route matches [GET] "/home"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (19.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (16.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (134.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (2.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (2.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (399.1ms)
+
+
+Started GET "/comments" for 10.0.2.2 at 2015-02-02 10:47:41 +0000
+Processing by CommentsController#index as HTML
+  [1m[35mComment Load (6.0ms)[0m  SELECT "comments".* FROM "comments"
+  Rendered comments/index.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 10255ms (Views: 9932.1ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/assets/assignments-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 10.0.2.2 at 2015-02-02 10:47:52 +0000
+
+
+Started GET "/assets/categories-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 10.0.2.2 at 2015-02-02 10:47:53 +0000
+
+
+Started GET "/assets/questions-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 10.0.2.2 at 2015-02-02 10:47:53 +0000
+
+
+Started GET "/assets/guides-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 10.0.2.2 at 2015-02-02 10:47:53 +0000
+
+
+Started GET "/assets/examinations-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 10.0.2.2 at 2015-02-02 10:47:54 +0000
+
+
+Started GET "/assets/comments-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 10.0.2.2 at 2015-02-02 10:47:54 +0000
+
+
+Started GET "/assets/scaffolds-4ae0bac10baebfe01dab9ceed881d95e.css?body=1" for 10.0.2.2 at 2015-02-02 10:47:54 +0000
+
+
+Started GET "/assets/steps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 10.0.2.2 at 2015-02-02 10:47:55 +0000
+
+
+Started GET "/assets/videos-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 10.0.2.2 at 2015-02-02 10:47:55 +0000
+
+
+Started GET "/assets/application-3c8cf88d5fef34f2d2f3f50068093a8d.css?body=1" for 10.0.2.2 at 2015-02-02 10:47:55 +0000
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for 10.0.2.2 at 2015-02-02 10:47:56 +0000
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for 10.0.2.2 at 2015-02-02 10:47:56 +0000
+
+
+Started GET "/assets/turbolinks-686d2bf7d9d383528c901c64187a8c31.js?body=1" for 10.0.2.2 at 2015-02-02 10:47:57 +0000
+
+
+Started GET "/assets/assignments-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 10.0.2.2 at 2015-02-02 10:47:57 +0000
+
+
+Started GET "/assets/categories-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 10.0.2.2 at 2015-02-02 10:47:57 +0000
+
+
+Started GET "/assets/comments-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 10.0.2.2 at 2015-02-02 10:47:58 +0000
+
+
+Started GET "/assets/examinations-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 10.0.2.2 at 2015-02-02 10:47:58 +0000
+
+
+Started GET "/assets/guides-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 10.0.2.2 at 2015-02-02 10:47:58 +0000
+
+
+Started GET "/assets/questions-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 10.0.2.2 at 2015-02-02 10:47:59 +0000
+
+
+Started GET "/assets/steps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 10.0.2.2 at 2015-02-02 10:47:59 +0000
+
+
+Started GET "/assets/videos-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 10.0.2.2 at 2015-02-02 10:47:59 +0000
+
+
+Started GET "/assets/application-3259489927765d0a0151b48bd1d7fddd.js?body=1" for 10.0.2.2 at 2015-02-02 10:48:00 +0000
