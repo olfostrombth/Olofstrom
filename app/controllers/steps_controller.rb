@@ -12,6 +12,11 @@ class StepsController < ApplicationController
   def show
     @step = Step.find(params[:id])
     @videos = @step.videos
+    @quizzes = @step.quizzes
+    @quizzes.each do |q|
+      @quiz = q.id
+      @questions = q.questions
+    end
   end
 
   # GET /steps/new

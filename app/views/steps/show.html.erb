@@ -16,8 +16,18 @@
 </p>
 <br>
 <% @videos.each do |v| %>
-    <%= raw(youtube_embed(v.url)) %>
+    <%= raw(youtube_embed(v.url)) %><br>
 <% end  %>
+<br><br>
+<% @quizzes.each do |v| %>
+    <%= v.name %>
+    <% @questions.each do |q| %>
+        <%= q.question %><br>
+        <%= q.option1 %><br>
+        <%= q.option2 %><br>
+        <%= q.answer %><br><br>
+    <% end %>
+<% end %>
 <br>
 
 <%= link_to 'Edit', edit_step_path(@step) %> |
