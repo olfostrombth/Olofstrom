@@ -6,13 +6,12 @@
 </p>
 
 <p>
-  <strong>Url:</strong>
-  <%= @video.url %>
+  <%= raw(youtube_embed(@video.url)) %>
 </p>
 
 <p>
   <strong>Step:</strong>
-  <%= @video.step %>
+  <%= @video.step.name %>
 </p>
 
 <%= link_to 'Edit', edit_video_path(@video) %> |
