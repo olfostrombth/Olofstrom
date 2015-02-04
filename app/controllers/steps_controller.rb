@@ -13,6 +13,10 @@ class StepsController < ApplicationController
     @step = Step.find(params[:id])
     @videos = @step.videos
     @quizzes = @step.quizzes
+
+    @guides = @step.guides
+    @guide = @guides.new
+
     @quizzes.each do |q|
       @quiz = q.id
       @questions = q.questions

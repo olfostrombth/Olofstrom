@@ -16,7 +16,7 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     @comments = @category.comments
-    
+
     @examinations = @category.examinations
     @examination = @examinations.new
 

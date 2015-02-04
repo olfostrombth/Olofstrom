@@ -25,6 +25,7 @@ class GuidesController < ApplicationController
   # POST /guides.json
   def create
     @guide = Guide.new(guide_params)
+    @step = @guide.step_id
 
     respond_to do |format|
       if @guide.save
