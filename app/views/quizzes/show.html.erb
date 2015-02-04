@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @quiz.name %>
+</p>
+
+<p>
+  <strong>Step:</strong>
+  <%= @quiz.step.name %>
+</p>
+
+<% @questions.each do |q| %>
+    <%= q.question %><br>
+    <%= q.option1 %><br>
+    <%= q.option2 %><br>
+    <%= q.answer %><br><br>
+<% end %>
+
+<br>
+
+<br>
+<%= render :partial => '/questions/form' %>
+
+<br>
+
+<%= link_to 'Edit', edit_quiz_path(@quiz) %> |
+<%= link_to 'Back', quizzes_path %>
