@@ -1,0 +1,5 @@
+$GIT_DIR/.idea
+
+.idea/
+tmp/
+log/
