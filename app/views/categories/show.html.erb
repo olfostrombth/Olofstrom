@@ -9,6 +9,12 @@
   <strong>Desc:</strong>
   <%= @category.desc %>
 </p>
+<br>
+<p>Kommentarer</p>
+<% @comments.each do |c| %>
+    <%= c.msg %><br>
+<% end %>
+<br><br>
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>
