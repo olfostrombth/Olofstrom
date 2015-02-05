@@ -12147,3 +12147,20 @@ Processing by QuizzesController#show as HTML
   Rendered quizzes/show.html.erb within layouts/application (35.4ms)
   [1m[36mUser Load (1.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
 Completed 200 OK in 278ms (Views: 268.3ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/quizzes/5" for 10.0.2.2 at 2015-02-05 10:08:40 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (1.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by QuizzesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mQuiz Load (2.3ms)[0m  SELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1[0m  [["id", "5"]]
+  [1m[35mStep Load (1.7ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mQuestion Load (2.4ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?[0m  [["quiz_id", 5]]
+  Rendered questions/_form.html.erb (50.6ms)
+  Rendered quizzes/show.html.erb within layouts/application (139.3ms)
+  [1m[35mUser Load (2.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 1309ms (Views: 1084.3ms | ActiveRecord: 11.7ms)
+
+
+Started GET "/assets/application-13b67f339f5b889f8b3eab80cf3fd30e.js" for 10.0.2.2 at 2015-02-05 10:08:42 +0000
