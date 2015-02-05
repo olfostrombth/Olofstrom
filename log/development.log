@@ -13962,3 +13962,239 @@ Started GET "/login" for 10.0.2.2 at 2015-02-05 13:41:55 +0000
 Processing by SessionsController#login as HTML
   Rendered sessions/login.html.erb within layouts/application (0.2ms)
 Completed 200 OK in 232ms (Views: 225.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-05 13:48:05 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (2.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CategoriesController#index as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 40ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2015-02-05 13:48:07 +0000
+Processing by SessionsController#login as HTML
+  Rendered sessions/login.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 1250ms (Views: 1243.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/google_oauth2" for 10.0.2.2 at 2015-02-05 13:48:13 +0000
+(google_oauth2) Request phase initiated.
+
+
+Started GET "/auth/google_oauth2" for 10.0.2.2 at 2015-02-05 13:48:13 +0000
+(google_oauth2) Request phase initiated.
+
+
+Started GET "/auth/google_oauth2/callback?state=e42c4aed3dde050923edd246b00e4f9096831178f6d76c10&code=4/YnkFWbW4Ygg813P5dtYeLcA1k6Myw2N_9R5u-LnD7H8.Qufklfs40KYSrjMoGjtSfTq0E_-zlgI" for 10.0.2.2 at 2015-02-05 13:48:14 +0000
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"e42c4aed3dde050923edd246b00e4f9096831178f6d76c10", "code"=>"4/YnkFWbW4Ygg813P5dtYeLcA1k6Myw2N_9R5u-LnD7H8.Qufklfs40KYSrjMoGjtSfTq0E_-zlgI", "provider"=>"google_oauth2"}
+  [1m[35mUser Load (2.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["provider", "google_oauth2"], ["uid", "103447831663606054410"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (4.7ms)[0m  INSERT INTO "users" ("provider", "uid", "name", "email", "admin", "oauth_token", "oauth_expires_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["provider", "google_oauth2"], ["uid", "103447831663606054410"], ["name", "Mikael Lisselgård"], ["email", "mikaellisselgard@gmail.com"], ["admin", "t"], ["oauth_token", "ya29.EQFxWqgs92hvO1uePslBKHgh1N2uBpdJgvuTrR54oaagl2_Q8mPfCWNeDDEo8zz7rd1dB-EN3UJNgQ"], ["oauth_expires_at", "2015-02-05 14:48:14.000000"], ["created_at", "2015-02-05 13:48:15.280239"], ["updated_at", "2015-02-05 13:48:15.280239"]]
+  [1m[36m (6.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 243ms (ActiveRecord: 16.1ms)
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-05 13:48:15 +0000
+Processing by CategoriesController#index as HTML
+  [1m[35mUser Load (4.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (1.8ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 388ms (Views: 227.7ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/quizzes" for 10.0.2.2 at 2015-02-05 13:48:25 +0000
+Processing by QuizzesController#index as HTML
+  [1m[35mQuiz Load (2.1ms)[0m  SELECT "quizzes".* FROM "quizzes"
+  Rendered quizzes/index.html.erb within layouts/application (4.8ms)
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 315ms (Views: 212.7ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/quizzes/new" for 10.0.2.2 at 2015-02-05 13:48:28 +0000
+Processing by QuizzesController#new as HTML
+  Rendered quizzes/_form.html.erb (153.9ms)
+  Rendered quizzes/new.html.erb within layouts/application (218.6ms)
+  [1m[35mUser Load (1.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 411ms (Views: 404.7ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/quizzes" for 10.0.2.2 at 2015-02-05 13:48:35 +0000
+Processing by QuizzesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BnyGdw/gIyYAeAMDnE9CDRLppj6dQd4lYk85XrfO0VM6iX/m5QdhfIQ5VlN5FsPuCPF7n9gNhDRTvq/a2ckCyg==", "quiz"=>{"name"=>"Testquiz", "step_id"=>"1"}, "commit"=>"Create Quiz"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (4.6ms)[0m  INSERT INTO "quizzes" ("name", "step_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Testquiz"], ["step_id", 1], ["created_at", "2015-02-05 13:48:35.230724"], ["updated_at", "2015-02-05 13:48:35.230724"]]
+  [1m[36m (7.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/quizzes/1
+Completed 302 Found in 22ms (ActiveRecord: 12.6ms)
+
+
+Started GET "/quizzes/1" for 10.0.2.2 at 2015-02-05 13:48:35 +0000
+Processing by QuizzesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mQuiz Load (5.3ms)[0m  SELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mStep Load (2.2ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered quizzes/show.html.erb within layouts/application (75.4ms)
+Completed 500 Internal Server Error in 273ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+     7: 
+     8: <p>
+     9:   <strong>Step:</strong>
+    10:   <%= @quiz.step.name %>
+    11: </p>
+    12: 
+    13: <% @questions.each do |q| %>
+  app/views/quizzes/show.html.erb:10:in `_app_views_quizzes_show_html_erb__215356282_99642670'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (8.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (4.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (40.1ms)
+
+
+Started GET "/steps" for 10.0.2.2 at 2015-02-05 13:48:55 +0000
+Processing by StepsController#index as HTML
+  [1m[36mStep Load (1.7ms)[0m  [1mSELECT "steps".* FROM "steps"[0m
+  Rendered steps/index.html.erb within layouts/application (3.6ms)
+  [1m[35mUser Load (1.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 213ms (Views: 209.0ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/steps/new" for 10.0.2.2 at 2015-02-05 13:48:57 +0000
+Processing by StepsController#new as HTML
+  Rendered steps/_form.html.erb (3.3ms)
+  Rendered steps/new.html.erb within layouts/application (59.6ms)
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 254ms (Views: 248.0ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/steps" for 10.0.2.2 at 2015-02-05 13:49:07 +0000
+Processing by StepsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"c4mUzGejIGhANhVE39HDuQ9O01uCPgz+8+nLcaBi3SBPfG1djURiMsR3QBQ6iEJaFVYO+sdyVu/CGF31zmUOuQ==", "step"=>{"name"=>"Teststep", "desc"=>"Testar ett steg", "category_id"=>""}, "commit"=>"Create Step"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (5.4ms)[0m  [1mINSERT INTO "steps" ("name", "desc", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Teststep"], ["desc", "Testar ett steg"], ["created_at", "2015-02-05 13:49:07.211009"], ["updated_at", "2015-02-05 13:49:07.211009"]]
+  [1m[35m (5.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/steps/1
+Completed 302 Found in 20ms (ActiveRecord: 11.2ms)
+
+
+Started GET "/steps/1" for 10.0.2.2 at 2015-02-05 13:49:07 +0000
+Processing by StepsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStep Load (5.1ms)[0m  [1mSELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mQuiz Load (1.8ms)[0m  [1mSELECT "quizzes".* FROM "quizzes" WHERE "quizzes"."step_id" = ?[0m  [["step_id", 1]]
+  [1m[35mVideo Load (2.2ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."step_id" = ?  [["step_id", 1]]
+  [1m[36mQuestion Load (1.8ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?[0m  [["quiz_id", 1]]
+  Rendered steps/_quiz.html.erb (4.6ms)
+  Rendered steps/show.html.erb within layouts/application (67.9ms)
+  [1m[35mUser Load (1.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 367ms (Views: 295.4ms | ActiveRecord: 12.7ms)
+
+
+Started GET "/quizzes" for 10.0.2.2 at 2015-02-05 13:49:12 +0000
+Processing by QuizzesController#index as HTML
+  [1m[36mQuiz Load (1.7ms)[0m  [1mSELECT "quizzes".* FROM "quizzes"[0m
+  [1m[35mStep Load (1.3ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered quizzes/index.html.erb within layouts/application (5.9ms)
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 191ms (Views: 185.5ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/quizzes/1" for 10.0.2.2 at 2015-02-05 13:49:14 +0000
+Processing by QuizzesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mQuiz Load (1.9ms)[0m  SELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mStep Load (1.3ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mQuestion Load (1.5ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?[0m  [["quiz_id", 1]]
+  Rendered questions/_form.html.erb (11.7ms)
+  Rendered quizzes/show.html.erb within layouts/application (53.2ms)
+  [1m[35mUser Load (1.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 252ms (Views: 242.3ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/quizzes/1" for 10.0.2.2 at 2015-02-05 13:50:25 +0000
+Processing by QuizzesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuiz Load (1.5ms)[0m  [1mSELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mStep Load (1.1ms)[0m  [1mSELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mQuestion Load (2.5ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?  [["quiz_id", 1]]
+  Rendered questions/_form.html.erb (3.3ms)
+  Rendered quizzes/show.html.erb within layouts/application (34.8ms)
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 217ms (Views: 207.4ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 13:50:25 +0000
+
+
+Started GET "/assets/application-f90bcdd49a5398e7de6c903a05200820.js" for 10.0.2.2 at 2015-02-05 13:50:25 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 13:50:26 +0000
+
+
+Started GET "/assets/application-3dc270a5792e85e1233dc53b9de0ab95.css" for 10.0.2.2 at 2015-02-05 13:50:26 +0000
+
+
+Started POST "/questions" for 10.0.2.2 at 2015-02-05 13:50:42 +0000
+Processing by QuestionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LZIFPq8+kLblz9HpAIY2cmtkxzmyToSD9C+xAv3Os4oRZ/yvRdnS7GGOhLnl37eRcXwamPcC3pLF3ieGk8lgEw==", "question"=>{"question"=>"Vad är 1+1?", "option1"=>"1", "option2"=>"3", "answer"=>"2", "quiz_id"=>"1"}, "commit"=>"Create Question"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (4.2ms)[0m  [1mINSERT INTO "questions" ("question", "option1", "option2", "answer", "quiz_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["question", "Vad är 1+1?"], ["option1", "1"], ["option2", "3"], ["answer", "2"], ["quiz_id", 1], ["created_at", "2015-02-05 13:50:42.410569"], ["updated_at", "2015-02-05 13:50:42.410569"]]
+  [1m[35m (8.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/quizzes/1
+Completed 302 Found in 20ms (ActiveRecord: 12.7ms)
+
+
+Started GET "/quizzes/1" for 10.0.2.2 at 2015-02-05 13:50:42 +0000
+Processing by QuizzesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuiz Load (4.3ms)[0m  [1mSELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mStep Load (2.2ms)[0m  [1mSELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mQuestion Load (1.3ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?  [["quiz_id", 1]]
+  Rendered questions/_form.html.erb (2.4ms)
+  Rendered quizzes/show.html.erb within layouts/application (31.6ms)
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 222ms (Views: 208.7ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/assets/application-f90bcdd49a5398e7de6c903a05200820.js" for 10.0.2.2 at 2015-02-05 13:50:42 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 13:50:42 +0000
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 13:50:43 +0000
+
+
+Started GET "/assets/application-3dc270a5792e85e1233dc53b9de0ab95.css" for 10.0.2.2 at 2015-02-05 13:50:43 +0000
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-05 13:50:46 +0000
+Processing by CategoriesController#index as HTML
+  [1m[35mUser Load (1.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (1.6ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 197ms (Views: 192.5ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 13:50:46 +0000
+
+
+Started GET "/assets/application-f90bcdd49a5398e7de6c903a05200820.js" for 10.0.2.2 at 2015-02-05 13:50:46 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 13:50:46 +0000
+
+
+Started GET "/assets/application-3dc270a5792e85e1233dc53b9de0ab95.css" for 10.0.2.2 at 2015-02-05 13:50:46 +0000
