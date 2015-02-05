@@ -30,7 +30,9 @@
     <ul class="right">
       <li><a href="#">START</a></li>
       <li><a href="#">PROFIL</a></li>
-      <li><a href="#">LOGGA UT</a></li>
+      <% if current_user %>
+      <li><%= link_to "LOGGA UT", signout_path, id: "sign_out" %></li>
+      <% end %>
       <li class="progressbar"><%= image_tag("progress.png") %></li>
     <li class="active"><a href="#">
       <% if current_user %>
