@@ -45,5 +45,8 @@ group :development, :test do
   gem 'spring'
 end
 
-# formtastic instead of standard form David Olsson
+# formtastic instead of standard form
 gem 'formtastic', '~> 3.0'
+
+# Texteditor
+gem "ckeditor"

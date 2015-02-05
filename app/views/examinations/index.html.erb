@@ -15,8 +15,7 @@
   <tbody>
     <% @examinations.each do |examination| %>
       <tr>
-        <td><%= examination.name %></td>
-        <td><%= examination.desc %></td>
+        <td><%= examination.desc.html_safe %></td>
         <td><%= examination.category.name %></td>
         <td><%= link_to 'Show', examination %></td>
         <td><%= link_to 'Edit', edit_examination_path(examination) %></td>
