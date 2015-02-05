@@ -9,6 +9,13 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
   get 'login', to: 'sessions#login', as: 'login'
+  get "/modul/:category_name" => "categories#show", :as => :category
+  get "/modul/:category_name/edit" => "categories#edit", :as => :edit_caturl
+  put "/modul/:category_name" => "categories#update"
+  patch "/modul/:category_name" => "categories#update"
+  delete "/modul/:category_name" => "categories#destroy"
+
+  get "/modul/:category_name/:step_name" => "steps#showtwo", :as => :stepurl
   resources :sessions, only: [:create, :destroy]
 
   resources :quizzes
@@ -27,7 +34,7 @@ Rails.application.routes.draw do
 
   resources :examinations
 
-  resources :categories
+  resources :categories, only: [:create, :index, :new]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

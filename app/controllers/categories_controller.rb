@@ -11,11 +11,22 @@ class CategoriesController < ApplicationController
     end
   end
 
-  # GET /categories/1
+  # GET /:category_name
+  # GET /hej lOl xD
+  # GET /hej%20lOl%20xD
+  # GET /hej-lol-xd
   # GET /categories/1.json
   def show
-    @category = Category.find(params[:id])
-    @comments = @category.comments
+    @category = Category.where(name: Category.normalize_cat(params[:category_name]))
+    @category.each do |x|
+      @comments = x.comments
+      @category = x
+    end
+
+    #cat = @category.to_json
+    #cat = JSON.parse cat
+    #puts "HEJ:::::: "+cat.to_json
+    #@comments = cat.id
   end
 
   # GET /categories/new
@@ -25,16 +36,21 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1/edit
   def edit
+    @category = Category.where(name: Category.normalize_cat(params[:category_name]))
+    @category.each do |x|
+      @comments = x.comments
+      @category = x
+    end
   end
 
   # POST /categories
   # POST /categories.json
   def create
-    @category = Category.new(category_params)
+    @category = Category.new({name:Category.normalize_cat(category_params[:name]), desc:category_params[:desc]})
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to @category, notice: 'Category was successfully created.' }
+        format.html { redirect_to category_path(@category.name), notice: 'Category was successfully created.' }
         format.json { render :show, status: :created, location: @category }
       else
         format.html { render :new }
@@ -47,8 +63,13 @@ class CategoriesController < ApplicationController
   # PATCH/PUT /categories/1.json
   def update
     respond_to do |format|
-      if @category.update(category_params)
-        format.html { redirect_to @category, notice: 'Category was successfully updated.' }
+      @category.each do |x|
+        @comments = x.comments
+        @category = x
+      end
+
+      if @category.update({name:Category.normalize_cat(category_params[:name]), desc:category_params[:desc]})
+        format.html { redirect_to category_path(@category.name), notice: 'Category was successfully updated.' }
         format.json { render :show, status: :ok, location: @category }
       else
         format.html { render :edit }
@@ -70,7 +91,7 @@ class CategoriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_category
-      @category = Category.find(params[:id])
+      @category = Category.where(name: Category.normalize_cat(params[:category_name]))
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

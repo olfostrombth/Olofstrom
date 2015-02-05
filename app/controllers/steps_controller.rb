@@ -7,6 +7,24 @@ class StepsController < ApplicationController
     @steps = Step.all
   end
 
+  #GET /:modulename/:stepname
+  def showtwo
+    @category = Category.where(name: Category.normalize_cat(params[:category_name]))
+    @category.each do |y|
+      @category = y
+    end
+    @step = Step.where(name:Category.normalize_cat(params[:step_name]),category_id:@category.id)
+    @step.each do |x|
+      @step = x
+    end
+    @videos = @step.videos
+    @quizzes = @step.quizzes
+    @quizzes.each do |q|
+      @quiz = q.id
+      @questions = q.questions
+    end
+    @question = Question.new
+  end
   # GET /steps/1
   # GET /steps/1.json
   def show
@@ -100,4 +118,5 @@ class StepsController < ApplicationController
     def step_params
       params.require(:step).permit(:name, :desc, :category_id)
     end
+
 end
