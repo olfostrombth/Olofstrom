@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
   get 'login', to: 'sessions#login', as: 'login'
-  get "/modul/:category_name" => "categories#show", :as => :caturl
+  get "/modul/:category_name" => "categories#show", :as => :category
   get "/modul/:category_name/edit" => "categories#edit", :as => :edit_caturl
   put "/modul/:category_name" => "categories#update"
   patch "/modul/:category_name" => "categories#update"

@@ -50,7 +50,7 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to caturl_path(@category.name), notice: 'Category was successfully created.' }
+        format.html { redirect_to category_path(@category.name), notice: 'Category was successfully created.' }
         format.json { render :show, status: :created, location: @category }
       else
         format.html { render :new }
@@ -69,7 +69,7 @@ class CategoriesController < ApplicationController
       end
 
       if @category.update({name:Category.normalize_cat(category_params[:name]), desc:category_params[:desc]})
-        format.html { redirect_to caturl_path(@category.name), notice: 'Category was successfully updated.' }
+        format.html { redirect_to category_path(@category.name), notice: 'Category was successfully updated.' }
         format.json { render :show, status: :ok, location: @category }
       else
         format.html { render :edit }
