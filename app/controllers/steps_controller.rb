@@ -17,6 +17,28 @@ class StepsController < ApplicationController
       @quiz = q.id
       @questions = q.questions
     end
+    @question = Question.new #ta bort detta snusk, fulfix för att kunna se radiobuttons etc i show för steps.
+  end
+
+  def grade_quiz
+    @step = Step.find(params[:id])
+    gon.quizzes = @step.quizzes
+    @answers = []
+    @quizzes.each do |q|
+      @quiz = q.id
+      @questions = @quiz.questions
+      @questions.each do |q|
+        @answer = params[:answer]
+        if @answer == q.answer
+          @answers.push('true')
+        else
+          @answers.push('false')
+        end
+       #Exempel: @answers = ['true', 'true', 'false', 'true']
+      end
+      #Iterera igenom arrayen, om alla är "korrekt", grattis
+      #Annars hittas de med "error" och den relaterade frågan highlightas för användaren
+    end
   end
 
   # GET /steps/new

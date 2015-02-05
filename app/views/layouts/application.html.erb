@@ -1,22 +1,60 @@
-<html>
-<head>
-  <title>Olofstrom</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "Olofström" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+
+ <!--<div class="container">
+    <div class="row full_width">
+      <div class="twelve columns header full_width">
+        <div class="one columns logodiv" style="clear:both"><%= image_tag("oLogo.png") %> </div>
+      </div>
+    </div>
+  </div>-->
+
+
+  <nav class="top-bar" data-topbar role="navigation">
+    <ul class="title-area"> <li class="name"> <h1><a href="#"><!--<%= image_tag("oLogo.png") %>-->Olofström</a></h1> </li> <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+      <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+    </ul> <section class="top-bar-section"> <!-- Right Nav Section -->
+    <ul class="right">
+      <li><a href="#">START</a></li>
+      <li><a href="#">PROFIL</a></li>
+      <li><a href="#">LOGGA UT</a></li>
+      <li class="progressbar"><%= image_tag("progress.png") %></li>
+    <li class="active"><a href="#">
+      <% if current_user %>
+           <strong><%= current_user.name %></strong>!
+          <% if current_user.admin? %>
+          <% end %>
+      <% end %></a></li>
+        </ul>
+  </section>
+  </nav><br><br>
+
+  <!--<div>
   <% if current_user %>
       Signed in as <strong><%= current_user.name %></strong>!
       <%= link_to "Sign out", signout_path, id: "sign_out" %>
       <% if current_user.admin? %>
-        <p>Hello you are Admin!!</p>
+          <p>Hello you are Admin!!</p>
           <%= current_user.admin? %>
       <% end %>
   <% end %>
-</div>
-<%= yield %>
-	
-</body>
+  </div>-->
+    <div class="aside"> <%= yield %>
+    </div>
+
+
+  </body>
 </html>
