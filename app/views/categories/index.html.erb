@@ -14,11 +14,11 @@
   <tbody>
     <% @categories.each do |category| %>
       <tr>
-        <td><%= category.name %></td>
+        <td><%= category.name.titleize %></td>
         <td><%= category.desc %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', caturl_path(category.name) %></td>
+        <td><%= link_to 'Edit', edit_caturl_path(category.name) %></td>
+        <td><%= link_to 'Destroy', caturl_path(category.name), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
