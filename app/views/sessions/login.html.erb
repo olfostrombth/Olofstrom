@@ -1,2 +1,28 @@
 
 <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
+<script type="text/javascript">
+    var config = {
+        apiKey: 'AIzaSyDNkrpQK1H4QpKbU9naGhYUjRLya4bVSDA',
+        signInSuccessUrl: '/',
+        idps: ["google"],
+        oobActionUrl: 'http://localhost:3000/sendmail',
+        siteName: 'this site'
+    };
+    // The HTTP POST body should be escaped by the server to prevent XSS
+    window.google.identitytoolkit.start(
+            '#gitkitWidgetDiv', // accepts any CSS selector
+            config,
+            decodeURIComponent(window.location.href));
+</script>
+<script type=text/javascript>
+    window.google.identitytoolkit.signInButton(
+            '#navbar', // accepts any CSS selector
+            {
+                widgetUrl: "http://localhost:3000/auth/google_oauth2/callback",
+                signOutUrl: "http://localhost:3000/signout",
+            }
+    );
+</script>
+<%= @postbody %>
+<div id="navbar"></div>
+<div id="gitkitWidgetDiv"></div>

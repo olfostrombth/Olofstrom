@@ -1,0 +1,7 @@
+{
+  "clientId" : "1050237569948-u2lbjttpbafobjd34bu9859aodhrftkc.apps.googleusercontent.com",
+  "serviceAccountEmail" : "",
+  "serviceAccountPrivateKeyFile" : "/home/kevin/Projects/Olofstrom/app/assets/API Project-e8e289c1fff7.p12",
+  "widgetUrl" : "http://localhost:3000/auth/google_oauth2/callback",
+  "cookieName" : "gtoken"
+}
