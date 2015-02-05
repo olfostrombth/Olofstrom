@@ -1,2 +1,16 @@
 <h1>Sessions#create</h1>
 <p>Find me in app/views/sessions/create.html.erb</p>
+<script type="text/javascript">
+    var config = {
+        apiKey: 'AIzaSyDNkrpQK1H4QpKbU9naGhYUjRLya4bVSDA',
+        signInSuccessUrl: '/',
+        idps: ["google"],
+        oobActionUrl: 'http://localhost:3000/sendmail',
+        siteName: 'this site'
+    };
+    // The HTTP POST body should be escaped by the server to prevent XSS
+    window.google.identitytoolkit.start(
+            '#gitkitWidgetDiv', // accepts any CSS selector
+            config,
+            decodeURIComponent(window.location.href));
+</script>

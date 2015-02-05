@@ -10,6 +10,9 @@ class AssignmentsController < ApplicationController
   # GET /assignments/1
   # GET /assignments/1.json
   def show
+    if !current_user
+      redirect_to login_url
+    end
   end
 
   # GET /assignments/new
