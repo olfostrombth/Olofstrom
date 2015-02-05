@@ -1,18 +1,8 @@
-<%= form_for(@question) do |f| %>
-    <% if @question.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
 
-          <ul>
-            <% @question.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-    <% end %>
     <% @quizzes.each do |v| %>
         <h4><%= v.name %>, id: <%= v.id %></h4>
         <% @questions.each do |q| %>
+            <%= form_for(@question) do |f| %>
             Fråga id: <%= q.id %><br>
             <%= q.question %><br>
             <div class="field">
@@ -29,9 +19,7 @@
             </div>
             <br>
         <% end %>
-        <div class="actions">
-          <%= f.submit 'Klar' %>
-        </div>
     <% end %>
+        <button id="submit_quiz" class="button success radius">Rätta Quiz</button>
 <% end %>
 

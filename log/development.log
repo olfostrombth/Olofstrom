@@ -12164,3 +12164,2037 @@ Completed 200 OK in 1309ms (Views: 1084.3ms | ActiveRecord: 11.7ms)
 
 
 Started GET "/assets/application-13b67f339f5b889f8b3eab80cf3fd30e.js" for 10.0.2.2 at 2015-02-05 10:08:42 +0000
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-05 10:16:49 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CategoriesController#index as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 31ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2015-02-05 10:16:50 +0000
+Processing by SessionsController#login as HTML
+Completed 500 Internal Server Error in 0ms
+
+Errno::ENOENT (No such file or directory @ rb_sysopen - /home/kevin/Projects/Olofstrom/app/assets/gitkit-server-config.json):
+  app/controllers/sessions_controller.rb:17:in `login'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (7.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (3.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (47.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-05 10:17:26 +0000
+Processing by CategoriesController#index as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2015-02-05 10:17:26 +0000
+Processing by SessionsController#login as HTML
+Completed 500 Internal Server Error in 1ms
+
+Errno::ENOENT (No such file or directory @ rb_sysopen - /home/kevin/Projects/Olofstrom/app/assets/gitkit-server-config.json):
+  app/controllers/sessions_controller.rb:16:in `login'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (7.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (35.4ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2015-02-05 10:17:28 +0000
+Processing by SessionsController#login as HTML
+Completed 500 Internal Server Error in 1ms
+
+Errno::ENOENT (No such file or directory @ rb_sysopen - /home/kevin/Projects/Olofstrom/app/assets/gitkit-server-config.json):
+  app/controllers/sessions_controller.rb:16:in `login'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (11.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (40.4ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2015-02-05 10:17:39 +0000
+Processing by SessionsController#login as HTML
+Completed 500 Internal Server Error in 3ms
+
+NameError (undefined local variable or method `gitkit_client' for #<SessionsController:0xa26e3c8>):
+  app/controllers/sessions_controller.rb:18:in `login'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (8.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (4.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (39.6ms)
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-05 10:17:41 +0000
+Processing by CategoriesController#index as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2015-02-05 10:17:41 +0000
+Processing by SessionsController#login as HTML
+Completed 500 Internal Server Error in 3ms
+
+NameError (undefined local variable or method `gitkit_client' for #<SessionsController:0xaac6a98>):
+  app/controllers/sessions_controller.rb:18:in `login'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (7.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (4.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (39.4ms)
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-05 10:19:13 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (1.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CategoriesController#index as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 30ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2015-02-05 10:19:14 +0000
+Processing by SessionsController#login as HTML
+Completed 500 Internal Server Error in 7ms
+
+NameError (undefined local variable or method `gitkit_client' for #<SessionsController:0xb5518564>):
+  app/controllers/sessions_controller.rb:18:in `login'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (45.4ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2015-02-05 10:19:16 +0000
+Processing by SessionsController#login as HTML
+Completed 500 Internal Server Error in 5ms
+
+NameError (undefined local variable or method `gitkit_client' for #<SessionsController:0xb33c3a8>):
+  app/controllers/sessions_controller.rb:18:in `login'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (33.8ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2015-02-05 10:19:17 +0000
+Processing by SessionsController#login as HTML
+Completed 500 Internal Server Error in 9ms
+
+NameError (undefined local variable or method `gitkit_client' for #<SessionsController:0xb4e5998>):
+  app/controllers/sessions_controller.rb:18:in `login'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (35.4ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2015-02-05 10:19:29 +0000
+Processing by SessionsController#login as HTML
+  Rendered sessions/login.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 461ms (Views: 456.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 10:19:30 +0000
+
+
+Started GET "/assets/application-13b67f339f5b889f8b3eab80cf3fd30e.js" for 10.0.2.2 at 2015-02-05 10:19:30 +0000
+
+
+Started GET "/assets/application-b557e76337ff35759b2a697bb570a876.css" for 10.0.2.2 at 2015-02-05 10:19:31 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 10:19:31 +0000
+
+
+Started GET "/auth/google_oauth2" for 10.0.2.2 at 2015-02-05 10:19:32 +0000
+(google_oauth2) Request phase initiated.
+
+
+Started GET "/auth/google_oauth2" for 10.0.2.2 at 2015-02-05 10:19:33 +0000
+(google_oauth2) Request phase initiated.
+
+
+Started GET "/auth/google_oauth2/callback?state=ba10e5efdaccf9e47d01fe0f99c56c291a2411c8b59386f4&code=4/suxJkBrfmD1S2t8M6bwVArOxJOKEu5yOLONhY9Sh6pI.IuFsE6VJPlwVrjMoGjtSfTqgSYGylgI" for 10.0.2.2 at 2015-02-05 10:19:43 +0000
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"ba10e5efdaccf9e47d01fe0f99c56c291a2411c8b59386f4", "code"=>"4/suxJkBrfmD1S2t8M6bwVArOxJOKEu5yOLONhY9Sh6pI.IuFsE6VJPlwVrjMoGjtSfTqgSYGylgI", "provider"=>"google_oauth2"}
+  [1m[35mUser Load (2.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["provider", "google_oauth2"], ["uid", "103447831663606054410"]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (4.1ms)[0m  UPDATE "users" SET "oauth_token" = ?, "oauth_expires_at" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["oauth_token", "ya29.EQGxjHqprvb8hsKnWlnuuvdSFFWw2vTse-O8h0m0M-AIy5Fq7U3XBtc1tOQL-gli4UfXbfHAVqizPA"], ["oauth_expires_at", "2015-02-05 11:19:44.000000"], ["updated_at", "2015-02-05 10:19:44.782311"], ["id", 1]]
+  [1m[36m (6.5ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 98ms
+
+Errno::ENOENT (No such file or directory @ rb_sysopen - /home/kevin/Projects/Olofstrom/app/assets/gitkit-server-config.json):
+  app/controllers/sessions_controller.rb:8:in `create'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (7.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (4.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (35.9ms)
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-05 10:19:58 +0000
+Processing by CategoriesController#index as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2015-02-05 10:19:59 +0000
+Processing by SessionsController#login as HTML
+  Rendered sessions/login.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 223ms (Views: 217.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/google_oauth2" for 10.0.2.2 at 2015-02-05 10:20:00 +0000
+(google_oauth2) Request phase initiated.
+
+
+Started GET "/auth/google_oauth2" for 10.0.2.2 at 2015-02-05 10:20:01 +0000
+(google_oauth2) Request phase initiated.
+
+
+Started GET "/auth/google_oauth2/callback?state=baeaf6791c4853a8ba570159efb67cc80b8a1839a8bc9567&code=4/ktlvCSjLcMi2oQd85Yu2Udedy5K-9-WqPxPWz2WiSmY.8qI3nFKc-JUcrjMoGjtSfTpw04GylgI" for 10.0.2.2 at 2015-02-05 10:20:01 +0000
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"baeaf6791c4853a8ba570159efb67cc80b8a1839a8bc9567", "code"=>"4/ktlvCSjLcMi2oQd85Yu2Udedy5K-9-WqPxPWz2WiSmY.8qI3nFKc-JUcrjMoGjtSfTpw04GylgI", "provider"=>"google_oauth2"}
+  [1m[35mUser Load (1.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["provider", "google_oauth2"], ["uid", "103447831663606054410"]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (5.5ms)[0m  UPDATE "users" SET "oauth_token" = ?, "oauth_expires_at" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["oauth_token", "ya29.EQEZF7veAc7StCuOfdKY7FkQ2T7n4PdYcsB5qMfoWK6BVUoDEhsE7b9eLICWVIpc20Ziwj5OYdlH0A"], ["oauth_expires_at", "2015-02-05 11:20:01.000000"], ["updated_at", "2015-02-05 10:20:01.897057"], ["id", 1]]
+  [1m[36m (5.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 57ms (ActiveRecord: 18.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-05 10:20:01 +0000
+Processing by CategoriesController#index as HTML
+  [1m[35mUser Load (4.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (1.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 292ms (Views: 225.2ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/quizzes" for 10.0.2.2 at 2015-02-05 10:20:17 +0000
+Processing by QuizzesController#index as HTML
+  [1m[35mQuiz Load (1.8ms)[0m  SELECT "quizzes".* FROM "quizzes"
+  [1m[36mStep Load (2.4ms)[0m  [1mSELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered quizzes/index.html.erb within layouts/application (92.3ms)
+  [1m[35mUser Load (1.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 362ms (Views: 315.6ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/quizzes/5" for 10.0.2.2 at 2015-02-05 10:20:19 +0000
+Processing by QuizzesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mQuiz Load (2.1ms)[0m  [1mSELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1  [["id", "5"]]
+  [1m[36mStep Load (1.2ms)[0m  [1mSELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mQuestion Load (1.8ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?  [["quiz_id", 5]]
+  Rendered questions/_form.html.erb (46.7ms)
+  Rendered quizzes/show.html.erb within layouts/application (90.9ms)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 388ms (Views: 316.9ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/assignments" for 10.0.2.2 at 2015-02-05 10:20:28 +0000
+Processing by AssignmentsController#index as HTML
+  [1m[35mAssignment Load (1.5ms)[0m  SELECT "assignments".* FROM "assignments"
+  Rendered assignments/index.html.erb within layouts/application (4.2ms)
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 247ms (Views: 221.0ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/assignments/new" for 10.0.2.2 at 2015-02-05 10:20:31 +0000
+Processing by AssignmentsController#new as HTML
+  Rendered assignments/_form.html.erb (3.0ms)
+  Rendered assignments/new.html.erb within layouts/application (36.1ms)
+  [1m[35mUser Load (1.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 254ms (Views: 249.0ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/assignments" for 10.0.2.2 at 2015-02-05 10:20:46 +0000
+Processing by AssignmentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+lBOQcaMeyZchoH+0kVD9lz/IW4IkhNiPJYiekKfdga/5aIDxVmOvt1rAmQaH2Rii98q0+Z8XoN2csoAroedfg==", "assignment"=>{"name"=>"Testassignment", "desc"=>"testar göra ett assignment", "step_id"=>"1"}, "commit"=>"Create Assignment"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (4.2ms)[0m  INSERT INTO "assignments" ("name", "desc", "step_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Testassignment"], ["desc", "testar göra ett assignment"], ["step_id", 1], ["created_at", "2015-02-05 10:20:46.248244"], ["updated_at", "2015-02-05 10:20:46.248244"]]
+  [1m[36m (6.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/assignments/1
+Completed 302 Found in 20ms (ActiveRecord: 10.6ms)
+
+
+Started GET "/assignments/1" for 10.0.2.2 at 2015-02-05 10:20:46 +0000
+Processing by AssignmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mAssignment Load (7.0ms)[0m  SELECT  "assignments".* FROM "assignments" WHERE "assignments"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered assignments/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 239ms (Views: 227.2ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/assignments/new" for 10.0.2.2 at 2015-02-05 10:21:02 +0000
+Processing by AssignmentsController#new as HTML
+  Rendered assignments/_form.html.erb (5.2ms)
+  Rendered assignments/new.html.erb within layouts/application (36.6ms)
+  [1m[35mUser Load (1.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 247ms (Views: 244.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assignments" for 10.0.2.2 at 2015-02-05 10:21:07 +0000
+Processing by AssignmentsController#index as HTML
+  [1m[36mAssignment Load (1.3ms)[0m  [1mSELECT "assignments".* FROM "assignments"[0m
+  [1m[35mStep Load (1.6ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered assignments/index.html.erb within layouts/application (16.6ms)
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 237ms (Views: 231.7ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/assignments/1" for 10.0.2.2 at 2015-02-05 10:21:39 +0000
+Processing by AssignmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mAssignment Load (1.6ms)[0m  SELECT  "assignments".* FROM "assignments" WHERE "assignments"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered assignments/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 229ms (Views: 224.0ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/quizzes/5" for 10.0.2.2 at 2015-02-05 10:21:58 +0000
+Processing by QuizzesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mQuiz Load (1.7ms)[0m  SELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1[0m  [["id", "5"]]
+  [1m[35mStep Load (1.9ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mQuestion Load (1.4ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?[0m  [["quiz_id", 5]]
+  Rendered questions/_form.html.erb (3.1ms)
+  Rendered quizzes/show.html.erb within layouts/application (37.1ms)
+  [1m[35mUser Load (1.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 255ms (Views: 245.1ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-05 10:30:19 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (1.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CategoriesController#index as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 30ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2015-02-05 10:30:20 +0000
+Processing by SessionsController#login as HTML
+  Rendered sessions/login.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 494ms (Views: 488.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 10:30:21 +0000
+
+
+Started GET "/assets/application-13b67f339f5b889f8b3eab80cf3fd30e.js" for 10.0.2.2 at 2015-02-05 10:30:21 +0000
+
+
+Started GET "/assets/application-b557e76337ff35759b2a697bb570a876.css" for 10.0.2.2 at 2015-02-05 10:30:21 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 10:30:21 +0000
+
+
+Started GET "/auth/google_oauth2" for 10.0.2.2 at 2015-02-05 10:30:23 +0000
+(google_oauth2) Request phase initiated.
+
+
+Started GET "/auth/google_oauth2" for 10.0.2.2 at 2015-02-05 10:30:23 +0000
+(google_oauth2) Request phase initiated.
+
+
+Started GET "/auth/google_oauth2/callback?state=bbccf41034732746c72fd21945383bc9e61f9e26b93ddc53&code=4/K2UjLnopb5CWNA-X-dq4Mgok05A150CqKzoO4hIOAcc.Ugz13Iz5CKMVPvB8fYmgkJwtKpWylgI" for 10.0.2.2 at 2015-02-05 10:30:35 +0000
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"bbccf41034732746c72fd21945383bc9e61f9e26b93ddc53", "code"=>"4/K2UjLnopb5CWNA-X-dq4Mgok05A150CqKzoO4hIOAcc.Ugz13Iz5CKMVPvB8fYmgkJwtKpWylgI", "provider"=>"google_oauth2"}
+  [1m[35mUser Load (1.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["provider", "google_oauth2"], ["uid", "103447831663606054410"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (3.4ms)[0m  UPDATE "users" SET "oauth_token" = ?, "oauth_expires_at" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["oauth_token", "ya29.EQHRXfC_65zYfxjeL79ctAnD_jdifWQ4V7UdSoaviOJyeKbB6R9f_BpbCvW2whuvSB9S3mUP7D_KpQ"], ["oauth_expires_at", "2015-02-05 11:30:35.000000"], ["updated_at", "2015-02-05 10:30:36.395066"], ["id", 1]]
+  [1m[36m (4.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 100ms (ActiveRecord: 12.6ms)
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-05 10:30:36 +0000
+Processing by CategoriesController#index as HTML
+  [1m[35mUser Load (4.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (1.7ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 277ms (Views: 214.8ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/quizzes/5" for 10.0.2.2 at 2015-02-05 10:30:42 +0000
+Processing by QuizzesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mQuiz Load (1.8ms)[0m  SELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1[0m  [["id", "5"]]
+  [1m[35mStep Load (1.5ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mQuestion Load (2.9ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?[0m  [["quiz_id", 5]]
+  Rendered questions/_form.html.erb (49.4ms)
+  Rendered quizzes/show.html.erb within layouts/application (124.3ms)
+  [1m[35mUser Load (1.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 486ms (Views: 329.8ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/quizzes/5" for 10.0.2.2 at 2015-02-05 10:32:03 +0000
+Processing by QuizzesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mQuiz Load (2.3ms)[0m  [1mSELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1  [["id", "5"]]
+  [1m[36mStep Load (1.6ms)[0m  [1mSELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mQuestion Load (2.6ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?  [["quiz_id", 5]]
+  Rendered questions/_form.html.erb (3.3ms)
+  Rendered quizzes/show.html.erb within layouts/application (37.3ms)
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 472ms (Views: 460.9ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/assets/application-13b67f339f5b889f8b3eab80cf3fd30e.js" for 10.0.2.2 at 2015-02-05 10:32:03 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 10:32:03 +0000
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 10:32:04 +0000
+
+
+Started GET "/assets/application-56039860619318ab9f91f72fa3a4bae4.css" for 10.0.2.2 at 2015-02-05 10:32:04 +0000
+
+
+Started GET "/quizzes/5" for 10.0.2.2 at 2015-02-05 10:32:14 +0000
+Processing by QuizzesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mQuiz Load (1.5ms)[0m  SELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1[0m  [["id", "5"]]
+  [1m[35mStep Load (1.5ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mQuestion Load (1.6ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?[0m  [["quiz_id", 5]]
+  Rendered questions/_form.html.erb (3.8ms)
+  Rendered quizzes/show.html.erb within layouts/application (40.6ms)
+  [1m[35mUser Load (2.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 464ms (Views: 454.5ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/assets/application-13b67f339f5b889f8b3eab80cf3fd30e.js" for 10.0.2.2 at 2015-02-05 10:32:14 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 10:32:14 +0000
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 10:32:15 +0000
+
+
+Started GET "/assets/application-0be67dd06379a71b09d544e52406da48.css" for 10.0.2.2 at 2015-02-05 10:32:15 +0000
+
+
+Started GET "/quizzes/5" for 10.0.2.2 at 2015-02-05 10:35:00 +0000
+Processing by QuizzesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mQuiz Load (1.7ms)[0m  [1mSELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1  [["id", "5"]]
+  [1m[36mStep Load (1.3ms)[0m  [1mSELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mQuestion Load (2.1ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?  [["quiz_id", 5]]
+  Rendered questions/_form.html.erb (3.5ms)
+  Rendered quizzes/show.html.erb within layouts/application (34.5ms)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 944ms (Views: 934.5ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/assets/application-60370485bb39e37c52c59d96b87facac.js" for 10.0.2.2 at 2015-02-05 10:35:01 +0000
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 10:35:01 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 10:35:01 +0000
+
+
+Started GET "/assets/application-56039860619318ab9f91f72fa3a4bae4.css" for 10.0.2.2 at 2015-02-05 10:35:01 +0000
+
+
+Started GET "/quizzes/5" for 10.0.2.2 at 2015-02-05 10:35:54 +0000
+Processing by QuizzesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mQuiz Load (1.7ms)[0m  SELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1[0m  [["id", "5"]]
+  [1m[35mStep Load (2.5ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mQuestion Load (1.7ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?[0m  [["quiz_id", 5]]
+  Rendered questions/_form.html.erb (2.7ms)
+  Rendered quizzes/show.html.erb within layouts/application (36.2ms)
+  [1m[35mUser Load (1.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 224ms (Views: 213.4ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 10:35:54 +0000
+
+
+Started GET "/assets/application-60370485bb39e37c52c59d96b87facac.js" for 10.0.2.2 at 2015-02-05 10:35:55 +0000
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 10:35:55 +0000
+
+
+Started GET "/assets/application-56039860619318ab9f91f72fa3a4bae4.css" for 10.0.2.2 at 2015-02-05 10:35:55 +0000
+
+
+Started GET "/quizzes/5" for 10.0.2.2 at 2015-02-05 10:36:27 +0000
+Processing by QuizzesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mQuiz Load (1.3ms)[0m  [1mSELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1  [["id", "5"]]
+  [1m[36mStep Load (1.3ms)[0m  [1mSELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mQuestion Load (1.3ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?  [["quiz_id", 5]]
+  Rendered questions/_form.html.erb (3.0ms)
+  Rendered quizzes/show.html.erb within layouts/application (33.2ms)
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 575ms (Views: 566.0ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/assets/application-e0148fc3bfda1a639d9c8634ce1966f6.js" for 10.0.2.2 at 2015-02-05 10:36:28 +0000
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 10:36:28 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 10:36:28 +0000
+
+
+Started GET "/assets/application-56039860619318ab9f91f72fa3a4bae4.css" for 10.0.2.2 at 2015-02-05 10:36:28 +0000
+
+
+Started GET "/quizzes/5" for 10.0.2.2 at 2015-02-05 10:36:45 +0000
+Processing by QuizzesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mQuiz Load (1.8ms)[0m  SELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1[0m  [["id", "5"]]
+  [1m[35mStep Load (1.4ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mQuestion Load (1.9ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?[0m  [["quiz_id", 5]]
+  Rendered questions/_form.html.erb (9.6ms)
+  Rendered quizzes/show.html.erb within layouts/application (42.0ms)
+  [1m[35mUser Load (1.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 241ms (Views: 230.2ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 10:36:46 +0000
+
+
+Started GET "/assets/application-e0148fc3bfda1a639d9c8634ce1966f6.js" for 10.0.2.2 at 2015-02-05 10:36:46 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 10:36:46 +0000
+
+
+Started GET "/assets/application-56039860619318ab9f91f72fa3a4bae4.css" for 10.0.2.2 at 2015-02-05 10:36:46 +0000
+
+
+Started GET "/quizzes/5" for 10.0.2.2 at 2015-02-05 10:37:02 +0000
+Processing by QuizzesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mQuiz Load (1.9ms)[0m  [1mSELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1  [["id", "5"]]
+  [1m[36mStep Load (1.5ms)[0m  [1mSELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mQuestion Load (1.7ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?  [["quiz_id", 5]]
+  Rendered questions/_form.html.erb (5.1ms)
+  Rendered quizzes/show.html.erb within layouts/application (43.7ms)
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 610ms (Views: 600.7ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 10:37:02 +0000
+
+
+Started GET "/assets/application-7166194679f1699708367c52546e7d90.js" for 10.0.2.2 at 2015-02-05 10:37:03 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 10:37:03 +0000
+
+
+Started GET "/assets/application-56039860619318ab9f91f72fa3a4bae4.css" for 10.0.2.2 at 2015-02-05 10:37:03 +0000
+
+
+Started GET "/quizzes" for 10.0.2.2 at 2015-02-05 10:37:08 +0000
+Processing by QuizzesController#index as HTML
+  [1m[35mQuiz Load (1.9ms)[0m  SELECT "quizzes".* FROM "quizzes"
+  [1m[36mStep Load (1.6ms)[0m  [1mSELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered quizzes/index.html.erb within layouts/application (8.4ms)
+  [1m[35mUser Load (1.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 207ms (Views: 200.6ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 10:37:08 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 10:37:08 +0000
+
+
+Started GET "/assets/application-56039860619318ab9f91f72fa3a4bae4.css" for 10.0.2.2 at 2015-02-05 10:37:08 +0000
+
+
+Started GET "/quizzes/5" for 10.0.2.2 at 2015-02-05 10:37:10 +0000
+Processing by QuizzesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mQuiz Load (2.1ms)[0m  [1mSELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1  [["id", "5"]]
+  [1m[36mStep Load (1.4ms)[0m  [1mSELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mQuestion Load (1.5ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?  [["quiz_id", 5]]
+  Rendered questions/_form.html.erb (3.6ms)
+  Rendered quizzes/show.html.erb within layouts/application (47.4ms)
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 240ms (Views: 231.0ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/quizzes/5" for 10.0.2.2 at 2015-02-05 10:37:22 +0000
+Processing by QuizzesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mQuiz Load (1.3ms)[0m  SELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1[0m  [["id", "5"]]
+  [1m[35mStep Load (1.4ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mQuestion Load (1.0ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?[0m  [["quiz_id", 5]]
+  Rendered questions/_form.html.erb (9.0ms)
+  Rendered quizzes/show.html.erb within layouts/application (37.5ms)
+  [1m[35mUser Load (1.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 432ms (Views: 423.9ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 10:37:23 +0000
+
+
+Started GET "/assets/application-7166194679f1699708367c52546e7d90.js" for 10.0.2.2 at 2015-02-05 10:37:23 +0000
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 10:37:23 +0000
+
+
+Started GET "/assets/application-3dc270a5792e85e1233dc53b9de0ab95.css" for 10.0.2.2 at 2015-02-05 10:37:23 +0000
+
+
+Started GET "/quizzes/5" for 10.0.2.2 at 2015-02-05 10:39:30 +0000
+Processing by QuizzesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mQuiz Load (1.5ms)[0m  [1mSELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1  [["id", "5"]]
+  [1m[36mStep Load (1.3ms)[0m  [1mSELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mQuestion Load (2.0ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?  [["quiz_id", 5]]
+  Rendered questions/_form.html.erb (3.5ms)
+  Rendered quizzes/show.html.erb within layouts/application (33.5ms)
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 648ms (Views: 638.8ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 10:39:31 +0000
+
+
+Started GET "/assets/application-35f236737493bfc0fa26ff05aa7af7f4.js" for 10.0.2.2 at 2015-02-05 10:39:31 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 10:39:31 +0000
+
+
+Started GET "/assets/application-3dc270a5792e85e1233dc53b9de0ab95.css" for 10.0.2.2 at 2015-02-05 10:39:31 +0000
+
+
+Started GET "/quizzes/5" for 10.0.2.2 at 2015-02-05 10:41:34 +0000
+Processing by QuizzesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mQuiz Load (1.9ms)[0m  SELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1[0m  [["id", "5"]]
+  [1m[35mStep Load (1.4ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mQuestion Load (2.0ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?[0m  [["quiz_id", 5]]
+  Rendered questions/_form.html.erb (3.3ms)
+  Rendered quizzes/show.html.erb within layouts/application (33.1ms)
+  [1m[35mUser Load (1.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 236ms (Views: 226.5ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 10:41:35 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 10:41:35 +0000
+
+
+Started GET "/assets/application-35f236737493bfc0fa26ff05aa7af7f4.js" for 10.0.2.2 at 2015-02-05 10:41:35 +0000
+
+
+Started GET "/assets/application-3dc270a5792e85e1233dc53b9de0ab95.css" for 10.0.2.2 at 2015-02-05 10:41:35 +0000
+
+
+Started GET "/quizzes/5" for 10.0.2.2 at 2015-02-05 10:42:40 +0000
+Processing by QuizzesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mQuiz Load (3.3ms)[0m  [1mSELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1  [["id", "5"]]
+  [1m[36mStep Load (1.3ms)[0m  [1mSELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mQuestion Load (1.3ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?  [["quiz_id", 5]]
+  Rendered questions/_form.html.erb (2.7ms)
+  Rendered quizzes/show.html.erb within layouts/application (34.3ms)
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 586ms (Views: 575.2ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/assets/application-a83b66cbc42cb487a256f893af20cac0.js" for 10.0.2.2 at 2015-02-05 10:42:41 +0000
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 10:42:41 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 10:42:41 +0000
+
+
+Started GET "/assets/application-3dc270a5792e85e1233dc53b9de0ab95.css" for 10.0.2.2 at 2015-02-05 10:42:41 +0000
+
+
+Started GET "/steps/1" for 10.0.2.2 at 2015-02-05 10:42:51 +0000
+Processing by StepsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mStep Load (1.7ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mQuiz Load (1.9ms)[0m  SELECT "quizzes".* FROM "quizzes" WHERE "quizzes"."step_id" = ?  [["step_id", 1]]
+  [1m[36mCategory Load (3.4ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mVideo Load (1.7ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."step_id" = ?  [["step_id", 1]]
+  [1m[36mQuestion Load (1.3ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?[0m  [["quiz_id", 5]]
+  Rendered steps/_quiz.html.erb (26.4ms)
+  Rendered steps/show.html.erb within layouts/application (84.5ms)
+  [1m[35mUser Load (1.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 324ms (Views: 261.8ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 10:42:52 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 10:42:52 +0000
+
+
+Started GET "/assets/application-3dc270a5792e85e1233dc53b9de0ab95.css" for 10.0.2.2 at 2015-02-05 10:42:52 +0000
+
+
+Started GET "/steps/1" for 10.0.2.2 at 2015-02-05 10:43:02 +0000
+Processing by StepsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStep Load (2.5ms)[0m  [1mSELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mQuiz Load (1.8ms)[0m  [1mSELECT "quizzes".* FROM "quizzes" WHERE "quizzes"."step_id" = ?[0m  [["step_id", 1]]
+  [1m[35mCategory Load (1.8ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mVideo Load (1.5ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."step_id" = ?[0m  [["step_id", 1]]
+  [1m[35mQuestion Load (1.3ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?  [["quiz_id", 5]]
+  Rendered steps/_quiz.html.erb (9.4ms)
+  Rendered steps/show.html.erb within layouts/application (47.7ms)
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 616ms (Views: 600.4ms | ActiveRecord: 10.3ms)
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 10:43:03 +0000
+
+
+Started GET "/assets/application-35f236737493bfc0fa26ff05aa7af7f4.js" for 10.0.2.2 at 2015-02-05 10:43:03 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 10:43:03 +0000
+
+
+Started GET "/assets/application-3dc270a5792e85e1233dc53b9de0ab95.css" for 10.0.2.2 at 2015-02-05 10:43:03 +0000
+
+
+Started GET "/quizzes/5" for 10.0.2.2 at 2015-02-05 10:43:08 +0000
+Processing by QuizzesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mQuiz Load (1.7ms)[0m  SELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1[0m  [["id", "5"]]
+  [1m[35mStep Load (1.9ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mQuestion Load (1.9ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?[0m  [["quiz_id", 5]]
+  Rendered questions/_form.html.erb (2.3ms)
+  Rendered quizzes/show.html.erb within layouts/application (36.6ms)
+  [1m[35mUser Load (1.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 232ms (Views: 221.4ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 10:43:08 +0000
+
+
+Started GET "/assets/application-35f236737493bfc0fa26ff05aa7af7f4.js" for 10.0.2.2 at 2015-02-05 10:43:08 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 10:43:08 +0000
+
+
+Started GET "/assets/application-3dc270a5792e85e1233dc53b9de0ab95.css" for 10.0.2.2 at 2015-02-05 10:43:08 +0000
+
+
+Started POST "/questions" for 10.0.2.2 at 2015-02-05 10:43:21 +0000
+Processing by QuestionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"s0wFD3qs7Rabjq+xmK1vazHZwFNcTBR807VuzOmbgTqFTyZpEGgHGsoAeF7TSw5s6KHf5grsnnT3Gck0Ixm6ug==", "question"=>{"question"=>"vad är 10+10?", "option1"=>"18", "option2"=>"19", "answer"=>"20", "quiz_id"=>"5"}, "commit"=>"Create Question"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (6.6ms)[0m  INSERT INTO "questions" ("question", "option1", "option2", "answer", "quiz_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["question", "vad är 10+10?"], ["option1", "18"], ["option2", "19"], ["answer", "20"], ["quiz_id", 5], ["created_at", "2015-02-05 10:43:21.166694"], ["updated_at", "2015-02-05 10:43:21.166694"]]
+  [1m[36m (5.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/quizzes/5
+Completed 302 Found in 20ms (ActiveRecord: 12.4ms)
+
+
+Started GET "/quizzes/5" for 10.0.2.2 at 2015-02-05 10:43:21 +0000
+Processing by QuizzesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mQuiz Load (3.3ms)[0m  SELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1[0m  [["id", "5"]]
+  [1m[35mStep Load (1.5ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mQuestion Load (1.6ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?[0m  [["quiz_id", 5]]
+  Rendered questions/_form.html.erb (3.3ms)
+  Rendered quizzes/show.html.erb within layouts/application (34.1ms)
+  [1m[35mUser Load (1.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 228ms (Views: 216.7ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 10:43:21 +0000
+
+
+Started GET "/assets/application-35f236737493bfc0fa26ff05aa7af7f4.js" for 10.0.2.2 at 2015-02-05 10:43:21 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 10:43:21 +0000
+
+
+Started GET "/assets/application-3dc270a5792e85e1233dc53b9de0ab95.css" for 10.0.2.2 at 2015-02-05 10:43:21 +0000
+
+
+Started GET "/videos/" for 10.0.2.2 at 2015-02-05 10:43:46 +0000
+Processing by VideosController#index as HTML
+  [1m[36mVideo Load (1.7ms)[0m  [1mSELECT "videos".* FROM "videos"[0m
+  [1m[35mStep Load (1.5ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered videos/index.html.erb within layouts/application (11.1ms)
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 230ms (Views: 224.4ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/assets/application-35f236737493bfc0fa26ff05aa7af7f4.js" for 10.0.2.2 at 2015-02-05 10:43:47 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 10:43:47 +0000
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 10:43:47 +0000
+
+
+Started GET "/assets/application-3dc270a5792e85e1233dc53b9de0ab95.css" for 10.0.2.2 at 2015-02-05 10:43:47 +0000
+
+
+Started GET "/videos/2" for 10.0.2.2 at 2015-02-05 10:43:52 +0000
+Processing by VideosController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mVideo Load (1.5ms)[0m  SELECT  "videos".* FROM "videos" WHERE "videos"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mStep Load (1.5ms)[0m  [1mSELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered videos/show.html.erb within layouts/application (3.8ms)
+  [1m[35mUser Load (1.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 204ms (Views: 197.4ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/videos" for 10.0.2.2 at 2015-02-05 10:43:56 +0000
+Processing by VideosController#index as HTML
+  [1m[36mVideo Load (1.5ms)[0m  [1mSELECT "videos".* FROM "videos"[0m
+  [1m[35mStep Load (1.3ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered videos/index.html.erb within layouts/application (8.0ms)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 207ms (Views: 201.9ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/quizzes/5" for 10.0.2.2 at 2015-02-05 10:44:39 +0000
+Processing by QuizzesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mQuiz Load (1.9ms)[0m  SELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1[0m  [["id", "5"]]
+  [1m[35mStep Load (1.2ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mQuestion Load (1.5ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?[0m  [["quiz_id", 5]]
+  Rendered questions/_form.html.erb (2.5ms)
+  Rendered quizzes/show.html.erb within layouts/application (34.2ms)
+  [1m[35mUser Load (1.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 228ms (Views: 218.7ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/assets/application-35f236737493bfc0fa26ff05aa7af7f4.js" for 10.0.2.2 at 2015-02-05 10:44:39 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 10:44:39 +0000
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 10:44:39 +0000
+
+
+Started GET "/assets/application-3dc270a5792e85e1233dc53b9de0ab95.css" for 10.0.2.2 at 2015-02-05 10:44:40 +0000
+
+
+Started GET "/steps/1" for 10.0.2.2 at 2015-02-05 10:46:33 +0000
+Processing by StepsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStep Load (2.0ms)[0m  [1mSELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mQuiz Load (2.0ms)[0m  [1mSELECT "quizzes".* FROM "quizzes" WHERE "quizzes"."step_id" = ?[0m  [["step_id", 1]]
+  [1m[35mCategory Load (1.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mVideo Load (1.2ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."step_id" = ?[0m  [["step_id", 1]]
+  [1m[35mQuestion Load (1.3ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?  [["quiz_id", 5]]
+  Rendered steps/_quiz.html.erb (10.2ms)
+  Rendered steps/show.html.erb within layouts/application (38.0ms)
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 237ms (Views: 223.0ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 10:46:34 +0000
+
+
+Started GET "/assets/application-35f236737493bfc0fa26ff05aa7af7f4.js" for 10.0.2.2 at 2015-02-05 10:46:34 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 10:46:34 +0000
+
+
+Started GET "/assets/application-3dc270a5792e85e1233dc53b9de0ab95.css" for 10.0.2.2 at 2015-02-05 10:46:34 +0000
+
+
+Started GET "/steps/1" for 10.0.2.2 at 2015-02-05 10:49:13 +0000
+Processing by StepsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mStep Load (1.1ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mQuiz Load (1.5ms)[0m  SELECT "quizzes".* FROM "quizzes" WHERE "quizzes"."step_id" = ?  [["step_id", 1]]
+  [1m[36mCategory Load (1.7ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mVideo Load (1.8ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."step_id" = ?  [["step_id", 1]]
+  [1m[36mQuestion Load (2.5ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?[0m  [["quiz_id", 5]]
+  Rendered steps/_quiz.html.erb (14.4ms)
+  Rendered steps/show.html.erb within layouts/application (46.4ms)
+  [1m[35mUser Load (1.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 246ms (Views: 232.6ms | ActiveRecord: 9.8ms)
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 10:49:13 +0000
+
+
+Started GET "/assets/application-35f236737493bfc0fa26ff05aa7af7f4.js" for 10.0.2.2 at 2015-02-05 10:49:13 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 10:49:13 +0000
+
+
+Started GET "/assets/application-3dc270a5792e85e1233dc53b9de0ab95.css" for 10.0.2.2 at 2015-02-05 10:49:14 +0000
+
+
+Started GET "/steps/1" for 10.0.2.2 at 2015-02-05 10:49:27 +0000
+Processing by StepsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStep Load (1.7ms)[0m  [1mSELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mQuiz Load (1.3ms)[0m  [1mSELECT "quizzes".* FROM "quizzes" WHERE "quizzes"."step_id" = ?[0m  [["step_id", 1]]
+  [1m[35mCategory Load (2.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mVideo Load (1.5ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."step_id" = ?[0m  [["step_id", 1]]
+  [1m[35mQuestion Load (1.8ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?  [["quiz_id", 5]]
+  Rendered steps/_quiz.html.erb (12.9ms)
+  Rendered steps/show.html.erb within layouts/application (55.9ms)
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 252ms (Views: 238.0ms | ActiveRecord: 9.8ms)
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 10:49:28 +0000
+
+
+Started GET "/assets/application-35f236737493bfc0fa26ff05aa7af7f4.js" for 10.0.2.2 at 2015-02-05 10:49:28 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 10:49:28 +0000
+
+
+Started GET "/assets/application-3dc270a5792e85e1233dc53b9de0ab95.css" for 10.0.2.2 at 2015-02-05 10:49:28 +0000
+
+
+Started GET "/signout" for 10.0.2.2 at 2015-02-05 11:53:37 +0000
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-05 11:53:37 +0000
+Processing by CategoriesController#index as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 7ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2015-02-05 11:53:38 +0000
+Processing by SessionsController#login as HTML
+  Rendered sessions/login.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 302ms (Views: 295.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signout" for 10.0.2.2 at 2015-02-05 11:53:38 +0000
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-05 11:53:38 +0000
+Processing by CategoriesController#index as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2015-02-05 11:53:39 +0000
+Processing by SessionsController#login as HTML
+  Rendered sessions/login.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 305ms (Views: 297.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/google_oauth2" for 10.0.2.2 at 2015-02-05 11:53:41 +0000
+(google_oauth2) Request phase initiated.
+
+
+Started GET "/auth/google_oauth2" for 10.0.2.2 at 2015-02-05 11:53:41 +0000
+(google_oauth2) Request phase initiated.
+
+
+Started GET "/auth/google_oauth2/callback?state=372937399cd205a5ed8e8ba3a3f30d46809c9abea016bd5b&code=4/03oqQZAjib_2Y0ezo7c26CWE3gjLV32oyQgTxUmLq4I.IqKiQ9-Opg8TrjMoGjtSfTooZy2zlgI" for 10.0.2.2 at 2015-02-05 11:53:42 +0000
+(google_oauth2) Callback phase initiated.
+(google_oauth2) Authentication failure! failed_to_connect: Faraday::ConnectionFailed, getaddrinfo: Temporary failure in name resolution
+
+Faraday::ConnectionFailed (getaddrinfo: Temporary failure in name resolution):
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/net/http.rb:879:in `initialize'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/net/http.rb:879:in `open'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/net/http.rb:879:in `block in connect'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/timeout.rb:74:in `timeout'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/net/http.rb:878:in `connect'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/net/http.rb:863:in `do_start'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/net/http.rb:852:in `start'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/net/http.rb:1374:in `request'
+  faraday (0.9.1) lib/faraday/adapter/net_http.rb:82:in `perform_request'
+  faraday (0.9.1) lib/faraday/adapter/net_http.rb:40:in `block in call'
+  faraday (0.9.1) lib/faraday/adapter/net_http.rb:87:in `with_net_http_connection'
+  faraday (0.9.1) lib/faraday/adapter/net_http.rb:32:in `call'
+  faraday (0.9.1) lib/faraday/request/url_encoded.rb:15:in `call'
+  faraday (0.9.1) lib/faraday/rack_builder.rb:139:in `build_response'
+  faraday (0.9.1) lib/faraday/connection.rb:377:in `run_request'
+  oauth2 (1.0.0) lib/oauth2/client.rb:93:in `request'
+  oauth2 (1.0.0) lib/oauth2/client.rb:138:in `get_token'
+  oauth2 (1.0.0) lib/oauth2/strategy/auth_code.rb:29:in `get_token'
+  omniauth-oauth2 (1.2.0) lib/omniauth/strategies/oauth2.rb:93:in `build_access_token'
+  omniauth-google-oauth2 (0.2.6) lib/omniauth/strategies/google_oauth2.rb:77:in `custom_build_access_token'
+  omniauth-oauth2 (1.2.0) lib/omniauth/strategies/oauth2.rb:75:in `callback_phase'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:227:in `callback_call'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:184:in `call!'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:164:in `call'
+  omniauth (1.2.2) lib/omniauth/builder.rb:59:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (14.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (7.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (2.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (2.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (81.1ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2015-02-05 11:54:23 +0000
+Processing by SessionsController#login as HTML
+  Rendered sessions/login.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 285ms (Views: 262.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-05 11:54:23 +0000
+Processing by CategoriesController#index as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2015-02-05 11:54:24 +0000
+Processing by SessionsController#login as HTML
+  Rendered sessions/login.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 260ms (Views: 249.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application-35f236737493bfc0fa26ff05aa7af7f4.js" for 10.0.2.2 at 2015-02-05 11:54:24 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 11:54:25 +0000
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 11:54:25 +0000
+
+
+Started GET "/assets/application-3dc270a5792e85e1233dc53b9de0ab95.css" for 10.0.2.2 at 2015-02-05 11:54:26 +0000
+
+
+Started GET "/login" for 10.0.2.2 at 2015-02-05 11:54:33 +0000
+Processing by SessionsController#login as HTML
+  Rendered sessions/login.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 518ms (Views: 503.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application-35f236737493bfc0fa26ff05aa7af7f4.js" for 10.0.2.2 at 2015-02-05 11:54:34 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 11:54:34 +0000
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 11:54:34 +0000
+
+
+Started GET "/assets/application-3dc270a5792e85e1233dc53b9de0ab95.css" for 10.0.2.2 at 2015-02-05 11:54:35 +0000
+
+
+Started GET "/auth/google_oauth2" for 10.0.2.2 at 2015-02-05 11:54:37 +0000
+(google_oauth2) Request phase initiated.
+
+
+Started GET "/auth/google_oauth2" for 10.0.2.2 at 2015-02-05 11:54:37 +0000
+(google_oauth2) Request phase initiated.
+
+
+Started GET "/auth/google_oauth2/callback?state=82148988bf6e9341e8b917849d9daf9c68d0eb4c2abd04a2&code=4/JTFtg68kt-zjnpbL2pxOV4klb5_qGdZcXomSlcIQSHc.ktYnRrO0_rUZrjMoGjtSfTp8Fy-zlgI" for 10.0.2.2 at 2015-02-05 11:54:37 +0000
+(google_oauth2) Callback phase initiated.
+(google_oauth2) Authentication failure! failed_to_connect: Faraday::ConnectionFailed, getaddrinfo: Temporary failure in name resolution
+
+Faraday::ConnectionFailed (getaddrinfo: Temporary failure in name resolution):
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/net/http.rb:879:in `initialize'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/net/http.rb:879:in `open'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/net/http.rb:879:in `block in connect'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/timeout.rb:74:in `timeout'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/net/http.rb:878:in `connect'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/net/http.rb:863:in `do_start'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/net/http.rb:852:in `start'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/net/http.rb:1374:in `request'
+  faraday (0.9.1) lib/faraday/adapter/net_http.rb:82:in `perform_request'
+  faraday (0.9.1) lib/faraday/adapter/net_http.rb:40:in `block in call'
+  faraday (0.9.1) lib/faraday/adapter/net_http.rb:87:in `with_net_http_connection'
+  faraday (0.9.1) lib/faraday/adapter/net_http.rb:32:in `call'
+  faraday (0.9.1) lib/faraday/request/url_encoded.rb:15:in `call'
+  faraday (0.9.1) lib/faraday/rack_builder.rb:139:in `build_response'
+  faraday (0.9.1) lib/faraday/connection.rb:377:in `run_request'
+  oauth2 (1.0.0) lib/oauth2/client.rb:93:in `request'
+  oauth2 (1.0.0) lib/oauth2/client.rb:138:in `get_token'
+  oauth2 (1.0.0) lib/oauth2/strategy/auth_code.rb:29:in `get_token'
+  omniauth-oauth2 (1.2.0) lib/omniauth/strategies/oauth2.rb:93:in `build_access_token'
+  omniauth-google-oauth2 (0.2.6) lib/omniauth/strategies/google_oauth2.rb:77:in `custom_build_access_token'
+  omniauth-oauth2 (1.2.0) lib/omniauth/strategies/oauth2.rb:75:in `callback_phase'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:227:in `callback_call'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:184:in `call!'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:164:in `call'
+  omniauth (1.2.2) lib/omniauth/builder.rb:59:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (31.7ms)
+
+
+Started GET "/quizzes/5" for 10.0.2.2 at 2015-02-05 11:55:28 +0000
+Processing by QuizzesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mQuiz Load (8.2ms)[0m  SELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1[0m  [["id", "5"]]
+  [1m[35mStep Load (5.3ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mQuestion Load (5.7ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?[0m  [["quiz_id", 5]]
+  Rendered questions/_form.html.erb (9.4ms)
+  Rendered quizzes/show.html.erb within layouts/application (169.2ms)
+Completed 200 OK in 1004ms (Views: 975.0ms | ActiveRecord: 19.2ms)
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 11:55:30 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 11:55:30 +0000
+
+
+Started GET "/assets/application-3dc270a5792e85e1233dc53b9de0ab95.css" for 10.0.2.2 at 2015-02-05 11:55:31 +0000
+
+
+Started GET "/assets/application-35f236737493bfc0fa26ff05aa7af7f4.js" for 10.0.2.2 at 2015-02-05 11:55:31 +0000
+
+
+Started GET "/steps/1" for 10.0.2.2 at 2015-02-05 13:04:06 +0000
+Processing by StepsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mStep Load (3.9ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mQuiz Load (3.4ms)[0m  SELECT "quizzes".* FROM "quizzes" WHERE "quizzes"."step_id" = ?  [["step_id", 1]]
+  [1m[36mCategory Load (3.4ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mVideo Load (3.3ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."step_id" = ?  [["step_id", 1]]
+  [1m[36mQuestion Load (3.6ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?[0m  [["quiz_id", 5]]
+  Rendered steps/_quiz.html.erb (20.3ms)
+  Rendered steps/show.html.erb within layouts/application (95.5ms)
+Completed 200 OK in 594ms (Views: 567.7ms | ActiveRecord: 17.6ms)
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 13:04:07 +0000
+
+
+Started GET "/assets/application-35f236737493bfc0fa26ff05aa7af7f4.js" for 10.0.2.2 at 2015-02-05 13:04:08 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 13:04:08 +0000
+
+
+Started GET "/assets/application-3dc270a5792e85e1233dc53b9de0ab95.css" for 10.0.2.2 at 2015-02-05 13:04:08 +0000
+
+
+Started GET "/steps/1" for 10.0.2.2 at 2015-02-05 13:09:18 +0000
+Processing by StepsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mStep Load (4.5ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mQuiz Load (5.0ms)[0m  SELECT "quizzes".* FROM "quizzes" WHERE "quizzes"."step_id" = ?  [["step_id", 1]]
+  [1m[36mCategory Load (4.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mVideo Load (5.5ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."step_id" = ?  [["step_id", 1]]
+  [1m[36mQuestion Load (5.4ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?[0m  [["quiz_id", 5]]
+  Rendered steps/_quiz.html.erb (35.5ms)
+  Rendered steps/show.html.erb within layouts/application (132.7ms)
+Completed 200 OK in 791ms (Views: 752.9ms | ActiveRecord: 24.7ms)
+
+
+Started GET "/assets/application-35f236737493bfc0fa26ff05aa7af7f4.js" for 10.0.2.2 at 2015-02-05 13:09:20 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 13:09:20 +0000
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 13:09:20 +0000
+
+
+Started GET "/assets/application-3dc270a5792e85e1233dc53b9de0ab95.css" for 10.0.2.2 at 2015-02-05 13:09:21 +0000
+
+
+Started GET "/steps/1" for 10.0.2.2 at 2015-02-05 13:10:31 +0000
+Processing by StepsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mStep Load (3.9ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mQuiz Load (5.0ms)[0m  SELECT "quizzes".* FROM "quizzes" WHERE "quizzes"."step_id" = ?  [["step_id", 1]]
+  [1m[36mCategory Load (5.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mVideo Load (5.0ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."step_id" = ?  [["step_id", 1]]
+  [1m[36mQuestion Load (4.7ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?[0m  [["quiz_id", 5]]
+  Rendered steps/_quiz.html.erb (38.3ms)
+  Rendered steps/show.html.erb within layouts/application (138.2ms)
+Completed 200 OK in 783ms (Views: 747.5ms | ActiveRecord: 23.6ms)
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 13:10:32 +0000
+
+
+Started GET "/assets/application-35f236737493bfc0fa26ff05aa7af7f4.js" for 10.0.2.2 at 2015-02-05 13:10:33 +0000
+
+
+Started GET "/assets/application-3dc270a5792e85e1233dc53b9de0ab95.css" for 10.0.2.2 at 2015-02-05 13:10:33 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 13:10:34 +0000
+
+
+Started GET "/steps/1" for 10.0.2.2 at 2015-02-05 13:10:46 +0000
+Processing by StepsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mStep Load (1.8ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mQuiz Load (2.1ms)[0m  SELECT "quizzes".* FROM "quizzes" WHERE "quizzes"."step_id" = ?  [["step_id", 1]]
+  [1m[36mCategory Load (1.5ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mVideo Load (1.4ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."step_id" = ?  [["step_id", 1]]
+  [1m[36mQuestion Load (1.7ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?[0m  [["quiz_id", 5]]
+  Rendered steps/_quiz.html.erb (16.2ms)
+  Rendered steps/show.html.erb within layouts/application (51.6ms)
+Completed 200 OK in 271ms (Views: 258.7ms | ActiveRecord: 8.5ms)
+
+
+Started GET "/assets/application-35f236737493bfc0fa26ff05aa7af7f4.js" for 10.0.2.2 at 2015-02-05 13:10:47 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 13:10:47 +0000
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 13:10:47 +0000
+
+
+Started GET "/assets/application-3dc270a5792e85e1233dc53b9de0ab95.css" for 10.0.2.2 at 2015-02-05 13:10:47 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (4.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to Quizzes (20150205133251)
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to Quizzes (20150205133251)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "quizzes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "step_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+SQLite3::SQLException: table "quizzes" already exists: CREATE TABLE "quizzes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "step_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (20.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  select sqlite_version(*)
+  [1m[36m (22.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (4.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateCategories (20150202095302)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (9.4ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "desc" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150202095302"]]
+  [1m[35m (21.3ms)[0m  commit transaction
+Migrating to CreateExaminations (20150202095340)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (14.6ms)[0m  CREATE TABLE "examinations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "desc" varchar, "category_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.4ms)[0m  [1mCREATE  INDEX "index_examinations_on_category_id" ON "examinations" ("category_id")[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150202095340"]]
+  [1m[36m (11.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreateSteps (20150202095410)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (14.7ms)[0m  [1mCREATE TABLE "steps" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "desc" varchar, "category_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  CREATE  INDEX "index_steps_on_category_id" ON "steps" ("category_id")
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150202095410"]]
+  [1m[35m (13.2ms)[0m  commit transaction
+Migrating to CreateVideos (20150202095508)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (15.5ms)[0m  CREATE TABLE "videos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "url" varchar, "step_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_videos_on_step_id" ON "videos" ("step_id")[0m
+  [1m[35mSQL (1.9ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150202095508"]]
+  [1m[36m (11.9ms)[0m  [1mcommit transaction[0m
+Migrating to CreateGuides (20150202095535)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (16.1ms)[0m  [1mCREATE TABLE "guides" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "desc" varchar, "step_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  CREATE  INDEX "index_guides_on_step_id" ON "guides" ("step_id")
+  [1m[36mSQL (3.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150202095535"]]
+  [1m[35m (12.2ms)[0m  commit transaction
+Migrating to CreateAssignments (20150202095613)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (16.0ms)[0m  CREATE TABLE "assignments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "desc" varchar, "step_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.3ms)[0m  [1mCREATE  INDEX "index_assignments_on_step_id" ON "assignments" ("step_id")[0m
+  [1m[35mSQL (2.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150202095613"]]
+  [1m[36m (12.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreateQuestions (20150202095710)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (14.5ms)[0m  [1mCREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "question" varchar, "option1" varchar, "option2" varchar, "option3" varchar, "answer" varchar, "quiz_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (2.5ms)[0m  CREATE  INDEX "index_questions_on_quiz_id" ON "questions" ("quiz_id")
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150202095710"]]
+  [1m[35m (6.8ms)[0m  commit transaction
+Migrating to CreateComments (20150202100009)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (7.3ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "msg" varchar, "category_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.1ms)[0m  [1mCREATE  INDEX "index_comments_on_category_id" ON "comments" ("category_id")[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150202100009"]]
+  [1m[36m (7.4ms)[0m  [1mcommit transaction[0m
+Migrating to AddPlacementToSteps (20150203083607)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (7.4ms)[0m  [1mALTER TABLE "steps" ADD "placement" integer[0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150203083607"]]
+  [1m[36m (5.9ms)[0m  [1mcommit transaction[0m
+Migrating to RemoveColumns (20150203093641)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (39.3ms)[0m  [1mCREATE TEMPORARY TABLE "aquestions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "question" varchar, "option1" varchar, "option2" varchar, "option3" varchar, "answer" varchar, "quiz_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (4.8ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_questions_on_quiz_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_questions_on_quiz_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "tindex_aquestions_on_quiz_id" ON "aquestions" ("quiz_id")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "questions"
+  [1m[36m (10.3ms)[0m  [1mDROP TABLE "questions"[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "question" varchar, "option1" varchar, "option2" varchar, "option3" varchar, "answer" varchar, "quiz_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_aquestions_on_quiz_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_aquestions_on_quiz_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  CREATE  INDEX "index_questions_on_quiz_id" ON "questions" ("quiz_id")
+  [1m[36m (0.2ms)[0m  [1mSELECT * FROM "aquestions"[0m
+  [1m[35m (0.5ms)[0m  DROP TABLE "aquestions"
+  [1m[36m (0.4ms)[0m  [1mCREATE TEMPORARY TABLE "aquestions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "question" varchar, "option1" varchar, "option2" varchar, "option3" varchar, "answer" varchar, "quiz_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_questions_on_quiz_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_questions_on_quiz_id' AND type='index'
+
+  [1m[36m (0.3ms)[0m  [1mCREATE  INDEX "tindex_aquestions_on_quiz_id" ON "aquestions" ("quiz_id")[0m
+  [1m[35m (0.2ms)[0m  SELECT * FROM "questions"
+  [1m[36m (0.5ms)[0m  [1mDROP TABLE "questions"[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "question" varchar, "option1" varchar, "option2" varchar, "answer" varchar, "quiz_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_aquestions_on_quiz_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_aquestions_on_quiz_id' AND type='index'
+[0m
+  [1m[35m (0.4ms)[0m  CREATE  INDEX "index_questions_on_quiz_id" ON "questions" ("quiz_id")
+  [1m[36m (0.2ms)[0m  [1mSELECT * FROM "aquestions"[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "aquestions"
+  [1m[36mSQL (2.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150203093641"]]
+  [1m[35m (12.9ms)[0m  commit transaction
+Migrating to CreateUsers (20150203100005)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (16.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "provider" varchar, "name" varchar, "oauth_token" varchar, "oauth_expires_at" datetime, "completion" varchar, "email" varchar, "uid" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (3.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150203100005"]]
+  [1m[35m (12.6ms)[0m  commit transaction
+Migrating to AddAdminToUsers (20150203125742)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (16.4ms)[0m  ALTER TABLE "users" ADD "admin" boolean
+  [1m[36mSQL (3.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150203125742"]]
+  [1m[35m (13.2ms)[0m  commit transaction
+Migrating to Quizzes (20150205133251)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (16.1ms)[0m  CREATE TABLE "quizzes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "step_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (2.1ms)[0m  [1mCREATE  INDEX "index_quizzes_on_step_id" ON "quizzes" ("step_id")[0m
+  [1m[35mSQL (2.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150205133251"]]
+  [1m[36m (13.9ms)[0m  [1mcommit transaction[0m
+Migrating to AddStuffToDb (20150205133447)
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36m (20.1ms)[0m  [1mALTER TABLE "videos" ADD "placement" integer[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "guides" ADD "placement" integer
+  [1m[36m (1.4ms)[0m  [1mALTER TABLE "quizzes" ADD "placement" integer[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "assignments" ADD "placement" integer
+  [1m[36mSQL (2.9ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150205133447"]]
+  [1m[35m (14.3ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (4.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (4.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_assignments_on_step_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_assignments_on_step_id' AND type='index'
+
+  [1m[36m (5.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_category_id' AND type='index'
+[0m
+  [1m[35m (4.4ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_examinations_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_examinations_on_category_id' AND type='index'
+
+  [1m[36m (4.6ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_guides_on_step_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_guides_on_step_id' AND type='index'
+[0m
+  [1m[35m (4.6ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_questions_on_quiz_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_questions_on_quiz_id' AND type='index'
+
+  [1m[36m (4.9ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_quizzes_on_step_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_quizzes_on_step_id' AND type='index'
+[0m
+  [1m[35m (4.4ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_steps_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_steps_on_category_id' AND type='index'
+
+  [1m[36m (5.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_videos_on_step_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_videos_on_step_id' AND type='index'
+[0m
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-05 13:38:26 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (2.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CategoriesController#index as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 34ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-05 13:38:27 +0000
+Processing by CategoriesController#index as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2015-02-05 13:38:27 +0000
+Processing by SessionsController#login as HTML
+  Rendered sessions/login.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 3344ms (Views: 3340.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 13:38:31 +0000
+
+
+Started GET "/assets/application-3dc270a5792e85e1233dc53b9de0ab95.css" for 10.0.2.2 at 2015-02-05 13:38:31 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 13:38:32 +0000
+
+
+Started GET "/assets/application-f90bcdd49a5398e7de6c903a05200820.js" for 10.0.2.2 at 2015-02-05 13:38:32 +0000
+
+
+Started GET "/auth/google_oauth2" for 10.0.2.2 at 2015-02-05 13:38:34 +0000
+(google_oauth2) Request phase initiated.
+
+
+Started GET "/auth/google_oauth2" for 10.0.2.2 at 2015-02-05 13:38:34 +0000
+(google_oauth2) Request phase initiated.
+
+
+Started GET "/auth/google_oauth2/callback?state=c698b8d665609017250191f9067516334379ddb0426f6b25&code=4/qJi6Xxr6Bj_ABV9OSr3-gMiCKDhkNHWvt0UUk8ZMBaA.svhqeS59rmMWrjMoGjtSfTq43O2zlgI" for 10.0.2.2 at 2015-02-05 13:38:50 +0000
+(google_oauth2) Callback phase initiated.
+(google_oauth2) Authentication failure! failed_to_connect: Faraday::ConnectionFailed, getaddrinfo: Temporary failure in name resolution
+
+Faraday::ConnectionFailed (getaddrinfo: Temporary failure in name resolution):
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/net/http.rb:879:in `initialize'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/net/http.rb:879:in `open'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/net/http.rb:879:in `block in connect'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/timeout.rb:74:in `timeout'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/net/http.rb:878:in `connect'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/net/http.rb:863:in `do_start'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/net/http.rb:852:in `start'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/net/http.rb:1374:in `request'
+  faraday (0.9.1) lib/faraday/adapter/net_http.rb:82:in `perform_request'
+  faraday (0.9.1) lib/faraday/adapter/net_http.rb:40:in `block in call'
+  faraday (0.9.1) lib/faraday/adapter/net_http.rb:87:in `with_net_http_connection'
+  faraday (0.9.1) lib/faraday/adapter/net_http.rb:32:in `call'
+  faraday (0.9.1) lib/faraday/request/url_encoded.rb:15:in `call'
+  faraday (0.9.1) lib/faraday/rack_builder.rb:139:in `build_response'
+  faraday (0.9.1) lib/faraday/connection.rb:377:in `run_request'
+  oauth2 (1.0.0) lib/oauth2/client.rb:93:in `request'
+  oauth2 (1.0.0) lib/oauth2/client.rb:138:in `get_token'
+  oauth2 (1.0.0) lib/oauth2/strategy/auth_code.rb:29:in `get_token'
+  omniauth-oauth2 (1.2.0) lib/omniauth/strategies/oauth2.rb:93:in `build_access_token'
+  omniauth-google-oauth2 (0.2.6) lib/omniauth/strategies/google_oauth2.rb:77:in `custom_build_access_token'
+  omniauth-oauth2 (1.2.0) lib/omniauth/strategies/oauth2.rb:75:in `callback_phase'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:227:in `callback_call'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:184:in `call!'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:164:in `call'
+  omniauth (1.2.2) lib/omniauth/builder.rb:59:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (14.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (6.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (4.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (4.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (78.2ms)
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-05 13:40:06 +0000
+Processing by CategoriesController#index as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2015-02-05 13:40:07 +0000
+Processing by SessionsController#login as HTML
+  Rendered sessions/login.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 536ms (Views: 519.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/google_oauth2" for 10.0.2.2 at 2015-02-05 13:40:10 +0000
+(google_oauth2) Request phase initiated.
+
+
+Started GET "/auth/google_oauth2" for 10.0.2.2 at 2015-02-05 13:40:10 +0000
+(google_oauth2) Request phase initiated.
+
+
+Started GET "/auth/google_oauth2/callback?state=911f891f06cb359c9feaa5d698dc62944ae8c6890960b94a&code=4/JOSYuntYbxdjTT69fnhNYOzxlcrefZzE5qtTiAxylIw.0idDutMcaFMarjMoGjtSfToOVfCzlgI" for 10.0.2.2 at 2015-02-05 13:40:11 +0000
+(google_oauth2) Callback phase initiated.
+(google_oauth2) Authentication failure! failed_to_connect: Faraday::ConnectionFailed, getaddrinfo: Temporary failure in name resolution
+
+Faraday::ConnectionFailed (getaddrinfo: Temporary failure in name resolution):
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/net/http.rb:879:in `initialize'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/net/http.rb:879:in `open'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/net/http.rb:879:in `block in connect'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/timeout.rb:74:in `timeout'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/net/http.rb:878:in `connect'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/net/http.rb:863:in `do_start'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/net/http.rb:852:in `start'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/net/http.rb:1374:in `request'
+  faraday (0.9.1) lib/faraday/adapter/net_http.rb:82:in `perform_request'
+  faraday (0.9.1) lib/faraday/adapter/net_http.rb:40:in `block in call'
+  faraday (0.9.1) lib/faraday/adapter/net_http.rb:87:in `with_net_http_connection'
+  faraday (0.9.1) lib/faraday/adapter/net_http.rb:32:in `call'
+  faraday (0.9.1) lib/faraday/request/url_encoded.rb:15:in `call'
+  faraday (0.9.1) lib/faraday/rack_builder.rb:139:in `build_response'
+  faraday (0.9.1) lib/faraday/connection.rb:377:in `run_request'
+  oauth2 (1.0.0) lib/oauth2/client.rb:93:in `request'
+  oauth2 (1.0.0) lib/oauth2/client.rb:138:in `get_token'
+  oauth2 (1.0.0) lib/oauth2/strategy/auth_code.rb:29:in `get_token'
+  omniauth-oauth2 (1.2.0) lib/omniauth/strategies/oauth2.rb:93:in `build_access_token'
+  omniauth-google-oauth2 (0.2.6) lib/omniauth/strategies/google_oauth2.rb:77:in `custom_build_access_token'
+  omniauth-oauth2 (1.2.0) lib/omniauth/strategies/oauth2.rb:75:in `callback_phase'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:227:in `callback_call'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:184:in `call!'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:164:in `call'
+  omniauth (1.2.2) lib/omniauth/builder.rb:59:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (3.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (34.1ms)
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-05 13:41:54 +0000
+Processing by CategoriesController#index as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2015-02-05 13:41:55 +0000
+Processing by SessionsController#login as HTML
+  Rendered sessions/login.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 232ms (Views: 225.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-05 13:48:05 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (2.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CategoriesController#index as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 40ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2015-02-05 13:48:07 +0000
+Processing by SessionsController#login as HTML
+  Rendered sessions/login.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 1250ms (Views: 1243.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/google_oauth2" for 10.0.2.2 at 2015-02-05 13:48:13 +0000
+(google_oauth2) Request phase initiated.
+
+
+Started GET "/auth/google_oauth2" for 10.0.2.2 at 2015-02-05 13:48:13 +0000
+(google_oauth2) Request phase initiated.
+
+
+Started GET "/auth/google_oauth2/callback?state=e42c4aed3dde050923edd246b00e4f9096831178f6d76c10&code=4/YnkFWbW4Ygg813P5dtYeLcA1k6Myw2N_9R5u-LnD7H8.Qufklfs40KYSrjMoGjtSfTq0E_-zlgI" for 10.0.2.2 at 2015-02-05 13:48:14 +0000
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"e42c4aed3dde050923edd246b00e4f9096831178f6d76c10", "code"=>"4/YnkFWbW4Ygg813P5dtYeLcA1k6Myw2N_9R5u-LnD7H8.Qufklfs40KYSrjMoGjtSfTq0E_-zlgI", "provider"=>"google_oauth2"}
+  [1m[35mUser Load (2.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["provider", "google_oauth2"], ["uid", "103447831663606054410"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (4.7ms)[0m  INSERT INTO "users" ("provider", "uid", "name", "email", "admin", "oauth_token", "oauth_expires_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["provider", "google_oauth2"], ["uid", "103447831663606054410"], ["name", "Mikael Lisselgård"], ["email", "mikaellisselgard@gmail.com"], ["admin", "t"], ["oauth_token", "ya29.EQFxWqgs92hvO1uePslBKHgh1N2uBpdJgvuTrR54oaagl2_Q8mPfCWNeDDEo8zz7rd1dB-EN3UJNgQ"], ["oauth_expires_at", "2015-02-05 14:48:14.000000"], ["created_at", "2015-02-05 13:48:15.280239"], ["updated_at", "2015-02-05 13:48:15.280239"]]
+  [1m[36m (6.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 243ms (ActiveRecord: 16.1ms)
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-05 13:48:15 +0000
+Processing by CategoriesController#index as HTML
+  [1m[35mUser Load (4.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (1.8ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 388ms (Views: 227.7ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/quizzes" for 10.0.2.2 at 2015-02-05 13:48:25 +0000
+Processing by QuizzesController#index as HTML
+  [1m[35mQuiz Load (2.1ms)[0m  SELECT "quizzes".* FROM "quizzes"
+  Rendered quizzes/index.html.erb within layouts/application (4.8ms)
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 315ms (Views: 212.7ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/quizzes/new" for 10.0.2.2 at 2015-02-05 13:48:28 +0000
+Processing by QuizzesController#new as HTML
+  Rendered quizzes/_form.html.erb (153.9ms)
+  Rendered quizzes/new.html.erb within layouts/application (218.6ms)
+  [1m[35mUser Load (1.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 411ms (Views: 404.7ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/quizzes" for 10.0.2.2 at 2015-02-05 13:48:35 +0000
+Processing by QuizzesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BnyGdw/gIyYAeAMDnE9CDRLppj6dQd4lYk85XrfO0VM6iX/m5QdhfIQ5VlN5FsPuCPF7n9gNhDRTvq/a2ckCyg==", "quiz"=>{"name"=>"Testquiz", "step_id"=>"1"}, "commit"=>"Create Quiz"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (4.6ms)[0m  INSERT INTO "quizzes" ("name", "step_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Testquiz"], ["step_id", 1], ["created_at", "2015-02-05 13:48:35.230724"], ["updated_at", "2015-02-05 13:48:35.230724"]]
+  [1m[36m (7.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/quizzes/1
+Completed 302 Found in 22ms (ActiveRecord: 12.6ms)
+
+
+Started GET "/quizzes/1" for 10.0.2.2 at 2015-02-05 13:48:35 +0000
+Processing by QuizzesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mQuiz Load (5.3ms)[0m  SELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mStep Load (2.2ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered quizzes/show.html.erb within layouts/application (75.4ms)
+Completed 500 Internal Server Error in 273ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+     7: 
+     8: <p>
+     9:   <strong>Step:</strong>
+    10:   <%= @quiz.step.name %>
+    11: </p>
+    12: 
+    13: <% @questions.each do |q| %>
+  app/views/quizzes/show.html.erb:10:in `_app_views_quizzes_show_html_erb__215356282_99642670'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (8.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (4.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (40.1ms)
+
+
+Started GET "/steps" for 10.0.2.2 at 2015-02-05 13:48:55 +0000
+Processing by StepsController#index as HTML
+  [1m[36mStep Load (1.7ms)[0m  [1mSELECT "steps".* FROM "steps"[0m
+  Rendered steps/index.html.erb within layouts/application (3.6ms)
+  [1m[35mUser Load (1.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 213ms (Views: 209.0ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/steps/new" for 10.0.2.2 at 2015-02-05 13:48:57 +0000
+Processing by StepsController#new as HTML
+  Rendered steps/_form.html.erb (3.3ms)
+  Rendered steps/new.html.erb within layouts/application (59.6ms)
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 254ms (Views: 248.0ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/steps" for 10.0.2.2 at 2015-02-05 13:49:07 +0000
+Processing by StepsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"c4mUzGejIGhANhVE39HDuQ9O01uCPgz+8+nLcaBi3SBPfG1djURiMsR3QBQ6iEJaFVYO+sdyVu/CGF31zmUOuQ==", "step"=>{"name"=>"Teststep", "desc"=>"Testar ett steg", "category_id"=>""}, "commit"=>"Create Step"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (5.4ms)[0m  [1mINSERT INTO "steps" ("name", "desc", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Teststep"], ["desc", "Testar ett steg"], ["created_at", "2015-02-05 13:49:07.211009"], ["updated_at", "2015-02-05 13:49:07.211009"]]
+  [1m[35m (5.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/steps/1
+Completed 302 Found in 20ms (ActiveRecord: 11.2ms)
+
+
+Started GET "/steps/1" for 10.0.2.2 at 2015-02-05 13:49:07 +0000
+Processing by StepsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStep Load (5.1ms)[0m  [1mSELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mQuiz Load (1.8ms)[0m  [1mSELECT "quizzes".* FROM "quizzes" WHERE "quizzes"."step_id" = ?[0m  [["step_id", 1]]
+  [1m[35mVideo Load (2.2ms)[0m  SELECT "videos".* FROM "videos" WHERE "videos"."step_id" = ?  [["step_id", 1]]
+  [1m[36mQuestion Load (1.8ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?[0m  [["quiz_id", 1]]
+  Rendered steps/_quiz.html.erb (4.6ms)
+  Rendered steps/show.html.erb within layouts/application (67.9ms)
+  [1m[35mUser Load (1.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 367ms (Views: 295.4ms | ActiveRecord: 12.7ms)
+
+
+Started GET "/quizzes" for 10.0.2.2 at 2015-02-05 13:49:12 +0000
+Processing by QuizzesController#index as HTML
+  [1m[36mQuiz Load (1.7ms)[0m  [1mSELECT "quizzes".* FROM "quizzes"[0m
+  [1m[35mStep Load (1.3ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered quizzes/index.html.erb within layouts/application (5.9ms)
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 191ms (Views: 185.5ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/quizzes/1" for 10.0.2.2 at 2015-02-05 13:49:14 +0000
+Processing by QuizzesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mQuiz Load (1.9ms)[0m  SELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mStep Load (1.3ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mQuestion Load (1.5ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?[0m  [["quiz_id", 1]]
+  Rendered questions/_form.html.erb (11.7ms)
+  Rendered quizzes/show.html.erb within layouts/application (53.2ms)
+  [1m[35mUser Load (1.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 252ms (Views: 242.3ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/quizzes/1" for 10.0.2.2 at 2015-02-05 13:50:25 +0000
+Processing by QuizzesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuiz Load (1.5ms)[0m  [1mSELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mStep Load (1.1ms)[0m  [1mSELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mQuestion Load (2.5ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?  [["quiz_id", 1]]
+  Rendered questions/_form.html.erb (3.3ms)
+  Rendered quizzes/show.html.erb within layouts/application (34.8ms)
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 217ms (Views: 207.4ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 13:50:25 +0000
+
+
+Started GET "/assets/application-f90bcdd49a5398e7de6c903a05200820.js" for 10.0.2.2 at 2015-02-05 13:50:25 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 13:50:26 +0000
+
+
+Started GET "/assets/application-3dc270a5792e85e1233dc53b9de0ab95.css" for 10.0.2.2 at 2015-02-05 13:50:26 +0000
+
+
+Started POST "/questions" for 10.0.2.2 at 2015-02-05 13:50:42 +0000
+Processing by QuestionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LZIFPq8+kLblz9HpAIY2cmtkxzmyToSD9C+xAv3Os4oRZ/yvRdnS7GGOhLnl37eRcXwamPcC3pLF3ieGk8lgEw==", "question"=>{"question"=>"Vad är 1+1?", "option1"=>"1", "option2"=>"3", "answer"=>"2", "quiz_id"=>"1"}, "commit"=>"Create Question"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (4.2ms)[0m  [1mINSERT INTO "questions" ("question", "option1", "option2", "answer", "quiz_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["question", "Vad är 1+1?"], ["option1", "1"], ["option2", "3"], ["answer", "2"], ["quiz_id", 1], ["created_at", "2015-02-05 13:50:42.410569"], ["updated_at", "2015-02-05 13:50:42.410569"]]
+  [1m[35m (8.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/quizzes/1
+Completed 302 Found in 20ms (ActiveRecord: 12.7ms)
+
+
+Started GET "/quizzes/1" for 10.0.2.2 at 2015-02-05 13:50:42 +0000
+Processing by QuizzesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuiz Load (4.3ms)[0m  [1mSELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mStep Load (2.2ms)[0m  [1mSELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mQuestion Load (1.3ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = ?  [["quiz_id", 1]]
+  Rendered questions/_form.html.erb (2.4ms)
+  Rendered quizzes/show.html.erb within layouts/application (31.6ms)
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 222ms (Views: 208.7ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/assets/application-f90bcdd49a5398e7de6c903a05200820.js" for 10.0.2.2 at 2015-02-05 13:50:42 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 13:50:42 +0000
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 13:50:43 +0000
+
+
+Started GET "/assets/application-3dc270a5792e85e1233dc53b9de0ab95.css" for 10.0.2.2 at 2015-02-05 13:50:43 +0000
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-05 13:50:46 +0000
+Processing by CategoriesController#index as HTML
+  [1m[35mUser Load (1.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (1.6ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 197ms (Views: 192.5ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-05 13:50:46 +0000
+
+
+Started GET "/assets/application-f90bcdd49a5398e7de6c903a05200820.js" for 10.0.2.2 at 2015-02-05 13:50:46 +0000
+
+
+Started GET "/assets/progress-2d5f75b39a6b6e5526905c9ec06cbd03.png" for 10.0.2.2 at 2015-02-05 13:50:46 +0000
+
+
+Started GET "/assets/application-3dc270a5792e85e1233dc53b9de0ab95.css" for 10.0.2.2 at 2015-02-05 13:50:46 +0000
