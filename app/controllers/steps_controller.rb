@@ -16,11 +16,11 @@ class StepsController < ApplicationController
       @videos = @step.videos
       @video = @videos.new
       @quizzes = @step.quizzes
-      @quiz = @quizzes.new
       @quizzes.each do |q|
         @quiz_id = q.id
         @questions = q.questions
       end
+      @quiz = @quizzes.new
     end
     @question = Question.new
   end

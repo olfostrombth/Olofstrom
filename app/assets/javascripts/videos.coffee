@@ -5,4 +5,3 @@
 $ ->
   $('#video_toggle').click ->
     $('.video_form').toggle('show');
-    $('html, body').animate({scrollTop:$(document).height()}, 'slow');
