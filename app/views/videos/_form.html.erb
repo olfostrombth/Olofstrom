@@ -20,7 +20,10 @@
     <%= f.text_field :url %>
   </div>
   <div class="field">
-    <%= f.hidden_field :step_id %>
+    <div class="field">
+      <%= f.label :step_id %><br>
+      <%= f.text_field :step_id %>
+    </div>
   </div>
   <div class="actions">
     <%= f.submit %>

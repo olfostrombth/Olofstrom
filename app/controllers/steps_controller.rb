@@ -14,6 +14,7 @@ class StepsController < ApplicationController
     @step.each do |x|
       @step = x
       @videos = @step.videos
+      @video = @videos.new
       @quizzes = @step.quizzes
       @quiz = @quizzes.new
       @quizzes.each do |q|

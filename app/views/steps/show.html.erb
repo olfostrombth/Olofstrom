@@ -15,10 +15,12 @@
   <strong>Category:</strong>
   <%= @step.category %>
 </p>
+
+<button id="video_toggle" class="button success radius">Lägg till video</button>
 <br>
-<% @videos.each do |v| %>
-    <%= raw(youtube_embed(v.url)) %><br>
-<% end  %>
+<div class="video_form">
+  <%= render :partial => 'videos/form' %>
+</div>
 <br>
 
 <button id="quiz_toggle" class="button success radius">Lägg till quiz</button>
@@ -26,6 +28,15 @@
 <div class="quiz_form">
   <%= render :partial => 'quizzes/form' %>
 </div>
+
+<br>
+<% @videos.each do |v| %>
+    <% if v.url? %>
+      <%= raw(youtube_embed(v.url)) %><br>
+    <% end %>
+<% end %>
+<br>
+
 <br>
 <%= render 'quiz' %>
 <br>

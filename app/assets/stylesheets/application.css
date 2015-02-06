@@ -28,6 +28,13 @@
    display: none;
  }
 
+.video_form {
+    width: auto;
+    height: auto;
+    display: none;
+}
+
+
 
 .container
 {
