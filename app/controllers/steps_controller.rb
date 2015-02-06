@@ -72,7 +72,7 @@ class StepsController < ApplicationController
   # POST /steps
   # POST /steps.json
   def create
-    @step = Step.new({name:Category.normalize_cat(step_params[:name]), desc:step_params[:desc]})
+    @step = Step.new({name:Category.normalize_cat(step_params[:name]), desc:step_params[:desc], category_id:step_params[:category_id]})
     cat = Category.find(step_params[:category_id])
     #category = @step.category.name
 

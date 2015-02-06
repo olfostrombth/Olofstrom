@@ -16,6 +16,18 @@
  */
 
 
+ .step_form {
+   width: auto;
+   height: auto;
+   display: none;
+ }
+
+ .comment_form {
+   width: auto;
+   height: auto;
+   display: none;
+ }
+
 
 .container
 {
