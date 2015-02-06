@@ -27,7 +27,7 @@ class ExaminationsController < ApplicationController
   # POST /examinations.json
   def create
     @examination = Examination.new(examination_params)
-    @category = @examination.category_id
+    @category = @examination.category.name
 
     respond_to do |format|
       if @examination.save

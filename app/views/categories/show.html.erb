@@ -35,6 +35,12 @@
   <%= render '/examinations/form' %>
 </div>
 <br>
+<% @examinations.each do |e| %>
+    <%= e.name %><br>
+    <%= e.desc %>
+<% end %>
+<br>
+
 
 <h4>Kommentarer</h4>
 <% @comments.each do |c| %>
