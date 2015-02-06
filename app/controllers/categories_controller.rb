@@ -24,6 +24,8 @@ class CategoriesController < ApplicationController
       @steps = x.steps
       @step = @steps.new
       @category = x
+      @examinations = @category.examinations
+      @examination = @examinations.new
     end
 
     #cat = @category.to_json

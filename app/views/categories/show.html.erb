@@ -28,21 +28,28 @@
 <div class="step_form">
   <%= render :partial => '/steps/steps' %>
 </div>
+<br>
+<button id="examination_toggle" class="button success radius">Lägg till examination</button>
+<br>
+<div class="examination_form">
+  <%= render '/examinations/form' %>
+</div>
+<br>
 
 <h4>Kommentarer</h4>
 <% @comments.each do |c| %>
     <%= c.msg %><br>
 <% end %>
 <br>
+
+
+
 <button id="comment_toggle" class="button success radius">Kommentera</button>
 <br>
 <div class="comment_form">
   <%= render :partial => '/comments/form' %>
 </div>
 <br>
-
-
-<%= render '/examinations/form' %>
 
 
 <%= link_to 'Edit', edit_caturl_path(@category.name) %> |

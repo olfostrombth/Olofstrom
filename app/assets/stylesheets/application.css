@@ -34,6 +34,18 @@
     display: none;
 }
 
+.guide_form {
+    width: auto;
+    height: auto;
+    display: none;
+}
+
+.examination_form {
+    width: auto;
+    height: auto;
+    display: none;
+}
+
 
 
 .container
