@@ -7,38 +7,22 @@ class StepsController < ApplicationController
     @steps = Step.all
   end
 
-  # GET /steps/1
-  # GET /steps/1.json
+  #GET /:modulename/:stepname
   def show
-    @step = Step.find(params[:id])
-    @videos = @step.videos
-    @quizzes = @step.quizzes
-    @quizzes.each do |q|
-      @quiz = q.id
-      @questions = q.questions
-    end
-    @question = Question.new #ta bort detta snusk, fulfix för att kunna se radiobuttons etc i show för steps.
-  end
-
-  def grade_quiz
-    @step = Step.find(params[:id])
-    gon.quizzes = @step.quizzes
-    @answers = []
-    @quizzes.each do |q|
-      @quiz = q.id
-      @questions = @quiz.questions
-      @questions.each do |q|
-        @answer = params[:answer]
-        if @answer == q.answer
-          @answers.push('true')
-        else
-          @answers.push('false')
-        end
-       #Exempel: @answers = ['true', 'true', 'false', 'true']
+    @catname = params[:category_name]
+    @step = Step.where(name:Category.normalize_cat(params[:step_name]))
+    @step.each do |x|
+      @step = x
+      @videos = @step.videos
+      @video = @videos.new
+      @quizzes = @step.quizzes
+      @quizzes.each do |q|
+        @quiz_id = q.id
+        @questions = q.questions
       end
-      #Iterera igenom arrayen, om alla är "korrekt", grattis
-      #Annars hittas de med "error" och den relaterade frågan highlightas för användaren
+      @quiz = @quizzes.new
     end
+    @question = Question.new
   end
 
   # GET /steps/new
@@ -48,16 +32,24 @@ class StepsController < ApplicationController
 
   # GET /steps/1/edit
   def edit
+    @step = Step.where(name:Category.normalize_cat(params[:step_name]))
+    @step.each do |x|
+      @step = x
+    end
   end
 
   # POST /steps
   # POST /steps.json
   def create
-    @step = Step.new(step_params)
+    @step = Step.new({name:Category.normalize_cat(step_params[:name]), desc:step_params[:desc], category_id:step_params[:category_id]})
+    cat = Category.find(step_params[:category_id])
+    #category = @step.category.name
+
 
     respond_to do |format|
       if @step.save
-        format.html { redirect_to @step, notice: 'Step was successfully created.' }
+        format.html { redirect_to step_path(cat.name, @step.name), notice: 'Step was successfully created.' }
+       # format.html { redirect_to category_path(category), notice: 'Step was successfully created'}
         format.json { render :show, status: :created, location: @step }
       else
         format.html { render :new }
@@ -70,8 +62,9 @@ class StepsController < ApplicationController
   # PATCH/PUT /steps/1.json
   def update
     respond_to do |format|
-      if @step.update(step_params)
-        format.html { redirect_to @step, notice: 'Step was successfully updated.' }
+
+      if @step.update({name:Category.normalize_cat(step_params[:name]), desc:step_params[:desc]})
+        format.html { redirect_to step_path(params[:category_name],@step.name), notice: 'Step was successfully updated.' }
         format.json { render :show, status: :ok, location: @step }
       else
         format.html { render :edit }
@@ -93,11 +86,15 @@ class StepsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_step
-      @step = Step.find(params[:id])
+      @step = Step.where(name:Category.normalize_cat(params[:step_name]))
+      @step.each do |x|
+        @step = x
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def step_params
       params.require(:step).permit(:name, :desc, :category_id)
     end
+
 end

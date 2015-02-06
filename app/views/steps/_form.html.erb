@@ -1,4 +1,4 @@
-<%= form_for(@step) do |f| %>
+<%= form_for(@step, as: :step, url: step_path(params[:category_name], @step.name)) do |f| %>
   <% if @step.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@step.errors.count, "error") %> prohibited this step from being saved:</h2>

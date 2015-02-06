@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @step.name %>
+</p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @step.desc %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @step.category %>
+</p>
+<br>
+<% @videos.each do |v| %>
+    <%= raw(youtube_embed(v.url)) %><br>
+<% end  %>
+<br><br>
+
+<%= render 'quiz' %>
+<br>
+
+<%= link_to 'Edit', edit_step_path(@step) %> |
+<%= link_to 'Back', steps_path %>

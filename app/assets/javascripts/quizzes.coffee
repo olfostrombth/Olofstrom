@@ -5,4 +5,4 @@
 $ ->
   $('#quiz_toggle').click ->
     $('.quiz_form').toggle('show');
-    $('html, body').animate({scrollTop:$(document).height()}, 'slow');
+
