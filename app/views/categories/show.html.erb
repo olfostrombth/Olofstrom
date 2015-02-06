@@ -14,7 +14,6 @@
 <br>
 <h4>Steg</h4>
 <% @steps.each do |s| %>
-    <%= s.name %>
     <%= s.id %>
     <% if s.name? %>
     <%= link_to s.name, step_path(:category_name => params[:category_name], :step_name => s.name) %><br>
