@@ -19,8 +19,14 @@
 <% @videos.each do |v| %>
     <%= raw(youtube_embed(v.url)) %><br>
 <% end  %>
-<br><br>
+<br>
 
+<button id="quiz_toggle" class="button success radius">Lägg till quiz</button>
+<br>
+<div class="quiz_form">
+  <%= render :partial => 'quizzes/form' %>
+</div>
+<br>
 <%= render 'quiz' %>
 <br>
 

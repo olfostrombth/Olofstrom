@@ -5,7 +5,6 @@
 $ ->
   $('#step_toggle').click ->
     $('.step_form').toggle('show');
-    $('html, body').animate({scrollTop:$(document).height()}, 'slow');
 
 $ ->
   $('#comment_toggle').click ->
