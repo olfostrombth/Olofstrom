@@ -28,6 +28,13 @@
 <div class="quiz_form">
   <%= render :partial => 'quizzes/form' %>
 </div>
+<br>
+<button id="guide_toggle" class="button success radius">Lägg till guide</button>
+<br>
+<div class="guide_form">
+  <%= render '/guides/form' %>
+</div>
+
 
 <br>
 <% @videos.each do |v| %>
@@ -36,10 +43,18 @@
     <% end %>
 <% end %>
 <br>
+<% @guides.each do |g| %>
+    <% if g.desc? %>
+        <%= g.name %><br>
+        <%= g.desc.html_safe %>
+    <% end %>
+<% end %>
+<br>
 
-<br>
+
 <%= render 'quiz' %>
-<br>
+
+
 
 
 <%= link_to 'Edit', edit_step_path(@catname,@step.name) %> |

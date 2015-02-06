@@ -17,13 +17,21 @@
   </div>
   <div class="field">
     <%= f.label :desc %><br>
-    <%= f.text_field :desc %>
+    <%= f.text_field :desc, rows: 10 %>
   </div>
   <div class="field">
+    <%= %>
     <%= f.label :category_id %><br>
     <%= f.text_field :category_id %>
+
+
+
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
+
+
+
+
 <% end %>

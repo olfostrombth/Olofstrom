@@ -7,13 +7,15 @@
 
 <p>
   <strong>Desc:</strong>
-  <%= @guide.desc %>
+  <%= @guide.desc.html_safe %>
 </p>
 
 <p>
   <strong>Step:</strong>
-  <%= @guide.step %>
+  <%= @guide.step.name %>
 </p>
+
+
 
 <%= link_to 'Edit', edit_guide_path(@guide) %> |
 <%= link_to 'Back', guides_path %>

@@ -24,12 +24,15 @@ class CategoriesController < ApplicationController
       @steps = x.steps
       @step = @steps.new
       @category = x
+      @examinations = @category.examinations
+      @examination = @examinations.new
     end
 
     #cat = @category.to_json
     #cat = JSON.parse cat
     #puts "HEJ:::::: "+cat.to_json
     #@comments = cat.id
+
   end
 
   # GET /categories/new
@@ -49,6 +52,7 @@ class CategoriesController < ApplicationController
   # POST /categories.json
   def create
     @category = Category.new({name:Category.normalize_cat(category_params[:name]), desc:category_params[:desc]})
+
 
     respond_to do |format|
       if @category.save
