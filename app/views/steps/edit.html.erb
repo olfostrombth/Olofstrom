@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @step %> |
+<%= link_to 'Show', step_path(params[:category_name],@step.name) %> |
 <%= link_to 'Back', steps_path %>
