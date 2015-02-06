@@ -15,7 +15,13 @@ Rails.application.routes.draw do
   patch "/modul/:category_name" => "categories#update"
   delete "/modul/:category_name" => "categories#destroy"
 
-  get "/modul/:category_name/:step_name" => "steps#showtwo", :as => :stepurl
+  get "/modul/:category_name/:step_name" => "steps#show", :as => :step
+  get "/modul/:category_name/:step_name/edit" => "steps#edit", :as => :edit_step
+  put "/modul/:category_name/:step_name" => "steps#update"
+  patch "/modul/:category_name/:step_name" => "steps#update"
+  delete "/modul/:category_name/:step_name" => "steps#destroy"
+  get "/modul/:category_name/step/new" => "steps#new"
+
   resources :sessions, only: [:create, :destroy]
 
   resources :quizzes
@@ -30,7 +36,7 @@ Rails.application.routes.draw do
 
   resources :videos
 
-  resources :steps
+  resources :steps, only: [:create, :index]
 
   resources :examinations
 

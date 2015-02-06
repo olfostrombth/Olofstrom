@@ -8,26 +8,23 @@ class StepsController < ApplicationController
   end
 
   #GET /:modulename/:stepname
-  def showtwo
-    @category = Category.where(name: Category.normalize_cat(params[:category_name]))
-    @category.each do |y|
-      @category = y
-    end
-    @step = Step.where(name:Category.normalize_cat(params[:step_name]),category_id:@category.id)
+  def show
+    @catname = params[:category_name]
+    @step = Step.where(name:Category.normalize_cat(params[:step_name]))
     @step.each do |x|
       @step = x
-    end
-    @videos = @step.videos
-    @quizzes = @step.quizzes
-    @quizzes.each do |q|
-      @quiz = q.id
-      @questions = q.questions
+      @videos = @step.videos
+      @quizzes = @step.quizzes
+      @quizzes.each do |q|
+        @quiz = q.id
+        @questions = q.questions
+      end
     end
     @question = Question.new
   end
   # GET /steps/1
   # GET /steps/1.json
-  def show
+  def showtwo
     @step = Step.find(params[:id])
     @videos = @step.videos
     @quizzes = @step.quizzes
@@ -66,16 +63,22 @@ class StepsController < ApplicationController
 
   # GET /steps/1/edit
   def edit
+    @step = Step.where(name:Category.normalize_cat(params[:step_name]))
+    @step.each do |x|
+      @step = x
+    end
   end
 
   # POST /steps
   # POST /steps.json
   def create
-    @step = Step.new(step_params)
+    @step = Step.new({name:Category.normalize_cat(step_params[:name]), desc:step_params[:desc]})
+    cat = Category.find(step_params[:category_id])
+
 
     respond_to do |format|
       if @step.save
-        format.html { redirect_to @step, notice: 'Step was successfully created.' }
+        format.html { redirect_to step_path(cat.name, @step.name), notice: 'Step was successfully created.' }
         format.json { render :show, status: :created, location: @step }
       else
         format.html { render :new }
@@ -88,8 +91,9 @@ class StepsController < ApplicationController
   # PATCH/PUT /steps/1.json
   def update
     respond_to do |format|
-      if @step.update(step_params)
-        format.html { redirect_to @step, notice: 'Step was successfully updated.' }
+
+      if @step.update({name:Category.normalize_cat(step_params[:name]), desc:step_params[:desc]})
+        format.html { redirect_to step_path(params[:category_name],@step.name), notice: 'Step was successfully updated.' }
         format.json { render :show, status: :ok, location: @step }
       else
         format.html { render :edit }
@@ -111,7 +115,10 @@ class StepsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_step
-      @step = Step.find(params[:id])
+      @step = Step.where(name:Category.normalize_cat(params[:step_name]))
+      @step.each do |x|
+        @step = x
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
