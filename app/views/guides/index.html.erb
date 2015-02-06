@@ -16,8 +16,8 @@
     <% @guides.each do |guide| %>
       <tr>
         <td><%= guide.name %></td>
-        <td><%= guide.desc %></td>
-        <td><%= guide.step %></td>
+        <td><%= guide.desc.html_safe %></td>
+        <td><%= guide.step.name %></td>
         <td><%= link_to 'Show', guide %></td>
         <td><%= link_to 'Edit', edit_guide_path(guide) %></td>
         <td><%= link_to 'Destroy', guide, method: :delete, data: { confirm: 'Are you sure?' } %></td>
