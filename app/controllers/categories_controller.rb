@@ -20,6 +20,9 @@ class CategoriesController < ApplicationController
     @category = Category.where(name: Category.normalize_cat(params[:category_name]))
     @category.each do |x|
       @comments = x.comments
+      @comment = @comments.new
+      @steps = x.steps
+      @step = @steps.new
       @category = x
     end
 
@@ -38,7 +41,6 @@ class CategoriesController < ApplicationController
   def edit
     @category = Category.where(name: Category.normalize_cat(params[:category_name]))
     @category.each do |x|
-      @comments = x.comments
       @category = x
     end
   end

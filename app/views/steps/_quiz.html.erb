@@ -4,10 +4,12 @@
         <% @questions.each do |q| %>
             <%= form_for(@question) do |f| %>
             Fråga id: <%= q.id %><br>
-            <%= q.question %><br>
+            <div id="question">
+                <%= q.question %><br>
+            </div>
             <div class="field">
               <%= f.label q.option1 %>
-              <%= f.radio_button :answer, q.option1 %><br>
+              <%= f.radio_button :answer, q.option1  %><br>
             </div>
             <div class="field">
               <%= f.label q.option2 %>
@@ -15,7 +17,7 @@
             </div>
             <div class="field">
               <%= f.label q.answer %>
-              <%= f.radio_button :answer, q.answer %><br>
+              <%= f.radio_button :answer, q.answer, class: 'correct' %><br>
             </div>
             <br>
         <% end %>

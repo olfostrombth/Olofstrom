@@ -12,11 +12,28 @@
   <%= @category.desc %>
 </p>
 <br>
-<p>Kommentarer</p>
+<h4>Steg</h4>
+<% @steps.each do |s| %>
+    <%= s.category_id %><br>
+<% end %>
+<br>
+<button id="step_toggle" class="button success radius">Lägg till steg</button>
+<br>
+<div class="step_form">
+  <%= render :partial => '/steps/steps' %>
+</div>
+
+<h4>Kommentarer</h4>
 <% @comments.each do |c| %>
     <%= c.msg %><br>
 <% end %>
-<br><br>
+<br>
+<button id="comment_toggle" class="button success radius">Kommentera</button>
+<br>
+<div class="comment_form">
+  <%= render :partial => '/comments/form' %>
+</div>
+<br>
 
 <%= link_to 'Edit', edit_caturl_path(@category.name) %> |
 <%= link_to 'Back', categories_path %>
