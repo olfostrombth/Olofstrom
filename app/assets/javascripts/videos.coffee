@@ -5,3 +5,10 @@
 $ ->
   $('#video_toggle').click ->
     $('.video_form').toggle('show');
+
+
+    $(document).ready ->
+  $(".new_match").on("ajax:success", (e, data, status, xhr) ->
+    $(this).hide()
+  ).on "ajax:error", (e, xhr, status, error) ->
+    $("#new_match").append "<p>ERROR</p>"

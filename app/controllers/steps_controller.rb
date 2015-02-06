@@ -16,6 +16,8 @@ class StepsController < ApplicationController
       @videos = @step.videos
       @video = @videos.new
       @quizzes = @step.quizzes
+      @guides = @step.guides
+      @guide = @guides.new
       @quizzes.each do |q|
         @quiz_id = q.id
         @questions = q.questions

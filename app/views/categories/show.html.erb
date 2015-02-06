@@ -5,7 +5,10 @@
 
   <%= @category.id %>
   <%= @category.name.titleize %>
+
 </p>
+
+<% @category.id  %>
 
 <p>
   <strong>Desc:</strong>
@@ -37,6 +40,10 @@
   <%= render :partial => '/comments/form' %>
 </div>
 <br>
+
+
+<%= render '/examinations/form' %>
+
 
 <%= link_to 'Edit', edit_caturl_path(@category.name) %> |
 <%= link_to 'Back', categories_path %>
