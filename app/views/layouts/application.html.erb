@@ -7,12 +7,44 @@
     <title><%= content_for?(:title) ? yield(:title) : "Olofström" %></title>
 
     <%= stylesheet_link_tag    "application" %>
+    <%= stylesheet_link_tag    "custom" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= favicon_link_tag 'favicon.ico' %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
+
+     
+        <div class="nav_header">
+          <div class="logo">
+            <a href="http://localhost:3000/"><p><%= image_tag("oLogo.png") %></p></a>       
+          </div>
+          <div class="row">
+            <ul class="right list">
+              <a href="#"><li class="li_menu">
+                Start
+              </li></a>
+              <a href="#"><li class="li_menu">
+                Profil
+              </li></a>
+              <a href="#"><li class="li_menu">
+                Logga ut
+              </li></a>
+              <a href="#"><li class="active_user has-dropdown">
+                <strong><%= current_user.name %></strong>
+              </li></a>
+            </ul>
+          </div>
+        </div>
+  <br><br>
+   
+    
+
+
+
+
 
  <!--<div class="container">
     <div class="row full_width">
@@ -23,26 +55,47 @@
   </div>-->
 
 
-  <nav class="top-bar" data-topbar role="navigation">
-    <ul class="title-area"> <li class="name"> <h1><a href="#"><!--<%= image_tag("oLogo.png") %>-->Olofström</a></h1> </li> <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+  <!--<nav class="top-bar" data-topbar role="navigation">
+
+    <ul class="title-area">
+
+      <li class="left" id="top-logo"><%= image_tag("oLogo.png") %></li>
+
       <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
-    </ul> <section class="top-bar-section"> <!-- Right Nav Section -->
-    <ul class="right">
-      <li><a href="#">START</a></li>
-      <li><a href="#">PROFIL</a></li>
-      <% if current_user %>
-      <li><%= link_to "LOGGA UT", signout_path, id: "sign_out" %></li>
+
+    </ul>
+
+    <section class="top-bar-section">
+
+      <ul class="right mongo">
+
+         <li class="li_menu"><a href="#"><p>START<p></a></li>
+
+        <li><a href="#">PROFIL</a></li>
+
+             <% if current_user %>
+
+            <li><%= link_to "LOGGA UT", signout_path, id: "sign_out" %></li>
+
       <% end %>
+
       <li class="progressbar"><%= image_tag("progress.png") %></li>
-    <li class="active"><a href="#">
+
+        <li class="active"><a href="#">
+
       <% if current_user %>
+
            <strong><%= current_user.name %></strong>!
+
           <% if current_user.admin? %>
+
           <% end %>
-      <% end %></a></li>
+
+          <% end %></a></li>
+
         </ul>
   </section>
-  </nav><br><br>
+  </nav><br><br>-->
 
   <!--<div>
   <% if current_user %>
