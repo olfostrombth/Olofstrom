@@ -1,0 +1,21 @@
+<% if current_user.admin? %>
+<h1>Hello admin</h1>
+
+
+<h2>Importera användare i .CSV fomat</h2>
+
+<%= form_tag import_users_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
+
+<%= will_paginate %>
+<h3>Användare: </h3>
+<div id="users">
+<ul>
+<% @sessions.each do |x| %>
+  <li>Name: <%= x.name %> - Admin: <%= form_for x, :remote => true do |f| f.check_box :admin end %> - <%= link_to "delete", user_del_path(x) %></li>
+<% end %>
+</ul>
+</div>
+<% end %>
