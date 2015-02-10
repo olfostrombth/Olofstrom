@@ -49,16 +49,16 @@ class SessionsController < ApplicationController
 
   def create
     finduser = User.where(email: env["omniauth.auth"]["info"]["email"])
-    if(finduser.empty?)
-      redirect_to login_url
-    else
+    #if(finduser.empty?)
+    #  redirect_to login_url
+    #else
       user = User.from_omniauth(env["omniauth.auth"])
       session[:user_id] = user.id
 
       token = request.cookies["gtoken"]
       @postBody = CGI.escape(request.body.read)
       redirect_to root_path
-    end
+    #end
   end
   #Login view
   def login
