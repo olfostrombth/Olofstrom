@@ -14,46 +14,17 @@ class StepsController < ApplicationController
     @step.each do |x|
       @step = x
       @videos = @step.videos
+      @video = @videos.new
       @quizzes = @step.quizzes
+      @guides = @step.guides
+      @guide = @guides.new
       @quizzes.each do |q|
-        @quiz = q.id
+        @quiz_id = q.id
         @questions = q.questions
       end
+      @quiz = @quizzes.new
     end
     @question = Question.new
-  end
-  # GET /steps/1
-  # GET /steps/1.json
-  def showtwo
-    @step = Step.find(params[:id])
-    @videos = @step.videos
-    @quizzes = @step.quizzes
-    @quizzes.each do |q|
-      @quiz = q.id
-      @questions = q.questions
-    end
-    @question = Question.new #ta bort detta snusk, fulfix för att kunna se radiobuttons etc i show för steps.
-  end
-
-  def grade_quiz
-    @step = Step.find(params[:id])
-    gon.quizzes = @step.quizzes
-    @answers = []
-    @quizzes.each do |q|
-      @quiz = q.id
-      @questions = @quiz.questions
-      @questions.each do |q|
-        @answer = params[:answer]
-        if @answer == q.answer
-          @answers.push('true')
-        else
-          @answers.push('false')
-        end
-       #Exempel: @answers = ['true', 'true', 'false', 'true']
-      end
-      #Iterera igenom arrayen, om alla är "korrekt", grattis
-      #Annars hittas de med "error" och den relaterade frågan highlightas för användaren
-    end
   end
 
   # GET /steps/new
@@ -72,13 +43,15 @@ class StepsController < ApplicationController
   # POST /steps
   # POST /steps.json
   def create
-    @step = Step.new({name:Category.normalize_cat(step_params[:name]), desc:step_params[:desc]})
+    @step = Step.new({name:Category.normalize_cat(step_params[:name]), desc:step_params[:desc], category_id:step_params[:category_id]})
     cat = Category.find(step_params[:category_id])
+    #category = @step.category.name
 
 
     respond_to do |format|
       if @step.save
         format.html { redirect_to step_path(cat.name, @step.name), notice: 'Step was successfully created.' }
+       # format.html { redirect_to category_path(category), notice: 'Step was successfully created'}
         format.json { render :show, status: :created, location: @step }
       else
         format.html { render :new }

@@ -1,3 +1,4 @@
+require 'csv'
 class User < ActiveRecord::Base
   #Add user to db
   def self.from_omniauth(auth)
@@ -12,4 +13,27 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
+
+  def self.import(file)
+    spreadsheet = open_spreadsheet(file)
+    header = spreadsheet.row(1)
+    (2..spreadsheet.last_row).each do |i|
+      row = Hash[[header, spreadsheet.row(i)].transpose]
+      user = find_by_id(row["id"]) || new
+      attributes = row.to_hash
+      user.email = attributes['E-postadress']
+      user.name = attributes['Förnamn'] + " " + attributes['Efternamn']
+      user.save!
+    end
+  end
+
+  def self.open_spreadsheet(file)
+    case File.extname(file.original_filename)
+    when ".csv" then Roo::Csv.new(file.path)
+    when ".xls" then Excel.new(file.path, nil, :ignore)
+    when ".xlsx" then Excelx.new(file.path, nil, :ignore)
+    else raise "Unknown file type: #{file.original_filename}"
+    end
+  end
+
 end

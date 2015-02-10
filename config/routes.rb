@@ -1,10 +1,19 @@
 Rails.application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
   get 'sessions/create' => 'sessions#create'
 
   get 'sessions/destroy' => 'sessions#destroy'
+  get 'sessions/show/:id' => 'sessions#show', :as => :user
+  post 'sessions/show/:id' => 'sessions#update'
+  patch 'sessions/show/:id' => 'sessions#update'
+  put 'sessions/show/:id' => 'sessions#update'
+  get 'sessions/show/:id/del' => 'sessions#delUser', :as => :user_del
+
+  post 'sessions/importUsers' => 'sessions#importUsers', :as => :import_users
 
   root 'categories#index'
+  get '/admin', to: 'sessions#admin', :as => :admin
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'

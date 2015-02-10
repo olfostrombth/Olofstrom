@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <%= @step.category_id %>
   <strong>Name:</strong>
   <%= @step.name %>
 </p>
@@ -14,14 +15,44 @@
   <strong>Category:</strong>
   <%= @step.category %>
 </p>
+
+<button id="video_toggle" class="button success radius">Lägg till video</button>
+<br>
+<div class="video_form">
+  <%= render :partial => 'videos/form' %>
+</div>
+<br>
+
+<button id="quiz_toggle" class="button success radius">Lägg till quiz</button>
+<br>
+<div class="quiz_form">
+  <%= render :partial => 'quizzes/form' %>
+</div>
+<br>
+<button id="guide_toggle" class="button success radius">Lägg till guide</button>
+<br>
+<div class="guide_form">
+  <%= render '/guides/form' %>
+</div>
+
+
 <br>
 <% @videos.each do |v| %>
-    <%= raw(youtube_embed(v.url)) %><br>
-<% end  %>
-<br><br>
-
-<%= render 'quiz' %>
+    <% if v.url? %>
+      <%= raw(youtube_embed(v.url)) %><br>
+    <% end %>
+<% end %>
+<br>
+<% @guides.each do |g| %>
+    <% if g.desc? %>
+        <%= g.name %><br>
+        <%= g.desc.html_safe %>
+    <% end %>
+<% end %>
 <br>
 
+<%= render 'quiz' %>
+
+<br>
 <%= link_to 'Edit', edit_step_path(@catname,@step.name) %> |
 <%= link_to 'Back', steps_path %>

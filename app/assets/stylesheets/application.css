@@ -17,10 +17,43 @@
 
 
 
+
+ .step_form {
+   width: auto;
+   height: auto;
+   display: none;
+ }
+
+ .comment_form {
+   width: auto;
+   height: auto;
+   display: none;
+ }
+
+.video_form {
+    width: auto;
+    height: auto;
+    display: none;
+}
+
+.guide_form {
+    width: auto;
+    height: auto;
+    display: none;
+}
+
+.examination_form {
+    width: auto;
+    height: auto;
+    display: none;
+}
+
+
+
 .container
 {
     padding: 0;
-    margin: 0;
+    margin: 0 10vw;
 }
 
 .full_width

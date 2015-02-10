@@ -1,25 +1,31 @@
 
     <% @quizzes.each do |v| %>
-        <h4><%= v.name %>, id: <%= v.id %></h4>
-        <% @questions.each do |q| %>
-            <%= form_for(@question) do |f| %>
-            Fråga id: <%= q.id %><br>
-            <%= q.question %><br>
-            <div class="field">
-              <%= f.label q.option1 %>
-              <%= f.radio_button :answer, q.option1 %><br>
-            </div>
-            <div class="field">
-              <%= f.label q.option2 %>
-              <%= f.radio_button :answer, q.option2 %><br>
-            </div>
-            <div class="field">
-              <%= f.label q.answer %>
-              <%= f.radio_button :answer, q.answer %><br>
-            </div>
-            <br>
+        <% if v.id? %>
+            <h4><%= v.name %>, id: <%= v.id %></h4>
+            <% @questions.each do |q| %>
+                <%= form_for(@question) do |f| %>
+                Fråga id: <%= q.id %><br>
+                <div class="question">
+                    <%= q.question %><br>
+                </div>
+                    <div class="test">
+                    <div class="field">
+                      <%= f.label q.option1 %>
+                      <%= f.radio_button :answer, q.option1, class: 'option1' %><br>
+                    </div>
+                    <div class="field">
+                      <%= f.label q.option2 %>
+                      <%= f.radio_button :answer, q.option2, class: 'option2' %><br>
+                    </div>
+                    <div class="field">
+                      <%= f.label q.answer %>
+                      <%= f.radio_button :answer, q.answer, class: 'correct' %><br>
+                    </div>
+                    </div>
+                <br>
         <% end %>
     <% end %>
         <button id="submit_quiz" class="button success radius">Rätta Quiz</button>
+        <% end %>
 <% end %>
 
