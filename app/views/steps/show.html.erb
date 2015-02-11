@@ -17,30 +17,39 @@
 </p>
 
 <button id="video_toggle" class="button success radius">Lägg till video</button>
-<br>
 <div class="video_form">
-  <%= render :partial => 'videos/form' %>
-</div>
-<br>
-
-<button id="quiz_toggle" class="button success radius">Lägg till quiz</button>
-<br>
-<div class="quiz_form">
-  <%= render :partial => 'quizzes/form' %>
+  <%= render '/videos/form' %>
 </div>
 <br>
 <button id="guide_toggle" class="button success radius">Lägg till guide</button>
-<br>
 <div class="guide_form">
   <%= render '/guides/form' %>
 </div>
-
-
+<br>
+<button id="assignment_toggle" class="button success radius">Lägg till uppdrag</button>
+<div class="assignment_form">
+  <%= render '/assignments/form' %>
+</div>
+<br>
+<button id="quiz_toggle" class="button success radius">Lägg till quiz</button>
+<div class="quiz_form">
+  <%= render '/quizzes/form' %>
+</div>
 <br>
 <% @videos.each do |v| %>
-    <% if v.url? %>
-      <%= raw(youtube_embed(v.url)) %><br>
-    <% end %>
+    <% if v.name? %>
+        <div class="video_wrapper">
+            <div class="video_name">
+                <%= v.name %><br>
+            </div>
+                <button id="show_video">Visa mer</button>
+            <% end  %>
+            <div class="video_url">
+                <% if v.url? %>
+                  <%= raw(youtube_embed(v.url)) %><br>
+                <% end %>
+            </div>
+        </div>
 <% end %>
 <br>
 <% @guides.each do |g| %>
@@ -49,7 +58,6 @@
         <%= g.desc.html_safe %>
     <% end %>
 <% end %>
-<br>
 
 <%= render 'quiz' %>
 
