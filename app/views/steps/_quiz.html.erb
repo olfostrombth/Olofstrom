@@ -1,14 +1,12 @@
 <% @quizzes.each do |v| %>
     <% if v.id? %>
         <h4><%= v.name %>, id: <%= v.id %></h4>
-        <div class="quiz">
+        <div class="quiz" id='quiz_<%= v.id %>'>
         <% v.questions.each do |q| %>
-            <%= form_for(@question) do |f| %>
+            <%= form_for @question, :html => { :id => "#{q.id}"} do |f| %>
                 Fråga id: <%= q.id %><br>
-                <div class="question">
+                <div class="question" id="question_<%= q.id %>">
                   <%= q.question %><br>
-                </div>
-                <div class="test">
                   <div class="field">
                     <%= f.label q.option1 %>
                     <%= f.radio_button :answer, q.option1, class: 'option1', id: 'option1' %><br>
@@ -21,11 +19,11 @@
                     <%= f.label q.answer %>
                     <%= f.radio_button :answer, q.answer, class: 'correct', id: 'correct' %><br>
                   </div>
-                </div>
+              </div>
                 <br>
             <% end %>
         <% end %>
-          <button id="submit_quiz" class="quiz_test">Rätta Quiz</button>
+          <button id="submit_quiz" quiz="<%= v.id %>" class="quiz_test">Rätta Quiz</button>
         </div>
     <% end %>
 <% end %>
