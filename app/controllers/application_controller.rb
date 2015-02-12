@@ -7,4 +7,13 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
+  helper_method :shuffle_hash
+  def shuffle_hash
+    Hash[self.to_a.sample(self.length)]
+  end
+  helper_method :shuffle_hash!
+  def shuffle_hash!
+    self.replace(self.shuffle)
+  end
+
 end

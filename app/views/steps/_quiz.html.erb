@@ -7,18 +7,14 @@
                 Fråga id: <%= q.id %><br>
                 <div class="question" id="question_<%= q.id %>">
                   <%= q.question %><br>
-                  <div class="field">
-                    <%= f.label q.option1 %>
-                    <%= f.radio_button :answer, q.option1, class: 'option1', id: 'option1' %><br>
-                  </div>
-                  <div class="field">
-                    <%= f.label q.option2 %>
-                    <%= f.radio_button :answer, q.option2, class: 'option2', id: 'option2' %><br>
-                  </div>
-                  <div class="field">
-                    <%= f.label q.answer %>
-                    <%= f.radio_button :answer, q.answer, class: 'correct', id: 'correct' %><br>
-                  </div>
+                  <% options = {"option1" => q.option1, "option2" => q.option2, "correct" => q.answer}
+                     options = Hash[options.to_a.sample(options.length)]
+                     options.each do |key, z| %>
+                     <div class="field">
+                       <%= f.label z %>
+                       <%= f.radio_button :answer, z, class: key, id: key %><br>
+                     </div>
+                     <% end %>
               </div>
                 <br>
             <% end %>
