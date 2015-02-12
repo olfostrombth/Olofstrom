@@ -15,6 +15,28 @@
  *= require foundation_and_overrides
  */
 
+.quizzes {
+    width: auto;
+    height: auto;
+}
+
+.video_wrapper {
+    width: 100%;
+    height: auto;
+    border: 1px solid black;
+}
+
+
+.video_name {
+    width: 100%;
+    height: auto;
+}
+
+.video_url {
+    width: 100%;
+    height: auto;
+    display: none;
+}
 
  .step_form {
    width: auto;
@@ -35,6 +57,12 @@
 }
 
 .guide_form {
+    width: auto;
+    height: auto;
+    display: none;
+}
+
+.assignment_form {
     width: auto;
     height: auto;
     display: none;

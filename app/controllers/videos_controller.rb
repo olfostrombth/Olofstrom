@@ -33,9 +33,11 @@ class VideosController < ApplicationController
         step_path(cat.name, @step.name)
         format.html { redirect_to step_path(cat.name, step.name), notice: 'Video was successfully created.' }
         format.json { render :show, status: :created, location: @video }
+
       else
         format.html { render :new }
         format.json { render json: @video.errors, status: :unprocessable_entity }
+
       end
     end
   end
