@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Olofström" %></title>
+  <title><%= content_for?(:title) ? yield(:title) : "Olofström" %></title>
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-  </head>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "vendor/modernizr" %>
+  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
 
-  <body>
+<body>
 
- <!--<div class="container">
+<!--<div class="container">
     <div class="row full_width">
       <div class="twelve columns header full_width">
         <div class="one columns logodiv" style="clear:both"><%= image_tag("oLogo.png") %> </div>
@@ -23,28 +23,28 @@
   </div>-->
 
 
-  <nav class="top-bar" data-topbar role="navigation">
-    <ul class="title-area"> <li class="name"> <h1><a href="#"><!--<%= image_tag("oLogo.png") %>-->Olofström</a></h1> </li> <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-      <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
-    </ul> <section class="top-bar-section"> <!-- Right Nav Section -->
-    <ul class="right">
-      <li><a href="#">START</a></li>
-      <li><a href="#">PROFIL</a></li>
-      <% if current_user %>
-      <li><%= link_to "LOGGA UT", signout_path, id: "sign_out" %></li>
-      <% end %>
-      <li class="progressbar"><%= image_tag("progress.png") %></li>
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area"> <li class="name"> <h1><a href="#"><!--<%= image_tag("oLogo.png") %>-->Olofström</a></h1> </li> <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+  </ul> <section class="top-bar-section"> <!-- Right Nav Section -->
+  <ul class="right">
+    <li><a href="#">START</a></li>
+    <li><a href="#">PROFIL</a></li>
+    <% if current_user %>
+        <li><%= link_to "LOGGA UT", signout_path, id: "sign_out" %></li>
+    <% end %>
+    <li class="progressbar"><%= image_tag("progress.png") %></li>
     <li class="active"><a href="#">
       <% if current_user %>
-           <strong><%= current_user.name %></strong>!
+          <strong><%= current_user.name %></strong>!
           <% if current_user.admin? %>
           <% end %>
       <% end %></a></li>
-        </ul>
-  </section>
-  </nav><br><br>
+  </ul>
+</section>
+</nav><br><br>
 
-  <!--<div>
+<!--<div>
   <% if current_user %>
       Signed in as <strong><%= current_user.name %></strong>!
       <%= link_to "Sign out", signout_path, id: "sign_out" %>
@@ -54,9 +54,9 @@
       <% end %>
   <% end %>
   </div>-->
-    <div class="container"> <%= yield %>
-    </div>
+<div class="container"> <%= yield %>
+</div>
 
 
-  </body>
+</body>
 </html>

@@ -1,4 +1,67 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "Olofström" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= stylesheet_link_tag    "custom" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= favicon_link_tag 'favicon.ico' %>
+    <%= csrf_meta_tags %>
+  </head>
+<body>
+<div class="row text">
+  <div class="medium-4 large-4 columns">
+     <h2>Moduler</h2>
+  </div>
+  <div class="medium-4 large-4 columns">
+      <h2>Flöde</h2>
+  </div>
+</div>
+
+
+ <div class="row">
+  <div class="medium-6 large-8 columns">
+     <div class="row">
+       <div class="large-5 columns panel mods" style="background-color: #005F70">
+         <h4>Rubrik</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, id.</p>
+       </div>
+       <div class="large-5 columns panel mods" style="background-color: #186237">
+        <h4>Rubrik</h4> <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, id.</p>
+       </div>
+       <div class="large-5 columns panel mods" style="background-color: #FBA61F">
+        <h4>Rubrik</h4> <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, id.</p>
+       </div>
+       <div class="large-5 columns panel mods" style="background-color: #EC529A">
+        <h4>Rubrik</h4> <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, id.</p>
+       </div>
+       <div class="large-5 columns panel mods" style="background-color: #005F70">
+         <h4>Rubrik</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, id.</p>
+       </div>
+       <p></p>
+     </div>
+  </div>
+
+  
+
+      
+      
+    <div class="medium-6 large-4 columns">
+      <div class="panel feed">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisi Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime fugit dolorum velit maiores laudantium nobis possimus accusamus delectus, voluptatem, quos id asperiores. Vero reiciendis fugit reprehenderit sit omnis aperiam maiores, labore provident? Tenetur dicta, ad nam debitis vel quibusdam totam aut dolor eligendi iusto. A magni hic dolor id, quasi consectetur sunt harum, optio! Eveniet earum, facere necessitatibus. Voluptatem maxime, et quae saepe aliquid repellat. Fugit vero delectus recusandae totam, mollitia culpa architecto, aliquam placeat expedita, excepturi consequuntur! Magnam minima iusto ipsa libero possimus totam neque, praesentium illo nisi error laudantium distinctio quisquam est quod expedita! Voluptatibus exercitationem, cum, blanditiis nisi, voluptate maxime hic perferendis laborum porro non saepe, explicabo adipisci dolor. Atque libero, amet ad culpa deleniti error nihil labore debitis quam odit. Perferendis harum quae et, nisi dolore maxime aperiam! Ea numquam, provident. Vitae nobis, voluptates atque modi officiis tempora dignissimos repellendus numquam dolores facilis sed. Porro quas et possimus magni officia iste excepturi sequi, modi asperiores fugiat incidunt dolorum distinctio reiciendis explicabo sint soluta esse consequuntur tempore eaque, voluptates nam ullam a deserunt? Tempora, quod. Cupiditate distinctio, eveniet nulla aliquam assumenda laudantium sequi animi repellendus tenetur nostrum. Aliquam earum quis eos repudiandae tempora, beatae ipsam libero voluptas.</p>
+      </div>
+    </div>
+  
+</div>
+</body>
+</html>
+
+<!--<p id="notice"><%= notice %></p>
 
 <h1>Listing Categories</h1>
 
@@ -27,3 +90,4 @@
 <br>
 
 <%= link_to 'New Category', new_category_path %>
+-->
