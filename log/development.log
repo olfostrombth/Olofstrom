@@ -28610,3 +28610,1643 @@ Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/c20ad4d76fe97759aa
   Rendered text template (0.0ms)
 Completed 200 OK in 2102ms (Views: 18.6ms | ActiveRecord: 14.7ms)
 >>>>>>> david/master
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-12 09:30:04 +0000
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.2.0) lib/active_record/migration.rb:393:in `check_pending!'
+  activerecord (4.2.0) lib/active_record/migration.rb:374:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (12.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (46.9ms)
+  [1m[36m (4.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (4.3ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.9ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateCategories (20150202095302)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (3.7ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "desc" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150202095302"]]
+  [1m[35m (2.9ms)[0m  commit transaction
+Migrating to CreateExaminations (20150202095340)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (3.0ms)[0m  CREATE TABLE "examinations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "desc" varchar, "category_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_examinations_on_category_id" ON "examinations" ("category_id")[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150202095340"]]
+  [1m[36m (9.0ms)[0m  [1mcommit transaction[0m
+Migrating to CreateSteps (20150202095410)
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "steps" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "desc" varchar, "category_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  CREATE  INDEX "index_steps_on_category_id" ON "steps" ("category_id")
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150202095410"]]
+  [1m[35m (2.8ms)[0m  commit transaction
+Migrating to CreateVideos (20150202095508)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (2.5ms)[0m  CREATE TABLE "videos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "url" varchar, "step_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_videos_on_step_id" ON "videos" ("step_id")[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150202095508"]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+Migrating to CreateGuides (20150202095535)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (4.3ms)[0m  [1mCREATE TABLE "guides" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "desc" varchar, "step_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  CREATE  INDEX "index_guides_on_step_id" ON "guides" ("step_id")
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150202095535"]]
+  [1m[35m (3.8ms)[0m  commit transaction
+Migrating to CreateAssignments (20150202095613)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (3.3ms)[0m  CREATE TABLE "assignments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "desc" varchar, "step_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_assignments_on_step_id" ON "assignments" ("step_id")[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150202095613"]]
+  [1m[36m (3.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreateQuestions (20150202095710)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (3.7ms)[0m  [1mCREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "question" varchar, "option1" varchar, "option2" varchar, "option3" varchar, "answer" varchar, "quiz_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE  INDEX "index_questions_on_quiz_id" ON "questions" ("quiz_id")
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150202095710"]]
+  [1m[35m (3.8ms)[0m  commit transaction
+Migrating to CreateComments (20150202100009)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (6.3ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "msg" varchar, "category_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX "index_comments_on_category_id" ON "comments" ("category_id")[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150202100009"]]
+  [1m[36m (3.8ms)[0m  [1mcommit transaction[0m
+Migrating to AddPlacementToSteps (20150203083607)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (3.7ms)[0m  [1mALTER TABLE "steps" ADD "placement" integer[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150203083607"]]
+  [1m[36m (2.6ms)[0m  [1mcommit transaction[0m
+Migrating to RemoveColumns (20150203093641)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mCREATE TEMPORARY TABLE "aquestions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "question" varchar, "option1" varchar, "option2" varchar, "option3" varchar, "answer" varchar, "quiz_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (1.6ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_questions_on_quiz_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_questions_on_quiz_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1mCREATE  INDEX "tindex_aquestions_on_quiz_id" ON "aquestions" ("quiz_id")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "questions"
+  [1m[36m (2.5ms)[0m  [1mDROP TABLE "questions"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "question" varchar, "option1" varchar, "option2" varchar, "option3" varchar, "answer" varchar, "quiz_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_aquestions_on_quiz_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_aquestions_on_quiz_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  CREATE  INDEX "index_questions_on_quiz_id" ON "questions" ("quiz_id")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "aquestions"[0m
+  [1m[35m (1.2ms)[0m  DROP TABLE "aquestions"
+  [1m[36m (0.2ms)[0m  [1mCREATE TEMPORARY TABLE "aquestions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "question" varchar, "option1" varchar, "option2" varchar, "option3" varchar, "answer" varchar, "quiz_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_questions_on_quiz_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_questions_on_quiz_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "tindex_aquestions_on_quiz_id" ON "aquestions" ("quiz_id")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "questions"
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "questions"[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "question" varchar, "option1" varchar, "option2" varchar, "answer" varchar, "quiz_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_aquestions_on_quiz_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_aquestions_on_quiz_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  CREATE  INDEX "index_questions_on_quiz_id" ON "questions" ("quiz_id")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "aquestions"[0m
+  [1m[35m (0.1ms)[0m  DROP TABLE "aquestions"
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150203093641"]]
+  [1m[35m (3.6ms)[0m  commit transaction
+Migrating to CreateUsers (20150203100005)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (5.0ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "provider" varchar, "name" varchar, "oauth_token" varchar, "oauth_expires_at" datetime, "completion" varchar, "email" varchar, "uid" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150203100005"]]
+  [1m[35m (3.3ms)[0m  commit transaction
+Migrating to AddAdminToUsers (20150203125742)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (4.0ms)[0m  ALTER TABLE "users" ADD "admin" boolean
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150203125742"]]
+  [1m[35m (2.8ms)[0m  commit transaction
+Migrating to CreateCkeditorAssets (20150205101831)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+DEPRECATION WARNING: `#timestamp` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in up at /vagrant/olofstrom/db/migrate/20150205101831_create_ckeditor_assets.rb:16)
+  [1m[35m (4.7ms)[0m  CREATE TABLE "ckeditor_assets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "data_file_name" varchar NOT NULL, "data_content_type" varchar, "data_file_size" integer, "assetable_id" integer, "assetable_type" varchar(30), "type" varchar(30), "width" integer, "height" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "idx_ckeditor_assetable_type" ON "ckeditor_assets" ("assetable_type", "type", "assetable_id")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='idx_ckeditor_assetable_type' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='idx_ckeditor_assetable_type' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "idx_ckeditor_assetable" ON "ckeditor_assets" ("assetable_type", "assetable_id")[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150205101831"]]
+  [1m[36m (4.1ms)[0m  [1mcommit transaction[0m
+Migrating to Quizzes (20150205133251)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (3.2ms)[0m  [1mCREATE TABLE "quizzes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "step_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  CREATE  INDEX "index_quizzes_on_step_id" ON "quizzes" ("step_id")
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150205133251"]]
+  [1m[35m (4.5ms)[0m  commit transaction
+Migrating to AddStuffToDb (20150205133447)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (4.0ms)[0m  ALTER TABLE "videos" ADD "placement" integer
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "guides" ADD "placement" integer[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "quizzes" ADD "placement" integer
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "assignments" ADD "placement" integer[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150205133447"]]
+  [1m[36m (2.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (1.5ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (1.6ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_assignments_on_step_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_assignments_on_step_id' AND type='index'
+[0m
+  [1m[35m (2.7ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='idx_ckeditor_assetable' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='idx_ckeditor_assetable' AND type='index'
+
+  [1m[36m (1.5ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='idx_ckeditor_assetable_type' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='idx_ckeditor_assetable_type' AND type='index'
+[0m
+  [1m[35m (1.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_category_id' AND type='index'
+
+  [1m[36m (1.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_examinations_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_examinations_on_category_id' AND type='index'
+[0m
+  [1m[35m (1.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_guides_on_step_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_guides_on_step_id' AND type='index'
+
+  [1m[36m (1.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_questions_on_quiz_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_questions_on_quiz_id' AND type='index'
+[0m
+  [1m[35m (1.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_quizzes_on_step_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_quizzes_on_step_id' AND type='index'
+
+  [1m[36m (1.9ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_steps_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_steps_on_category_id' AND type='index'
+[0m
+  [1m[35m (1.4ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_videos_on_step_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_videos_on_step_id' AND type='index'
+
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-12 09:30:49 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CategoriesController#index as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 25ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2015-02-12 09:30:50 +0000
+Processing by SessionsController#login as HTML
+  Rendered sessions/login.html.erb within layouts/application (5.3ms)
+Completed 500 Internal Server Error in 5761ms
+
+ActionView::Template::Error (Asset filtered out and will not be served: add `Rails.application.config.assets.precompile += %w( custom.css )` to `config/initializers/assets.rb` and restart your server):
+     7:     <title><%= content_for?(:title) ? yield(:title) : "Olofström" %></title>
+     8: 
+     9:     <%= stylesheet_link_tag    "application" %>
+    10:     <%= stylesheet_link_tag    "custom" %>
+    11:     <%= javascript_include_tag "vendor/modernizr" %>
+    12:     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    13:     <%= favicon_link_tag 'favicon.ico' %>
+  app/views/layouts/application.html.erb:10:in `_app_views_layouts_application_html_erb__751868574_97292800'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (29.1ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2015-02-12 09:31:49 +0000
+Processing by SessionsController#login as HTML
+  Rendered sessions/login.html.erb within layouts/application (0.2ms)
+Completed 500 Internal Server Error in 127ms
+
+ActionView::Template::Error (Asset filtered out and will not be served: add `Rails.application.config.assets.precompile += %w( custom.css )` to `config/initializers/assets.rb` and restart your server):
+     7:     <title><%= content_for?(:title) ? yield(:title) : "Olofström" %></title>
+     8: 
+     9:     <%= stylesheet_link_tag    "application" %>
+    10:     <%= stylesheet_link_tag    "custom" %>
+    11:     <%= javascript_include_tag "vendor/modernizr" %>
+    12:     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    13:     <%= favicon_link_tag 'favicon.ico' %>
+  app/views/layouts/application.html.erb:10:in `_app_views_layouts_application_html_erb__751868574__627679988'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (7.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (29.1ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2015-02-12 09:32:17 +0000
+Processing by SessionsController#login as HTML
+  Rendered sessions/login.html.erb within layouts/application (0.2ms)
+Completed 500 Internal Server Error in 123ms
+
+ActionView::Template::Error (Asset filtered out and will not be served: add `Rails.application.config.assets.precompile += %w( custom.css )` to `config/initializers/assets.rb` and restart your server):
+     7:     <title><%= content_for?(:title) ? yield(:title) : "Olofström" %></title>
+     8: 
+     9:     <%= stylesheet_link_tag    "application" %>
+    10:     <!--<%= stylesheet_link_tag    "custom" %>-->
+    11:     <%= javascript_include_tag "vendor/modernizr" %>
+    12:     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    13:     <%= favicon_link_tag 'favicon.ico' %>
+  app/views/layouts/application.html.erb:10:in `_app_views_layouts_application_html_erb__751868574__645775648'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (5.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (28.0ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2015-02-12 09:32:55 +0000
+Processing by SessionsController#login as HTML
+  Rendered sessions/login.html.erb within layouts/application (0.1ms)
+Completed 500 Internal Server Error in 114ms
+
+ActionView::Template::Error (Asset filtered out and will not be served: add `Rails.application.config.assets.precompile += %w( custom.css )` to `config/initializers/assets.rb` and restart your server):
+     7:     <title><%= content_for?(:title) ? yield(:title) : "Olofström" %></title>
+     8: 
+     9:     <%= stylesheet_link_tag    "application" %>
+    10:     <%= stylesheet_link_tag    "custom" %>
+    11:     <%= javascript_include_tag "vendor/modernizr" %>
+    12:     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    13:     <%= favicon_link_tag 'favicon.ico' %>
+  app/views/layouts/application.html.erb:10:in `_app_views_layouts_application_html_erb__751868574__635397068'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (8.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (30.1ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2015-02-12 09:33:29 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#login as HTML
+  Rendered sessions/login.html.erb within layouts/application (4.6ms)
+Completed 500 Internal Server Error in 666ms
+
+ActionView::Template::Error (Could not find a JavaScript runtime. See https://github.com/sstephenson/execjs for a list of available runtimes.
+  (in /home/vagrant/.rvm/gems/ruby-2.2.0/gems/turbolinks-2.5.3/lib/assets/javascripts/turbolinks.js.coffee)):
+     9:     <%= stylesheet_link_tag    "application" %>
+    10:     <%= stylesheet_link_tag    "custom" %>
+    11:     <%= javascript_include_tag "vendor/modernizr" %>
+    12:     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    13:     <%= favicon_link_tag 'favicon.ico' %>
+    14:     <%= csrf_meta_tags %>
+    15:   </head>
+  app/views/layouts/application.html.erb:12:in `_app_views_layouts_application_html_erb___153995173_107124680'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (9.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (3.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (32.5ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2015-02-12 09:34:25 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (1.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#login as HTML
+  Rendered sessions/login.html.erb within layouts/application (4.5ms)
+Completed 500 Internal Server Error in 398ms
+
+ActionView::Template::Error (Could not find a JavaScript runtime. See https://github.com/sstephenson/execjs for a list of available runtimes.
+  (in /home/vagrant/.rvm/gems/ruby-2.2.0/gems/turbolinks-2.5.3/lib/assets/javascripts/turbolinks.js.coffee)):
+     9:     <%= stylesheet_link_tag    "application" %>
+    10:     <%= stylesheet_link_tag    "custom" %>
+    11:     <%= javascript_include_tag "vendor/modernizr" %>
+    12:     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    13:     <%= favicon_link_tag 'favicon.ico' %>
+    14:     <%= csrf_meta_tags %>
+    15:   </head>
+  app/views/layouts/application.html.erb:12:in `_app_views_layouts_application_html_erb___876765355__624560428'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (8.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (29.7ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2015-02-12 09:38:11 +0000
+Processing by SessionsController#login as HTML
+  Rendered sessions/login.html.erb within layouts/application (0.2ms)
+Completed 500 Internal Server Error in 1678ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    33:                 Logga ut
+    34:               </li></a>
+    35:               <a href="#"><li class="active_user has-dropdown">
+    36:                <!-- <strong><%= current_user.name %></strong> -->
+    37:               </li></a>
+    38:             </ul>
+    39:           </div>
+  app/views/layouts/application.html.erb:36:in `_app_views_layouts_application_html_erb___876765355__624560428'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (30.2ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2015-02-12 09:38:28 +0000
+Processing by SessionsController#login as HTML
+  Rendered sessions/login.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 215ms (Views: 210.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application-1481cd0995e1d306eade8b94359925e0.css" for 10.0.2.2 at 2015-02-12 09:38:28 +0000
+
+
+Started GET "/assets/custom-71c6178b087b97010045883ecc1f066d.css" for 10.0.2.2 at 2015-02-12 09:38:28 +0000
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-12 09:38:28 +0000
+
+
+Started GET "/assets/oLogo-514cf5b49bfd3b452e6bf5d2de0bfb57.png" for 10.0.2.2 at 2015-02-12 09:38:28 +0000
+
+
+Started GET "/assets/application-9f2f0f0917037207ebe460b174ce0274.js" for 10.0.2.2 at 2015-02-12 09:38:28 +0000
+
+
+Started GET "/images/favicon.ico" for 10.0.2.2 at 2015-02-12 09:38:30 +0000
+
+ActionController::RoutingError (No route matches [GET] "/images/favicon.ico"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (3.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (0.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (55.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (129.4ms)
+
+
+Started GET "/auth/google_oauth2" for 10.0.2.2 at 2015-02-12 09:38:30 +0000
+(google_oauth2) Request phase initiated.
+
+
+Started GET "/auth/google_oauth2" for 10.0.2.2 at 2015-02-12 09:38:31 +0000
+(google_oauth2) Request phase initiated.
+
+
+Started GET "/auth/google_oauth2/callback?state=7906535e003a3e7344df4a40b83b847f692e7a6ae768c788&code=4/UfPhJLVvWW0qrEQw-Rr5qNuCP0FitAtyMHfE1GaQ3cw.4hefSqd8b4AfrjMoGjtSfTqc7k76lgI" for 10.0.2.2 at 2015-02-12 09:38:33 +0000
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"7906535e003a3e7344df4a40b83b847f692e7a6ae768c788", "code"=>"4/UfPhJLVvWW0qrEQw-Rr5qNuCP0FitAtyMHfE1GaQ3cw.4hefSqd8b4AfrjMoGjtSfTqc7k76lgI", "provider"=>"google_oauth2"}
+  [1m[35mUser Load (1.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["provider", "google_oauth2"], ["uid", "116884031007208792561"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (3.8ms)[0m  INSERT INTO "users" ("provider", "uid", "name", "email", "admin", "oauth_token", "oauth_expires_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["provider", "google_oauth2"], ["uid", "116884031007208792561"], ["name", "Nils Löfgren"], ["email", "nilslofgren90@gmail.com"], ["admin", "t"], ["oauth_token", "ya29.GAFnD46_kvCP87yMkf7-YT4aRJVnrPAOFHJcpI9da3fmndq8R0r0POgS_vv81TbFPTZ1wnqu9BV95w"], ["oauth_expires_at", "2015-02-12 10:38:33.000000"], ["created_at", "2015-02-12 09:38:34.485786"], ["updated_at", "2015-02-12 09:38:34.485786"]]
+  [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 77ms (ActiveRecord: 10.2ms)
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-12 09:38:34 +0000
+Processing by CategoriesController#index as HTML
+  [1m[35mUser Load (1.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (1.9ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (104.4ms)
+Completed 200 OK in 345ms (Views: 297.7ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-12 09:38:48 +0000
+Processing by CategoriesController#index as HTML
+  [1m[35mUser Load (1.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (1.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (135.5ms)
+Completed 200 OK in 319ms (Views: 314.9ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/assets/custom-71c6178b087b97010045883ecc1f066d.css" for 10.0.2.2 at 2015-02-12 09:38:49 +0000
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-12 09:38:49 +0000
+
+
+Started GET "/assets/oLogo-514cf5b49bfd3b452e6bf5d2de0bfb57.png" for 10.0.2.2 at 2015-02-12 09:38:49 +0000
+
+
+Started GET "/assets/application-9f2f0f0917037207ebe460b174ce0274.js" for 10.0.2.2 at 2015-02-12 09:38:49 +0000
+
+
+Started GET "/assets/application-1481cd0995e1d306eade8b94359925e0.css" for 10.0.2.2 at 2015-02-12 09:38:49 +0000
+
+
+Started GET "/modules" for 10.0.2.2 at 2015-02-12 09:39:03 +0000
+
+ActionController::RoutingError (No route matches [GET] "/modules"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (5.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (0.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (1.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (61.9ms)
+
+
+Started GET "/module" for 10.0.2.2 at 2015-02-12 09:39:10 +0000
+
+ActionController::RoutingError (No route matches [GET] "/module"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (3.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (0.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (1.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (51.9ms)
+
+
+Started GET "/steps" for 10.0.2.2 at 2015-02-12 09:39:15 +0000
+Processing by StepsController#index as HTML
+  [1m[35mStep Load (1.6ms)[0m  SELECT "steps".* FROM "steps"
+  Rendered steps/index.html.erb within layouts/application (33.8ms)
+Completed 500 Internal Server Error in 116ms
+
+ActionView::Template::Error (undefined local variable or method `new_step_path' for #<#<Class:0xb60e0a68>:0xb60cd4b8>):
+    28: 
+    29: <br>
+    30: 
+    31: <%= link_to 'New Step', new_step_path %>
+  app/views/steps/index.html.erb:31:in `_app_views_steps_index_html_erb___314352545__620372308'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (8.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (31.2ms)
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-12 09:39:22 +0000
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (1.5ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.erb within layouts/application (117.7ms)
+Completed 200 OK in 300ms (Views: 296.2ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/assets/application-1481cd0995e1d306eade8b94359925e0.css" for 10.0.2.2 at 2015-02-12 09:39:22 +0000
+
+
+Started GET "/assets/oLogo-514cf5b49bfd3b452e6bf5d2de0bfb57.png" for 10.0.2.2 at 2015-02-12 09:39:22 +0000
+
+
+Started GET "/assets/application-9f2f0f0917037207ebe460b174ce0274.js" for 10.0.2.2 at 2015-02-12 09:39:22 +0000
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-12 09:39:23 +0000
+
+
+Started GET "/assets/custom-71c6178b087b97010045883ecc1f066d.css" for 10.0.2.2 at 2015-02-12 09:39:23 +0000
+
+
+Started GET "/modules" for 10.0.2.2 at 2015-02-12 09:39:52 +0000
+
+ActionController::RoutingError (No route matches [GET] "/modules"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (2.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (1.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (57.2ms)
+
+
+Started GET "/modul" for 10.0.2.2 at 2015-02-12 09:40:00 +0000
+
+ActionController::RoutingError (No route matches [GET] "/modul"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (3.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (1.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (51.1ms)
+
+
+Started GET "/module" for 10.0.2.2 at 2015-02-12 09:40:03 +0000
+
+ActionController::RoutingError (No route matches [GET] "/module"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (3.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (1.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (50.2ms)
+
+
+Started GET "/quizzes" for 10.0.2.2 at 2015-02-12 09:40:12 +0000
+Processing by QuizzesController#index as HTML
+  [1m[36mQuiz Load (1.5ms)[0m  [1mSELECT "quizzes".* FROM "quizzes"[0m
+  Rendered quizzes/index.html.erb within layouts/application (4.5ms)
+  [1m[35mUser Load (1.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 209ms (Views: 185.4ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/assets/application-1481cd0995e1d306eade8b94359925e0.css" for 10.0.2.2 at 2015-02-12 09:40:12 +0000
+
+
+Started GET "/assets/custom-71c6178b087b97010045883ecc1f066d.css" for 10.0.2.2 at 2015-02-12 09:40:13 +0000
+
+
+Started GET "/assets/oLogo-514cf5b49bfd3b452e6bf5d2de0bfb57.png" for 10.0.2.2 at 2015-02-12 09:40:13 +0000
+
+
+Started GET "/assets/application-9f2f0f0917037207ebe460b174ce0274.js" for 10.0.2.2 at 2015-02-12 09:40:13 +0000
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-12 09:40:13 +0000
+
+
+Started GET "/quizzes/new" for 10.0.2.2 at 2015-02-12 09:41:39 +0000
+Processing by QuizzesController#new as HTML
+  Rendered quizzes/_form.html.erb (42.8ms)
+  Rendered quizzes/new.html.erb within layouts/application (73.8ms)
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 294ms (Views: 288.5ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/quizzes" for 10.0.2.2 at 2015-02-12 09:41:45 +0000
+Processing by QuizzesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"d9EQYMWtwpSfUhHtdjSGMANXfDLhnxPOW9LWmtOz1G0qoIrDEmJyZpsJP0WSRd0aZ88jiyXAX5aa0gRXKz1G6A==", "quiz"=>{"name"=>"hej", "step_id"=>"1"}, "commit"=>"Create Quiz"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (9.9ms)[0m  [1mINSERT INTO "quizzes" ("name", "step_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "hej"], ["step_id", 1], ["created_at", "2015-02-12 09:41:45.209909"], ["updated_at", "2015-02-12 09:41:45.209909"]]
+  [1m[35m (3.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/quizzes/1
+Completed 302 Found in 22ms (ActiveRecord: 13.3ms)
+
+
+Started GET "/quizzes/1" for 10.0.2.2 at 2015-02-12 09:41:45 +0000
+Processing by QuizzesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuiz Load (2.8ms)[0m  [1mSELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mStep Load (1.9ms)[0m  [1mSELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered quizzes/show.html.erb within layouts/application (30.8ms)
+Completed 500 Internal Server Error in 174ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+     7: 
+     8: <p>
+     9:   <strong>Step:</strong>
+    10:   <%= @quiz.step.name %>
+    11: </p>
+    12: 
+    13: <% @questions.each do |q| %>
+  app/views/quizzes/show.html.erb:10:in `_app_views_quizzes_show_html_erb___799685269_99221690'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (27.3ms)
+
+
+Started GET "/quizzes" for 10.0.2.2 at 2015-02-12 09:41:52 +0000
+Processing by QuizzesController#index as HTML
+  [1m[35mQuiz Load (1.1ms)[0m  SELECT "quizzes".* FROM "quizzes"
+  [1m[36mStep Load (1.5ms)[0m  [1mSELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered quizzes/index.html.erb within layouts/application (24.0ms)
+Completed 500 Internal Server Error in 68ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    15:     <% @quizzes.each do |quiz| %>
+    16:       <tr>
+    17:         <td><%= quiz.name %></td>
+    18:         <td><%= quiz.step.name %></td>
+    19:         <td><%= link_to 'Show', quiz %></td>
+    20:         <td><%= link_to 'Edit', edit_quiz_path(quiz) %></td>
+    21:         <td><%= link_to 'Destroy', quiz, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  app/views/quizzes/index.html.erb:18:in `block in _app_views_quizzes_index_html_erb___552937159_106030360'
+  app/views/quizzes/index.html.erb:15:in `_app_views_quizzes_index_html_erb___552937159_106030360'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (27.7ms)
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-12 09:41:59 +0000
+Processing by CategoriesController#index as HTML
+  [1m[35mUser Load (1.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (1.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (115.1ms)
+Completed 200 OK in 285ms (Views: 280.9ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/assets/custom-71c6178b087b97010045883ecc1f066d.css" for 10.0.2.2 at 2015-02-12 09:41:59 +0000
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-12 09:41:59 +0000
+
+
+Started GET "/assets/application-9f2f0f0917037207ebe460b174ce0274.js" for 10.0.2.2 at 2015-02-12 09:41:59 +0000
+
+
+Started GET "/assets/application-1481cd0995e1d306eade8b94359925e0.css" for 10.0.2.2 at 2015-02-12 09:42:00 +0000
+
+
+Started GET "/assets/oLogo-514cf5b49bfd3b452e6bf5d2de0bfb57.png" for 10.0.2.2 at 2015-02-12 09:42:00 +0000
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-12 09:42:47 +0000
+Processing by CategoriesController#index as HTML
+  [1m[35mUser Load (1.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (1.6ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (126.4ms)
+Completed 200 OK in 308ms (Views: 303.3ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/assets/custom-71c6178b087b97010045883ecc1f066d.css" for 10.0.2.2 at 2015-02-12 09:42:47 +0000
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-12 09:42:48 +0000
+
+
+Started GET "/assets/application-9f2f0f0917037207ebe460b174ce0274.js" for 10.0.2.2 at 2015-02-12 09:42:48 +0000
+
+
+Started GET "/assets/application-1481cd0995e1d306eade8b94359925e0.css" for 10.0.2.2 at 2015-02-12 09:42:48 +0000
+
+
+Started GET "/assets/oLogo-514cf5b49bfd3b452e6bf5d2de0bfb57.png" for 10.0.2.2 at 2015-02-12 09:42:48 +0000
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-12 09:59:14 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (1.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CategoriesController#index as HTML
+  [1m[35mUser Load (1.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (2.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (1149.9ms)
+Completed 200 OK in 1495ms (Views: 1382.7ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/assets/custom-71c6178b087b97010045883ecc1f066d.css" for 10.0.2.2 at 2015-02-12 09:59:16 +0000
+
+
+Started GET "/assets/application-7c0f5ec217bd71f3195664edf36efcc0.css" for 10.0.2.2 at 2015-02-12 09:59:16 +0000
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-12 09:59:17 +0000
+
+
+Started GET "/assets/application-4fdcb8aa314703bf9bfebbae16cead4e.js" for 10.0.2.2 at 2015-02-12 09:59:17 +0000
+
+
+Started GET "/assets/oLogo-514cf5b49bfd3b452e6bf5d2de0bfb57.png" for 10.0.2.2 at 2015-02-12 09:59:17 +0000
+
+
+Started GET "/modules" for 10.0.2.2 at 2015-02-12 09:59:35 +0000
+
+ActionController::RoutingError (No route matches [GET] "/modules"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (3.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (30.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (97.7ms)
+
+
+Started GET "/steps" for 10.0.2.2 at 2015-02-12 09:59:40 +0000
+Processing by StepsController#index as HTML
+  [1m[35mStep Load (2.0ms)[0m  SELECT "steps".* FROM "steps"
+  [1m[36mCategory Load (1.7ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered steps/index.html.erb within layouts/application (81.4ms)
+Completed 500 Internal Server Error in 168ms
+
+ActionView::Template::Error (No route matches {:action=>"show", :category_name=>#<Step id: 1, name: "asdonjaos-aosindaiusdnd", desc: " aiusdaiusd", category_id: 1, created_at: "2015-02-06 13:59:52", updated_at: "2015-02-06 13:59:52", placement: nil>, :controller=>"steps", :format=>nil, :step_name=>nil} missing required keys: [:step_name]):
+    18:         <td><%= step.name %></td>
+    19:         <td><%= step.desc %></td>
+    20:         <td><%= step.category %></td>
+    21:         <td><%= link_to 'Show', step %></td>
+    22:         <td><%= link_to 'Edit', edit_step_path(step) %></td>
+    23:         <td><%= link_to 'Destroy', step, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    24:       </tr>
+  app/views/steps/index.html.erb:21:in `block in _app_views_steps_index_html_erb___871504454_98929970'
+  app/views/steps/index.html.erb:16:in `_app_views_steps_index_html_erb___871504454_98929970'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (7.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (31.9ms)
+
+
+Started GET "/quizzes" for 10.0.2.2 at 2015-02-12 09:59:50 +0000
+Processing by QuizzesController#index as HTML
+  [1m[35mQuiz Load (1.8ms)[0m  SELECT "quizzes".* FROM "quizzes"
+  Rendered quizzes/index.html.erb within layouts/application (4.3ms)
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 233ms (Views: 212.7ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/assets/custom-71c6178b087b97010045883ecc1f066d.css" for 10.0.2.2 at 2015-02-12 09:59:50 +0000
+
+
+Started GET "/assets/oLogo-514cf5b49bfd3b452e6bf5d2de0bfb57.png" for 10.0.2.2 at 2015-02-12 09:59:51 +0000
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-12 09:59:51 +0000
+
+
+Started GET "/steps" for 10.0.2.2 at 2015-02-12 09:59:58 +0000
+Processing by StepsController#index as HTML
+  [1m[35mStep Load (0.9ms)[0m  SELECT "steps".* FROM "steps"
+  [1m[36mCategory Load (1.7ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered steps/index.html.erb within layouts/application (26.0ms)
+Completed 500 Internal Server Error in 79ms
+
+ActionView::Template::Error (No route matches {:action=>"show", :category_name=>#<Step id: 1, name: "asdonjaos-aosindaiusdnd", desc: " aiusdaiusd", category_id: 1, created_at: "2015-02-06 13:59:52", updated_at: "2015-02-06 13:59:52", placement: nil>, :controller=>"steps", :format=>nil, :step_name=>nil} missing required keys: [:step_name]):
+    18:         <td><%= step.name %></td>
+    19:         <td><%= step.desc %></td>
+    20:         <td><%= step.category %></td>
+    21:         <td><%= link_to 'Show', step %></td>
+    22:         <td><%= link_to 'Edit', edit_step_path(step) %></td>
+    23:         <td><%= link_to 'Destroy', step, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    24:       </tr>
+  app/views/steps/index.html.erb:21:in `block in _app_views_steps_index_html_erb___871504454_98929970'
+  app/views/steps/index.html.erb:16:in `_app_views_steps_index_html_erb___871504454_98929970'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (30.5ms)
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-12 10:00:11 +0000
+Processing by CategoriesController#index as HTML
+  [1m[35mUser Load (1.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (1.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (113.7ms)
+Completed 200 OK in 314ms (Views: 308.8ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-12 10:00:11 +0000
+
+
+Started GET "/assets/custom-71c6178b087b97010045883ecc1f066d.css" for 10.0.2.2 at 2015-02-12 10:00:11 +0000
+
+
+Started GET "/assets/oLogo-514cf5b49bfd3b452e6bf5d2de0bfb57.png" for 10.0.2.2 at 2015-02-12 10:00:11 +0000
+
+
+Started GET "/module" for 10.0.2.2 at 2015-02-12 10:00:28 +0000
+
+ActionController::RoutingError (No route matches [GET] "/module"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (4.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (1.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (58.0ms)
+
+
+Started GET "/modul" for 10.0.2.2 at 2015-02-12 10:00:32 +0000
+
+ActionController::RoutingError (No route matches [GET] "/modul"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/vagrant/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (3.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (1.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (60.4ms)
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-12 10:01:02 +0000
+Processing by CategoriesController#index as HTML
+  [1m[35mUser Load (1.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (1.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (145.4ms)
+Completed 200 OK in 342ms (Views: 337.7ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/assets/custom-71c6178b087b97010045883ecc1f066d.css" for 10.0.2.2 at 2015-02-12 10:01:02 +0000
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-12 10:01:03 +0000
+
+
+Started GET "/assets/oLogo-514cf5b49bfd3b452e6bf5d2de0bfb57.png" for 10.0.2.2 at 2015-02-12 10:01:03 +0000
+
+
+Started GET "/categories/new" for 10.0.2.2 at 2015-02-12 10:01:13 +0000
+Processing by CategoriesController#new as HTML
+  Rendered categories/new.html.erb within layouts/application (22.5ms)
+  [1m[35mUser Load (1.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 240ms (Views: 237.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-12 10:01:13 +0000
+
+
+Started GET "/assets/oLogo-514cf5b49bfd3b452e6bf5d2de0bfb57.png" for 10.0.2.2 at 2015-02-12 10:01:13 +0000
+
+
+Started GET "/assets/custom-71c6178b087b97010045883ecc1f066d.css" for 10.0.2.2 at 2015-02-12 10:01:13 +0000
+
+
+Started POST "/categories" for 10.0.2.2 at 2015-02-12 10:01:23 +0000
+Processing by CategoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gftdq2qzkmlhDPgh+IimF8Oc1t/t4o2EpyF44wzQmi7ciscIvXwim2VX1okc+f09pwSJZim9wdxmIaou9F4Iqw==", "category"=>{"name"=>"Kunskapssökande", "desc"=>"hej"}, "commit"=>"Create Category"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (6.5ms)[0m  INSERT INTO "categories" ("name", "desc", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "kunskapssokande"], ["desc", "hej"], ["created_at", "2015-02-12 10:01:23.643970"], ["updated_at", "2015-02-12 10:01:23.643970"]]
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/modul/kunskapssokande
+Completed 302 Found in 18ms (ActiveRecord: 10.6ms)
+
+
+Started GET "/modul/kunskapssokande" for 10.0.2.2 at 2015-02-12 10:01:23 +0000
+Processing by CategoriesController#show as HTML
+  Parameters: {"category_name"=>"kunskapssokande"}
+  [1m[35mCategory Load (1.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = ?  [["name", "kunskapssokande"]]
+  [1m[36mStep Load (2.2ms)[0m  [1mSELECT "steps".* FROM "steps" WHERE "steps"."category_id" = ?[0m  [["category_id", 2]]
+  Rendered steps/_steps.html.erb (9.8ms)
+  Rendered examinations/_form.html.erb (2.5ms)
+  [1m[35mExamination Load (1.7ms)[0m  SELECT "examinations".* FROM "examinations" WHERE "examinations"."category_id" = ?  [["category_id", 2]]
+  [1m[36mComment Load (1.7ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."category_id" = ?[0m  [["category_id", 2]]
+  Rendered comments/_form.html.erb (2.1ms)
+  Rendered categories/show.html.erb within layouts/application (94.7ms)
+  [1m[35mUser Load (1.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 413ms (Views: 293.5ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-12 10:01:24 +0000
+
+
+Started GET "/assets/oLogo-514cf5b49bfd3b452e6bf5d2de0bfb57.png" for 10.0.2.2 at 2015-02-12 10:01:24 +0000
+
+
+Started GET "/assets/custom-71c6178b087b97010045883ecc1f066d.css" for 10.0.2.2 at 2015-02-12 10:01:24 +0000
+
+
+Started POST "/steps" for 10.0.2.2 at 2015-02-12 10:01:38 +0000
+Processing by StepsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0uQLs8fdDWk4E5+CFydMTSzforq570aveVGDfQeaIMmPlZEQEBK9mzxIsSrzVhdnSEf9A32wCve4UVGw/xSyTA==", "step"=>{"name"=>"hej", "desc"=>"hej", "category_id"=>"2"}, "commit"=>"Create Step"}
+  [1m[36mCategory Load (1.5ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (9.4ms)[0m  [1mINSERT INTO "steps" ("name", "desc", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "hej"], ["desc", "hej"], ["category_id", 2], ["created_at", "2015-02-12 10:01:38.947637"], ["updated_at", "2015-02-12 10:01:38.947637"]]
+  [1m[35m (3.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/modul/kunskapssokande/hej
+Completed 302 Found in 29ms (ActiveRecord: 14.6ms)
+
+
+Started GET "/modul/kunskapssokande/hej" for 10.0.2.2 at 2015-02-12 10:01:38 +0000
+Processing by StepsController#show as HTML
+  Parameters: {"category_name"=>"kunskapssokande", "step_name"=>"hej"}
+  [1m[36mStep Load (1.8ms)[0m  [1mSELECT "steps".* FROM "steps" WHERE "steps"."name" = ?[0m  [["name", "hej"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "steps".* FROM "steps" WHERE "steps"."name" = ?  [["name", "hej"]]
+  [1m[36mQuiz Load (1.6ms)[0m  [1mSELECT "quizzes".* FROM "quizzes" WHERE "quizzes"."step_id" = ?[0m  [["step_id", 2]]
+  [1m[35mCategory Load (1.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered videos/_form.html.erb (2.8ms)
+  Rendered guides/_form.html.erb (16.8ms)
+  Rendered assignments/_form.html.erb (2.9ms)
+  Rendered quizzes/_form.html.erb (2.2ms)
+  [1m[36mVideo Load (1.4ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."step_id" = ?[0m  [["step_id", 2]]
+  [1m[35mGuide Load (2.1ms)[0m  SELECT "guides".* FROM "guides" WHERE "guides"."step_id" = ?  [["step_id", 2]]
+  Rendered steps/_quiz.html.erb (1.1ms)
+  Rendered steps/show.html.erb within layouts/application (149.4ms)
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 555ms (Views: 346.6ms | ActiveRecord: 10.4ms)
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-12 10:01:39 +0000
+
+
+Started GET "/assets/oLogo-514cf5b49bfd3b452e6bf5d2de0bfb57.png" for 10.0.2.2 at 2015-02-12 10:01:39 +0000
+
+
+Started GET "/assets/custom-71c6178b087b97010045883ecc1f066d.css" for 10.0.2.2 at 2015-02-12 10:01:40 +0000
+
+
+Started GET "/assets/ckeditor/config.js?t=EAPE" for 10.0.2.2 at 2015-02-12 10:01:40 +0000
+
+
+Started GET "/assets/ckeditor/skins/moono/editor.css?t=EAPE" for 10.0.2.2 at 2015-02-12 10:01:40 +0000
+
+
+Started GET "/assets/ckeditor/lang/en.js?t=EAPE" for 10.0.2.2 at 2015-02-12 10:01:40 +0000
+
+
+Started GET "/assets/ckeditor/styles.js?t=EAPE" for 10.0.2.2 at 2015-02-12 10:01:40 +0000
+
+
+Started GET "/assets/ckeditor/contents.css?t=EAPE" for 10.0.2.2 at 2015-02-12 10:01:40 +0000
+
+
+Started POST "/videos" for 10.0.2.2 at 2015-02-12 10:02:56 +0000
+Processing by VideosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YtPV9lN9NFWLwtSmu+bcjZwddLJh769Er9qIoj7WkzM/ok9VhLKEp4+Z+g5fl4en+IUrC6Ww4xxu2lpvxlgBtg==", "video"=>{"name"=>"video 1", "url"=>"https://www.youtube.com/watch?v=1YX7h8qNu7g", "step_id"=>"2"}, "commit"=>"Create Video"}
+  [1m[35mStep Load (1.8ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (6.7ms)[0m  INSERT INTO "videos" ("name", "url", "step_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "video 1"], ["url", "https://www.youtube.com/watch?v=1YX7h8qNu7g"], ["step_id", 2], ["created_at", "2015-02-12 10:02:56.708207"], ["updated_at", "2015-02-12 10:02:56.708207"]]
+  [1m[36m (8.9ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 33ms
+
+NoMethodError (undefined method `name' for 2:Fixnum):
+  app/controllers/videos_controller.rb:33:in `block in create'
+  app/controllers/videos_controller.rb:31:in `create'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (5.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (29.0ms)
+
+
+Started POST "/videos" for 10.0.2.2 at 2015-02-12 10:03:18 +0000
+Processing by VideosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YtPV9lN9NFWLwtSmu+bcjZwddLJh769Er9qIoj7WkzM/ok9VhLKEp4+Z+g5fl4en+IUrC6Ww4xxu2lpvxlgBtg==", "video"=>{"name"=>"video 1", "url"=>"https://www.youtube.com/watch?v=1YX7h8qNu7g", "step_id"=>"2"}, "commit"=>"Create Video"}
+  [1m[35mStep Load (3.8ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (3.6ms)[0m  INSERT INTO "videos" ("name", "url", "step_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "video 1"], ["url", "https://www.youtube.com/watch?v=1YX7h8qNu7g"], ["step_id", 2], ["created_at", "2015-02-12 10:03:18.218450"], ["updated_at", "2015-02-12 10:03:18.218450"]]
+  [1m[36m (4.5ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 22ms
+
+NoMethodError (undefined method `name' for 2:Fixnum):
+  app/controllers/videos_controller.rb:33:in `block in create'
+  app/controllers/videos_controller.rb:31:in `create'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (5.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (29.5ms)
+
+
+Started GET "/videos" for 10.0.2.2 at 2015-02-12 10:04:10 +0000
+Processing by VideosController#index as HTML
+  [1m[35mVideo Load (1.7ms)[0m  SELECT "videos".* FROM "videos"
+  [1m[36mStep Load (1.2ms)[0m  [1mSELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered videos/index.html.erb within layouts/application (8.6ms)
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 256ms (Views: 251.2ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/assets/custom-71c6178b087b97010045883ecc1f066d.css" for 10.0.2.2 at 2015-02-12 10:04:10 +0000
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-12 10:04:10 +0000
+
+
+Started GET "/assets/oLogo-514cf5b49bfd3b452e6bf5d2de0bfb57.png" for 10.0.2.2 at 2015-02-12 10:04:11 +0000
+
+
+Started GET "/videos" for 10.0.2.2 at 2015-02-12 10:06:31 +0000
+Processing by VideosController#index as HTML
+  [1m[35mVideo Load (1.7ms)[0m  SELECT "videos".* FROM "videos"
+  [1m[36mStep Load (1.6ms)[0m  [1mSELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered videos/index.html.erb within layouts/application (9.4ms)
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 215ms (Views: 209.0ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-12 10:06:31 +0000
+
+
+Started GET "/assets/custom-71c6178b087b97010045883ecc1f066d.css" for 10.0.2.2 at 2015-02-12 10:06:31 +0000
+
+
+Started GET "/assets/application-7c0f5ec217bd71f3195664edf36efcc0.css" for 10.0.2.2 at 2015-02-12 10:06:31 +0000
+
+
+Started GET "/assets/oLogo-514cf5b49bfd3b452e6bf5d2de0bfb57.png" for 10.0.2.2 at 2015-02-12 10:06:32 +0000
+
+
+Started GET "/assets/application-4fdcb8aa314703bf9bfebbae16cead4e.js" for 10.0.2.2 at 2015-02-12 10:06:32 +0000
+
+
+Started GET "/videos" for 10.0.2.2 at 2015-02-12 10:07:29 +0000
+Processing by VideosController#index as HTML
+  [1m[35mVideo Load (1.0ms)[0m  SELECT "videos".* FROM "videos"
+  [1m[36mStep Load (1.7ms)[0m  [1mSELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "steps".* FROM "steps" WHERE "steps"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered videos/index.html.erb within layouts/application (7.8ms)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 227ms (Views: 222.1ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/assets/application-7c0f5ec217bd71f3195664edf36efcc0.css" for 10.0.2.2 at 2015-02-12 10:07:30 +0000
+
+
+Started GET "/assets/custom-71c6178b087b97010045883ecc1f066d.css" for 10.0.2.2 at 2015-02-12 10:07:30 +0000
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-12 10:07:30 +0000
+
+
+Started GET "/assets/application-4fdcb8aa314703bf9bfebbae16cead4e.js" for 10.0.2.2 at 2015-02-12 10:07:30 +0000
+
+
+Started GET "/assets/oLogo-514cf5b49bfd3b452e6bf5d2de0bfb57.png" for 10.0.2.2 at 2015-02-12 10:07:30 +0000
+
+
+Started GET "/signout" for 10.0.2.2 at 2015-02-12 10:07:54 +0000
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-12 10:07:55 +0000
+Processing by CategoriesController#index as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2015-02-12 10:07:55 +0000
+Processing by SessionsController#login as HTML
+  Rendered sessions/login.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 217ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    33:                 Logga ut
+    34:               </li></a>-->
+    35:               <a href="#"><li class="active_user has-dropdown">
+    36:                <strong><%= current_user.name %></strong>
+    37:               </li></a>
+    38:             </ul>
+    39:           </div>
+  app/views/layouts/application.html.erb:36:in `_app_views_layouts_application_html_erb___33698501_101332070'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (30.5ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2015-02-12 10:08:06 +0000
+Processing by SessionsController#login as HTML
+  Rendered sessions/login.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 216ms (Views: 208.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/custom-71c6178b087b97010045883ecc1f066d.css" for 10.0.2.2 at 2015-02-12 10:08:06 +0000
+
+
+Started GET "/assets/application-4fdcb8aa314703bf9bfebbae16cead4e.js" for 10.0.2.2 at 2015-02-12 10:08:07 +0000
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-12 10:08:07 +0000
+
+
+Started GET "/assets/application-7c0f5ec217bd71f3195664edf36efcc0.css" for 10.0.2.2 at 2015-02-12 10:08:07 +0000
+
+
+Started GET "/assets/oLogo-514cf5b49bfd3b452e6bf5d2de0bfb57.png" for 10.0.2.2 at 2015-02-12 10:08:07 +0000
+
+
+Started GET "/auth/google_oauth2" for 10.0.2.2 at 2015-02-12 10:08:08 +0000
+(google_oauth2) Request phase initiated.
+
+
+Started GET "/auth/google_oauth2" for 10.0.2.2 at 2015-02-12 10:08:09 +0000
+(google_oauth2) Request phase initiated.
+
+
+Started GET "/auth/google_oauth2/callback?state=fb0cee72350885f36a2d898800e84849aa290553fbd64c24&code=4/se5u-gmtYBPE4qeyb16-N_tVPuUHZclt_sc3b43HCU8.su3gHDn08cIfPvB8fYmgkJzvI4X6lgI" for 10.0.2.2 at 2015-02-12 10:08:09 +0000
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"fb0cee72350885f36a2d898800e84849aa290553fbd64c24", "code"=>"4/se5u-gmtYBPE4qeyb16-N_tVPuUHZclt_sc3b43HCU8.su3gHDn08cIfPvB8fYmgkJzvI4X6lgI", "provider"=>"google_oauth2"}
+  [1m[35mUser Load (8.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["provider", "google_oauth2"], ["uid", "116884031007208792561"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (4.4ms)[0m  INSERT INTO "users" ("provider", "uid", "name", "email", "admin", "oauth_token", "oauth_expires_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["provider", "google_oauth2"], ["uid", "116884031007208792561"], ["name", "Nils Löfgren"], ["email", "nilslofgren90@gmail.com"], ["admin", "t"], ["oauth_token", "ya29.GAGJXVG1b9FneEAZmgmdNnYI2gH1QejKOw4etpbxYm597co07L290oy9NFRrm75VR0n0zzVEpuC-ow"], ["oauth_expires_at", "2015-02-12 11:08:09.000000"], ["created_at", "2015-02-12 10:08:10.291543"], ["updated_at", "2015-02-12 10:08:10.291543"]]
+  [1m[36m (3.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 24ms (ActiveRecord: 16.5ms)
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-12 10:08:10 +0000
+Processing by CategoriesController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 565]]
+  [1m[36mCategory Load (2.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (133.8ms)
+Completed 200 OK in 333ms (Views: 328.5ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/assets/custom-71c6178b087b97010045883ecc1f066d.css" for 10.0.2.2 at 2015-02-12 10:08:10 +0000
+
+
+Started GET "/assets/application-4fdcb8aa314703bf9bfebbae16cead4e.js" for 10.0.2.2 at 2015-02-12 10:08:10 +0000
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-12 10:08:11 +0000
+
+
+Started GET "/assets/oLogo-514cf5b49bfd3b452e6bf5d2de0bfb57.png" for 10.0.2.2 at 2015-02-12 10:08:11 +0000
+
+
+Started GET "/assets/application-7c0f5ec217bd71f3195664edf36efcc0.css" for 10.0.2.2 at 2015-02-12 10:08:11 +0000
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-12 10:08:15 +0000
+Processing by CategoriesController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 565]]
+  [1m[36mCategory Load (1.7ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (136.1ms)
+Completed 200 OK in 331ms (Views: 327.0ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assets/custom-71c6178b087b97010045883ecc1f066d.css" for 10.0.2.2 at 2015-02-12 10:08:15 +0000
+
+
+Started GET "/assets/application-7c0f5ec217bd71f3195664edf36efcc0.css" for 10.0.2.2 at 2015-02-12 10:08:16 +0000
+
+
+Started GET "/assets/application-4fdcb8aa314703bf9bfebbae16cead4e.js" for 10.0.2.2 at 2015-02-12 10:08:16 +0000
+
+
+Started GET "/assets/oLogo-514cf5b49bfd3b452e6bf5d2de0bfb57.png" for 10.0.2.2 at 2015-02-12 10:08:16 +0000
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-12 10:08:16 +0000
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-12 10:09:37 +0000
+Processing by CategoriesController#index as HTML
+  [1m[35mUser Load (1.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 565]]
+  [1m[36mCategory Load (1.6ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (119.3ms)
+Completed 200 OK in 337ms (Views: 331.0ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/assets/application-7c0f5ec217bd71f3195664edf36efcc0.css" for 10.0.2.2 at 2015-02-12 10:09:37 +0000
+
+
+Started GET "/assets/custom-71c6178b087b97010045883ecc1f066d.css" for 10.0.2.2 at 2015-02-12 10:09:37 +0000
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-12 10:09:37 +0000
+
+
+Started GET "/assets/application-4fdcb8aa314703bf9bfebbae16cead4e.js" for 10.0.2.2 at 2015-02-12 10:09:37 +0000
+
+
+Started GET "/assets/oLogo-514cf5b49bfd3b452e6bf5d2de0bfb57.png" for 10.0.2.2 at 2015-02-12 10:09:38 +0000
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-12 10:09:54 +0000
+Processing by CategoriesController#index as HTML
+  [1m[35mUser Load (1.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 565]]
+  [1m[36mCategory Load (1.7ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (129.8ms)
+Completed 200 OK in 327ms (Views: 321.9ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/assets/application-7c0f5ec217bd71f3195664edf36efcc0.css" for 10.0.2.2 at 2015-02-12 10:09:55 +0000
+
+
+Started GET "/assets/custom-71c6178b087b97010045883ecc1f066d.css" for 10.0.2.2 at 2015-02-12 10:09:55 +0000
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-12 10:09:55 +0000
+
+
+Started GET "/assets/application-4fdcb8aa314703bf9bfebbae16cead4e.js" for 10.0.2.2 at 2015-02-12 10:09:55 +0000
+
+
+Started GET "/assets/oLogo-514cf5b49bfd3b452e6bf5d2de0bfb57.png" for 10.0.2.2 at 2015-02-12 10:09:55 +0000
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-12 12:20:11 +0000
+Processing by CategoriesController#index as HTML
+  [1m[35mUser Load (1.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 565]]
+  [1m[36mCategory Load (1.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (119.0ms)
+Completed 200 OK in 334ms (Views: 327.9ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/assets/custom-71c6178b087b97010045883ecc1f066d.css" for 10.0.2.2 at 2015-02-12 12:20:12 +0000
+
+
+Started GET "/assets/application-4fdcb8aa314703bf9bfebbae16cead4e.js" for 10.0.2.2 at 2015-02-12 12:20:12 +0000
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-12 12:20:12 +0000
+
+
+Started GET "/assets/application-7c0f5ec217bd71f3195664edf36efcc0.css" for 10.0.2.2 at 2015-02-12 12:20:12 +0000
+
+
+Started GET "/assets/oLogo-514cf5b49bfd3b452e6bf5d2de0bfb57.png" for 10.0.2.2 at 2015-02-12 12:20:12 +0000
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-12 12:20:38 +0000
+Processing by CategoriesController#index as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 565]]
+  [1m[36mCategory Load (1.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (119.7ms)
+Completed 200 OK in 321ms (Views: 316.5ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assets/custom-71c6178b087b97010045883ecc1f066d.css" for 10.0.2.2 at 2015-02-12 12:20:38 +0000
+
+
+Started GET "/assets/oLogo-514cf5b49bfd3b452e6bf5d2de0bfb57.png" for 10.0.2.2 at 2015-02-12 12:20:38 +0000
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-12 12:20:38 +0000
+
+
+Started GET "/assets/application-4fdcb8aa314703bf9bfebbae16cead4e.js" for 10.0.2.2 at 2015-02-12 12:20:39 +0000
+
+
+Started GET "/assets/application-7c0f5ec217bd71f3195664edf36efcc0.css" for 10.0.2.2 at 2015-02-12 12:20:39 +0000
+
+
+Started GET "/" for 10.0.2.2 at 2015-02-12 12:21:12 +0000
+Processing by CategoriesController#index as HTML
+  [1m[35mUser Load (1.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 565]]
+  [1m[36mCategory Load (1.7ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (122.6ms)
+Completed 200 OK in 335ms (Views: 330.4ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/assets/application-7c0f5ec217bd71f3195664edf36efcc0.css" for 10.0.2.2 at 2015-02-12 12:21:13 +0000
+
+
+Started GET "/assets/custom-71c6178b087b97010045883ecc1f066d.css" for 10.0.2.2 at 2015-02-12 12:21:13 +0000
+
+
+Started GET "/assets/oLogo-514cf5b49bfd3b452e6bf5d2de0bfb57.png" for 10.0.2.2 at 2015-02-12 12:21:13 +0000
+
+
+Started GET "/assets/application-4fdcb8aa314703bf9bfebbae16cead4e.js" for 10.0.2.2 at 2015-02-12 12:21:13 +0000
+
+
+Started GET "/assets/vendor/modernizr-ab036539ab2eac66b636accb8d06d77b.js" for 10.0.2.2 at 2015-02-12 12:21:13 +0000

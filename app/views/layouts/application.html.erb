@@ -32,8 +32,14 @@
               <a href="#"><li class="li_menu">
                 Logga ut
               </li></a>-->
-              
-              <a href="#"><li class="active_user has-dropdown">
+
+              <a href="#"><li class="right">
+                <button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown"><%= current_user.name %></button><br>
+          <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
+            <li><a href="#">This is a link</a></li>
+            <li><a href="#">This is another</a></li>
+            <li><a href="#">Yet another</a></li>
+          </ul>
                <strong><%= current_user.name %></strong>
               </li></a>
             </ul>
@@ -42,11 +48,11 @@
 
         <!-- DROPDOWN BUTTON -->
         <button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown">Dropdown Button</button><br>
-<ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
-  <li><a href="#">This is a link</a></li>
-  <li><a href="#">This is another</a></li>
-  <li><a href="#">Yet another</a></li>
-</ul>
+          <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
+            <li><a href="#">This is a link</a></li>
+            <li><a href="#">This is another</a></li>
+            <li><a href="#">Yet another</a></li>
+          </ul>
   <br><br>
    
     
