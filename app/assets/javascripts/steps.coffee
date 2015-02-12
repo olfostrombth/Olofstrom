@@ -8,7 +8,7 @@
 
 $ ->
   $('#video_toggle').click ->
-    $('.video_form').toggle('show');
+    $('.video_form').toggle('show')
 
 $ ->
   $('#quiz_toggle').click ->
@@ -22,6 +22,9 @@ $ ->
   $('#assignment_toggle').click ->
     $('.assignment_form').toggle('show')
 
+$ ->
+  $('#show_video').click ->
+    $('.video_url').toggle('show')
 
 
 $ ->
