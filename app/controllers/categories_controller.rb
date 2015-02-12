@@ -6,6 +6,7 @@ class CategoriesController < ApplicationController
   def index
     if current_user
       @categories = Category.all
+      @colors = ["#005F70", "#186237", "#FBA61F", "#EC529A"]
     else
       redirect_to login_url
     end
