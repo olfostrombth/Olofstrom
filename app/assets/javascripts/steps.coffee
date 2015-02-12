@@ -126,7 +126,6 @@ window.onload = ->
 normalize = (name) ->
   return name.toLowerCase().replace(/['’]/gi, '').replace(/ /gi, '-').replace(/[àáâãäå]/gi, 'a').replace(/[ö]/gi, 'o')
 
-
 $ ->
   $(document).on "click", "#submit_step", (e) ->
     $(this).parent().parent().submit()

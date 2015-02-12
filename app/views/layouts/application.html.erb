@@ -23,27 +23,43 @@
   </div>-->
 
 
-<nav class="top-bar" data-topbar role="navigation">
-  <ul class="title-area"> <li class="name"> <h1><a href="#"><!--<%= image_tag("oLogo.png") %>-->Olofström</a></h1> </li> <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-    <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
-  </ul> <section class="top-bar-section"> <!-- Right Nav Section -->
-  <ul class="right">
-    <li><a href="#">START</a></li>
-    <li><a href="#">PROFIL</a></li>
-    <% if current_user %>
-        <li><%= link_to "LOGGA UT", signout_path, id: "sign_out" %></li>
-    <% end %>
-    <li class="progressbar"><%= image_tag("progress.png") %></li>
-    <li class="active"><a href="#">
-      <% if current_user %>
-          <strong><%= current_user.name %></strong>!
-          <% if current_user.admin? %>
-          <% end %>
-      <% end %></a></li>
-  </ul>
-</section>
-</nav><br><br>
+<div class="nav_header">
+          <div class="logo">
+            <%= link_to image_tag("oLogo.png"), root_path %>   
+          </div>
+          <div class="row">
+            <ul class="right list">
+              <!--<a href="#"><li class="li_menu">
+                Start
+              </li></a>
+              <a href="#"><li class="li_menu">
+                Profil
+              </li></a>
+              <a href="#"><li class="li_menu">
+                Logga ut
+              </li></a>-->
+              
+              <a href="#"><li class="right">
+                <button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown"><strong><%= current_user.name %></strong></button><br>
+                  <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
+                    <li><a href="#">Profil</a></li><br>
+                    <li><a href="#">Logga ut</a></li>
+                  </ul>
+               
+              </li></a>
+            </ul>
+          </div>
+        </div>
 
+        <!-- DROPDOWN BUTTON 
+        <button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown">Dropdown Button</button><br>
+<ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
+  <li><a href="#">This is a link</a></li>
+  <li><a href="#">This is another</a></li>
+  <li><a href="#">Yet another</a></li>
+</ul>
+  <br><br>-->
+   
 <!--<div>
   <% if current_user %>
       Signed in as <strong><%= current_user.name %></strong>!

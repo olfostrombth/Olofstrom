@@ -38,7 +38,6 @@ body
 	color: white;
 	height: 5em;
 	text-align: center;
-	padding-top: 2em;
 	
 	text-decoration: none;
 }
@@ -46,6 +45,11 @@ body
 .li_menu
 {
 	width: 5em;
+}
+
+.dropdown.button, button.dropdown
+{
+	height: 4em;
 }
 
 .active_user
@@ -122,4 +126,14 @@ li.headline
 	overflow-y: auto;
 	max-height: 70vh;
 	
+}
+
+.f-dropdown li:hover, .f-dropdown li:focus
+{
+	background: #fff;
+}
+
+.f-dropdown li a:hover
+{
+	background-color: #fff;
 }
