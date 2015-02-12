@@ -23,7 +23,7 @@
           </div>
           <div class="row">
             <ul class="right list">
-              <a href="#"><li class="li_menu">
+              <!--<a href="#"><li class="li_menu">
                 Start
               </li></a>
               <a href="#"><li class="li_menu">
@@ -31,13 +31,22 @@
               </li></a>
               <a href="#"><li class="li_menu">
                 Logga ut
-              </li></a>
+              </li></a>-->
+              
               <a href="#"><li class="active_user has-dropdown">
-                <strong><%= current_user.name %></strong>
+               <strong><%= current_user.name %></strong>
               </li></a>
             </ul>
           </div>
         </div>
+
+        <!-- DROPDOWN BUTTON -->
+        <button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown">Dropdown Button</button><br>
+<ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
+  <li><a href="#">This is a link</a></li>
+  <li><a href="#">This is another</a></li>
+  <li><a href="#">Yet another</a></li>
+</ul>
   <br><br>
    
     
