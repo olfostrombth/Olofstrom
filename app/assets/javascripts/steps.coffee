@@ -123,3 +123,12 @@ shuffle = ->
 window.onload = ->
   shuffle()
 
+
+
+$ ->
+  $(document).on "click", "#submit_step", (e) ->
+    $(this).parent().parent().submit()
+    step = $(this).parent().parent().find('#step_name').val()
+    $('#steps').append '<a href="/modul/'+gon.catname+'/'+step+'">'+step+'</a>'
+
+

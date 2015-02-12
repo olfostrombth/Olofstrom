@@ -26,6 +26,7 @@ class CategoriesController < ApplicationController
       @category = x
       @examinations = @category.examinations
       @examination = @examinations.new
+      gon.catname = x.name
     end
 
     #cat = @category.to_json

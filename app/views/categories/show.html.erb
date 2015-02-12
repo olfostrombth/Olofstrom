@@ -1,3 +1,4 @@
+<%= include_gon %>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -15,7 +16,14 @@
   <%= @category.desc %>
 </p>
 <br>
+
+<div id="steps">
+
+</div>
+
+<br>
 <h4>Steg</h4>
+
 <% @steps.each do |s| %>
     <%= s.id %>
     <% if s.name? %>
