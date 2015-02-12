@@ -17,19 +17,17 @@
 </p>
 <br>
 
-<div id="steps">
-
-</div>
-
 <br>
 <h4>Steg</h4>
 
-<% @steps.each do |s| %>
-    <%= s.id %>
-    <% if s.name? %>
-    <%= link_to s.name, step_path(:category_name => params[:category_name], :step_name => s.name) %><br>
+<div id="steps">
+    <% @steps.each do |s| %>
+        <%= s.id %>
+        <% if s.name? %>
+        <%= link_to s.name, step_path(:category_name => params[:category_name], :step_name => s.name) %><br>
+        <% end %>
     <% end %>
-<% end %>
+</div>
 <br>
 <button id="step_toggle" class="button success radius">Lägg till steg</button>
 <br>
