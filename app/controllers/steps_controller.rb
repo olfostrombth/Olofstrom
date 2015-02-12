@@ -55,7 +55,6 @@ class StepsController < ApplicationController
         format.html { redirect_to step_path(cat.name, @step.name), notice: 'Step was successfully created.' }
        # format.html { redirect_to category_path(category), notice: 'Step was successfully created'}
         format.json { render :show, status: :created, location: @step }
-
       else
         format.html { render :new }
         format.json { render json: @step.errors, status: :unprocessable_entity }
