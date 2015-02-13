@@ -1,6 +1,7 @@
 <%= include_gon %>
 <p id="notice"><%= notice %></p>
-
+<div class="row">
+ <div class="medium-6 large-8 columns">
 <p>
   <strong>Name:</strong>
 
@@ -63,6 +64,6 @@
 </div>
 <br>
 
-
+</div></div>
 <%= link_to 'Edit', edit_caturl_path(@category.name) %> |
 <%= link_to 'Back', categories_path %>
