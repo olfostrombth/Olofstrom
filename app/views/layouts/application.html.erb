@@ -13,16 +13,6 @@
 </head>
 
 <body>
-
-<!--<div class="container">
-    <div class="row full_width">
-      <div class="twelve columns header full_width">
-        <div class="one columns logodiv" style="clear:both"><%= image_tag("oLogo.png") %> </div>
-      </div>
-    </div>
-  </div>-->
-
-
 <div class="nav_header">
           <div class="logo">
             <%= link_to image_tag("oLogo.png"), root_path %>   
@@ -38,15 +28,19 @@
               <a href="#"><li class="li_menu">
                 Logga ut
               </li></a>-->
-              
+              <% if current_user %>
               <a href="#"><li class="right">
-                <button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown"><strong><%= current_user.name %></strong></button><br>
+                <button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown"><%= current_user.name %></button><br>
                   <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
                     <li><a href="#">Profil</a></li><br>
-                    <li><a href="#">Logga ut</a></li>
+                    <li>
+                      
+                      <%= link_to "Logga ut", signout_path, id: "sign_out" %></li>
+
                   </ul>
                
               </li></a>
+              <% end %>
             </ul>
           </div>
         </div>
@@ -60,19 +54,6 @@
 </ul>
   <br><br>-->
    
-<!--<div>
-  <% if current_user %>
-      Signed in as <strong><%= current_user.name %></strong>!
-      <%= link_to "Sign out", signout_path, id: "sign_out" %>
-      <% if current_user.admin? %>
-          <p>Hello you are Admin!!</p>
-          <%= current_user.admin? %>
-      <% end %>
-  <% end %>
-  </div>-->
-<div class="container"> <%= yield %>
-</div>
-
-
+<div id="container"> <%= yield %> </div>
 </body>
 </html>
