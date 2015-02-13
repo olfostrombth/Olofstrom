@@ -2,23 +2,25 @@
 body
 {
 	width: 100%;
-	background-image: asset_path('obg.png')
+	background-image: asset_path('obg.png');
 }
 
 
 .nav_header
 {
 	width: 100%;
-	height: 5em;
+	height: 4em;
 	background-color: #000000;
 	overflow: hidden;
+	border-bottom: 1px solid #d3d3d3;
+	margin-bottom: 6em;
 }
 
 
 .logo
 {
 	position: absolute;
-	top: 0.7em;
+	top: 0.3em;
 	left: 2em;
 	width: 15em;
 	color: white;
@@ -49,7 +51,8 @@ body
 
 .dropdown.button, button.dropdown
 {
-	height: 4em;
+	height: 3.19em;
+	border: 0;
 }
 
 .active_user
@@ -74,18 +77,14 @@ body
 {
 	height: 15em;
 	margin-right: 2em;
-	border-radius: 2em;
+	border-radius: 1em;
 	display: block;
+	-webkit-box-shadow: 0px 1px 5px 0px rgba(50, 50, 50, 0.4);
+-moz-box-shadow:    0px 1px 5px 0px rgba(50, 50, 50, 0.4);
+box-shadow:         0px 1px 5px 0px rgba(50, 50, 50, 0.4);
 }
 
-.mods p
-{
-	color: #fff;
-}
-.mods h4
-{
-	color: #fff;
-}
+
 
 li.logo
 {
@@ -128,6 +127,12 @@ li.headline
 	
 }
 
+button, .button.dropdown
+{
+	background-color: #56adba;
+	border-left: 1px solid #bbc4d3;
+}
+
 .f-dropdown li:hover, .f-dropdown li:focus
 {
 	background: #fff;
@@ -137,3 +142,11 @@ li.headline
 {
 	background-color: #fff;
 }
+
+#container
+{
+	margin-bottom: 10em;
+	padding: 5%;
+}
+
+
