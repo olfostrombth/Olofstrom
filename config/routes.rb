@@ -22,13 +22,13 @@ Rails.application.routes.draw do
   get "/modul/:category_name/edit" => "categories#edit", :as => :edit_caturl
   put "/modul/:category_name" => "categories#update"
   patch "/modul/:category_name" => "categories#update"
-  delete "/modul/:category_name/delete" => "categories#destroy", :as => :delete_category
+  delete "/modul/:category_name" => "categories#destroy", :as => :delete_category
 
   get "/modul/:category_name/:step_name" => "steps#show", :as => :step
   get "/modul/:category_name/:step_name/edit" => "steps#edit", :as => :edit_step
   put "/modul/:category_name/:step_name" => "steps#update"
   patch "/modul/:category_name/:step_name" => "steps#update"
-  delete "/modul/:category_name/:step_name" => "steps#destroy"
+  delete "/modul/:category_name/:step_name" => "steps#destroy", :as => :delete_step
   get "/modul/:category_name/step/new" => "steps#new"
 
   resources :sessions, only: [:create, :destroy]

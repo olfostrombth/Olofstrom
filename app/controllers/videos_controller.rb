@@ -27,10 +27,10 @@ class VideosController < ApplicationController
     @video = Video.new(video_params)
     # cat = Category.find(step_params[:category_id])
     step = Step.find(video_params[:step_id])
-    cat = step.category_id
+    cat = Category.find(step.category_id)
     respond_to do |format|
       if @video.save
-        step_path(cat.name, @step.name)
+        step_path(cat.name, step.name)
         format.html { redirect_to step_path(cat.name, step.name), notice: 'Video was successfully created.' }
         format.json { render :show, status: :created, location: @video }
 

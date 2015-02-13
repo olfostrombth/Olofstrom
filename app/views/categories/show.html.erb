@@ -25,7 +25,10 @@
     <% @steps.each do |s| %>
         <%= s.id %>
         <% if s.name? %>
-        <%= link_to s.name, step_path(:category_name => params[:category_name], :step_name => s.name) %><br>
+        <%= link_to s.name, step_path(:category_name => params[:category_name], :step_name => s.name) %>
+        <%= link_to '<i class="fi-x small"></i>'.html_safe, delete_step_path(:category_name => params[:category_name], :step_name => s.name), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to '<i class="fi-pencil small"></i>'.html_safe, edit_step_path(:category_name => params[:category_name], :step_name => s.name), method: :get %>
+        <br>
         <% end %>
     <% end %>
 </div>
