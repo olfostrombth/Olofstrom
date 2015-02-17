@@ -3,56 +3,39 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title><%= content_for?(:title) ? yield(:title) : "Olofström" %></title>
+  
+  <title><%= @title ? @title: "Olofström  - OIKT" %></title>
 
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "vendor/modernizr" %>
   <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= favicon_link_tag '../favicon.ico' %>
 </head>
 
 <body>
-<div class="nav_header">
-          <div class="logo">
-            <%= link_to image_tag("oLogo.png"), root_path %>   
-          </div>
-          <div class="row">
-            <ul class="right list">
-              <!--<a href="#"><li class="li_menu">
-                Start
-              </li></a>
-              <a href="#"><li class="li_menu">
-                Profil
-              </li></a>
-              <a href="#"><li class="li_menu">
-                Logga ut
-              </li></a>-->
-              <% if current_user %>
-              <a href="#"><li class="right">
-                <button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown"><%= current_user.name %></button><br>
-                  <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
-                    <li><a href="#">Profil</a></li><br>
-                    <li>
-                      
-                      <%= link_to "Logga ut", signout_path, id: "sign_out" %></li>
-
-                  </ul>
-               
-              </li></a>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-
-        <!-- DROPDOWN BUTTON 
-        <button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown">Dropdown Button</button><br>
-<ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
-  <li><a href="#">This is a link</a></li>
-  <li><a href="#">This is another</a></li>
-  <li><a href="#">Yet another</a></li>
-</ul>
-  <br><br>-->
+  <div id="menu-bar">
+  
+  <div class="logo-hej"></div>
+  <% if current_user %><button class="button-tjo" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown"><strong> <%= current_user.name %></strong><i class="fi-arrow-down"></i></button><br>
+  <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
+      <li><a href="#">Profil</a></li><br>
+      <li>
+        <%= link_to "Logga ut", signout_path, id: "sign_out" %>
+      </li>
+  </ul>
+  
+  <div class="searchbox-hej">
+    <ul>
+      <li><input type="text" placeholder="search" class="search-form"></li>
+      <li class="btn-pos"><a href="#" class="btn-yo"><i class="fi-magnifying-glass "></i></a></li>
+    </ul>
+  
+   
+  </div>
+ 
+  <% end %>
+  </div>
    
 <div id="container"> <%= yield %> </div>
 </body>

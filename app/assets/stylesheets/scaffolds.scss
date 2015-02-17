@@ -1,7 +1,11 @@
 body {
 
 
-  background-color: #ffffff;
+  background-image: image-url("obg.png");
+   background-repeat: no-repeat;
+  background-position: bottom; 
+  background-attachment: fixed;
+  overflow: none;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -23,7 +27,7 @@ pre {
 a {
   color: #000;
   &:visited {
-    color: #666;
+    color: #fff;
   }
   &:hover {
     color: #fff;

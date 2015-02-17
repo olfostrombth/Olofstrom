@@ -2,10 +2,100 @@
 body
 {
 	width: 100%;
-	background-image: asset_path('obg.png');
+	background-image: url(../obg.png);
 }
 
 
+html, body
+{
+  height:100%;
+  width:100%;
+  margin: 0;
+  padding: 0;
+}
+
+.logo-hej
+{
+  position: absolute;
+  background-color: #123;
+  background-image: url(http://i.imgur.com/kE7gHBC.png?1);
+  left: 5%;
+  height:100px;
+  width:100px;
+  border-radius:80px;
+  border:2px solid #ddd;
+  background-size:cover;
+  margin:auto;
+  z-index: 2;
+
+}
+
+#menu-bar
+{
+  width: 100%;
+  height: 5em;
+  background-color: #123;
+  border-bottom: 2px solid #ddd;
+}
+
+.searchbox-hej ul
+{
+	margin: -0.5em 5em;
+  float: right;
+}
+
+
+.searchbox-hej li
+{
+	position: relative;
+	margin-right: 1em;
+	display: inline-flex;
+	border: none;
+}
+
+.search-form
+{
+  height: 2.44em;
+  border: none;
+}
+
+
+.btn-yo
+{
+	position: absolute;
+	top: -1.5em;
+  background-color: #123;
+  color: #fff;
+}
+
+.fi-magnifying-glass
+{
+	font-size: 30px;
+}
+
+.fi-arrow-down
+{
+	margin-left: 1em;
+}
+
+.button-tjo
+{
+  height: 100%;
+  border:none;
+  border-left: 1px solid #fff;
+  background-color: #1e7a93;
+  padding: 0 3em;
+  font-size: 14px;
+  color: #fff;
+  float:right;
+}
+
+.button-tjo:hover
+{
+  background-color: #123;
+}
+
+/* ---------------------------------------- */
 .nav_header
 {
 	width: 100%;
@@ -13,7 +103,7 @@ body
 	background-color: #000000;
 	overflow: hidden;
 	border-bottom: 1px solid #d3d3d3;
-	margin-bottom: 6em;
+	margin-bottom: 3em;
 }
 
 
@@ -73,15 +163,18 @@ body
 	overflow: hidden;
 }
 
+
+
 .mods
 {
 	height: 15em;
 	margin-right: 2em;
 	border-radius: 2em;
 	display: block;
-	-webkit-box-shadow: 0px 1px 1px 0px rgba(50, 50, 50, 0.4);
--moz-box-shadow:    0px 1px 2px 0px rgba(50, 50, 50, 0.4);
-box-shadow:         0px 1px 2px 0px rgba(50, 50, 50, 0.4);
+	-webkit-box-shadow: 0px 1px 5px 0px rgba(50, 50, 50, 0.4);
+	-moz-box-shadow:    0px 1px 5px 0px rgba(50, 50, 50, 0.4);
+	box-shadow:         0px 1px 5px 0px rgba(50, 50, 50, 0.4);
+
 }
 
 
