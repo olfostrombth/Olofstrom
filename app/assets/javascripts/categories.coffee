@@ -3,11 +3,15 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  $('#step_toggle').click ->
+  $(document).on "click", "#step_toggle", ->
     $('.step_form').toggle('show');
 
 $ ->
-  $('#comment_toggle').click ->
+  $(document).on "click", "#examination_toggle", ->
+    $('.examination_form').toggle('show');
+
+$ ->
+  $(document).on "click", "#comment_toggle", ->
     $('.comment_form').toggle('show');
     $('html, body').animate({scrollTop:$(document).height()}, 'slow');
 

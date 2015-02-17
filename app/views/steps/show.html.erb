@@ -36,6 +36,7 @@
   <%= render '/quizzes/form' %>
 </div>
 <br>
+<div id="videos">
 <% @videos.each do |v| %>
     <% if v.name? %>
         <div class="video_wrapper">
@@ -51,6 +52,7 @@
             </div>
         </div>
 <% end %>
+</div>
 <br>
 <% @guides.each do |g| %>
     <% if g.desc? %>
