@@ -5,25 +5,24 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
-
 $ ->
-  $('#video_toggle').click ->
+  $(document).on "click", "#video_toggle", ->
     $('.video_form').toggle('show')
 
 $ ->
-  $('#quiz_toggle').click ->
+  $(document).on "click", "#quiz_toggle", ->
     $('.quiz_form').toggle('show')
 
 $ ->
-  $('#guide_toggle').click ->
+  $(document).on "click", "#guide_toggle", ->
     $('.guide_form').toggle('show')
 
 $ ->
-  $('#assignment_toggle').click ->
+  $(document).on "click", "#assignment_toggle", ->
     $('.assignment_form').toggle('show')
 
 $ ->
-  $('#show_video').click ->
+  $(document).on "click", "#show_video", ->
     $('.video_url').toggle('show')
 
 
@@ -131,5 +130,6 @@ $ ->
     $(this).parent().parent().submit()
     step = $(this).parent().parent().find('#step_name').val()
     $('#steps').append '<a href="/modul/'+gon.catname+'/'+normalize(step)+'">'+step+'</a>'
+    $(this).parent().parent().hide()
 
 
