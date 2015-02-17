@@ -36,32 +36,17 @@
   <%= render '/quizzes/form' %>
 </div>
 <br>
-<div id="videos">
-<% @videos.each do |v| %>
-    <% if v.name? %>
-        <div class="video_wrapper">
-            <div class="video_name">
-                Namn: <%= v.name %><br>
-            </div>
-          <button id="show_video">Visa mer</button>
-            <% end  %>
-            <div class="video_url">
-                <% if v.url? %>
-                  <%= raw(youtube_embed(v.url)) %><br>
-                <% end %>
-            </div>
-        </div>
-<% end %>
-</div>
-<br>
-<% @guides.each do |g| %>
-    <% if g.desc? %>
-        <%= g.name %><br>
-        <%= g.desc.html_safe %>
+
+<% @step_items.each do |item| %>
+    <%= item.name %>
+    <% if item.exists? %>
+        <% if item['desc'].exists? %>
+            <%= item.desc %>
+        <% end %>
     <% end %>
 <% end %>
 
-<%= render 'quiz' %>
+
 
 <br>
 <%= link_to 'Edit', edit_step_path(@catname,@step.name) %> |

@@ -11,18 +11,32 @@ class StepsController < ApplicationController
   def show
     @catname = params[:category_name]
     @step = Step.where(name:Category.normalize_cat(params[:step_name]))
+    @step_items = []
     @step.each do |x|
       @step = x
       @videos = @step.videos
+      @videos.each do |videos|
+        @step_items.push(videos)
+      end
       @video = @videos.new
       @quizzes = @step.quizzes
+      @quizzes.each do |quizzes|
+        @step_items.push(quizzes)
+      end
       @guides = @step.guides
+      @guides.each do |guides|
+        @step_items.push(guides)
+      end
       @guide = @guides.new
       @assignments = @step.assignments
+      @assignments.each do |assignments|
+        @step_items.push(assignments)
+      end
       @assignment = @assignments.new
       @quizzes.each do |q|
         @quiz_id = q.id
         @questions = q.questions
+        @step_items.push(q)
       end
       @quiz = @quizzes.new
     end
