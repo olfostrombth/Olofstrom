@@ -38,12 +38,14 @@
 <br>
 
 <% @step_items.each do |item| %>
-    <%= item.name %>
-    <% if item.exists? %>
-        <% if item['desc'].exists? %>
+   <%= item['name'] %>
+        <% if item['desc'] %>
             <%= item.desc %>
         <% end %>
-    <% end %>
+
+         <% if item['url'] %>
+             <%= item.url %>
+         <% end %>
 <% end %>
 
 
