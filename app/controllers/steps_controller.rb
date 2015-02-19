@@ -1,42 +1,83 @@
 class StepsController < ApplicationController
-  before_action :set_step, only: [:show, :edit, :update, :destroy]
+  before_action :set_step, only: [:show, :edit, :update, :destroy, :substep_params]
 
   # GET /steps
   # GET /steps.json
   def index
     @steps = Step.all
+    puts "hej"
+  end
+
+  def update_row_order
+    @substepx = Substep.find(substep_params[:substep_id])
+    if @substepx.update({row_order_position:substep_params[:row_order_position]})
+      render nothing: true
+    end
   end
 
   #GET /:modulename/:stepname
   def show
+    puts "ASDASDASDASD"
+    gon.stepname = Category.normalize_cat(params[:step_name])
     @catname = params[:category_name]
-    @step = Step.where(name:Category.normalize_cat(params[:step_name]))
     @step_items = []
-    @step.each do |x|
-      @step = x
-      @videos = @step.videos
+    @step = Step.where(name:Category.normalize_cat(params[:step_name]))
+        @step.each do |x|
+          @step = x
+        end
+    @substep = Substep.rank(:row_order).where(step_id: @step.id)
+    puts "HHHHHHHHEEELLOOOO"
+    puts "SUBSTEP: " + @substep.to_s
+    @substep.each do |x|
+      if x.typex == "video"
+        video = Video.find(x.sid)
+        videox = video.attributes
+        videox['uid'] = x.id
+        @step_items.push(videox)
+      elsif x.typex == "guide"
+        guide = Guide.find(x.sid)
+        guidex = guide.attributes
+        guidex['uid'] = x.id
+        @step_items.push(guidex)
+      elsif x.typex == "assignment"
+        assignment = Assignment.find(x.sid)
+        assignmentx = assignment.attributes
+        assignmentx['uid'] = x.id
+        @step_items.push(assignmentx)
+      elsif x.typex == "quiz"
+        quix = Quiz.find(x.sid)
+        quizx = quix.attributes
+        quizx['uid'] = x.id
+        @step_items.push(quizx)
+      end
+    end
+    @stepx = Step.where(name:Category.normalize_cat(params[:step_name]))
+    #@step_items = []
+    @stepx.each do |x|
+      @steps = x
+      @videos = @steps.videos
       @videos.each do |videos|
-        @step_items.push(videos)
+        #@step_items.push(videos)
       end
       @video = @videos.new
-      @quizzes = @step.quizzes
+      @quizzes = @steps.quizzes
       @quizzes.each do |quizzes|
-        @step_items.push(quizzes)
+        #@step_items.push(quizzes)
       end
-      @guides = @step.guides
+      @guides = @steps.guides
       @guides.each do |guides|
-        @step_items.push(guides)
+        #@step_items.push(guides)
       end
       @guide = @guides.new
-      @assignments = @step.assignments
+      @assignments = @steps.assignments
       @assignments.each do |assignments|
-        @step_items.push(assignments)
+        #@step_items.push(assignments)
       end
       @assignment = @assignments.new
       @quizzes.each do |q|
         @quiz_id = q.id
         @questions = q.questions
-        @step_items.push(q)
+        #@step_items.push(q)
       end
       @quiz = @quizzes.new
     end
@@ -111,9 +152,15 @@ class StepsController < ApplicationController
       end
     end
 
+
+    def substep_params
+      params.require(:substep).permit(:substep_id, :row_order_position, :name)
+    end
+
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def step_params
-      params.require(:step).permit(:name, :desc, :category_id)
+      params.require(:step).permit(:name, :desc, :category_id, :type)
     end
 
 end

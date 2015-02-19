@@ -28,10 +28,23 @@ class AssignmentsController < ApplicationController
   # POST /assignments
   # POST /assignments.json
   def create
-    @assignment = Assignment.new(assignment_params)
+    @assignment = Assignment.new({name: assignment_params[:name], step_id: assignment_params[:step_id], desc: assignment_params[:desc]})
+    @assignment.save
+
+    @stepx = Step.find(assignment_params[:step_id])
+    @assignmentx = Assignment.where(name:assignment_params[:name])
+    @assignmentx.each do |x|
+      @assignmentx = x
+    end
+    @substep = Substep.new({
+      typex: assignment_params[:typex],
+      sid: @assignmentx.id,
+      Step_id: @stepx.id
+      })
+
 
     respond_to do |format|
-      if @assignment.save
+      if @substep.save
         format.html { redirect_to @assignment, notice: 'Assignment was successfully created.' }
         format.json { render :show, status: :created, location: @assignment }
       else
@@ -73,6 +86,6 @@ class AssignmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def assignment_params
-      params.require(:assignment).permit(:name, :desc, :step_id)
+      params.require(:assignment).permit(:name, :desc, :step_id, :typex)
     end
 end

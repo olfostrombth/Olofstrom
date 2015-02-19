@@ -22,7 +22,7 @@
 </div>
 <br>
 <button id="guide_toggle" class="button success radius">Lägg till guide</button>
-<div class="guide_form">
+<div class="guide_form">1
   <%= render '/guides/form' %>
 </div>
 <br>
@@ -36,17 +36,42 @@
   <%= render '/quizzes/form' %>
 </div>
 <br>
-
+<table class="table table-bordered table-striped" id="sortable">
+  <thead>
+    <tr>
+      <th>
+        Title
+      </th>
+      <th>
+        Description
+      </th>
+      <th>
+        Url
+      </th>
+    </tr>
+  </thead>
+  <tbody>
 <% @step_items.each do |item| %>
-   <%= item['name'] %>
+<% if item['uid'] %>
+<tr data-item-id=<%= "#{item['uid']}" %> class="item">
+       <td>
+         <%= item['name'] %>
+       </td>
+       <td>
         <% if item['desc'] %>
-            <%= item.desc %>
+            <%= item['desc'] %>
         <% end %>
-
+      </td>
+        <td>
          <% if item['url'] %>
-             <%= item.url %>
+             <%= item['url'] %>
          <% end %>
+       </td>
 <% end %>
+
+<% end %>
+  </tbody>
+</table>
 
 
 

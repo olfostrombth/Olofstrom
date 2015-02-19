@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   patch 'sessions/show/:id' => 'sessions#update'
   put 'sessions/show/:id' => 'sessions#update'
   get 'sessions/show/:id/del' => 'sessions#delUser', :as => :user_del
-
+  post 'steps/update_row_order' => 'steps#update_row_order', :as => :update_row_order_substeps
   post 'sessions/importUsers' => 'sessions#importUsers', :as => :import_users
 
   root 'categories#index'
