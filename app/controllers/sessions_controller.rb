@@ -75,6 +75,10 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to root_path
   end
+  #Search
+    def search
+      @user = User.search(params[:search])
+    end
 
   private
     def set_user
@@ -84,4 +88,5 @@ class SessionsController < ApplicationController
     def session_params
       params.require(:user).permit(:admin)
     end
+    
 end

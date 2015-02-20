@@ -17,26 +17,25 @@
 <body>
   <div id="menu-bar">
 
-  <div class="logo-hej"></div>
-  <% if current_user %><button class="button-tjo" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown"><strong> <%= current_user.name %></strong><i class="fi-arrow-down"></i></button><br>
-  <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
-      <li><a href="#">Profil</a></li><br>
-      <li>
-        <%= link_to "Logga ut", signout_path, id: "sign_out" %>
-      </li>
-  </ul>
+    <%= link_to '<div class="logotype"></div>'.html_safe, root_path %>
+    <% if current_user %>
+      <button class="button-profile" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown">
+          <strong> <%= current_user.name %></strong>
+          <i class="fi-arrow-down"></i>
+      </button><br>
+      <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
+        <li>
+          <a href="#">Profil</a>
+        </li><br>
 
-  <div class="searchbox-hej">
-    <ul>
-      <li><input type="text" placeholder="search" class="search-form"></li>
-      <li class="btn-pos"><a href="#" class="btn-yo"><i class="fi-magnifying-glass "></i></a></li>
-    </ul>
+        <li>
+          <%= link_to "Logga ut", signout_path, id: "sign_out" %>
+        </li>
+      </ul>
+  
+    
+    <% end %>
 
-
-  </div>
-
-  <% end %>
-  </div>
 
 <div id="container"> <%= yield %> </div>
 </body>

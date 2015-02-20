@@ -17,5 +17,4 @@ class ApplicationController < ActionController::Base
   def shuffle_hash!
     self.replace(self.shuffle)
   end
-
 end
