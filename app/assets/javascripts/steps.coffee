@@ -5,6 +5,7 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
+
 $ ->
   $(document).on "click", "#video_toggle", ->
     $('.video_form').toggle('show')
@@ -23,8 +24,32 @@ $ ->
 
 $ ->
   $(document).on "click", "#show_video", ->
-    $('.video_url').toggle('show')
+    video = $(this).parent().find('#video_url')
+    video.toggle('show')
 
+$ ->
+  $(document).on "click", "#show_desc", ->
+    desc = $(this).parent().find('#desc')
+    desc.toggle('show')
+
+$ ->
+  $(document).on "click", "#show_questions", ->
+    questions = $(this).parent().find('#quiz_questions')
+    questions.toggle('show')
+
+$ ->
+  $(document).on "click", "#drop_down_menu", ->
+    select = $(this).children()
+    $(select).on 'change', ->
+      #form = $(this).parent().siblings().find('#forms')
+      $('.guide_form').hide()
+      $('.assignment_form').hide()
+      $('.video_form').hide()
+      $('.quiz_form').hide()
+      $("#"+select.val()).toggle('show ')
+      $(this).unbind("change")
+    $(this).unbind("click")
+    $(this).unbind("change")
 
 $ ->
   #When submit_quiz div is clicked, do the following
@@ -84,10 +109,10 @@ $ ->
           $(this).find(o).css('background', 'red')
           console.log "This quiz is wrong.. This is bad!"
 
-      #If it hasn't, check if all boxes are filled, if they are, the quiz is correctly answered
+        #If it hasn't, check if all boxes are filled, if they are, the quiz is correctly answered
       else if !wrong.present() && window.checked == window.qn + 1
         console.log "This quiz is correctly answered yes guys!!!!"
-      #Else, not all boxes are checked
+        #Else, not all boxes are checked
       else
         console.log "Not all boxes in this quiz checked!"
 
@@ -114,7 +139,7 @@ shuffle = ->
         #console.log i
         #console.log r
         if $(i).attr('id')?
-          console.log i
+          #console.log i
 
           i.appendChild random[Math.random() * r | 0]
   return
@@ -131,5 +156,33 @@ $ ->
     step = $(this).parent().parent().find('#step_name').val()
     $('#steps').append '<a href="/modul/'+gon.catname+'/'+normalize(step)+'">'+step+'</a>'
     $(this).parent().parent().hide()
+
+getStepItems = (item) ->
+  fvalue = $(item).attr("step_item")
+  return fvalue
+
+$ ->
+  $(document).on "click", "#video_form", ->
+    sid = getStepItems(this)
+    step_item = $("#step_item_"+sid)
+    form = $(this).children()
+    form.submit()
+    video_name = form.find('#video_name').val()
+    video_url = form.find('#video_url').val()
+    step = $(this).parent().parent()
+    step.append '</div><div class="step_items" id="'+step_item+'"><h3>'+video_name+'</h3>'+video_url+''
+    #form.submit()
+    #console.log $(this).parent().parent().parent()
+    #sid = getStepItems(this)
+    #console.log sid
+    #step_item = $("#step_item_"+sid)
+    #console.log step_item
+    #$(this).parent().parent().submit()
+    #console.log $(this).parent().parent().find('#video_name').val()
+    #console.log $(this).parent().parent().find('#video_url').val()
+    #step_item.append video_name
+    #step_item.append video_url
+
+
 
 
