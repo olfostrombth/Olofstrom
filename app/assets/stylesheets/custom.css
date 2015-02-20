@@ -2,7 +2,8 @@
 body
 {
 	width: 100%;
-	background-image: url(../obg.png);
+	background-color: #fff;
+	/*background-image: url(../obg.png);*/
 }
 
 
@@ -14,7 +15,12 @@ html, body
   padding: 0;
 }
 
-.logo-hej
+
+/* ---------------------Navigation bar -----------------*/
+
+/*Logo*/
+
+.logotype
 {
   position: absolute;
   background-color: #123;
@@ -30,6 +36,7 @@ html, body
  
 }
 
+/*Navigationbar*/
 #menu-bar
 {
   width: 100%;
@@ -38,32 +45,35 @@ html, body
   border-bottom: 2px solid #ddd;
 }
 
-.searchbox-hej ul
+/*Search box*/
+
+.search-box
 {
-	margin: -0.5em 5em;
-  float: right;
+	height: auto;
+	float: right;
+}
+.search-box ul
+{
+ height: 100%;
+ margin-right: 2em;
+ margin-top: -0.6em;
 }
 
-
-.searchbox-hej li
+.search-box li
 {
-	position: relative;
-	margin-right: 1em;
+	height: 100%;
 	display: inline-flex;
-	border: none;
 }
 
 .search-form
 {
-  height: 2.44em;
+  height: 100%;
   border: none;
 }
 
 
-.btn-yo
+.btn-search
 {
-	position: absolute;
-	top: -1.5em;
   background-color: #123;
   color: #fff;
 }
@@ -73,12 +83,13 @@ html, body
 	font-size: 30px;
 }
 
+/*Name button*/
 .fi-arrow-down
 {
 	margin-left: 1em;
 }
 
-.button-tjo
+.button-profile
 {
   height: 100%;
   border:none;
@@ -90,53 +101,15 @@ html, body
   float:right;
 }
 
-.button-tjo:hover
+.button-profile:hover
 {
   background-color: #123;
 }
 
-/* ---------------------------------------- */
-.nav_header
+.button-profile:focus
 {
-	width: 100%;
-	height: 4em;
-	background-color: #000000;
-	overflow: hidden;
-	border-bottom: 1px solid #d3d3d3;
-	margin-bottom: 3em;
-}
+	  background-color: #1e7a93;
 
-
-.logo
-{
-	position: absolute;
-	top: 0.3em;
-	left: 2em;
-	width: 15em;
-	color: white;
-}
-
-
-.list
-{
-	position: absolute;
-	right: -10vw;
-	margin-right: 10vw;
-}
-
-.list li
-{
-	display: inline-block;
-	color: white;
-	height: 5em;
-	text-align: center;
-	
-	text-decoration: none;
-}
-
-.li_menu
-{
-	width: 5em;
 }
 
 .dropdown.button, button.dropdown
@@ -152,19 +125,17 @@ html, body
 	height: 5em;
 }
 
-
-.mod
+#drop1 a:hover
 {
-	width: 100%;
-	height: 14em;
-	padding: 1em;
-	margin: 2vh;
-	border-radius: 1em;
-	overflow: hidden;
+	color: #29a9cb;
 }
+/* ------------------- Navigation bar ENDS--------------------- */
 
 
 
+/* ------------------- Modules --------------------- */
+
+/*Modules*/
 .mods
 {
 	height: 15em;
@@ -176,8 +147,6 @@ html, body
 	box-shadow:         0px 1px 5px 0px rgba(50, 50, 50, 0.4);
 }
 
-
-
 li.logo
 {
 	position: absolute;
@@ -188,6 +157,7 @@ li.logo
 	list-style-type: none;
 }
 
+/* Module headline */
 li.headline
 {
 	float: left;
@@ -195,21 +165,29 @@ li.headline
 	list-style-type: none;
 }
 
-
-
-
 .headline h4
 {
 	color: #fff;
 
 }
 
+/*Module body text*/
 .text p
 {
 	color: #fff;
 }
 
+.mod-headline h2
+{
+	color: #fff;
+}
 
+/* ------------------- Modules ENDS--------------------- */
+
+
+/* -------------------  FEED --------------------- */
+
+/* Feed box */
 .feed
 {
 	width: 100%;
@@ -218,6 +196,9 @@ li.headline
 	max-height: 70vh;
 	
 }
+
+/* ------------------- FEED ENDS--------------------- */
+
 
 button, .button.dropdown
 {
@@ -241,4 +222,20 @@ button, .button.dropdown
 	padding: 5%;
 }
 
+/* ------------------- Login placement --------------------- */
+
+.login-pos
+{
+	margin-top: 1%;
+	display: flex;
+  flex-direction: row;
+  justify-content:center;
+}
+.login-pos h2
+{
+	font-size: 8vw;
+	color: #fff;
+}
+
+/* ------------------- Login placement ENDS--------------------- */
 

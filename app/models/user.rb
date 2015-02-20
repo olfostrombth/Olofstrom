@@ -1,6 +1,6 @@
 require 'csv'
+
 class User < ActiveRecord::Base
-  #Add user to db
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
       user.provider = auth.provider
@@ -35,5 +35,7 @@ class User < ActiveRecord::Base
     else raise "Unknown file type: #{file.original_filename}"
     end
   end
-
+  def self.search(search)
+      find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+  end
 end
