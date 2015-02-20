@@ -4,6 +4,8 @@ class SessionsController < ApplicationController
   #Create Session and set User in DB
   def show
     @user = User.find(params[:id])
+
+    gon.completion = @user.completion
   end
 
   def delUser
@@ -33,6 +35,8 @@ class SessionsController < ApplicationController
       if current_user.admin?
         #do stuff
         @sessions = User.paginate(page: params[:page])
+
+        gon.completion = @current_user.completion
       else
         redirect_to root_path
       end
@@ -54,13 +58,12 @@ class SessionsController < ApplicationController
     #else
       user = User.from_omniauth(env["omniauth.auth"])
       session[:user_id] = user.id
-
       token = request.cookies["gtoken"]
       @postBody = CGI.escape(request.body.read)
       redirect_to root_path
     #end
   end
-  #Login view
+  #Login viewssions/show/1
   def login
     #gitkit_client = GitkitLib::GitkitClient.create_from_config_file url('assets/gitkit-server-config.json')
     token = request.cookies["gtoken"]

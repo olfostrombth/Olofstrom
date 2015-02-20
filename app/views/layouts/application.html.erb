@@ -3,11 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+
   <title><%= @title ? @title: "Olofström  - OIKT" %></title>
 
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "vendor/modernizr" %>
+  <%= Gon::Base.render_data({}) %>
   <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag '../favicon.ico' %>
@@ -15,6 +16,7 @@
 
 <body>
   <div id="menu-bar">
+
     <%= link_to '<div class="logotype"></div>'.html_safe, root_path %>
     <% if current_user %>
       <button class="button-profile" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown">
@@ -31,21 +33,9 @@
         </li>
       </ul>
   
-    <div class="search-box">
-      <ul>
-        <li><%= form_tag admin_path, :method => 'get' do %>
-          <p>
-            <%= text_field_tag :search, params[:search] %></li>
-           <li> <%= submit_tag "Search", :name => nil %>
-          </p></li>
-        <% end %>
-       <!-- <li><input type="text" placeholder="search" name="query" id="query" class="search-form"></li>
-        <li><input type="submit" class="button" value="SÖK"/></li>-->
-      
-    </div>
+    
     <% end %>
-  </div>
-   
+
 <div id="container"> <%= yield %> </div>
 </body>
 </html>

@@ -16,13 +16,14 @@
   <%= @step.category %>
 </p>
 
+
 <button id="video_toggle" class="button success radius">Lägg till video</button>
 <div class="video_form">
   <%= render '/videos/form' %>
 </div>
 <br>
 <button id="guide_toggle" class="button success radius">Lägg till guide</button>
-<div class="guide_form">
+<div class="guide_form">1
   <%= render '/guides/form' %>
 </div>
 <br>
@@ -36,32 +37,58 @@
   <%= render '/quizzes/form' %>
 </div>
 <br>
-<div id="videos">
-<% @videos.each do |v| %>
-    <% if v.name? %>
-        <div class="video_wrapper">
-            <div class="video_name">
-                Namn: <%= v.name %><br>
-            </div>
-          <button id="show_video">Visa mer</button>
-            <% end  %>
-            <div class="video_url">
-                <% if v.url? %>
-                  <%= raw(youtube_embed(v.url)) %><br>
-                <% end %>
-            </div>
-        </div>
-<% end %>
-</div>
-<br>
-<% @guides.each do |g| %>
-    <% if g.desc? %>
-        <%= g.name %><br>
-        <%= g.desc.html_safe %>
-    <% end %>
-<% end %>
 
-<%= render 'quiz' %>
+<% if current_user.admin? %>
+    <div class="table" id="sortable"> <!-- #sortable makes .table sortable with jquery-ui if you're admin -->
+<% else %>
+    <div class="table">
+<% end %>
+  <% @step_items.each do |item| %>
+      <% if item['uid'] %>
+          <div class="item" data-item-id=<%= "#{item['uid']}" %> >
+            <div class="td">
+              <h4><%= item['name'] %></h4>
+            </div>
+            <% if current_user.admin? %> <!-- this makes you able to show only name for step item if your admin, easier for drag and drop -->
+              <% if item['desc'] %>
+                <div class="td">
+                  <button id="show_desc" class="small">Visa mer</button>
+                  <div id="desc" class="hidden">
+                    <%= item['desc'].html_safe %>
+                  </div>
+                </div>
+              <% end %>
+            <% else %>
+                <% if item['desc']%>
+                    <div class="td">
+                      <div id="desc">
+                        <%= item['desc'].html_safe %>
+                      </div>
+                    </div>
+                <% end %>
+            <% end %>
+            <% if current_user.admin? %>
+              <% if item['url'] %>
+                <div class="td">
+                    <button id="show_video" class="small">Visa mer</button>
+                    <div id="video_url" class="hidden">
+                      <%= raw(youtube_embed(item['url'])) %><br>
+                    </div>
+                </div>
+              <% end %>
+            <% else %>
+                <% if item['url'] %>
+                    <div class="td">
+                      <div id="video_url">
+                        <%= raw(youtube_embed(item['url'])) %><br>
+                      </div>
+                    </div>
+                <% end %>
+            <% end %>
+          </div>
+      <% end %>
+  <% end %>
+</div>
 
 <br>
 <%= link_to 'Edit', edit_step_path(@catname,@step.name) %> |

@@ -27,10 +27,25 @@ class QuizzesController < ApplicationController
   # POST /quizzes
   # POST /quizzes.json
   def create
-    @quiz = Quiz.new(quiz_params)
+    @quiz = Quiz.new({name: quiz_params[:name], step_id: quiz_params[:step_id]})
+    @quiz.save
+
+    #Fins step
+    @stepx = Step.find(quiz_params[:step_id])
+    #Find quiz
+    @quizx = Quiz.where(name:quiz_params[:name])
+    @quizx.each do |x|
+      @quizx = x
+    end
+    #new substep
+    @substepx = Substep.new({
+      typex: quiz_params[:typex],
+      sid: @quizx.id,
+      Step_id: @stepx.id
+      })
 
     respond_to do |format|
-      if @quiz.save
+      if @substepx.save
         format.html { redirect_to @quiz, notice: 'Quiz was successfully created.' }
         format.json { render :show, status: :created, location: @quiz }
       else
@@ -72,6 +87,6 @@ class QuizzesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def quiz_params
-      params.require(:quiz).permit(:name, :step_id)
+      params.require(:quiz).permit(:name, :step_id, :typex)
     end
 end

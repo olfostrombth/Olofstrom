@@ -13,3 +13,22 @@ submit = (thiss, e) ->
 $ ->
   $(document).on "click", ".edit_user", (e) ->
     submit(this, e)
+
+  $(document).on "click", "#appendToArray", (e) ->
+    completion = $.parseJSON(gon.completion)
+    completion.Modul3 ={
+        "Step431": {
+          "Video_81": true,
+          "Quiz_83": true
+        },
+        "Step34": {
+          "Video_821": true,
+          "Quiz_823": true
+        },
+        "Examination": {
+          "Completed": true,
+          "Rattad": true
+        }
+      }
+
+    console.log(completion)

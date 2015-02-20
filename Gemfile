@@ -5,12 +5,14 @@ gem 'identity-toolkit-ruby-client'
 gem 'rails', '4.2.0'
 gem 'roo'
 gem 'will_paginate'
+gem 'ranked-model'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 gem 'foundation-icons-sass-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Foundation CSS
+gem 'jquery-ui-rails'
 gem 'foundation-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
