@@ -1,0 +1,10 @@
+<%= form_tag sessions_path, :method => 'get', :id => "user_search", :remote => true do %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :name => nil %>
+    </p>
+    <div id="test"></div>
+    <div id="users">
+      <%= render 'users' %>
+    </div>
+<% end %>
