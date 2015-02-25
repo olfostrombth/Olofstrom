@@ -1,8 +1,27 @@
 class SessionsController < ApplicationController
   require 'gitkit_client'
   require 'cgi'
+
+
   #Create Session and set User in DB
+  def index
+    @sessions = User.paginate(page: params[:page])
+  end
+  def search 
+    if params[:query].present?
+      @usersearch = User.search(params[:query],
+                                     fields: [:name],
+                                     page: params[:page])
+    else
+      @usersearch = User.all.page params[:page]
+    end
+  end
+  def autocomplete
+    render json: User.search(params[:query], autocomplete: false, limit: 10).map(&:name)
+
+  end
   def show
+    @usersearch = User.find(params[:id])
     @user = User.find(params[:id])
 
     gon.completion = @user.completion
@@ -31,6 +50,8 @@ class SessionsController < ApplicationController
   end
   #Admin page
   def admin
+    @user = User.new
+
     if current_user
       if current_user.admin?
         #do stuff
@@ -75,10 +96,6 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to root_path
   end
-  #Search
-    def search
-      @user = User.search(params[:search])
-    end
 
   private
     def set_user
