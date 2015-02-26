@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
+//= require autocomplete-rails
 
 //= require jquery-ui/sortable
 //= require jquery-ui/effect-highlight
@@ -20,7 +22,6 @@
 //= require turbolinks
 //= require ckeditor/init
 //= require_tree .
-
 
 $(function(){ $(document).foundation(); });
 

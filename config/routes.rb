@@ -31,7 +31,8 @@ Rails.application.routes.draw do
   delete "/modul/:category_name/:step_name" => "steps#destroy", :as => :delete_step
   get "/modul/:category_name/step/new" => "steps#new"
 
-  resources :sessions, only: [:create, :destroy]
+  resources :sessions
+  #, only: [:create, :destroy]
 
   resources :quizzes
 

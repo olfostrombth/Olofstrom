@@ -11,6 +11,12 @@ submit = (thiss, e) ->
       e.off('click')
 
 $ ->
+  $('#user_search').typeahead
+    name: "name"
+    remote: "/autocomplete?query=%QUERY"
+
+
+$ ->
   $(document).on "click", ".edit_user", (e) ->
     submit(this, e)
 

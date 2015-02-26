@@ -1,6 +1,9 @@
 require 'csv'
 
 class User < ActiveRecord::Base
+  searchkick autocomplete: ['name'],
+             suggest: ['name']
+             
   def self.from_omniauth(auth)
     array = {
       "Testmodul1" => {
@@ -36,6 +39,7 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
+
 
   def self.import(file)
     array = {
@@ -81,13 +85,4 @@ class User < ActiveRecord::Base
     else raise "Unknown file type: #{file.original_filename}"
     end
   end
-
-  def self.search(search)
-    if search
-      where('name LIKE ?', "%#{search}%")
-    else
-      scoped
-    end
-  end
-
 end

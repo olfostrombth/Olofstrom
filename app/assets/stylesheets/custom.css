@@ -254,3 +254,23 @@ button, .button.dropdown
 /* ------------------- Login placement ENDS--------------------- */
 
 
+.tt-dropdown-menu
+{
+	position: absolute;
+	top: 0;
+	background-color: #fff;
+	border: 1px solid #000;
+	padding: 5px;
+	height: auto;
+}
+
+.input-group-btn input
+{
+	background-color: #1e7a93;
+	border: 1px solid #000;
+	padding: 1em 2em;
+	font-size: 14px;
+  color: #fff;
+	cursor: pointer;
+}
+
