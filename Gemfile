@@ -23,6 +23,9 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'better_errors'
 gem 'gon'
 
+#Searchkick gem
+gem 'searchkick'
+gem 'rails4-autocomplete'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -67,3 +70,6 @@ gem "paperclip"
 
 # Image upload to CKEditor
 gem 'responders', '~> 2.0'
+
+# Autocompletion Search function
+gem 'rails4-autocomplete'
