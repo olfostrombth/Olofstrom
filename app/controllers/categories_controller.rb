@@ -4,6 +4,7 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
+    @activities = PublicActivity::Activity.order("created_at desc")
     if current_user
       @categories = Category.all
       @colors = ["#56adba", "#7ab292", "#fba61f", "#ec529a"]
@@ -54,10 +55,9 @@ class CategoriesController < ApplicationController
   # POST /categories.json
   def create
     @category = Category.new({name:Category.normalize_cat(category_params[:name]), desc:category_params[:desc]})
-
-
     respond_to do |format|
       if @category.save
+        @category.create_activity :create, owner: current_user
         format.html { redirect_to category_path(@category.name), notice: 'Category was successfully created.' }
         format.json { render :show, status: :created, location: @category }
       else
