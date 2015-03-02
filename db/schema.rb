@@ -127,6 +127,17 @@ ActiveRecord::Schema.define(version: 20150226212835) do
 
   add_index "steps", ["category_id"], name: "index_steps_on_category_id"
 
+  create_table "substeps", force: :cascade do |t|
+    t.string   "typex"
+    t.integer  "sid"
+    t.integer  "row_order"
+    t.integer  "Step_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "substeps", ["Step_id"], name: "index_substeps_on_Step_id"
+
   create_table "users", force: :cascade do |t|
     t.string   "provider"
     t.string   "name"

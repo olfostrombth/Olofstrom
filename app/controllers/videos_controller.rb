@@ -24,13 +24,24 @@ class VideosController < ApplicationController
   # POST /videos
   # POST /videos.json
   def create
-    @video = Video.new(video_params)
+    @video = Video.new({name: video_params[:name], step_id: video_params[:step_id], url: video_params[:url]})
+    @video.save
     # cat = Category.find(step_params[:category_id])
     step = Step.find(video_params[:step_id])
     cat = Category.find(step.category_id)
+    @videox = Video.where(name:video_params[:name])
+    @videox.each do |x|
+      @videox = x
+    end
+    @substep = Substep.new({
+      typex: video_params[:typex],
+      sid: @videox.id,
+      Step_id: step.id
+      })
+
     respond_to do |format|
-      if @video.save
-        step_path(cat.name, step.name)
+      if @substep.save
+        @substep.update({row_order_position:video_params[:row_order_position]})
         format.html { redirect_to step_path(cat.name, step.name), notice: 'Video was successfully created.' }
         format.json { render :show, status: :created, location: @video }
 
@@ -74,6 +85,6 @@ class VideosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
-      params.require(:video).permit(:name, :url, :step_id)
+      params.require(:video).permit(:name, :url, :step_id, :typex, :row_order_position)
     end
 end

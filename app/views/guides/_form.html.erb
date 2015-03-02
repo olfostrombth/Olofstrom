@@ -1,28 +1,36 @@
-<%= form_for(@guide) do |f| %>
-  <% if @guide.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@guide.errors.count, "error") %> prohibited this guide from being saved:</h2>
+<%= form_for @guide, :html => {:id => "new_guide_"+position.to_s} do |f| %>
+    <% if @guide.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@guide.errors.count, "error") %> prohibited this guide from being saved:</h2>
 
-      <ul>
-      <% @guide.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @guide.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :desc %><br>
-    <%= f.cktext_area :desc %>
-  </div>
-  <div class="field">
-    <%= f.hidden_field :step_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="field">
+      <%= f.label :desc %><br>
+      <%= f.cktext_area :desc, :id => "ckeditor"+position.to_s %>
+    </div>
+    <div class="field">
+      <%= f.hidden_field :typex, value: "guide" %>
+    </div>
+    <div class="field">
+      <%= f.hidden_field :step_id %>
+    </div>
+    <div class="field">
+      <%= f.hidden_field :row_order_position, value: position %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>
+
+

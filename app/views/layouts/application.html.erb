@@ -3,40 +3,39 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+
   <title><%= @title ? @title: "Olofström  - OIKT" %></title>
 
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "vendor/modernizr" %>
+  <%= Gon::Base.render_data({}) %>
   <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.9.3/typeahead.min.js", 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag '../favicon.ico' %>
 </head>
 
 <body>
   <div id="menu-bar">
-  
-  <div class="logo-hej"></div>
-  <% if current_user %><button class="button-tjo" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown"><strong> <%= current_user.name %></strong><i class="fi-arrow-down"></i></button><br>
-  <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
-      <li><a href="#">Profil</a></li><br>
-      <li>
-        <%= link_to "Logga ut", signout_path, id: "sign_out" %>
-      </li>
-  </ul>
-  
-  <div class="searchbox-hej">
-    <ul>
-      <li><input type="text" placeholder="search" class="search-form"></li>
-      <li class="btn-pos"><a href="#" class="btn-yo"><i class="fi-magnifying-glass "></i></a></li>
-    </ul>
-  
-   
-  </div>
- 
-  <% end %>
-  </div>
-   
+
+    <%= link_to '<div class="logotype"></div>'.html_safe, root_path %>
+    <% if current_user %>
+      <button class="button-profile" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown">
+          <strong> <%= current_user.name %></strong>
+          <i class="fi-arrow-down"></i>
+      </button><br>
+      <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
+        <li>
+          <a href="#">Profil</a>
+        </li><br>
+
+        <li>
+          <%= link_to "Logga ut", signout_path, id: "sign_out" %>
+        </li>
+      </ul>
+    
+    <% end %>
+</div>
 <div id="container"> <%= yield %> </div>
 </body>
 </html>
