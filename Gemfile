@@ -9,6 +9,8 @@ gem 'ranked-model'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 gem 'foundation-icons-sass-rails'
+gem 'rails4-autocomplete'
+gem 'searchkick'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Foundation CSS

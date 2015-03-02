@@ -45,7 +45,7 @@
 <% end %>
   <% @step_items.each do |item| %>
       <% if item['uid'] %>
-          <div class="item" data-item-id=<%= "#{item['uid']}" %> >
+          <div class="item" data-item-id="<%= item['uid'].to_s %>" >
             <div class="td">
               <h4><%= item['name'] %></h4>
             </div>
@@ -84,6 +84,18 @@
                       </div>
                     </div>
                 <% end %>
+            <% end %>
+            <% if current_user.completion[@step.category.name] %>
+
+
+            <% completion = JSON.parse(current_user.completion) %>
+            <% if completion[@step.category.name][@step.name] %>
+            <% if completion[@step.category.name][@step.name]["substep_"+item['uid'].to_s] %>
+            <p>Du är nu klar med detta substeget :)</p>
+            <% else %>
+            <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
+            <% end %>
+            <% end %>
             <% end %>
           </div>
       <% end %>

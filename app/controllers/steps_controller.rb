@@ -1,5 +1,5 @@
 class StepsController < ApplicationController
-  before_action :set_step, only: [:show, :edit, :update, :destroy, :substep_params]
+  before_action :set_step, only: [:show, :edit, :update, :destroy, :substep_params, :completion_params]
 
   # GET /steps
   # GET /steps.json
@@ -15,10 +15,34 @@ class StepsController < ApplicationController
     end
   end
 
+  def update_completion
+    substeps = completion_params[:substepsx]
+    category_name = completion_params[:name].to_s
+    step_name = completion_params[:step_name].to_s
+    if current_user
+      updater = User.find(current_user.id)
+      completion = {}
+      completion = JSON.parse(updater.completion)
+      completion[category_name.to_sym] = {}
+      completion[category_name.to_sym][step_name.to_sym] = substeps
+      completion[category_name.to_sym][step_name.to_sym]["examination"] = {}
+      completion[category_name.to_sym][step_name.to_sym]["examination"]["done"] = false
+      completion[category_name.to_sym][step_name.to_sym]["examination"]["corrected"] = false
+      puts substeps
+      if updater.update({completion:completion.to_json})
+        render nothing:true
+        puts "Updated completion, plx"
+      end
+    end
+
+  end
+
   #GET /:modulename/:stepname
   def show
     puts "ASDASDASDASD"
     gon.stepname = Category.normalize_cat(params[:step_name])
+    gon.catname = Category.normalize_cat(params[:category_name])
+    gon.completion = current_user.completion if current_user
     @catname = params[:category_name]
     @step_items = []
     @step = Step.where(name:Category.normalize_cat(params[:step_name]))
@@ -154,13 +178,17 @@ class StepsController < ApplicationController
 
 
     def substep_params
-      params.require(:substep).permit(:substep_id, :row_order_position, :name)
+      params.require(:substep).permit(:substep_id, :row_order_position, :name, :step_name, :substepsx)
+    end
+
+    def completion_params
+      params.require(:step).permit!
     end
 
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def step_params
-      params.require(:step).permit(:name, :desc, :category_id, :type)
+      params.require(:step).permit(:name, :desc, :category_id, :type, :substepsx, :step_name)
     end
 
 end
