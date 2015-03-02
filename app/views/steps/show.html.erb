@@ -17,33 +17,43 @@
 </p>
 
 
-<button id="video_toggle" class="button success radius">Lägg till video</button>
-<div class="video_form">
-  <%= render '/videos/form' %>
-</div>
-<br>
-<button id="guide_toggle" class="button success radius">Lägg till guide</button>
-<div class="guide_form">1
-  <%= render '/guides/form' %>
-</div>
-<br>
-<button id="assignment_toggle" class="button success radius">Lägg till uppdrag</button>
-<div class="assignment_form">
-  <%= render '/assignments/form' %>
-</div>
-<br>
-<button id="quiz_toggle" class="button success radius">Lägg till quiz</button>
-<div class="quiz_form">
-  <%= render '/quizzes/form' %>
-</div>
-<br>
+<% if current_user.admin? %>
+        <div class="drop_down_menu" id="drop_down_menu">
+          <select id="select_999">
+            <option value="">Lägg till</option>
+            <option value="video_form_999">Video</option>
+            <option value="guide_form_999">Guide</option>
+            <option value="assignment_form_999">Uppdrag</option>
+            <option value="quiz_form_999">Quiz</option>
+          </select>
+        </div>
+        <br>
+        <div class="forms" id="forms>">
+          <div id="video_form_999" class="video_form">
+            <%= render :partial => '/videos/form', :locals => {:position => 0} %>
+          </div>
+          <div id="guide_form_999" class="guide_form">
+            <%= render :partial => '/guides/form', :locals => {:position => 0} %>
+          </div>
+          <div id="assignment_form_999" class="assignment_form">
+            <%= render :partial => '/assignments/form', :locals => {:position => 0} %>
+          </div>
+          <div id="quiz_form_999" class="quiz_form" step_item="999">
+            <%= render :partial => '/quizzes/form', :locals => {:position => 0} %>
+            <div id="questions_form">
+              <%= render :partial => '/questions/form' %>
+            </div>
+          </div>
+        </div>
+<% end %>
+
 
 <% if current_user.admin? %>
     <div class="table" id="sortable"> <!-- #sortable makes .table sortable with jquery-ui if you're admin -->
 <% else %>
     <div class="table">
 <% end %>
-  <% @step_items.each do |item| %>
+  <% @step_items.each_with_index do |item, i| %>
       <% if item['uid'] %>
           <div class="item" data-item-id=<%= "#{item['uid']}" %> >
             <div class="td">
@@ -85,11 +95,67 @@
                     </div>
                 <% end %>
             <% end %>
+            <% if current_user.admin? %>
+                <% if item['quiz_type'] %>
+                    <div class="td">
+                      <button id="show_questions" class="small">Visa mer</button>
+                      <div id="quiz_questions" class="hidden">
+                        <% if questions_idx = find_questions(item['uid']) %>
+                            <%= render 'quiz', :quiz => questions_idx %><br>
+                        <% end %>
+                      </div>
+                      <button id ="show_questions_form" class="small">Lägg till frågor</button>
+                      <div id="questions_formx" class="hidden">
+                        <% if questions_idxx = find_questions(item['uid']) %>
+                            <%= render :partial => 'questions', :locals => {:parent_quiz_id => questions_idxx} %><br>
+                        <% end %>
+                        </div>
+                    </div>
+                <% end %>
+            <% else %>
+                <% if item['quiz_type'] %>
+                    <div class="td">
+                      <div id="questions">
+                        <% if questions_idx = find_questions(item['uid']) %>
+                            <%= render :partial => 'quiz', :locals => {:quiz => questions_idx} %><br>
+                        <% end %>
+                      </div>
+                    </div>
+                <% end %>
+            <% end %>
+            <% if current_user.admin? %>
+                <div class="drop_down_menu" id="drop_down_menu">
+                  <select id="select_<%= item['uid'] %>" class="select">
+                    <option value="">Lägg till</option>
+                    <option value="video_form_<%= item['uid'] %>">Video</option>
+                    <option value="guide_form_<%= item['uid'] %>">Guide</option>
+                    <option value="assignment_form_<%= item['uid'] %>">Uppdrag</option>
+                    <option value="quiz_form_<%= item['uid'] %>">Quiz</option>
+                  </select>
+                </div>
+                <br>
+                <div class="forms" id="forms">
+                  <div class="video_form" id="video_form_<%= item['uid'] %>" step_item="<%= item['uid'] %>">
+                    <%= render :partial => '/videos/form', :locals => {:position => i+1} %>
+                  </div>
+                  <div class="guide_form" id="guide_form_<%= item['uid'] %>">
+                    <%= render :partial => '/guides/form', :locals => {:position => i+1} %>
+                  </div>
+                  <div class="assignment_form" id="assignment_form_<%= item['uid'] %>">
+                    <%= render :partial => '/assignments/form', :locals => {:position => i+1} %>
+                  </div>
+                  <div class="quiz_form" id="quiz_form_<%= item['uid'] %>" step_item="<%= i+1 %>">
+                    <%= render :partial => '/quizzes/form', :locals => {:position => i+1} %>
+                    <div id="questions_form">
+                      <%= render :partial => '/questions/form' %>
+                    </div>
+                  </div>
+                </div>
+            <% end %>
           </div>
       <% end %>
   <% end %>
 </div>
-
 <br>
 <%= link_to 'Edit', edit_step_path(@catname,@step.name) %> |
 <%= link_to 'Back', steps_path %>

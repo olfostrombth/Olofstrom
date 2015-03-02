@@ -26,9 +26,11 @@ class GuidesController < ApplicationController
   def create
     @guide = Guide.new({name: guide_params[:name], step_id: guide_params[:step_id], desc: guide_params[:desc]})
     @guide.save
-
     @stepx = Step.find(guide_params[:step_id])
     @guidex = Guide.where(name:guide_params[:name])
+    @cat = Category.find(@stepx.category_id)
+
+
     @guidex.each do |x|
       @guidex = x
     end
@@ -40,7 +42,8 @@ class GuidesController < ApplicationController
 
     respond_to do |format|
       if @substepx.save
-        format.html { redirect_to @guide, notice: 'Guide was successfully created.' }
+        @substepx.update({row_order_position:guide_params[:row_order_position]})
+        format.html { redirect_to step_path(@cat.name, @stepx.name), notice: 'Guide was successfully created.' }
         format.json { render :show, status: :created, location: @guide }
       else
         format.html { render :new }
@@ -81,6 +84,6 @@ class GuidesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def guide_params
-      params.require(:guide).permit(:name, :desc, :step_id, :typex)
+      params.require(:guide).permit(:name, :desc, :step_id, :typex, :row_order_position)
     end
 end

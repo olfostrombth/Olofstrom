@@ -38,6 +38,10 @@ $ ->
     questions.toggle('show')
 
 $ ->
+  $(document).on "click", "#show_questions_form", ->
+    $(this).siblings('#questions_formx').toggle('show')
+
+$ ->
   $(document).on "click", "#drop_down_menu", ->
     select = $(this).children()
     $(select).on 'change', ->
@@ -47,9 +51,9 @@ $ ->
       $('.video_form').hide()
       $('.quiz_form').hide()
       $("#"+select.val()).toggle('show ')
-      $(this).unbind("change")
-    $(this).unbind("click")
-    $(this).unbind("change")
+      $(this).off(select)
+    $(this).off("#drop_down_menu")
+
 
 $ ->
   #When submit_quiz div is clicked, do the following
@@ -161,27 +165,7 @@ getStepItems = (item) ->
   fvalue = $(item).attr("step_item")
   return fvalue
 
-$ ->
-  $(document).on "click", "#video_form", ->
-    sid = getStepItems(this)
-    step_item = $("#step_item_"+sid)
-    form = $(this).children()
-    form.submit()
-    video_name = form.find('#video_name').val()
-    video_url = form.find('#video_url').val()
-    step = $(this).parent().parent()
-    step.append '</div><div class="step_items" id="'+step_item+'"><h3>'+video_name+'</h3>'+video_url+''
-    #form.submit()
-    #console.log $(this).parent().parent().parent()
-    #sid = getStepItems(this)
-    #console.log sid
-    #step_item = $("#step_item_"+sid)
-    #console.log step_item
-    #$(this).parent().parent().submit()
-    #console.log $(this).parent().parent().find('#video_name').val()
-    #console.log $(this).parent().parent().find('#video_url').val()
-    #step_item.append video_name
-    #step_item.append video_url
+
 
 
 

@@ -2,15 +2,16 @@ class SessionsController < ApplicationController
   require 'gitkit_client'
   require 'cgi'
 
+
   #Create Session and set User in DB
   def index
     @sessions = User.paginate(page: params[:page])
   end
-  def search 
+  def search
     if params[:query].present?
       @usersearch = User.search(params[:query],
-                                     fields: [:name],
-                                     page: params[:page])
+                                fields: [:name],
+                                page: params[:page])
     else
       @usersearch = User.all.page params[:page]
     end
@@ -19,7 +20,6 @@ class SessionsController < ApplicationController
     render json: User.search(params[:query], autocomplete: false, limit: 10).map(&:name)
 
   end
-
   def show
     @usersearch = User.find(params[:id])
     @user = User.find(params[:id])
@@ -68,8 +68,8 @@ class SessionsController < ApplicationController
 
   #POST
   def importUsers
-      User.import(params[:file])
-      redirect_to root_url, notice: "Användare importerade!"
+    User.import(params[:file])
+    redirect_to root_url, notice: "Användare importerade!"
   end
 
   def create
@@ -77,11 +77,11 @@ class SessionsController < ApplicationController
     #if(finduser.empty?)
     #  redirect_to login_url
     #else
-      user = User.from_omniauth(env["omniauth.auth"])
-      session[:user_id] = user.id
-      token = request.cookies["gtoken"]
-      @postBody = CGI.escape(request.body.read)
-      redirect_to root_path
+    user = User.from_omniauth(env["omniauth.auth"])
+    session[:user_id] = user.id
+    token = request.cookies["gtoken"]
+    @postBody = CGI.escape(request.body.read)
+    redirect_to root_path
     #end
   end
   #Login viewssions/show/1
@@ -98,11 +98,12 @@ class SessionsController < ApplicationController
   end
 
   private
-    def set_user
-      @user = User.find(params[:id])
-    end
+  def set_user
+    @user = User.find(params[:id])
+  end
 
-    def session_params
-      params.require(:user).permit(:admin)
-    end
+  def session_params
+    params.require(:user).permit(:admin)
+  end
+
 end

@@ -39,10 +39,9 @@ class VideosController < ApplicationController
       Step_id: step.id
       })
 
-
     respond_to do |format|
       if @substep.save
-        step_path(cat.name, step.name)
+        @substep.update({row_order_position:video_params[:row_order_position]})
         format.html { redirect_to step_path(cat.name, step.name), notice: 'Video was successfully created.' }
         format.json { render :show, status: :created, location: @video }
 
@@ -86,6 +85,6 @@ class VideosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
-      params.require(:video).permit(:name, :url, :step_id, :typex)
+      params.require(:video).permit(:name, :url, :step_id, :typex, :row_order_position)
     end
 end

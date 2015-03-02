@@ -27,10 +27,13 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     @quiz = @question.quiz_id
+    @quizx = Quiz.find(@quiz)
+    @stepx = Step.find(@quizx.step_id)
+    @cat = Category.find(@stepx.category_id)
 
     respond_to do |format|
       if @question.save
-        format.html { redirect_to quiz_path(@quiz), notice: 'Question was successfully created.' }
+        format.html { redirect_to step_path(@cat.name, @stepx.name), notice: 'Question was successfully created.' }
         format.json { render :show, status: :created, location: @question }
       else
         format.html { render :new }

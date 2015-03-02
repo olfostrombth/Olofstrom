@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'sessions/show/:id/del' => 'sessions#delUser', :as => :user_del
   post 'steps/update_row_order' => 'steps#update_row_order', :as => :update_row_order_substeps
   post 'sessions/importUsers' => 'sessions#importUsers', :as => :import_users
+  get '/search' => 'sessions#search', :as => :search
+  get '/autocomplete' => 'sessions#autocomplete', :as => :autocomplete
 
   root 'categories#index'
   get '/admin', to: 'sessions#admin', :as => :admin

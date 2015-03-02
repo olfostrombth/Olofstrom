@@ -45,6 +45,14 @@ a:link, a:active, a:hover, a:visited {
   cursor: pointer;
 }
 
+.quiz_form {
+  display: none;
+}
+
+#questions_form {
+  display: none;
+}
+
 .quizzes {
     width: auto;
     height: auto;

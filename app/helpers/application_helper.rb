@@ -13,4 +13,15 @@ module ApplicationHelper
     link_to name, params.merge(:sort => column, :direction => direction, :page => nil), {:class => css_class}
   end
 
+  def find_questions(uid)
+    @substep = Substep.find(uid)
+    if @substep.typex == 'quiz'
+      return Quiz.find(@substep.sid).id
+    end
+  end
+
+  def find_quiz(qid)
+    return Quiz.find(qid)
+  end
+
 end
