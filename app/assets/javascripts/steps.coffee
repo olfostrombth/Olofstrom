@@ -108,6 +108,10 @@ $ ->
     questions.toggle('show')
 
 $ ->
+  $(document).on "click", "#show_questions_form", ->
+    $(this).siblings('#questions_formx').toggle('show')
+
+$ ->
   $(document).on "click", "#drop_down_menu", ->
     select = $(this).children()
     $(select).on 'change', ->
@@ -117,9 +121,9 @@ $ ->
       $('.video_form').hide()
       $('.quiz_form').hide()
       $("#"+select.val()).toggle('show ')
-      $(this).unbind("change")
-    $(this).unbind("click")
-    $(this).unbind("change")
+      $(this).off(select)
+    $(this).off("#drop_down_menu")
+
 
 $ ->
   #When submit_quiz div is clicked, do the following

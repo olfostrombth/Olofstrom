@@ -72,6 +72,7 @@ class StepsController < ApplicationController
         quix = Quiz.find(x.sid)
         quizx = quix.attributes
         quizx['uid'] = x.id
+        quizx['quiz_type'] = 'quiz_tx'
         @step_items.push(quizx)
       end
     end
@@ -84,10 +85,7 @@ class StepsController < ApplicationController
         #@step_items.push(videos)
       end
       @video = @videos.new
-      @quizzes = @steps.quizzes
-      @quizzes.each do |quizzes|
-        #@step_items.push(quizzes)
-      end
+
       @guides = @steps.guides
       @guides.each do |guides|
         #@step_items.push(guides)
@@ -98,14 +96,17 @@ class StepsController < ApplicationController
         #@step_items.push(assignments)
       end
       @assignment = @assignments.new
+      @quizzes = @steps.quizzes
       @quizzes.each do |q|
         @quiz_id = q.id
         @questions = q.questions
         #@step_items.push(q)
       end
       @quiz = @quizzes.new
+      if @questions
+        @question = @questions.new
+      end
     end
-    @question = Question.new
   end
 
   # GET /steps/new

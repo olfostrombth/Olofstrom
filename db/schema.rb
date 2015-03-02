@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150205133447) do
+ActiveRecord::Schema.define(version: 20150219085154) do
 
   create_table "assignments", force: :cascade do |t|
     t.string   "name"
@@ -109,6 +109,17 @@ ActiveRecord::Schema.define(version: 20150205133447) do
   end
 
   add_index "steps", ["category_id"], name: "index_steps_on_category_id"
+
+  create_table "substeps", force: :cascade do |t|
+    t.string   "typex"
+    t.integer  "sid"
+    t.integer  "row_order"
+    t.integer  "Step_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "substeps", ["Step_id"], name: "index_substeps_on_Step_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "provider"

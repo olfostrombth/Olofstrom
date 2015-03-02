@@ -30,9 +30,9 @@ class AssignmentsController < ApplicationController
   def create
     @assignment = Assignment.new({name: assignment_params[:name], step_id: assignment_params[:step_id], desc: assignment_params[:desc]})
     @assignment.save
-
     @stepx = Step.find(assignment_params[:step_id])
     @assignmentx = Assignment.where(name:assignment_params[:name])
+    @cat = Category.find(@stepx.category_id)
     @assignmentx.each do |x|
       @assignmentx = x
     end
@@ -45,7 +45,8 @@ class AssignmentsController < ApplicationController
 
     respond_to do |format|
       if @substep.save
-        format.html { redirect_to @assignment, notice: 'Assignment was successfully created.' }
+        @substep.update({row_order_position:assignment_params[:row_order_position]})
+        format.html { redirect_to step_path(@cat.name, @stepx.name), notice: 'Assignment was successfully created.' }
         format.json { render :show, status: :created, location: @assignment }
       else
         format.html { render :new }
@@ -86,6 +87,6 @@ class AssignmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def assignment_params
-      params.require(:assignment).permit(:name, :desc, :step_id, :typex)
+      params.require(:assignment).permit(:name, :desc, :step_id, :typex, :row_order_position)
     end
 end

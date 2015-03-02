@@ -8,7 +8,7 @@ $ ->
 
 $ ->
   $(document).on "click", "#examination_toggle", ->
-    $('.examination_form').toggle('show');
+    $('.examination_form').toggle('show')
 
 $ ->
   $(document).on "click", "#comment_toggle", ->
