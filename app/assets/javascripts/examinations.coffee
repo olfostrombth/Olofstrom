@@ -2,6 +2,3 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$ ->
-  $('#examination_toggle').click ->
-    $('.examination_form').toggle('show');

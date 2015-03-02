@@ -15,9 +15,51 @@
  *= require foundation_and_overrides
  */
  @import 'foundation-icons';
+
+a:link, a:active, a:hover, a:visited {
+  color: #000;
+}
+
+.table {
+  width: 100%;
+  height: auto;
+}
+
+.item:first-child {
+  border-top: 1px solid #999;
+}
+
+.item {
+  border-bottom: 1px solid #999;
+  border-left: 1px solid #999;
+  border-right: 1px solid #999;
+  background: #f3f3f3;
+}
+
+.td {
+  width: 100%;
+  height: auto;
+}
+
+#sortable:hover {
+  cursor: pointer;
+}
+
+.quiz_form {
+  display: none;
+}
+
+#questions_form {
+  display: none;
+}
+
 .quizzes {
     width: auto;
     height: auto;
+}
+
+.hidden {
+  display: none;
 }
 
 .video_wrapper {
@@ -25,16 +67,9 @@
     height: auto;
 }
 
-
 .video_name {
     width: 100%;
     height: auto;
-}
-
-.video_url {
-    width: 100%;
-    height: auto;
-    display: none;
 }
 
  .step_form {

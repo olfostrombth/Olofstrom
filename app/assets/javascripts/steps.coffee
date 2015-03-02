@@ -5,9 +5,80 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
+
 $ ->
   $(document).on "click", "#video_toggle", ->
     $('.video_form').toggle('show')
+
+#Gets all checkboxes for the substep check if done part
+getAllDone = ->
+  return document.getElementsByClassName("donebox");
+
+getSubSteps = ->
+  raw = document.getElementsByClassName("donebox")
+  substeps = {}
+  for x,y in raw
+    id = $(x).attr("id")
+    if $(x).is(":checked")
+      substeps[id] = true
+      console.log "Checked is true: " + JSON.stringify(substeps)
+    else
+      substeps[id] = false
+      console.log "Checked is false: " + JSON.stringify(substeps)
+  return substeps
+
+
+#returns if all the checkboxes for the substep check is checked or not (true/false)
+#This is because we want to see if the entire step is done
+getAllChecked = ->
+  all = getAllDone()
+  notDone = []
+  for x,y in all
+    if $(x).is(":checked")
+      console.log notDone
+    else
+      notDone.push(x)
+
+  if notDone.present()
+    return false
+  else
+    return true
+
+
+#What happens when you check one of the substep checkboxes?
+#This will call the function to see if every box is checked after
+#Should send the updates to the local json object and then update DB with the values
+$ ->
+  $(document).on "click", ".donebox", ->
+    if $(this).is(":checked")
+      console.log ""
+      substeps = getSubSteps()
+      category_name = gon.catname
+      step_name = gon.stepname
+      completion = gon.completion
+      #Update completion <<< Here
+      #Update database <<< Here
+      console.log substeps
+      $.ajax(
+        type: 'POST'
+        url: '/steps/update_completion'
+        dataType: 'json'
+        data: { step: {name:category_name, step_name:step_name, substepsx: substeps } }
+      )
+      #Should be done through AjAX probably best way
+      #LEts see what we can do.
+
+    tese = getAllDone()
+    if getAllChecked()
+      alert "Du är klar med det här steget nu!"
+      #Update completion for Step is done fully <<
+      #Update database for Step is done fully <<<
+      #Should be done through AJAX probably
+    #for x,y in tese
+    #  if $(x).is(":checked")
+    #    console.log x + " is checked"
+    #  else
+    #    console.log x + " is not checked"
 
 $ ->
   $(document).on "click", "#quiz_toggle", ->
@@ -23,7 +94,35 @@ $ ->
 
 $ ->
   $(document).on "click", "#show_video", ->
-    $('.video_url').toggle('show')
+    video = $(this).parent().find('#video_url')
+    video.toggle('show')
+
+$ ->
+  $(document).on "click", "#show_desc", ->
+    desc = $(this).parent().find('#desc')
+    desc.toggle('show')
+
+$ ->
+  $(document).on "click", "#show_questions", ->
+    questions = $(this).parent().find('#quiz_questions')
+    questions.toggle('show')
+
+$ ->
+  $(document).on "click", "#show_questions_form", ->
+    $(this).siblings('#questions_formx').toggle('show')
+
+$ ->
+  $(document).on "click", "#drop_down_menu", ->
+    select = $(this).children()
+    $(select).on 'change', ->
+      #form = $(this).parent().siblings().find('#forms')
+      $('.guide_form').hide()
+      $('.assignment_form').hide()
+      $('.video_form').hide()
+      $('.quiz_form').hide()
+      $("#"+select.val()).toggle('show ')
+      $(this).off(select)
+    $(this).off("#drop_down_menu")
 
 
 $ ->
@@ -84,10 +183,10 @@ $ ->
           $(this).find(o).css('background', 'red')
           console.log "This quiz is wrong.. This is bad!"
 
-      #If it hasn't, check if all boxes are filled, if they are, the quiz is correctly answered
+        #If it hasn't, check if all boxes are filled, if they are, the quiz is correctly answered
       else if !wrong.present() && window.checked == window.qn + 1
         console.log "This quiz is correctly answered yes guys!!!!"
-      #Else, not all boxes are checked
+        #Else, not all boxes are checked
       else
         console.log "Not all boxes in this quiz checked!"
 
@@ -114,7 +213,7 @@ shuffle = ->
         #console.log i
         #console.log r
         if $(i).attr('id')?
-          console.log i
+          #console.log i
 
           i.appendChild random[Math.random() * r | 0]
   return
@@ -132,4 +231,28 @@ $ ->
     $('#steps').append '<a href="/modul/'+gon.catname+'/'+normalize(step)+'">'+step+'</a>'
     $(this).parent().parent().hide()
 
+getStepItems = (item) ->
+  fvalue = $(item).attr("step_item")
+  return fvalue
 
+$ ->
+  $(document).on "click", "#video_form", ->
+    sid = getStepItems(this)
+    step_item = $("#step_item_"+sid)
+    form = $(this).children()
+    form.submit()
+    video_name = form.find('#video_name').val()
+    video_url = form.find('#video_url').val()
+    step = $(this).parent().parent()
+    step.append '</div><div class="step_items" id="'+step_item+'"><h3>'+video_name+'</h3>'+video_url+''
+    #form.submit()
+    #console.log $(this).parent().parent().parent()
+    #sid = getStepItems(this)
+    #console.log sid
+    #step_item = $("#step_item_"+sid)
+    #console.log step_item
+    #$(this).parent().parent().submit()
+    #console.log $(this).parent().parent().find('#video_name').val()
+    #console.log $(this).parent().parent().find('#video_url').val()
+    #step_item.append video_name
+    #step_item.append video_url

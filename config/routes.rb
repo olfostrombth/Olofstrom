@@ -9,8 +9,11 @@ Rails.application.routes.draw do
   patch 'sessions/show/:id' => 'sessions#update'
   put 'sessions/show/:id' => 'sessions#update'
   get 'sessions/show/:id/del' => 'sessions#delUser', :as => :user_del
-
+  post 'steps/update_row_order' => 'steps#update_row_order', :as => :update_row_order_substeps
+  post 'steps/update_completion' => 'steps#update_completion', :as => :update_completion
   post 'sessions/importUsers' => 'sessions#importUsers', :as => :import_users
+  get '/search' => 'sessions#search', :as => :search
+  get '/autocomplete' => 'sessions#autocomplete', :as => :autocomplete
 
   root 'categories#index'
   get '/admin', to: 'sessions#admin', :as => :admin
@@ -31,7 +34,8 @@ Rails.application.routes.draw do
   delete "/modul/:category_name/:step_name" => "steps#destroy", :as => :delete_step
   get "/modul/:category_name/step/new" => "steps#new"
 
-  resources :sessions, only: [:create, :destroy]
+  resources :sessions
+  #, only: [:create, :destroy]
 
   resources :quizzes
 

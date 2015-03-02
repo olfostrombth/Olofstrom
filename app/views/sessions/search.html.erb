@@ -1,0 +1,18 @@
+<%= form_tag search_path, class: "form-inline", method: :get do %><p>
+	<div class="input-group input-group-lg">  
+		<%= text_field_tag :query, params[:query], class: "form-control", id: "user_search", autocomplete: "off" %>
+
+		<div class="input-group-btn">	<%= submit_tag 'Sök' %></div><br><br><br>
+	</div>
+<% end %>
+
+
+
+<%= @usersearch.each do |x,y| %>
+	<%= x.name %> <br>
+		<%= x.email %> <br><br>
+
+
+<% end %>
+
+
