@@ -95,18 +95,20 @@
                     </div>
                 <% end %>
             <% end %>
-            <% if current_user.completion[@step.category.name] %>
+            <% if item['name'] %>
+              <% if current_user.completion[@step.category.name] %>
+                <% completion = JSON.parse(current_user.completion) %>
+                <% if completion[@step.category.name][@step.name] %>
+                  <% if completion[@step.category.name][@step.name]["substep_"+item['uid'].to_s] %>
+                    <p>Du är nu klar med detta substeget :)</p>
+                    <% end %>
+                  <% end %>
 
+                <% else %>
+                  <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
+                <% end %>
+              <% end %>
 
-            <% completion = JSON.parse(current_user.completion) %>
-            <% if completion[@step.category.name][@step.name] %>
-            <% if completion[@step.category.name][@step.name]["substep_"+item['uid'].to_s] %>
-            <p>Du är nu klar med detta substeget :)</p>
-            <% else %>
-            <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
-            <% end %>
-            <% end %>
-            
             <% if current_user.admin? %>
                 <% if item['quiz_type'] %>
                     <div class="td">
@@ -163,7 +165,6 @@
                     </div>
                   </div>
                 </div>
->>>>>>> mikael/master
             <% end %>
           </div>
       <% end %>
