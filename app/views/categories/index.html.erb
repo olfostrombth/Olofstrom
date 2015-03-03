@@ -32,6 +32,15 @@
 
     <div class="medium-6 large-4 columns">
       <div class="panel feed">
+        <p>
+
+          <% @activities.each do |activity| %>
+
+            <%= activity.owner.name %>
+
+          <% end %>
+
+        </p>
 
       </div>
     </div>

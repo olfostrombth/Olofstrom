@@ -6,10 +6,10 @@ gem 'rails', '4.2.0'
 gem 'roo'
 gem 'will_paginate'
 gem 'ranked-model'
+gem 'public_activity'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 gem 'foundation-icons-sass-rails'
-gem 'rails4-autocomplete'
 gem 'searchkick'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -26,7 +26,6 @@ gem 'better_errors'
 gem 'gon'
 
 gem 'rails4-autocomplete'
-gem 'searchkick'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
