@@ -180,7 +180,9 @@ $ ->
       #Check if 'wrong' has anything in it
       if wrong.present()
         for o,i in wrong
-          $(this).find(o).css('background', 'red')
+          $('#'+o).css('color', 'red')
+
+          console.log o
           console.log "This quiz is wrong.. This is bad!"
 
         #If it hasn't, check if all boxes are filled, if they are, the quiz is correctly answered

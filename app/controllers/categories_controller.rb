@@ -57,7 +57,7 @@ class CategoriesController < ApplicationController
     @category = Category.new({name:Category.normalize_cat(category_params[:name]), desc:category_params[:desc]})
     respond_to do |format|
       if @category.save
-        @category.create_activity :create, owner: current_user
+        @category.create_activity :create, owner: current_user, key: 'har skapat en'
         format.html { redirect_to category_path(@category.name), notice: 'Category was successfully created.' }
         format.json { render :show, status: :created, location: @category }
       else

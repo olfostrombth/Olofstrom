@@ -37,6 +37,8 @@
           <% @activities.each do |activity| %>
 
             <%= activity.owner.name %>
+              <%= activity.key %>
+              <%= activity.trackable_type %><br>
 
           <% end %>
 
