@@ -19,9 +19,8 @@
 //= require jquery-ui/effect-highlight
 
 //= require foundation
-//= require turbolinks
+//= require jquery.turbolinks
 //= require ckeditor/init
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
-

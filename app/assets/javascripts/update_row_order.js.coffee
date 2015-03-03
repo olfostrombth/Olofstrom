@@ -5,6 +5,7 @@ $(document).ready ->
     #desired_width = table_width / cells + 'px'
     #$('.table td').css('width', desired_width)
 
+
     $('#sortable').sortable(
       axis: 'y'
       items: '.item'

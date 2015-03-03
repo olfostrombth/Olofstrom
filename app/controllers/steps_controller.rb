@@ -15,7 +15,9 @@ class StepsController < ApplicationController
     end
   end
 
+  #Update the completion string in Database
   def update_completion
+    #Get
     substeps = completion_params[:substepsx]
     category_name = completion_params[:name].to_s
     step_name = completion_params[:step_name].to_s
