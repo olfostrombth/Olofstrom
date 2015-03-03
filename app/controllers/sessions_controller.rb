@@ -23,6 +23,8 @@ class SessionsController < ApplicationController
   def show
     @usersearch = User.find(params[:id])
     @user = User.find(params[:id])
+    @comments = @user.comments
+    @activities = PublicActivity::Activity.order("created_at desc").where(@user == current_user)
 
     gon.completion = @user.completion
   end

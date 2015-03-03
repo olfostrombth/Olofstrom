@@ -29,6 +29,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
+        @comment.create_activity :create, owner: current_user
         format.html { redirect_to category_path(@category), notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
@@ -70,6 +71,6 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:msg, :category_id)
+      params.require(:comment).permit(:msg, :category_id, :user_id)
     end
 end
