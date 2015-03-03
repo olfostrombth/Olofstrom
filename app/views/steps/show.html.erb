@@ -103,9 +103,12 @@
                     <p>Du är nu klar med detta substeget :)</p>
                     <% end %>
                   <% end %>
-
+                    <% if current_user.admin? %> <!-- Jag vet det är sinnessjukt -->
+                        <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
+                    <% else %>
+                        <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
+                    <% end %>
                 <% else %>
-                  <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
                 <% end %>
               <% end %>
 

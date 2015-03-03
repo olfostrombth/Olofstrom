@@ -15,7 +15,9 @@ class StepsController < ApplicationController
     end
   end
 
+  #Update the completion string in Database
   def update_completion
+    #Get
     substeps = completion_params[:substepsx]
     category_name = completion_params[:name].to_s
     step_name = completion_params[:step_name].to_s
@@ -43,6 +45,15 @@ class StepsController < ApplicationController
     gon.stepname = Category.normalize_cat(params[:step_name])
     gon.catname = Category.normalize_cat(params[:category_name])
     gon.completion = current_user.completion if current_user
+
+    unless current_user.completion[gon.catname]
+      user = User.find(current_user.id)
+      comp = JSON.parse(user.completion)
+      comp[gon.catname] = {}
+      comp[gon.catname][gon.stepname] = {}
+      user.update({completion: comp.to_json})
+    end
+
     @catname = params[:category_name]
     @step_items = []
     @step = Step.where(name:Category.normalize_cat(params[:step_name]))
