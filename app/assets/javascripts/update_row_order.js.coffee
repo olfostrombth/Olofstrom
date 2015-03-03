@@ -13,8 +13,16 @@ $(document).ready ->
 
       sort: (e, ui) ->
         ui.item.addClass('active-item-shadow')
+        ui.item.css({
+          WebkitTransform: 'rotate(3deg)',
+          '-moz-transform': 'rotate(3deg)'
+        });
       stop: (e, ui) ->
         ui.item.removeClass('active-item-shadow')
+        ui.item.css({
+          WebkitTransform: 'rotate(0deg)',
+          '-moz-transform': 'rotate(0deg)'
+        });
         # highlight the row on drop to indicate an update
         ui.item.effect('highlight', {}, 1000)
       update: (e, ui) ->

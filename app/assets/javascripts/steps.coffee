@@ -80,22 +80,24 @@ $ ->
     #  else
     #    console.log x + " is not checked"
 
-$ ->
-  $(document).on "click", "#quiz_toggle", ->
-    $('.quiz_form').toggle('show')
+
 
 $ ->
   $(document).on "click", "#guide_toggle", ->
     $('.guide_form').toggle('show')
+    if $(this).html() == 'Visa mer' then $(this).html('Dölj') else $(this).html('Visa mer')
+
 
 $ ->
   $(document).on "click", "#assignment_toggle", ->
     $('.assignment_form').toggle('show')
+    if $(this).html() == 'Visa mer' then $(this).html('Dölj') else $(this).html('Visa mer')
 
 $ ->
   $(document).on "click", "#show_video", ->
     video = $(this).parent().find('#video_url')
     video.toggle('show')
+    if $(this).html() == 'Visa mer' then $(this).html('Dölj') else $(this).html('Visa mer')
 
 $ ->
   $(document).on "click", "#show_desc", ->
@@ -106,10 +108,12 @@ $ ->
   $(document).on "click", "#show_questions", ->
     questions = $(this).parent().find('#quiz_questions')
     questions.toggle('show')
+    if $(this).html() == 'Visa mer' then $(this).html('Dölj') else $(this).html('Visa mer')
 
 $ ->
   $(document).on "click", "#show_questions_form", ->
     $(this).siblings('#questions_formx').toggle('show')
+    if $(this).html() == 'Lägg till frågor' then $(this).html('Dölj') else $(this).html('Lägg till frågor')
 
 $ ->
   $(document).on "click", "#drop_down_menu", ->
