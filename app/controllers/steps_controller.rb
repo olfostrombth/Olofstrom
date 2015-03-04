@@ -23,14 +23,18 @@ class StepsController < ApplicationController
     step_name = completion_params[:step_name].to_s
     if current_user
       updater = User.find(current_user.id)
-      completion = {}
       completion = JSON.parse(updater.completion)
-      completion[category_name.to_sym] = {}
-      completion[category_name.to_sym][step_name.to_sym] = substeps
-      completion[category_name.to_sym][step_name.to_sym]["examination"] = {}
-      completion[category_name.to_sym][step_name.to_sym]["examination"]["done"] = false
-      completion[category_name.to_sym][step_name.to_sym]["examination"]["corrected"] = false
-      puts substeps
+
+      substeps.each do |x,y|
+        puts completion
+        puts completion[category_name]
+        puts completion[category_name][step_name]
+        completion[category_name][step_name][x] = y
+      end
+      completion[category_name]["examination"] = {}
+      completion[category_name]["examination"]["done"] = false
+      completion[category_name]["examination"]["corrected"] = false
+      puts substeps.to_json
       if updater.update({completion:completion.to_json})
         render nothing:true
         puts "Updated completion, plx"
@@ -45,6 +49,7 @@ class StepsController < ApplicationController
     gon.stepname = Category.normalize_cat(params[:step_name])
     gon.catname = Category.normalize_cat(params[:category_name])
     gon.completion = current_user.completion if current_user
+    @user = User.find(current_user.id)
 
     unless current_user.completion[gon.catname]
       user = User.find(current_user.id)
