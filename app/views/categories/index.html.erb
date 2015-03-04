@@ -31,7 +31,7 @@
         <p>
 
           <% @activities.each do |activity| %>
-              <%= link_to image_tag(activity.owner.image).html_safe, sessiong_path(activity.owner) %>
+              <%= link_to image_tag(activity.owner.image).html_safe, session_path(activity.owner) %>
             <strong><%=link_to activity.owner.name, session_path(activity.owner) %></strong>
               <%= activity.key.html_safe %><br>
           <% end %>
