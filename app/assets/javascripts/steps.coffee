@@ -44,27 +44,41 @@ getAllChecked = ->
   else
     return true
 
-
+getSubStep = (thiss) ->
+  substep = {}
+  substep[$(thiss).attr("id")] = if $(thiss).is(":checked") then true else false
+  return substep
 #What happens when you check one of the substep checkboxes?
 #This will call the function to see if every box is checked after
 #Should send the updates to the local json object and then update DB with the values
+
+$ ->
+  if gon.completion
+    substeps = $.parseJSON(gon.completion)
+    substepsx = substeps[gon.catname][gon.stepname]
+    console.log substepsx
+    for x,y of substepsx
+      if y == "true"
+        $("#"+x).prop("checked", true)
+      else if y == "false"
+        $("#"+x).prop("checked", false)
+
 $ ->
   $(document).on "click", ".donebox", ->
-    if $(this).is(":checked")
-      console.log ""
-      substeps = getSubSteps()
-      category_name = gon.catname
-      step_name = gon.stepname
-      completion = gon.completion
-      #Update completion <<< Here
-      #Update database <<< Here
-      console.log substeps
-      $.ajax(
-        type: 'POST'
-        url: '/steps/update_completion'
-        dataType: 'json'
-        data: { step: {name:category_name, step_name:step_name, substepsx: substeps } }
-      )
+    #console.log ""
+    substeps = getSubStep(this)
+    console.log substeps
+    category_name = gon.catname
+    step_name = gon.stepname
+    completion = gon.completion
+    #Update completion <<< Here
+    #Update database <<< Here
+    $.ajax(
+      type: 'POST'
+      url: '/steps/update_completion'
+      dataType: 'json'
+      data: { step: {name:category_name, step_name:step_name, substepsx: substeps } }
+    )
       #Should be done through AjAX probably best way
       #LEts see what we can do.
 
@@ -81,35 +95,27 @@ $ ->
     #    console.log x + " is not checked"
 
 $ ->
-  $(document).on "click", "#quiz_toggle", ->
-    $('.quiz_form').toggle('show')
-
-$ ->
-  $(document).on "click", "#guide_toggle", ->
-    $('.guide_form').toggle('show')
-
-$ ->
-  $(document).on "click", "#assignment_toggle", ->
-    $('.assignment_form').toggle('show')
-
-$ ->
   $(document).on "click", "#show_video", ->
     video = $(this).parent().find('#video_url')
     video.toggle('show')
+    if $(this).html() == 'Visa mer' then $(this).html('Dölj') else $(this).html('Visa mer')
 
 $ ->
   $(document).on "click", "#show_desc", ->
     desc = $(this).parent().find('#desc')
     desc.toggle('show')
+    if $(this).html() == 'Visa mer' then $(this).html('Dölj') else $(this).html('Visa mer')
 
 $ ->
   $(document).on "click", "#show_questions", ->
     questions = $(this).parent().find('#quiz_questions')
     questions.toggle('show')
+    if $(this).html() == 'Visa mer' then $(this).html('Dölj') else $(this).html('Visa mer')
 
 $ ->
   $(document).on "click", "#show_questions_form", ->
     $(this).siblings('#questions_formx').toggle('show')
+    if $(this).html() == 'Lägg till frågor' then $(this).html('Dölj') else $(this).html('Lägg till frågor')
 
 $ ->
   $(document).on "click", "#drop_down_menu", ->
@@ -123,7 +129,6 @@ $ ->
       $("#"+select.val()).toggle('show ')
       $(this).off(select)
     $(this).off("#drop_down_menu")
-
 
 $ ->
   #When submit_quiz div is clicked, do the following
@@ -180,7 +185,9 @@ $ ->
       #Check if 'wrong' has anything in it
       if wrong.present()
         for o,i in wrong
-          $(this).find(o).css('background', 'red')
+          $('#'+o).css('color', 'red')
+
+          console.log o
           console.log "This quiz is wrong.. This is bad!"
 
         #If it hasn't, check if all boxes are filled, if they are, the quiz is correctly answered

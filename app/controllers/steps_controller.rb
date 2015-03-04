@@ -15,20 +15,26 @@ class StepsController < ApplicationController
     end
   end
 
+  #Update the completion string in Database
   def update_completion
+    #Get
     substeps = completion_params[:substepsx]
     category_name = completion_params[:name].to_s
     step_name = completion_params[:step_name].to_s
     if current_user
       updater = User.find(current_user.id)
-      completion = {}
       completion = JSON.parse(updater.completion)
-      completion[category_name.to_sym] = {}
-      completion[category_name.to_sym][step_name.to_sym] = substeps
-      completion[category_name.to_sym][step_name.to_sym]["examination"] = {}
-      completion[category_name.to_sym][step_name.to_sym]["examination"]["done"] = false
-      completion[category_name.to_sym][step_name.to_sym]["examination"]["corrected"] = false
-      puts substeps
+
+      substeps.each do |x,y|
+        puts completion
+        puts completion[category_name]
+        puts completion[category_name][step_name]
+        completion[category_name][step_name][x] = y
+      end
+      completion[category_name]["examination"] = {}
+      completion[category_name]["examination"]["done"] = false
+      completion[category_name]["examination"]["corrected"] = false
+      puts substeps.to_json
       if updater.update({completion:completion.to_json})
         render nothing:true
         puts "Updated completion, plx"
@@ -43,6 +49,16 @@ class StepsController < ApplicationController
     gon.stepname = Category.normalize_cat(params[:step_name])
     gon.catname = Category.normalize_cat(params[:category_name])
     gon.completion = current_user.completion if current_user
+    @user = User.find(current_user.id)
+
+    unless current_user.completion[gon.catname]
+      user = User.find(current_user.id)
+      comp = JSON.parse(user.completion)
+      comp[gon.catname] = {}
+      comp[gon.catname][gon.stepname] = {}
+      user.update({completion: comp.to_json})
+    end
+
     @catname = params[:category_name]
     @step_items = []
     @step = Step.where(name:Category.normalize_cat(params[:step_name]))
@@ -125,6 +141,7 @@ class StepsController < ApplicationController
   # POST /steps
   # POST /steps.json
   def create
+    @owner = User.find(current_user.id)
     @step = Step.new({name:Category.normalize_cat(step_params[:name]), desc:step_params[:desc], category_id:step_params[:category_id]})
     cat = Category.find(step_params[:category_id])
     #category = @step.category.name
@@ -132,6 +149,7 @@ class StepsController < ApplicationController
 
     respond_to do |format|
       if @step.save
+        @step.create_activity :create, owner: @owner, key: "har skapat ett steg: #{view_context.link_to(@step.name, step_path(cat.name, @step.name))}".html_safe
         format.html { redirect_to step_path(cat.name, @step.name), notice: 'Step was successfully created.' }
        # format.html { redirect_to category_path(category), notice: 'Step was successfully created'}
         format.json { render :show, status: :created, location: @step }

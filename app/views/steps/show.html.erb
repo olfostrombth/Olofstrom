@@ -1,21 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <%= @step.category_id %>
-  <strong>Name:</strong>
-  <%= @step.name %>
-</p>
 
-<p>
-  <strong>Desc:</strong>
-  <%= @step.desc %>
-</p>
+<h3>Namn: <%= @step.name %></h3>
 
-<p>
-  <strong>Category:</strong>
-  <%= @step.category %>
-</p>
-
+<h6>Beskrivning: <%= @step.desc %></h6>
+<br>
 
 <% if current_user.admin? %>
         <div class="drop_down_menu" id="drop_down_menu">
@@ -96,16 +85,19 @@
                 <% end %>
             <% end %>
             <% if item['name'] %>
-              <% if current_user.completion[@step.category.name] %>
-                <% completion = JSON.parse(current_user.completion) %>
+              <% if @user.completion[@step.category.name] %>
+                <% completion = JSON.parse(@user.completion) %>
                 <% if completion[@step.category.name][@step.name] %>
-                  <% if completion[@step.category.name][@step.name]["substep_"+item['uid'].to_s] %>
+                  <% if completion[@step.category.name][@step.name]["substep_"+item['uid'].to_s] == "true" %>
                     <p>Du är nu klar med detta substeget :)</p>
                     <% end %>
                   <% end %>
-
+                    <% if current_user.admin? %> <!-- Jag vet det är sinnessjukt -->
+                        <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
+                    <% else %>
+                        <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
+                    <% end %>
                 <% else %>
-                  <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
                 <% end %>
               <% end %>
 
