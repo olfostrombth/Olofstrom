@@ -1,137 +1,17 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- *= require foundation_and_overrides
- */
- @import 'foundation-icons';
-
- /*  FONTS  */
- @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,300italic|Oswald:400,300|Montserrat);
-
-/*
-font-family: 'Montserrat', sans-serif;
-font-family: 'Oswald', sans-serif;
-font-family: 'Roboto', sans-serif;
-*/
+/*font-family: 'Oswald', sans-serif;*/
+/*font-family: 'Roboto', sans-serif;*/
+/*font-family: 'Montserrat', sans-serif;*/
 
 
-a:link, a:active, a:hover, a:visited {
-  color: #000;
-}
-
-.table {
-  width: 100%;
-  height: auto;
-}
-
-.item:first-child {
-  border-top: 1px solid #999;
-}
-
-.item {
-  border-bottom: 1px solid #999;
-  border-left: 1px solid #999;
-  border-right: 1px solid #999;
-  background: #f3f3f3;
-}
-
-.td {
-  width: 100%;
-  height: auto;
-}
-
-#sortable:hover {
-  cursor: pointer;
-}
-
-.quiz_form {
-  display: none;
-}
-
-#questions_form {
-  display: none;
-}
-
-.quizzes {
-    width: auto;
-    height: auto;
-}
-
-.hidden {
-  display: none;
-}
-
-.video_wrapper {
-    width: 100%;
-    height: auto;
-}
-
-.video_name {
-    width: 100%;
-    height: auto;
-}
-
- .step_form {
-   width: auto;
-   height: auto;
-   display: none;
- }
-
- .comment_form {
-   width: auto;
-   height: auto;
-   display: none;
- }
-
-.video_form {
-    width: auto;
-    height: auto;
-    display: none;
-}
-
-.guide_form {
-    width: auto;
-    height: auto;
-    display: none;
-}
-
-.assignment_form {
-    width: auto;
-    height: auto;
-    display: none;
-}
-
-.examination_form {
-    width: auto;
-    height: auto;
-    display: none;
-}
-
-.startWrapper
+html, body
 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: inline-block;
-  background-color: #123;
+  height:100%;
+  width:100%;
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  overflow-x: hidden;
 }
-
-
-/* ----------------- NEW CSS --------------- */
-
 
 .wrapper
  {
@@ -164,9 +44,9 @@ padding: 0;
   margin: 0;
   padding: 0;
   color: #fff;
-  height: 10em;
+  height: 8em;
   text-align: center;
-  line-height: 10em;
+  line-height: 8em;
 }
 
 .top img
@@ -195,7 +75,6 @@ padding: 0;
   height: auto;
   display: block;
   cursor: pointer;
-  padding: 0;
 }
 
 .side p 
@@ -206,26 +85,9 @@ padding: 0;
   margin: 0;
   font-family: 'Oswald', sans-serif;
   font-weight: 100;
-  font-size: 16px;
 }
 
 .side p:hover
-{
-  color: #5ccde2;
-}
-
-.side a
-{
-  color: #fff;
-  line-height: 3em;
-  padding: 0;
-  margin: 0;
-  font-family: 'Oswald', sans-serif;
-  font-weight: 100;
-  font-size: 16px;
-}
-
-.side a:hover
 {
   color: #5ccde2;
 }
@@ -237,7 +99,6 @@ padding: 0;
   display: none;
   height: auto;
   padding: 1em;
-  z-index: 10;
 }
 
 
@@ -263,10 +124,8 @@ padding: 0;
 {
   padding-top: 1em;
   text-align: center;
-  height: auto;
+  height: 100%;
   width: 100%;
-  overflow-y: auto;
-  background: radial-gradient(at center bottom, #123, #112);
 }
 
 .feed h4
@@ -275,8 +134,6 @@ padding: 0;
   color: #fff;
   font-size: 16px;
 }
-
-
 
 .in
 {
@@ -413,4 +270,3 @@ padding: 0;
   display: none;
 }
 }
-

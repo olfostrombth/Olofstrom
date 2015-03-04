@@ -1,10 +1,11 @@
 
-body
-{
-	width: 100%;
-	background: #fff;
-}
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,300italic|Oswald:400,300|Montserrat);
 
+/*
+font-family: 'Montserrat', sans-serif;
+font-family: 'Oswald', sans-serif;
+font-family: 'Roboto', sans-serif;
+*/
 
 html, body
 {
@@ -12,7 +13,12 @@ html, body
   width:100%;
   margin: 0;
   padding: 0;
+  background-color: #000;
+  overflow-x: hidden;
 }
+
+
+
 
 
 /* ---------------------Navigation bar -----------------*/
@@ -240,16 +246,18 @@ button, .button.dropdown
 
 .login-pos
 {
-	margin-top: 1%;
+	margin-top: 5%;
 	display: flex;
-  flex-direction: row;
-  justify-content:center;
+	flex-direction: row;
+	justify-content:center;
 }
 .login-pos h2
 {
 	font-size: 8vw;
 	color: #fff;
 }
+
+
 
 /* ------------------- Login placement ENDS--------------------- */
 
@@ -272,5 +280,130 @@ button, .button.dropdown
 	font-size: 14px;
   color: #fff;
 	cursor: pointer;
+}
+
+
+/* ----------------- NEW CSS --------------- */
+
+.wrapper
+ {
+width: 100%;
+height: 100%;
+margin: 0;
+padding: 0;
+}
+
+.container
+{
+  width: 100%;
+  height: 900px;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+.sidebar
+{
+  height: 100%;
+  position: fixed;
+  background: radial-gradient(at center bottom, #123, #112);
+}
+
+.top 
+{
+  background: radial-gradient(at center bottom, #123, #112);
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  height: 8em;
+  text-align: center;
+  line-height: 8em;
+}
+
+.top img
+{
+  width: 80%;
+  height: auto;
+}
+
+.top h1
+{
+  color: #fff;
+  line-height: 5em;
+}
+.top h3
+{
+  color: #fff;
+  margin-top: -3em;
+}
+
+
+.side 
+{
+  background: radial-gradient(at center bottom, #123, #112);
+  border-bottom: 1px solid #000;
+  text-align: center;
+  height: auto;
+  display: block;
+  cursor: pointer;
+}
+
+.side p 
+{
+  color: #fff;
+  line-height: 3em;
+  padding: 0;
+  margin: 0;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 100;
+}
+
+.side p:hover
+{
+  color: #5ccde2;
+}
+
+.arch
+{
+  text-align: center;
+  color: #fff;
+  display: none;
+  height: auto;
+  padding: 1em;
+}
+
+
+.arch h4
+{
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  font-size: 16px;
+}
+
+.arch img
+{
+  width: 70px;
+  height: 70px;
+}
+
+.arch img:hover
+{
+  transform: scale(2);
+}
+
+.feed
+{
+  padding-top: 1em;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+
+.feed h4
+{
+   font-family: 'Roboto', sans-serif;
+  color: #fff;
+  font-size: 16px;
 }
 

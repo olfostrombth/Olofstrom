@@ -23,4 +23,18 @@
 //= require ckeditor/init
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+$(function(){ 
+	$(document).foundation(); 
+	
+	$(".arch-toggle").click(function(){
+		$(".arch").slideToggle("slow");
+	});
+
+	$(".add-mod-btn2").click(function(){
+		$(".feeed").slideToggle("slow");
+	});
+
+
+});
+
+
