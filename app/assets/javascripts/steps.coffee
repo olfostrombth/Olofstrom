@@ -80,19 +80,6 @@ $ ->
     #  else
     #    console.log x + " is not checked"
 
-
-
-$ ->
-  $(document).on "click", "#guide_toggle", ->
-    $('.guide_form').toggle('show')
-    if $(this).html() == 'Visa mer' then $(this).html('Dölj') else $(this).html('Visa mer')
-
-
-$ ->
-  $(document).on "click", "#assignment_toggle", ->
-    $('.assignment_form').toggle('show')
-    if $(this).html() == 'Visa mer' then $(this).html('Dölj') else $(this).html('Visa mer')
-
 $ ->
   $(document).on "click", "#show_video", ->
     video = $(this).parent().find('#video_url')
@@ -103,6 +90,7 @@ $ ->
   $(document).on "click", "#show_desc", ->
     desc = $(this).parent().find('#desc')
     desc.toggle('show')
+    if $(this).html() == 'Visa mer' then $(this).html('Dölj') else $(this).html('Visa mer')
 
 $ ->
   $(document).on "click", "#show_questions", ->
@@ -127,7 +115,6 @@ $ ->
       $("#"+select.val()).toggle('show ')
       $(this).off(select)
     $(this).off("#drop_down_menu")
-
 
 $ ->
   #When submit_quiz div is clicked, do the following

@@ -1,21 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <%= @step.category_id %>
-  <strong>Name:</strong>
-  <%= @step.name %>
-</p>
 
-<p>
-  <strong>Desc:</strong>
-  <%= @step.desc %>
-</p>
+<h3>Namn: <%= @step.name %></h3>
 
-<p>
-  <strong>Category:</strong>
-  <%= @step.category %>
-</p>
-
+<h6>Beskrivning: <%= @step.desc %></h6>
+<br>
 
 <% if current_user.admin? %>
         <div class="drop_down_menu" id="drop_down_menu">

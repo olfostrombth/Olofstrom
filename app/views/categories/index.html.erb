@@ -26,20 +26,14 @@
      </div>
   </div>
 
-
-
-
-
     <div class="medium-6 large-4 columns">
       <div class="panel feed">
         <p>
 
           <% @activities.each do |activity| %>
 
-            <%= activity.owner.name %>
-              <%= activity.key %>
-              <%= activity.trackable_type %><br>
-
+            <strong><%= activity.owner.name %></strong>
+              <%= activity.key.html_safe %><br>
           <% end %>
 
         </p>

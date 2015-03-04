@@ -136,6 +136,7 @@ class StepsController < ApplicationController
   # POST /steps
   # POST /steps.json
   def create
+    @owner = User.find(current_user.id)
     @step = Step.new({name:Category.normalize_cat(step_params[:name]), desc:step_params[:desc], category_id:step_params[:category_id]})
     cat = Category.find(step_params[:category_id])
     #category = @step.category.name
@@ -143,6 +144,7 @@ class StepsController < ApplicationController
 
     respond_to do |format|
       if @step.save
+        @step.create_activity :create, owner: @owner, key: "har skapat ett steg: #{view_context.link_to(@step.name, step_path(cat.name, @step.name))}".html_safe
         format.html { redirect_to step_path(cat.name, @step.name), notice: 'Step was successfully created.' }
        # format.html { redirect_to category_path(category), notice: 'Step was successfully created'}
         format.json { render :show, status: :created, location: @step }
