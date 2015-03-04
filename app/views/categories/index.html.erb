@@ -35,8 +35,8 @@
         <p>
 
           <% @activities.each do |activity| %>
-
             <%= activity.owner.name %>
+            <%= activity.trackable.id %>
 
           <% end %>
 
@@ -44,6 +44,4 @@
 
       </div>
     </div>
-  
 </div>
-
