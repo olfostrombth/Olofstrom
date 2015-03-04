@@ -10,22 +10,94 @@ $ ->
   $(document).on "click", "#video_toggle", ->
     $('.video_form').toggle('show')
 
+#Gets all checkboxes for the substep check if done part
+getAllDone = ->
+  return document.getElementsByClassName("donebox");
+
+getSubSteps = ->
+  raw = document.getElementsByClassName("donebox")
+  substeps = {}
+  for x,y in raw
+    id = $(x).attr("id")
+    if $(x).is(":checked")
+      substeps[id] = true
+      console.log "Checked is true: " + JSON.stringify(substeps)
+    else
+      substeps[id] = false
+      console.log "Checked is false: " + JSON.stringify(substeps)
+  return substeps
+
+
+#returns if all the checkboxes for the substep check is checked or not (true/false)
+#This is because we want to see if the entire step is done
+getAllChecked = ->
+  all = getAllDone()
+  notDone = []
+  for x,y in all
+    if $(x).is(":checked")
+      console.log notDone
+    else
+      notDone.push(x)
+
+  if notDone.present()
+    return false
+  else
+    return true
+
+
+#What happens when you check one of the substep checkboxes?
+#This will call the function to see if every box is checked after
+#Should send the updates to the local json object and then update DB with the values
 $ ->
-  $(document).on "click", "#quiz_toggle", ->
-    $('.quiz_form').toggle('show')
+  $(document).on "click", ".donebox", ->
+    if $(this).is(":checked")
+      console.log ""
+      substeps = getSubSteps()
+      category_name = gon.catname
+      step_name = gon.stepname
+      completion = gon.completion
+      #Update completion <<< Here
+      #Update database <<< Here
+      console.log substeps
+      $.ajax(
+        type: 'POST'
+        url: '/steps/update_completion'
+        dataType: 'json'
+        data: { step: {name:category_name, step_name:step_name, substepsx: substeps } }
+      )
+      #Should be done through AjAX probably best way
+      #LEts see what we can do.
+
+    tese = getAllDone()
+    if getAllChecked()
+      alert "Du är klar med det här steget nu!"
+      #Update completion for Step is done fully <<
+      #Update database for Step is done fully <<<
+      #Should be done through AJAX probably
+    #for x,y in tese
+    #  if $(x).is(":checked")
+    #    console.log x + " is checked"
+    #  else
+    #    console.log x + " is not checked"
+
+
 
 $ ->
   $(document).on "click", "#guide_toggle", ->
     $('.guide_form').toggle('show')
+    if $(this).html() == 'Visa mer' then $(this).html('Dölj') else $(this).html('Visa mer')
+
 
 $ ->
   $(document).on "click", "#assignment_toggle", ->
     $('.assignment_form').toggle('show')
+    if $(this).html() == 'Visa mer' then $(this).html('Dölj') else $(this).html('Visa mer')
 
 $ ->
   $(document).on "click", "#show_video", ->
     video = $(this).parent().find('#video_url')
     video.toggle('show')
+    if $(this).html() == 'Visa mer' then $(this).html('Dölj') else $(this).html('Visa mer')
 
 $ ->
   $(document).on "click", "#show_desc", ->
@@ -36,6 +108,12 @@ $ ->
   $(document).on "click", "#show_questions", ->
     questions = $(this).parent().find('#quiz_questions')
     questions.toggle('show')
+    if $(this).html() == 'Visa mer' then $(this).html('Dölj') else $(this).html('Visa mer')
+
+$ ->
+  $(document).on "click", "#show_questions_form", ->
+    $(this).siblings('#questions_formx').toggle('show')
+    if $(this).html() == 'Lägg till frågor' then $(this).html('Dölj') else $(this).html('Lägg till frågor')
 
 $ ->
   $(document).on "click", "#drop_down_menu", ->
@@ -47,9 +125,9 @@ $ ->
       $('.video_form').hide()
       $('.quiz_form').hide()
       $("#"+select.val()).toggle('show ')
-      $(this).unbind("change")
-    $(this).unbind("click")
-    $(this).unbind("change")
+      $(this).off(select)
+    $(this).off("#drop_down_menu")
+
 
 $ ->
   #When submit_quiz div is clicked, do the following
@@ -106,7 +184,9 @@ $ ->
       #Check if 'wrong' has anything in it
       if wrong.present()
         for o,i in wrong
-          $(this).find(o).css('background', 'red')
+          $('#'+o).css('color', 'red')
+
+          console.log o
           console.log "This quiz is wrong.. This is bad!"
 
         #If it hasn't, check if all boxes are filled, if they are, the quiz is correctly answered
@@ -182,7 +262,3 @@ $ ->
     #console.log $(this).parent().parent().find('#video_url').val()
     #step_item.append video_name
     #step_item.append video_url
-
-
-
-

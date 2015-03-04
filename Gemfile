@@ -6,14 +6,17 @@ gem 'rails', '4.2.0'
 gem 'roo'
 gem 'will_paginate'
 gem 'ranked-model'
+gem 'public_activity'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 gem 'foundation-icons-sass-rails'
+gem 'searchkick'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Foundation CSS
 gem 'jquery-ui-rails'
 gem 'foundation-rails'
+gem 'jquery-turbolinks'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -23,8 +26,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'better_errors'
 gem 'gon'
 
-#Searchkick gem
-gem 'searchkick'
+
 gem 'rails4-autocomplete'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -71,5 +73,4 @@ gem "paperclip"
 # Image upload to CKEditor
 gem 'responders', '~> 2.0'
 
-# Autocompletion Search function
-gem 'rails4-autocomplete'
+
