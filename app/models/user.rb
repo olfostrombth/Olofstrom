@@ -32,6 +32,7 @@ class User < ActiveRecord::Base
       user.uid = auth.uid
       user.name = auth.info.name
       user.email = auth.info.email
+      user.image = auth.info.image
       user.admin = true
       user.completion = array.to_json
       user.oauth_token = auth.credentials.token
