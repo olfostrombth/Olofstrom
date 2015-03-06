@@ -1,32 +1,38 @@
-<div class="row">
-    <div class="login-header login-pos"><h2>OKIT</h2></div>
-    <div class="small-12 large-12 column login-pos">
-        <%= link_to "Logga in med Google", "/auth/google_oauth2", id: "sign_in", class: 'button success' %>
-        <script type="text/javascript">
-            var config = {
-                apiKey: 'AIzaSyDNkrpQK1H4QpKbU9naGhYUjRLya4bVSDA',
-                signInSuccessUrl: '/',
-                idps: ["google"],
-                oobActionUrl: 'http://localhost:3000/sendmail',
-                siteName: 'this site'
-            };
-            // The HTTP POST body should be escaped by the server to prevent XSS
-            window.google.identitytoolkit.start(
-                    '#gitkitWidgetDiv', // accepts any CSS selector
-                    config,
-                    decodeURIComponent(window.location.href));
-        </script>
-        <script type=text/javascript>
-            window.google.identitytoolkit.signInButton(
-                    '#navbar', // accepts any CSS selector
-                    {
-                        widgetUrl: "http://localhost:3000/auth/google_oauth2/callback",
-                        signOutUrl: "http://localhost:3000/signout",
-                    }
-            );
-        </script>
-        <%= @postbody %>
-        <div id="navbar"></div>
-        <div id="gitkitWidgetDiv"></div>
+
+<div class="startWrapper">
+    <div class="row starter-pos">
+        <div class="large-6 columns">
+        <!--<div class="login-pos"><%= image_tag("logo.png") %></div>-->
+        <div class="login-logo-div"><div class="login-logo"><h2>OKIT</h2></div></div>
+        <div class="small-12 large-12 column login-btn-pos">
+            <%= link_to "Logga in med Google", "/auth/google_oauth2", id: "sign_in", class: 'loginbtn ease' %>
+            <script type="text/javascript">
+                var config = {
+                    apiKey: 'AIzaSyDNkrpQK1H4QpKbU9naGhYUjRLya4bVSDA',
+                    signInSuccessUrl: '/',
+                    idps: ["google"],
+                    oobActionUrl: 'http://localhost:3000/sendmail',
+                    siteName: 'this site'
+                };
+                // The HTTP POST body should be escaped by the server to prevent XSS
+                window.google.identitytoolkit.start(
+                        '#gitkitWidgetDiv', // accepts any CSS selector
+                        config,
+                        decodeURIComponent(window.location.href));
+            </script>
+            <script type=text/javascript>
+                window.google.identitytoolkit.signInButton(
+                        '#navbar', // accepts any CSS selector
+                        {
+                            widgetUrl: "http://localhost:3000/auth/google_oauth2/callback",
+                            signOutUrl: "http://localhost:3000/signout",
+                        }
+                );
+            </script>
+            <%= @postbody %>
+            <div id="navbar"></div>
+            <div id="gitkitWidgetDiv"></div>
+        </div>
+    </div>
     </div>
 </div>

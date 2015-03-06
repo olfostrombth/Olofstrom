@@ -26,6 +26,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'better_errors'
 gem 'gon'
 
+
 gem 'rails4-autocomplete'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -71,3 +72,5 @@ gem "paperclip"
 
 # Image upload to CKEditor
 gem 'responders', '~> 2.0'
+
+
