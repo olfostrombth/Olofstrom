@@ -30,6 +30,8 @@ a:link, a:active, a:hover, a:visited {
   color: #000;
 }
 
+
+
 .table {
   width: 100%;
   height: auto;
@@ -118,7 +120,6 @@ a:link, a:active, a:hover, a:visited {
     display: none;
 }
 
-
 .startWrapper
 {
   position: absolute;
@@ -133,6 +134,14 @@ a:link, a:active, a:hover, a:visited {
 
 /* ----------------- NEW CSS --------------- */
 
+.starter-pos
+{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
 
 .wrapper
  {
@@ -142,10 +151,7 @@ margin: 0;
 padding: 0;
 }
 
-
-
-.full_width
-
+.container
 {
   width: 100%;
   height: 900px;
@@ -154,6 +160,8 @@ padding: 0;
   padding: 0;
 }
 
+
+/* -----------   SIDEBAR MENU  ------------ */
 
 .sidebar
 {
@@ -244,6 +252,31 @@ padding: 0;
   z-index: 10;
 }
 
+.input-group-btn
+{
+  display: block;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  background-color: #404652;
+  width: 100%;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: -1px;
+  border-style: solid;
+  border-width: 1px;
+  overflow: visible;
+  font-size: 16px;
+  height: 2.45rem;
+  line-height: 2.5rem; 
+}
+
+.input-group-btn:hover
+{
+  background-color: #fff;
+  color: #000;
+}
+
 
 .arch h4
 {
@@ -269,7 +302,7 @@ padding: 0;
   text-align: center;
   height: auto;
   width: 100%;
-  overflow-y: auto;
+  overflow-y: scroll;
   background: radial-gradient(at center bottom, #123, #112);
 }
 
@@ -278,6 +311,21 @@ padding: 0;
    font-family: 'Roboto', sans-serif;
   color: #fff;
   font-size: 16px;
+}
+
+.fedbox
+{
+  padding: 0;
+}
+
+.avatar
+{
+
+}
+
+.text 
+{
+  
 }
 
 
@@ -299,7 +347,8 @@ padding: 0;
 
 .first h1
 {
-  line-height: 2em;
+  line-height: 4em;
+  font-weight: bold;
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
 }
@@ -308,15 +357,16 @@ padding: 0;
 {
   position: absolute;
   top: 0;
-  background-color: #2c537b;
+  background-color: #212121;
   width: auto;
   height: 3em;
+  color: #fff;
   padding: 1em;
 }
 
 .add-mod-btn:hover
 {
-  height: 4em;
+  height: 6em;
 
 }
 
@@ -325,7 +375,7 @@ padding: 0;
   transition: all 0.5s ease;
 }
 
-.add-mod-btn p 
+.add-mod-btn a 
 {
   color: #fff;
   line-height: 1em;
@@ -370,6 +420,7 @@ padding: 0;
   padding: 1em;
   display: flex;
   justify-content: center;
+  margin-top: 5em;
 }
 
 .modules
@@ -379,10 +430,11 @@ padding: 0;
 }
 
 
-.mods 
+.modu 
 {
  margin-bottom: 30px;
 }
+
 
 .text 
 {
@@ -391,8 +443,9 @@ padding: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  padding: 5em 2em;
+  padding: 20% 5%;
   text-align: center;
+  pointer-events:none
 }
 
 .text h1
@@ -405,16 +458,25 @@ padding: 0;
   color: #fff;
 }
 
-@media only screen and (max-width: 40em) {
-
-.side
+.form-control
 {
-  display: none;
-}
-
-.arch
-{
-  display: none;
-}
-}
-
+-webkit-appearance: none;
+  border-radius: 5px 0 0 5px;
+  background-color: #fff;
+  font-family: 'Roboto', sans-serif;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #333;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  color: #000;
+  display: block;
+  font-size: 0.875rem;
+  margin: 0 0 1rem 0;
+  padding: 1rem;
+  letter-spacing: 2px;
+  height: 2.3125rem;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  transition: all 0.15s linear;}

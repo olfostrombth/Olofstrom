@@ -200,6 +200,16 @@ li.headline
 	color: #fff;
 }
 
+.row.act
+{
+	height: 5em;
+	display: flex;
+}
+.row.act p 
+{
+
+}
+
 /* ------------------- Modules ENDS--------------------- */
 
 
@@ -246,19 +256,82 @@ button, .button.dropdown
 
 .login-pos
 {
-	margin-top: 5%;
+	margin-top: 20vh;
 	display: flex;
 	flex-direction: row;
 	justify-content:center;
 }
-.login-pos h2
+.login-logo h2
 {
-	font-size: 8vw;
+	font-family: 'Roboto', sans-serif;
+	font-size: 8em;
 	color: #fff;
+
+	line-height: 300px;
 }
 
+.login-logo-div
+{
+	margin: 4em;
+	text-align: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
 
+.login-logo
+{
+  background: radial-gradient(at center bottom, #123, #112);
+	width: 300px;
+	height: 300px;
+	border-radius: 300px;
+	border: 3px solid #fff;
+	
+	
+}
 
+.login-btn-pos
+{
+	display: flex;
+	flex-direction: row;
+	justify-content:center;
+}
+
+.loginbtn
+{
+	width: 25rem;
+	height: 5rem;
+	color: #fff !important;
+	background: url(ginlog.png);
+	border-radius: 5px !important; 
+	border: 1px solid #000;
+	text-align: center;
+	line-height: 5rem;
+	padding-left: 6rem;
+	font-family: 'Oswald', sans-serif;
+	font-size: 18px;
+}
+
+.loginbtn:hover
+{
+	
+	color: #fff !important;
+	border-radius: 5px !important; 
+	border: 1px solid #000;
+	text-align: center;
+
+	
+}
+
+.ease
+{
+  transition: all 0.5s ease;
+}
+
+.has-form
+{
+	margin: 1em;
+}
 /* ------------------- Login placement ENDS--------------------- */
 
 
@@ -284,126 +357,4 @@ button, .button.dropdown
 
 
 /* ----------------- NEW CSS --------------- */
-
-.wrapper
- {
-width: 100%;
-height: 100%;
-margin: 0;
-padding: 0;
-}
-
-.container
-{
-  width: 100%;
-  height: 900px;
-  max-width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-
-.sidebar
-{
-  height: 100%;
-  position: fixed;
-  background: radial-gradient(at center bottom, #123, #112);
-}
-
-.top 
-{
-  background: radial-gradient(at center bottom, #123, #112);
-  margin: 0;
-  padding: 0;
-  color: #fff;
-  height: 8em;
-  text-align: center;
-  line-height: 8em;
-}
-
-.top img
-{
-  width: 80%;
-  height: auto;
-}
-
-.top h1
-{
-  color: #fff;
-  line-height: 5em;
-}
-.top h3
-{
-  color: #fff;
-  margin-top: -3em;
-}
-
-
-.side 
-{
-  background: radial-gradient(at center bottom, #123, #112);
-  border-bottom: 1px solid #000;
-  text-align: center;
-  height: auto;
-  display: block;
-  cursor: pointer;
-}
-
-.side p 
-{
-  color: #fff;
-  line-height: 3em;
-  padding: 0;
-  margin: 0;
-  font-family: 'Oswald', sans-serif;
-  font-weight: 100;
-}
-
-.side p:hover
-{
-  color: #5ccde2;
-}
-
-.arch
-{
-  text-align: center;
-  color: #fff;
-  display: none;
-  height: auto;
-  padding: 1em;
-}
-
-
-.arch h4
-{
-  font-family: 'Roboto', sans-serif;
-  color: #fff;
-  font-size: 16px;
-}
-
-.arch img
-{
-  width: 70px;
-  height: 70px;
-}
-
-.arch img:hover
-{
-  transform: scale(2);
-}
-
-.feed
-{
-  padding-top: 1em;
-  text-align: center;
-  height: 100%;
-  width: 100%;
-}
-
-.feed h4
-{
-   font-family: 'Roboto', sans-serif;
-  color: #fff;
-  font-size: 16px;
-}
 

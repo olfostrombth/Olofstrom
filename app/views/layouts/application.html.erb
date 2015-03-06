@@ -41,36 +41,44 @@
               </div>
               <div class="medium-12 large-12 columns side"><p><%= link_to "Logga ut", signout_path, id: "sign_out" %></p></div>
               <div class="medium-12 large-12 columns side">
-                <li class="has-form"> 
+                <li class="has-form side"> 
                   <div class="row">
                     <div class="medium-12 large-12 columns">
                       <div class="row collapse">
                         <div class="small-9 columns">
-                          <input type="text" placeholder="Sök användare">
+                          <%= text_field_tag :query, params[:query], class: "form-control", id: "user_search", autocomplete: "off" %>
+                          <%= form_tag search_path, class: "form-inline", method: :get do %>
                         </div>
                         <div class="small-3 columns">
-                          <a href="#" class="button postfix">Sök</a>
+                         <div class="input-group-btn"> <%= submit_tag 'Sök' %></div>
+                         <% end %>
                         </div>
                       </div>
                     </div>
                   </div>
                 </li>
-                <div class="medium-12 large-12 columns side">
-                  <p>FLÖDE</p>
+
+
+                  
+                  
+
+
+                <div class="medium-12 large-12 columns">
+                  <p>Senaste aktiviteter</p>
                 </div>
                 <div class="medium-12 large-12 columns feed">
-      
-        <p>
+                    <% @activities=get_activities %>
+                    <% @activities.each do |activity| name=activity.owner.name.split(" ")%>
+                <div class="row act">
+                  <div class="large-12 columns fedbox">
+                    <div class="large-2 columns avatar"><%= link_to image_tag(activity.owner.image).html_safe, session_path(activity.owner) %></div>
+                    <div class="large-10 columns text"><strong><%=link_to name[0], session_path(activity.owner) %></strong>
+                       <%= activity.key.html_safe %></div>
+                  </div>
 
-          <% @activities.each do |activity| %>
-
-            <%= activity.owner.name %>
-              <%= activity.key %>
-              <%= activity.trackable_type %><br>
-
+                  
+            </div>
           <% end %>
-
-        </p>
 
       
     </div>
@@ -80,35 +88,20 @@
   </div>
   </div>
       <div class="medium-9 large-9 columns content in">
-          <div class="row">
-            <div class="large-6 columns first">
-              <h1>Övningar</h1>
-            </div>
-            <div class="large-6 columns first">
-              <div class="add-mod-btn ease"><p>Lägg till modul</p></div>
-            <div class="add-mod-btn2 ease"><p>Flöde</p></div>
-          </div>
-            <div class="row">
-              <div class="large-12 columns feeed"><h2>flöde</h2></div>
-            </div>
-            <div class="large-12 columns contents">
-              <div class="row">
+          
                 <% end %>
                 <%= yield %>
                
-              </div>
+              
         </div>
-      </div>
-      
-    </div>
+  </div>
 </div>
-</div>
+
   
    
   
 
   <!--<div id="menu-bar">
-
     <%= link_to '<div class="logotype"></div>'.html_safe, root_path %>
     <% if current_user %>
       <button class="button-profile" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown">
@@ -119,7 +112,6 @@
         <li>
           <a href="#">Profil</a>
         </li><br>
-
         <li>
           <%= link_to "Logga ut", signout_path, id: "sign_out" %>
         </li>

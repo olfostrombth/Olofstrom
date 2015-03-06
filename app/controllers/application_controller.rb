@@ -19,4 +19,8 @@ class ApplicationController < ActionController::Base
   def shuffle_hash!
     self.replace(self.shuffle)
   end
+  helper_method :get_activities
+  def get_activities
+    @activities = PublicActivity::Activity.order("created_at desc")
+  end
 end
