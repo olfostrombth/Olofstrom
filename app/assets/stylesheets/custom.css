@@ -1,10 +1,11 @@
 
-body
-{
-	width: 100%;
-	background: #fff;
-}
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,300italic|Oswald:400,300|Montserrat);
 
+/*
+font-family: 'Montserrat', sans-serif;
+font-family: 'Oswald', sans-serif;
+font-family: 'Roboto', sans-serif;
+*/
 
 html, body
 {
@@ -12,7 +13,12 @@ html, body
   width:100%;
   margin: 0;
   padding: 0;
+  background-color: #000;
+  overflow-x: hidden;
 }
+
+
+
 
 
 /* ---------------------Navigation bar -----------------*/
@@ -194,6 +200,16 @@ li.headline
 	color: #fff;
 }
 
+.row.act
+{
+	height: 5em;
+	display: flex;
+}
+.row.act p 
+{
+
+}
+
 /* ------------------- Modules ENDS--------------------- */
 
 
@@ -240,17 +256,82 @@ button, .button.dropdown
 
 .login-pos
 {
-	margin-top: 1%;
+	margin-top: 20vh;
 	display: flex;
-  flex-direction: row;
-  justify-content:center;
+	flex-direction: row;
+	justify-content:center;
 }
-.login-pos h2
+.login-logo h2
 {
-	font-size: 8vw;
+	font-family: 'Roboto', sans-serif;
+	font-size: 8em;
 	color: #fff;
+
+	line-height: 300px;
 }
 
+.login-logo-div
+{
+	margin: 4em;
+	text-align: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.login-logo
+{
+  background: radial-gradient(at center bottom, #123, #112);
+	width: 300px;
+	height: 300px;
+	border-radius: 300px;
+	border: 3px solid #fff;
+	
+	
+}
+
+.login-btn-pos
+{
+	display: flex;
+	flex-direction: row;
+	justify-content:center;
+}
+
+.loginbtn
+{
+	width: 25rem;
+	height: 5rem;
+	color: #fff !important;
+	background: url(ginlog.png);
+	border-radius: 5px !important; 
+	border: 1px solid #000;
+	text-align: center;
+	line-height: 5rem;
+	padding-left: 6rem;
+	font-family: 'Oswald', sans-serif;
+	font-size: 18px;
+}
+
+.loginbtn:hover
+{
+	
+	color: #fff !important;
+	border-radius: 5px !important; 
+	border: 1px solid #000;
+	text-align: center;
+
+	
+}
+
+.ease
+{
+  transition: all 0.5s ease;
+}
+
+.has-form
+{
+	margin: 1em;
+}
 /* ------------------- Login placement ENDS--------------------- */
 
 
@@ -273,4 +354,7 @@ button, .button.dropdown
   color: #fff;
 	cursor: pointer;
 }
+
+
+/* ----------------- NEW CSS --------------- */
 
