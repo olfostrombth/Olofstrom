@@ -231,13 +231,6 @@ window.onload = ->
 normalize = (name) ->
   return name.toLowerCase().replace(/['’]/gi, '').replace(/ /gi, '-').replace(/[àáâãäå]/gi, 'a').replace(/[ö]/gi, 'o')
 
-$ ->
-  $(document).on "click", "#submit_step", (e) ->
-    $(this).parent().parent().submit()
-    step = $(this).parent().parent().find('#step_name').val()
-    $('#steps').append '<a href="/modul/'+gon.catname+'/'+normalize(step)+'">'+step+'</a>'
-    $(this).parent().parent().hide()
-
 getStepItems = (item) ->
   fvalue = $(item).attr("step_item")
   return fvalue

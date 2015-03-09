@@ -26,6 +26,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'better_errors'
 gem 'gon'
 
+
 gem 'rails4-autocomplete'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -73,3 +74,4 @@ gem "paperclip"
 gem 'responders', '~> 2.0'
 
 gem "public_activity"
+

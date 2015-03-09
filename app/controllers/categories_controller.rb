@@ -8,6 +8,7 @@ class CategoriesController < ApplicationController
     if current_user
       @categories = Category.all
       @colors = ["#56adba", "#7ab292", "#fba61f", "#ec529a"]
+      @images = ["blur.png", "blurpink.png", "blurorange.png", "blurgreen.png"]
     else
       redirect_to login_url
     end
