@@ -30,9 +30,6 @@
           </div>
           <div id="quiz_form_999" class="quiz_form" step_item="999">
             <%= render :partial => '/quizzes/create_form', :locals => {:position => 0} %>
-            <div id="questions_form">
-              <%= render :partial => '/questions/form' %>
-            </div>
           </div>
         </div>
 <% end %>
@@ -184,9 +181,6 @@
                   </div>
                   <div class="quiz_form" id="quiz_form_<%= item['uid'] %>" step_item="<%= i+1 %>">
                     <%= render :partial => '/quizzes/create_form', :locals => {:position => i+1} %>
-                    <div id="questions_form">
-                      <%= render :partial => '/questions/form' %>
-                    </div>
                   </div>
                 </div>
             <% end %>
