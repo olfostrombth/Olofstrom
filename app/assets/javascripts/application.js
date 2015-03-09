@@ -24,6 +24,9 @@
 //= require_tree .
 
 $(function(){ 
+
+	var fisk = false;
+
 	$(document).foundation(); 
 	
 	$(".arch-toggle").click(function(){
@@ -33,6 +36,27 @@ $(function(){
 	$(".add-mod-btn2").click(function(){
 		$(".feeed").slideToggle("slow");
 	});
+
+
+	$(".mobile-menu-btn").click(function(){
+		if(fisk){
+			$(".mobile-menu-btn").animate({left: '0'}, 1000);
+			fisk=false;
+		}else{
+			$(".mobile-menu-btn").animate({left: '85%'}, 1000);
+			fisk=true
+		}
+        $(".sidebar").animate({width: 'toggle' }, 1000);
+        
+
+    });
+
+
+
+	//$(".fisk").click(function(){
+	//	$(".sidebar").animate({left: '500px'});
+		//var sideWidth = $(".sidebar").css("width");
+		
 
 
 });
