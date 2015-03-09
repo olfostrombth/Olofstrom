@@ -12,13 +12,22 @@
 
 		<p>---Achivements??---</p>
 
+
 		<p>Kontakta mig: <button id="" class="button success small"><%= mail_to @user.email%></button></p>
 	</div>
 
 	<div class="medium-3 columns">
-
 		<p>---Completion---</p>
 
+		<% JSON.parse(current_user.completion).each do |completion|%>
+			<% completion.each do|c, b|%>
+				<div class="panel feed">
+
+				<%= completion %>
+
+				</div>
+			<% end %>
+		<% end %>
 	</div>
 
 	<div class="medium-4 columns">
@@ -26,12 +35,13 @@
 		<div class="panel feed">
 
 			<% @activities.each do |activity|%>
-				<div class="flow_profile">
-					<%= link_to activity.owner.name, activity.owner%>
-    			<%= render_activity activity%>
+				<div class="activity">						
+					<%= link_to activity.owner.name, activity.owner if activity.owner%>
+					<%= link_to activity.key.html_safe, activity.key%>
 				</div>
 			<% end %>
 
 		</div>
 	</div>
 </div>
+

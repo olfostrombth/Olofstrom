@@ -23,11 +23,11 @@ class SessionsController < ApplicationController
   def show
     @usersearch = User.find(params[:id])
     @user = User.find(params[:id])
-    @activities = PublicActivity::Activity.order("created_at desc").where(@current_user == @user)
-    @comments = @user.comments
-    @comments.each do |x|
-      @category = Category.find(x.category_id)
-    end
+    @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: @user)
+    #@comments = @user.comments
+    #@comments.each do |x|
+    #  @category = Category.find(x.category_id)
+    #end
 
     gon.completion = @user.completion
   end
