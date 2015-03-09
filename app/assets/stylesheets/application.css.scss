@@ -25,6 +25,22 @@ font-family: 'Oswald', sans-serif;
 font-family: 'Roboto', sans-serif;
 */
 
+#reply_form {
+  display: none;
+}
+
+.comments {
+  width: auto;
+  height: auto;
+  border: 1px solid #ccc;
+}
+
+.replies {
+  width: auto;
+  height: auto;
+  border: 1px solid #ccc;
+  margin-left: 5%;
+}
 
 a:link, a:active, a:hover, a:visited {
   color: #000;
@@ -38,7 +54,7 @@ a:link, a:active, a:hover, a:visited {
 }
 
 .item:first-child {
-  border-top: 1px solid #999;
+  border-top: 10px solid #999;
 }
 
 .item {
@@ -168,13 +184,13 @@ padding: 0;
   height: 100%;
   position: fixed;
   top: 10em;
-  background: radial-gradient(at center bottom, #123, #112);
+  background: #112;
 }
 
 .top 
 {
   position: fixed;
-  background: radial-gradient(at center bottom, #123, #112);
+  background: #112;
   margin: 0;
   padding: 0;
   color: #fff;
@@ -203,13 +219,14 @@ padding: 0;
 
 .side 
 {
-  background: radial-gradient(at center bottom, #123, #112);
+
   border-bottom: 1px solid #000;
   text-align: center;
   height: auto;
   display: block;
   cursor: pointer;
   padding: 0;
+  background: #112;
 }
 
 .side p 
@@ -311,7 +328,7 @@ padding: 0;
   width: 100%;
   color: #fff;
   overflow-y: auto;
-  background: radial-gradient(at center bottom, #123, #112);
+  background: #0c0c18;
 }
 
 .feed a
@@ -479,6 +496,7 @@ padding: 0;
     width: 85%;
     z-index: 200;
     height: auto;
+    background: #112;
   }
 
 

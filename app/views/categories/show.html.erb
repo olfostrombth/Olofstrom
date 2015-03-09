@@ -47,20 +47,33 @@
 <br>
 
 <h4>Kommentarer</h4>
-<% @comments.each do |c| %>
-  <% if c %>
-    <strong><%= current_user.name %>:</strong>
-    <%= c.msg %><br>
-  <% end %>
+   <div class="comments-container">
+<% @comments.each_with_index do |x,y| %>
+         <% if x.parent_id == nil %>
+             <div class="comments">
+               <% if @user %>
+                   <br> <strong><%= @user.name %></strong><br>
+               <% end %>
+         <% else %>
+             <div class="replies">
+               <% if @user %>
+                   <br> <strong><%= @user.name %></strong><br>
+               <% end %>
+         <% end %>
+         <%= x.msg %><br>
+         <button id="reply_toggle" class="button success radius tiny">Svara</button>
+         <div id="reply_form">
+           <%= render :partial => '/comments/reply', :locals => {:parent_id => x.id, :position => y+2}  %>
+         </div>
+         </div>
 <% end %>
+   </div>
 <br>
-
-
 
 <button id="comment_toggle" class="button success radius">Kommentera</button>
 <br>
 <div class="comment_form">
-  <%= render :partial => '/comments/form' %>
+  <%= render :partial => '/comments/form', :locals => {:position => @comments.length+1 } %>
 </div>
 <br>
 
