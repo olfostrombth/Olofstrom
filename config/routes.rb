@@ -34,24 +34,61 @@ Rails.application.routes.draw do
   delete "/modul/:category_name/:step_name" => "steps#destroy", :as => :delete_step
   get "/modul/:category_name/step/new" => "steps#new"
 
+  get "/videos/:video_name" => "videos#show", :as => :video
+  get "/videos/:video_name/edit" => "videos#edit", :as => :edit_video
+  put "/videos/:video_name" => "videos#update"
+  patch "/videos/:video_name" => "videos#update"
+  delete "/videos/:video_name" => "videos#destroy", :as => :delete_video
+  get "/videos/new" => "videos#new"
+
+  get "/quizzes/:quiz_name" => "quizzes#show", :as => :quiz
+  get "/quizzes/:quiz_name/edit" => "quizzes#edit", :as => :edit_quiz
+  put "/quizzes/:quiz_name" => "quizzes#update"
+  patch "/quizzes/:quiz_name" => "quizzes#update"
+  delete "/quizzes/:quiz_name" => "quizzes#destroy", :as => :delete_quiz
+  get "/quizzes/new" => "quizzes#new"
+
+  get "/guides/:guide_name" => "guides#show", :as => :guide
+  get "/guides/:guide_name/edit" => "guides#edit", :as => :edit_guide
+  put "/guides/:guide_name" => "guides#update"
+  patch "/guides/:guide_name" => "guides#update"
+  delete "/guides/:guide_name" => "guides#destroy", :as => :delete_guide
+  get "/guides/new" => "guides#new"
+
+  get "/assignments/:assignment_name" => "assignments#show", :as => :assignment
+  get "/assignments/:assignment_name/edit" => "assignments#edit", :as => :edit_assignment
+  put "/assignments/:assignment_name" => "assignments#update"
+  patch "/assignments/:assignment_name" => "assignments#update"
+  delete "/assignments/:assignment_name" => "assignments#destroy", :as => :delete_assignment
+  get "/assignments/new" => "assignments#new"
+
+  get "/questions/:question_name" => "questions#show", :as => :question
+  get "/questions/:question_name/edit" => "questions#edit", :as => :edit_question
+  put "/questions/:question_name" => "questions#update"
+  patch "/questions/:question_name" => "questions#update"
+  delete "/questions/:question_name" => "questions#destroy", :as => :delete_question
+  get "/questions/new" => "quizzes#new"
+
+
   resources :sessions
   #, only: [:create, :destroy]
 
-  resources :quizzes
 
-  resources :comments
-
-  resources :questions
-
-  resources :assignments
-
-  resources :guides
-
-  resources :videos
+  resources :comments, only: [:edit, :create, :update, :destroy]
 
   resources :steps, only: [:create, :index]
 
-  resources :examinations
+  resources :videos, only: [:create, :index]
+
+  resources :quizzes, only: [:create, :index]
+
+  resources :guides, only: [:create, :index]
+
+  resources :assignments, only: [:create, :index]
+
+  resources :questions, only: [:create, :index]
+
+  resources :examinations, only: [:edit, :create, :update, :destroy]
 
   resources :categories, only: [:create, :index, :new]
 
