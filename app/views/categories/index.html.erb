@@ -4,14 +4,15 @@
     <div class="large-6 columns first">
       <h1>Övningar</h1>
     </div>
-
     <!--  LÄGG TILL MODUL KNAPP -->
-    <% if current_user.admin? %>
-    <div class="large-6 columns first">
-      <%= link_to '<div class="add-mod-btn ease"><p>Lägg till modul</p></div>'.html_safe, new_category_path %>
-    </div>
-    <% end %>
+
+      <div class="large-6 columns first">
+        <% if current_user.admin? %>
+            <%= link_to '<div class="add-mod-btn ease"><p>Lägg till modul</p></div>'.html_safe, new_category_path %>
+         <% end %>
+      </div>
   </div>
+
 
   <!-- MODULER -->
   <div class="large-12 columns contents">
@@ -24,11 +25,15 @@
           <h1><%= cat.name.titleize %></h1>
           <p><%= cat.desc %></p> 
         </div></a>
-        <% if current_user.admin? %>
-        <div class="crud"><%= link_to '<i class="fi-x small"></i>'.html_safe, delete_category_path(cat.name), method: :delete, data: { confirm: 'Are you sure?' } %>
-          <%= link_to '<i class="fi-pencil small"></i>'.html_safe, edit_caturl_path(cat.name), method: :get %></div>
+
+        <div class="crud">
+          <% if current_user.admin? %>
+            <%= link_to '<i class="fi-x small"></i>'.html_safe, delete_category_path(cat.name), method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to '<i class="fi-pencil small"></i>'.html_safe, edit_caturl_path(cat.name), method: :get %>
           <% end %>
+              </div>
       </div>
+
       <% end %>
     </div>
   </div>

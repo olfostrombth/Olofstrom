@@ -20,6 +20,10 @@ class QuestionsController < ApplicationController
 
   # GET /questions/1/edit
   def edit
+    @question = Question.where(question: params[:question_name])
+    @question.each do |x|
+      @question = x
+    end
   end
 
   # POST /questions
@@ -45,9 +49,10 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /questions/1
   # PATCH/PUT /questions/1.json
   def update
+    @quiz = Quiz.find(question_params[:quiz_id])
     respond_to do |format|
-      if @question.update(question_params)
-        format.html { redirect_to @question, notice: 'Question was successfully updated.' }
+      if @question.update({question:question_params[:question], option1:question_params[:option1], option2:question_params[:option2], answer:question_params[:answer], quiz_id:question_params[:quiz_id]})
+        format.html { redirect_to edit_quiz_path(@quiz.name), notice: 'Question was successfully updated.' }
         format.json { render :show, status: :ok, location: @question }
       else
         format.html { render :edit }
@@ -59,9 +64,10 @@ class QuestionsController < ApplicationController
   # DELETE /questions/1
   # DELETE /questions/1.json
   def destroy
+    @quiz = Quiz.find(question_params[:quiz_id])
     @question.destroy
     respond_to do |format|
-      format.html { redirect_to questions_url, notice: 'Question was successfully destroyed.' }
+      format.html { redirect_to edit_quiz_path(@quiz), notice: 'Question was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,11 +75,14 @@ class QuestionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_question
-      @question = Question.find(params[:id])
+      @question = Question.where(question: params[:question_name])
+      @question.each do |x|
+        @question = x
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:name, :question, :option1, :option2, :option3, :answer, :quiz_id)
+      params.require(:question).permit(:name, :question, :option1, :option2, :option3, :answer, :quiz_id, :question_name)
     end
 end
