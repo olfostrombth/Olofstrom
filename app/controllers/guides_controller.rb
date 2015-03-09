@@ -19,6 +19,10 @@ class GuidesController < ApplicationController
 
   # GET /guides/1/edit
   def edit
+    @guide = Guide.where(name: params[:guide_name])
+    @guide.each do |x|
+      @guide = x
+    end
   end
 
   # POST /guides
@@ -29,7 +33,6 @@ class GuidesController < ApplicationController
     @stepx = Step.find(guide_params[:step_id])
     @guidex = Guide.where(name:guide_params[:name])
     @cat = Category.find(@stepx.category_id)
-
 
     @guidex.each do |x|
       @guidex = x
@@ -55,9 +58,11 @@ class GuidesController < ApplicationController
   # PATCH/PUT /guides/1
   # PATCH/PUT /guides/1.json
   def update
+    step = Step.find(guide_params[:step_id])
+    cat = Category.find(step.category_id)
     respond_to do |format|
-      if @guide.update(guide_params)
-        format.html { redirect_to @guide, notice: 'Guide was successfully updated.' }
+      if @guide.update({name:guide_params[:name], desc:guide_params[:desc]})
+        format.html { redirect_to step_path(cat.name, step.name), notice: 'Guide was successfully updated.' }
         format.json { render :show, status: :ok, location: @guide }
       else
         format.html { render :edit }
@@ -69,9 +74,16 @@ class GuidesController < ApplicationController
   # DELETE /guides/1
   # DELETE /guides/1.json
   def destroy
+    step = Step.find(@guide.step_id)
+    cat = Category.find(step.category_id)
+    @substep = Substep.where(sid: @guide.id)
+    @substep.each do |x|
+      @substep = x
+    end
     @guide.destroy
+    @substep.destroy
     respond_to do |format|
-      format.html { redirect_to guides_url, notice: 'Guide was successfully destroyed.' }
+      format.html { redirect_to step_path(cat.name, step.name), notice: 'Guide was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -79,11 +91,14 @@ class GuidesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_guide
-      @guide = Guide.find(params[:id])
+      @guide = Guide.where(name: params[:guide_name])
+      @guide.each do |x|
+        @guide = x
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def guide_params
-      params.require(:guide).permit(:name, :desc, :step_id, :typex, :row_order_position)
+      params.require(:guide).permit(:name, :desc, :step_id, :typex, :row_order_position, :guide_name)
     end
 end

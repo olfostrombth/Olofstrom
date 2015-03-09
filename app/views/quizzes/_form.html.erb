@@ -1,4 +1,4 @@
-<%= form_for(@quiz) do |f| %>
+<%= form_for(@quiz, as: :quiz, url: quiz_path(@quiz.name)) do |f| %>
   <% if @quiz.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@quiz.errors.count, "error") %> prohibited this quiz from being saved:</h2>
@@ -21,9 +21,6 @@
   <div class="field">
     <%= f.hidden_field :typex, value: "quiz" %>
   </div>
-    <div class="field">
-      <%= f.hidden_field :row_order_position, value: position %>
-    </div>
   <div class="actions">
     <%= f.submit %>
   </div>

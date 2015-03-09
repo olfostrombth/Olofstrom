@@ -19,6 +19,10 @@ class VideosController < ApplicationController
 
   # GET /videos/1/edit
   def edit
+    @video = Video.where(name: params[:video_name])
+    @video.each do |x|
+      @video = x
+    end
   end
 
   # POST /videos
@@ -56,9 +60,11 @@ class VideosController < ApplicationController
   # PATCH/PUT /videos/1
   # PATCH/PUT /videos/1.json
   def update
+    step = Step.find(video_params[:step_id])
+    cat = Category.find(step.category_id)
     respond_to do |format|
-      if @video.update(video_params)
-        format.html { redirect_to @video, notice: 'Video was successfully updated.' }
+      if @video.update({name:video_params[:name], url:video_params[:url]})
+        format.html { redirect_to step_path(cat.name, step.name), notice: 'Video was successfully updated.' }
         format.json { render :show, status: :ok, location: @video }
       else
         format.html { render :edit }
@@ -70,21 +76,32 @@ class VideosController < ApplicationController
   # DELETE /videos/1
   # DELETE /videos/1.json
   def destroy
+    step = Step.find(@video.step_id)
+    cat = Category.find(step.category_id)
+    @substep = Substep.where(sid: @video.id)
+    @substep.each do |x|
+      @substep = x
+    end
     @video.destroy
+    @substep.destroy
     respond_to do |format|
-      format.html { redirect_to videos_url, notice: 'Video was successfully destroyed.' }
+      format.html { redirect_to step_path(cat.name, step.name), notice: 'Video was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
+
     def set_video
-      @video = Video.find(params[:id])
+      @video = Video.where(name: params[:video_name])
+      @video.each do |x|
+        @video = x
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
-      params.require(:video).permit(:name, :url, :step_id, :typex, :row_order_position)
+      params.require(:video).permit(:name, :url, :step_id, :typex, :row_order_position, :video_name)
     end
 end

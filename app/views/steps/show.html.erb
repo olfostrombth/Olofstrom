@@ -20,16 +20,16 @@
         <br>
         <div class="forms" id="forms>">
           <div id="video_form_999" class="video_form">
-            <%= render :partial => '/videos/form', :locals => {:position => 0} %>
+            <%= render :partial => '/videos/create_form', :locals => {:position => 0} %>
           </div>
           <div id="guide_form_999" class="guide_form">
-            <%= render :partial => '/guides/form', :locals => {:position => 0} %>
+            <%= render :partial => '/guides/create_form', :locals => {:position => 0} %>
           </div>
           <div id="assignment_form_999" class="assignment_form">
-            <%= render :partial => '/assignments/form', :locals => {:position => 0} %>
+            <%= render :partial => '/assignments/create_form', :locals => {:position => 0} %>
           </div>
           <div id="quiz_form_999" class="quiz_form" step_item="999">
-            <%= render :partial => '/quizzes/form', :locals => {:position => 0} %>
+            <%= render :partial => '/quizzes/create_form', :locals => {:position => 0} %>
             <div id="questions_form">
               <%= render :partial => '/questions/form' %>
             </div>
@@ -50,14 +50,38 @@
               <h4><%= item['name'] %></h4>
             </div>
             <% if current_user.admin? %> <!-- this makes you able to show only name for step item if your admin, easier for drag and drop -->
-              <% if item['desc'] %>
+              <% if item['guide_type'] %>
                 <div class="td">
                   <button id="show_desc" class="small">Visa mer</button>
                   <div id="desc" class="hidden">
                     <%= item['desc'].html_safe %>
                   </div>
+                  <br>
+                  <%= link_to '<i class="fi-x small"></i>'.html_safe, delete_guide_path(:guide_name => item['name']), method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <%= link_to '<i class="fi-pencil small"></i>'.html_safe, edit_guide_path(:guide_name => item['name']), method: :get %>
                 </div>
               <% end %>
+            <% else %>
+                <% if item['desc']%>
+                    <div class="td">
+                      <div id="desc">
+                        <%= item['desc'].html_safe %>
+                      </div>
+                    </div>
+                <% end %>
+            <% end %>
+            <% if current_user.admin? %> <!-- this makes you able to show only name for step item if your admin, easier for drag and drop -->
+                <% if item['assignment_type'] %>
+                    <div class="td">
+                      <button id="show_desc" class="small">Visa mer</button>
+                      <div id="desc" class="hidden">
+                        <%= item['desc'].html_safe %>
+                      </div>
+                      <br>
+                      <%= link_to '<i class="fi-x small"></i>'.html_safe, delete_assignment_path(:assignment_name => item['name']), method: :delete, data: { confirm: 'Are you sure?' } %>
+                      <%= link_to '<i class="fi-pencil small"></i>'.html_safe, edit_assignment_path(:assignment_name => item['name']), method: :get %>
+                    </div>
+                <% end %>
             <% else %>
                 <% if item['desc']%>
                     <div class="td">
@@ -74,6 +98,9 @@
                     <div id="video_url" class="hidden">
                       <%= raw(youtube_embed(item['url'])) %><br>
                     </div>
+                  <br>
+                  <%= link_to '<i class="fi-x small"></i>'.html_safe, delete_video_path(:video_name => item['name']), method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <%= link_to '<i class="fi-pencil small"></i>'.html_safe, edit_video_path(:video_name => item['name']), method: :get %>
                 </div>
               <% end %>
             <% else %>
@@ -117,6 +144,10 @@
                             <%= render :partial => 'questions', :locals => {:parent_quiz_id => questions_idxx} %><br>
                         <% end %>
                         </div>
+                      <br>
+                      <%= link_to '<i class="fi-x small"></i>'.html_safe, delete_quiz_path(:quiz_name => item['name']), method: :delete, data: { confirm: 'Are you sure?' } %>
+                      <%= link_to '<i class="fi-pencil small"></i>'.html_safe, edit_quiz_path(:quiz_name => item['name']), method: :get %>
+
                     </div>
                 <% end %>
             <% else %>
@@ -143,16 +174,16 @@
                 <br>
                 <div class="forms" id="forms">
                   <div class="video_form" id="video_form_<%= item['uid'] %>" step_item="<%= item['uid'] %>">
-                    <%= render :partial => '/videos/form', :locals => {:position => i+1} %>
+                    <%= render :partial => '/videos/create_form', :locals => {:position => i+1} %>
                   </div>
                   <div class="guide_form" id="guide_form_<%= item['uid'] %>">
-                    <%= render :partial => '/guides/form', :locals => {:position => i+1} %>
+                    <%= render :partial => '/guides/create_form', :locals => {:position => i+1} %>
                   </div>
                   <div class="assignment_form" id="assignment_form_<%= item['uid'] %>">
-                    <%= render :partial => '/assignments/form', :locals => {:position => i+1} %>
+                    <%= render :partial => '/assignments/create_form', :locals => {:position => i+1} %>
                   </div>
                   <div class="quiz_form" id="quiz_form_<%= item['uid'] %>" step_item="<%= i+1 %>">
-                    <%= render :partial => '/quizzes/form', :locals => {:position => i+1} %>
+                    <%= render :partial => '/quizzes/create_form', :locals => {:position => i+1} %>
                     <div id="questions_form">
                       <%= render :partial => '/questions/form' %>
                     </div>
