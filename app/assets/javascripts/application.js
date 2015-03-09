@@ -25,9 +25,11 @@
 
 $(function(){ 
 
-	var fisk = false;
+	var btn = false;
 
 	$(document).foundation(); 
+
+	// Archivement badges show
 	
 	$(".arch-toggle").click(function(){
 		$(".arch").slideToggle("slow");
@@ -37,14 +39,14 @@ $(function(){
 		$(".feeed").slideToggle("slow");
 	});
 
-
+	// MOBIL MENY JS
 	$(".mobile-menu-btn").click(function(){
-		if(fisk){
+		if(btn){
 			$(".mobile-menu-btn").animate({left: '0'}, 1000);
-			fisk=false;
+			btn=false;
 		}else{
 			$(".mobile-menu-btn").animate({left: '85%'}, 1000);
-			fisk=true
+			btn=true
 		}
         $(".sidebar").animate({width: 'toggle' }, 1000);
         

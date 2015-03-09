@@ -160,8 +160,12 @@
             <% end %>
           </div>
       <% end %>
+      <hr>
   <% end %>
 </div>
-<br>
+<br>            
+<% if current_user.admin? %>
+
 <%= link_to 'Edit', edit_step_path(@catname,@step.name) %> |
 <%= link_to 'Back', steps_path %>
+<% end %>

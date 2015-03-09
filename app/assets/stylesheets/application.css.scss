@@ -310,7 +310,7 @@ padding: 0;
   height: auto;
   width: 100%;
   color: #fff;
-  overflow-y: hidden;
+  overflow-y: auto;
   background: radial-gradient(at center bottom, #123, #112);
 }
 
@@ -325,17 +325,6 @@ padding: 0;
 {
   padding: 0;
 }
-
-.avatar
-{
-
-}
-
-.text 
-{
-  
-}
-
 
 
 .in
@@ -375,7 +364,6 @@ padding: 0;
 .add-mod-btn:hover
 {
   height: 6em;
-
 }
 
 .ease
@@ -435,6 +423,7 @@ padding: 0;
   color: #fff;
 }
 
+
 .form-control
 {
   background-color: #123;
@@ -445,10 +434,33 @@ padding: 0;
   display: none;
 }
 
+.tableadmin
+{
+  border: 1px solid #000;
+}
 
-
+.item 
+{
+  border: none !important;
+  padding: 1em;
+  margin-bottom: 20px;
+  background-color: #fff;
+}
 
 @media only screen and (max-width: 640px) {
+
+.text 
+{
+  padding: 5% 10%;
+}
+
+
+
+.avatar
+{
+  /*display: none; <--- Med eller utan avatar i mobile?*/
+  opacity: 0.2;
+}
 
  .top 
  {
@@ -489,5 +501,21 @@ padding: 0;
     line-height: 4em;
     padding: 2em;
   }
+
+  .login-logo
+{
+  background: radial-gradient(at center bottom, #123, #112);
+  width: 200px;
+  height: 200px;
+  border-radius: 200px;
+  border: 3px solid #fff;
+}
+.login-logo h2
+{
+  font-family: 'Roboto', sans-serif;
+  font-size: 4em;
+  color: #fff;
+  line-height: 200px;
+}
 
 }
