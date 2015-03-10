@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/galetahub/ckeditor.git
+  revision: 96c2ba8602154a7d46c4c95952550ae638503396
+  specs:
+    ckeditor (4.1.1)
+      cocaine
+      orm_adapter (~> 0.5.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -49,9 +57,6 @@ GEM
       columnize (~> 0.8)
       debugger-linecache (~> 1.2)
       slop (~> 3.6)
-    ckeditor (4.1.1)
-      cocaine
-      orm_adapter (~> 0.5.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.5)
@@ -249,7 +254,7 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   byebug
-  ckeditor
+  ckeditor!
   coffee-rails (~> 4.1.0)
   formtastic (~> 3.0)
   foundation-icons-sass-rails
