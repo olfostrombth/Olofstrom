@@ -48,7 +48,7 @@
                           <%= form_tag search_path, class: "form-inline", method: :get do %>
                         </div>
                         <div class="small-3 columns">
-                         <div class="input-group-btn"> <%= submit_tag 'Sök' %></div>
+                          <div class="input-group-btn"> <%= submit_tag 'Sök' %></div>
                          <% end %>
                         </div>
                       </div>
@@ -67,6 +67,7 @@
                 <div class="medium-12 large-12 columns feed">
                     <% @activities=get_activities %>
                     <% @activities.each do |activity| name=activity.owner.name.split(" ")%>
+                      <% if name %>
                 <div class="row act">
                   <div class="large-12 columns fedbox">
                     <div class="large-2 columns avatar"><%= link_to image_tag(activity.owner.image).html_safe, session_path(activity.owner) %></div>
@@ -74,6 +75,7 @@
                        <%= activity.key.html_safe %></div>
                   </div>
 
+                  <% end %>
 
             </div>
           <% end %>

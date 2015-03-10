@@ -23,6 +23,10 @@ class AssignmentsController < ApplicationController
 
   # GET /assignments/1/edit
   def edit
+    @assignment = Assignment.where(name: params[:assignment_name])
+    @assignment.each do |x|
+      @assignment = x
+    end
   end
 
   # POST /assignments
@@ -58,9 +62,11 @@ class AssignmentsController < ApplicationController
   # PATCH/PUT /assignments/1
   # PATCH/PUT /assignments/1.json
   def update
+    step = Step.find(assignment_params[:step_id])
+    cat = Category.find(step.category_id)
     respond_to do |format|
-      if @assignment.update(assignment_params)
-        format.html { redirect_to @assignment, notice: 'Assignment was successfully updated.' }
+      if @assignment.update(name:assignment_params[:name], desc:assignment_params[:desc])
+        format.html { redirect_to step_path(cat.name, step.name), notice: 'Assignment was successfully updated.' }
         format.json { render :show, status: :ok, location: @assignment }
       else
         format.html { render :edit }
@@ -72,9 +78,16 @@ class AssignmentsController < ApplicationController
   # DELETE /assignments/1
   # DELETE /assignments/1.json
   def destroy
+    step = Step.find(@assignment.step_id)
+    cat = Category.find(step.category_id)
+    @substep = Substep.where(sid: @assignment.id)
+    @substep.each do |x|
+      @substep = x
+    end
     @assignment.destroy
+    @substep.destroy
     respond_to do |format|
-      format.html { redirect_to assignments_url, notice: 'Assignment was successfully destroyed.' }
+      format.html { redirect_to step_path(cat.name, step.name), notice: 'Assignment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -82,11 +95,14 @@ class AssignmentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_assignment
-      @assignment = Assignment.find(params[:id])
+      @assignment = Assignment.where(name: params[:assignment_name])
+      @assignment.each do |x|
+        @assignment = x
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def assignment_params
-      params.require(:assignment).permit(:name, :desc, :step_id, :typex, :row_order_position)
+      params.require(:assignment).permit(:name, :desc, :step_id, :typex, :row_order_position, :assignment_name)
     end
 end
