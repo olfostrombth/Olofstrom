@@ -61,22 +61,19 @@
 
           </div>
 
+
           <div class="medium-12 large-12 columns feed">
             <p>Senaste aktiviteter</p>
           </div>
-          <div class="medium-12 large-12 columns feed">
+
+
+          <div class="large-12 columns feed">
             <% @activities = get_activities.first(5) %>
             <% @activities.each do |activity| name = activity.owner.name.split(" ")%>
-                <div class="row act">
-                  <div class="large-12 columns fedbox">
-                    <div class="large-2 columns avatar"><%= link_to image_tag(activity.owner.image).html_safe, session_path(activity.owner) %></div>
-                    <div class="large-10 columns text"><strong><%=link_to name[0], session_path(activity.owner) %></strong>
-                      <p><%= activity.key.html_safe %></p></div>
-                  </div>
-                </div>
+                <div class="large-3 columns avtxt"><%= link_to image_tag(activity.owner.image).html_safe, session_path(activity.owner) %></div>
+                <div class="large-9 columns avtxt"><%=link_to name[0], session_path(activity.owner) %>
+                  <%= activity.key.html_safe %></div>
             <% end %>
-
-
           </div>
         </div>
 

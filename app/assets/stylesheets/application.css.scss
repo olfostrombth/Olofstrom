@@ -25,23 +25,6 @@ font-family: 'Oswald', sans-serif;
 font-family: 'Roboto', sans-serif;
 */
 
-#reply_form {
-  display: none;
-}
-
-.comments {
-  width: auto;
-  height: auto;
-  border: 1px solid #ccc;
-}
-
-.replies {
-  width: auto;
-  height: auto;
-  border: 1px solid #ccc;
-  margin-left: 5%;
-}
-
 
 a:link, a:active, a:hover, a:visited {
   color: #000;
@@ -327,7 +310,7 @@ a:link, a:active, a:hover, a:visited {
   height: auto;
   width: 100%;
   color: #fff;
-  overflow-y: hidden;
+  overflow: hidden;
   background: radial-gradient(at center bottom, #123, #112);
 }
 
@@ -338,27 +321,11 @@ a:link, a:active, a:hover, a:visited {
   font-size: 16px;
 }
 
-.fedbox
+.avtxt
 {
-  padding: 0;
-
-}
-
-.fedbox.avatar
-{
-  height: 3em;
-  float: left;
-}
-
-.fedbox.text
-{
-  float: left;
-  height: 3em;
-}
-
-.fedbox p
-{
-  font-size: 12px;
+  height: 4em;
+  margin-bottom: 1.5em;
+  line-height: 2em;
 }
 
 
@@ -514,6 +481,11 @@ a:link, a:active, a:hover, a:visited {
     width: 85%;
     z-index: 200;
     height: auto;
+  }
+
+  .feed
+  {
+    overflow-y: auto;
   }
 
 
