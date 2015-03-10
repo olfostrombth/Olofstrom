@@ -7,8 +7,6 @@
   <title><%= @title ? @title: "Olofström  - OIKT" %></title>
 
   <%= stylesheet_link_tag    "application" %>
-  <link rel="stylesheet" href="css/foundation.css" />
-  <link rel="stylesheet" href="css/style.css" />
   <%= javascript_include_tag "vendor/modernizr" %>
   <%= Gon::Base.render_data({}) %>
   <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
@@ -18,7 +16,7 @@
 </head>
 
 <body>
-   
+
   <div class="row container">
     <div class="large-12 columns wrapper">
       <% if current_user %>
@@ -41,7 +39,7 @@
               </div>
               <div class="medium-12 large-12 columns side"><p><%= link_to "Logga ut", signout_path, id: "sign_out" %></p></div>
               <div class="medium-12 large-12 columns side">
-                <li class="has-form side"> 
+                <li class="has-form side">
                   <div class="row">
                     <div class="medium-12 large-12 columns">
                       <div class="row collapse">
@@ -50,7 +48,7 @@
                           <%= form_tag search_path, class: "form-inline", method: :get do %>
                         </div>
                         <div class="small-3 columns">
-                         <div class="input-group-btn"> <%= submit_tag 'Sök' %></div>
+                          <div class="input-group-btn"> <%= submit_tag 'Sök' %></div>
                          <% end %>
                         </div>
                       </div>
@@ -59,8 +57,8 @@
                 </li>
 
 
-                  
-                  
+
+
 
 
                 <div class="medium-12 large-12 columns">
@@ -69,6 +67,7 @@
                 <div class="medium-12 large-12 columns feed">
                     <% @activities=get_activities %>
                     <% @activities.each do |activity| name=activity.owner.name.split(" ")%>
+                      <% if name %>
                 <div class="row act">
                   <div class="large-12 columns fedbox">
                     <div class="large-2 columns avatar"><%= link_to image_tag(activity.owner.image).html_safe, session_path(activity.owner) %></div>
@@ -76,30 +75,31 @@
                        <%= activity.key.html_safe %></div>
                   </div>
 
-                  
+                  <% end %>
+
             </div>
           <% end %>
 
-      
+
     </div>
           </div>
 
-       
+
   </div>
   </div>
       <div class="medium-9 large-9 columns content in">
-          
+
                 <% end %>
                 <%= yield %>
-               
-              
+
+
         </div>
   </div>
 </div>
 
-  
-   
-  
+
+
+
 
   <!--<div id="menu-bar">
     <%= link_to '<div class="logotype"></div>'.html_safe, root_path %>
@@ -116,7 +116,7 @@
           <%= link_to "Logga ut", signout_path, id: "sign_out" %>
         </li>
       </ul>
-    
+
     <%end %>
 </div>-->
 </body>
