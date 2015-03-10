@@ -42,7 +42,7 @@
           </div>
           <div class="small-12 medium-12 large-12 columns side"><p><%= link_to "Logga ut", signout_path, id: "sign_out" %></p></div>
           <div class="medium-12 large-12 columns side">
-            <li class="has-form side"> 
+            <li class="has-form"> 
               <div class="row">
                 <div class="medium-12 large-12 columns">
                   <div class="row collapse">
@@ -51,7 +51,7 @@
                       <%= form_tag search_path, class: "form-inline", method: :get do %>
                     </div>
                     <div class="small-3 columns">
-                     <div class="input-group-btn ease"> <%= submit_tag 'Sök' %></div>
+                     <div class="input-group-btn ease"> <%= submit_tag 'SÖK' %></div>
                      <% end %>
                    </div>
                  </div>
@@ -61,22 +61,19 @@
 
          </div>
 
+        
          <div class="medium-12 large-12 columns feed">
           <p>Senaste aktiviteter</p>
         </div>
-        <div class="medium-12 large-12 columns feed">
-          <% @activities = get_activities.last(5) %>
+       
+
+         <div class="large-12 columns feed">
+          <% @activities = get_activities.first(5) %>
           <% @activities.each do |activity| name = activity.owner.name.split(" ")%>
-          <div class="row act">
-            <div class="large-12 columns fedbox">
-              <div class="large-2 columns avatar"><%= link_to image_tag(activity.owner.image).html_safe, session_path(activity.owner) %></div>
-              <div class="large-10 columns text"><strong><%=link_to name[0], session_path(activity.owner) %></strong>
-               <%= activity.key.html_safe %></div>
-             </div>
-           </div>
+          <div class="large-3 columns avtxt"><%= link_to image_tag(activity.owner.image).html_safe, session_path(activity.owner) %></div>
+          <div class="large-9 columns avtxt"><strong><%=link_to name[0], session_path(activity.owner) %></strong>
+                 <%= activity.key.html_safe %></div>
            <% end %>
-
-
          </div>
        </div>
      

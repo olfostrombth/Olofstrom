@@ -31,7 +31,6 @@ a:link, a:active, a:hover, a:visited {
 }
 
 
-
 .table {
   width: 100%;
   height: auto;
@@ -264,13 +263,14 @@ padding: 0;
   width: 100%;
   padding-top: 0;
   padding-bottom: 0;
-  margin-top: -1px;
+  margin: -1px;
   border-style: solid;
   border-width: 1px;
   overflow: visible;
   font-size: 14px;
   height: 2.45rem;
   line-height: 2.45rem; 
+  text-align: center;
 }
 
 .input-group-btn input:hover
@@ -310,7 +310,7 @@ padding: 0;
   height: auto;
   width: 100%;
   color: #fff;
-  overflow-y: auto;
+  overflow: hidden;
   background: radial-gradient(at center bottom, #123, #112);
 }
 
@@ -321,9 +321,11 @@ padding: 0;
   font-size: 16px;
 }
 
-.fedbox
+.avtxt
 {
-  padding: 0;
+  height: 4em;
+  margin-bottom: 1.5em;
+  line-height: 2em;
 }
 
 
@@ -363,7 +365,7 @@ padding: 0;
 
 .add-mod-btn:hover
 {
-  height: 6em;
+  height: 4em;
 }
 
 .ease
@@ -476,10 +478,16 @@ padding: 0;
     float: left;
     top: 10em;
     display: none;
+    padding: 0;
     width: 85%;
     z-index: 200;
     height: auto;
   }
+
+.feed
+{
+  overflow-y: auto;
+}
 
 
 .mobile-menu-btn
@@ -516,6 +524,16 @@ padding: 0;
   font-size: 4em;
   color: #fff;
   line-height: 200px;
+}
+
+.text 
+{
+  padding: 20% 5%;
+}
+
+.text h1
+{
+  font-size: 2em;
 }
 
 }
