@@ -269,7 +269,7 @@ a:link, a:active, a:hover, a:visited {
   overflow: visible;
   font-size: 14px;
   height: 2.45rem;
-  line-height: 2.45rem;
+  line-height: 2.45rem; 
   text-align: center;
 }
 
@@ -326,7 +326,9 @@ a:link, a:active, a:hover, a:visited {
   height: 4em;
   margin-bottom: 1.5em;
   line-height: 2em;
+  padding: 0;
 }
+
 
 
 .in
@@ -478,16 +480,17 @@ a:link, a:active, a:hover, a:visited {
     float: left;
     top: 10em;
     display: none;
+    padding: 0;
     width: 85%;
     z-index: 200;
     height: auto;
   }
 
-  .feed
-  {
-    overflow-y: auto;
-  }
 
+.feed
+{
+  overflow-y: auto;
+}
 
   .mobile-menu-btn
   {
@@ -534,5 +537,15 @@ a:link, a:active, a:hover, a:visited {
   {
     font-size: 2em;
   }
+
+.text 
+{
+  padding: 20% 5%;
+}
+
+.text h1
+{
+  font-size: 2em;
+}
 
 }
