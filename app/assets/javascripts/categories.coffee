@@ -4,16 +4,20 @@
 
 $ ->
   $(document).on "click", "#step_toggle", ->
-    $('.step_form').toggle('show');
+    $('.step_form').toggle('show')
 
 $ ->
   $(document).on "click", "#examination_toggle", ->
     $('.examination_form').toggle('show')
 
 $ ->
+  $(document).on "click", "#reply_toggle", ->
+    $(this).parent().children('#reply_form').toggle('show')
+
+$ ->
   $(document).on "click", "#comment_toggle", ->
-    $('.comment_form').toggle('show');
-    $('html, body').animate({scrollTop:$(document).height()}, 'slow');
+    $('.comment_form').toggle('show')
+    $('html, body').animate({scrollTop:$(document).height()}, 'slow')
 
 
 

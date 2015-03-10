@@ -40,8 +40,9 @@
 <% else %>
     <div class="table">
 <% end %>
+
   <% @step_items.each_with_index do |item, i| %>
-      <% if item['uid'] %>
+      <% if item['uid'] %><br>
           <div class="item" data-item-id="<%= item['uid'].to_s %>" >
             <div class="td">
               <h4><%= item['name'] %></h4>
@@ -186,8 +187,12 @@
             <% end %>
           </div>
       <% end %>
+      <hr>
   <% end %>
 </div>
-<br>
+<br>            
+<% if current_user.admin? %>
+
 <%= link_to 'Edit', edit_step_path(@catname,@step.name) %> |
 <%= link_to 'Back', steps_path %>
+<% end %>
