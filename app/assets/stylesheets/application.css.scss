@@ -220,12 +220,17 @@ a:link, a:active, a:hover, a:visited {
 .side
 {
   background: radial-gradient(at center bottom, #123, #112);
-  border-bottom: 1px solid #000;
   text-align: center;
   height: auto;
   display: block;
   cursor: pointer;
   padding: 0;
+}
+
+.side:hover
+{
+    background: radial-gradient(at center bottom, #15293d, #112);
+
 }
 
 .side p
@@ -253,11 +258,21 @@ a:link, a:active, a:hover, a:visited {
   font-family: 'Oswald', sans-serif;
   font-weight: 100;
   font-size: 16px;
+  display: block;
 }
 
 .side a:hover
 {
   color: #5ccde2;
+}
+
+.tt-suggestion p {
+  color: #000 !important;
+  display: block;
+}
+
+.tt-suggestion p:hover {
+  color: #5ccde2 !important;
 }
 
 .arch
@@ -286,15 +301,20 @@ a:link, a:active, a:hover, a:visited {
   overflow: visible;
   font-size: 14px;
   height: 2.45rem;
-  line-height: 2.45rem; 
+  line-height: 2.6rem; 
   text-align: center;
 }
 
 .input-group-btn input:hover
 {
-  background-color: #fff;
-  color: #000;
+  background-color: #444b5c;
 }
+
+.input-group-btn p
+{
+  color: #fff;
+}
+
 
 .small-9.columns span
 {
@@ -346,7 +366,6 @@ a:link, a:active, a:hover, a:visited {
   padding: 0;
 
 }
-
 
 
 .in
