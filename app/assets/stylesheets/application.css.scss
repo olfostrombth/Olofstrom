@@ -14,10 +14,10 @@
  *= require_self
  *= require foundation_and_overrides
  */
- @import 'foundation-icons';
+@import 'foundation-icons';
 
- /*  FONTS  */
- @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,300italic|Oswald:400,300|Montserrat);
+/*  FONTS  */
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,300italic|Oswald:400,300|Montserrat);
 
 /*
 font-family: 'Montserrat', sans-serif;
@@ -42,10 +42,10 @@ font-family: 'Roboto', sans-serif;
   margin-left: 5%;
 }
 
+
 a:link, a:active, a:hover, a:visited {
   color: #000;
 }
-
 
 
 .table {
@@ -54,7 +54,7 @@ a:link, a:active, a:hover, a:visited {
 }
 
 .item:first-child {
-  border-top: 10px solid #999;
+  border-top: 1px solid #999;
 }
 
 .item {
@@ -82,8 +82,8 @@ a:link, a:active, a:hover, a:visited {
 }
 
 .quizzes {
-    width: auto;
-    height: auto;
+  width: auto;
+  height: auto;
 }
 
 .hidden {
@@ -91,49 +91,49 @@ a:link, a:active, a:hover, a:visited {
 }
 
 .video_wrapper {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
 .video_name {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
- .step_form {
-   width: auto;
-   height: auto;
-   display: none;
- }
+.step_form {
+  width: auto;
+  height: auto;
+  display: none;
+}
 
- .comment_form {
-   width: auto;
-   height: auto;
-   display: none;
- }
+.comment_form {
+  width: auto;
+  height: auto;
+  display: none;
+}
 
 .video_form {
-    width: auto;
-    height: auto;
-    display: none;
+  width: auto;
+  height: auto;
+  display: none;
 }
 
 .guide_form {
-    width: auto;
-    height: auto;
-    display: none;
+  width: auto;
+  height: auto;
+  display: none;
 }
 
 .assignment_form {
-    width: auto;
-    height: auto;
-    display: none;
+  width: auto;
+  height: auto;
+  display: none;
 }
 
 .examination_form {
-    width: auto;
-    height: auto;
-    display: none;
+  width: auto;
+  height: auto;
+  display: none;
 }
 
 .startWrapper
@@ -160,11 +160,11 @@ a:link, a:active, a:hover, a:visited {
 }
 
 .wrapper
- {
-width: 100%;
-height: 100%;
-margin: 0;
-padding: 0;
+{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .container
@@ -184,13 +184,13 @@ padding: 0;
   height: 100%;
   position: fixed;
   top: 10em;
-  background: #112;
+  background: radial-gradient(at center bottom, #123, #112);
 }
 
-.top 
+.top
 {
   position: fixed;
-  background: #112;
+  background: radial-gradient(at center bottom, #123, #112);
   margin: 0;
   padding: 0;
   color: #fff;
@@ -217,19 +217,18 @@ padding: 0;
 }
 
 
-.side 
+.side
 {
-
+  background: radial-gradient(at center bottom, #123, #112);
   border-bottom: 1px solid #000;
   text-align: center;
   height: auto;
   display: block;
   cursor: pointer;
   padding: 0;
-  background: #112;
 }
 
-.side p 
+.side p
 {
   color: #fff;
   line-height: 3em;
@@ -281,13 +280,14 @@ padding: 0;
   width: 100%;
   padding-top: 0;
   padding-bottom: 0;
-  margin-top: -1px;
+  margin: -1px;
   border-style: solid;
   border-width: 1px;
   overflow: visible;
   font-size: 14px;
   height: 2.45rem;
-  line-height: 2.45rem; 
+  line-height: 2.45rem;
+  text-align: center;
 }
 
 .input-group-btn input:hover
@@ -296,7 +296,7 @@ padding: 0;
   color: #000;
 }
 
-.small-9.columns span 
+.small-9.columns span
 {
   width: 100% !important;
 }
@@ -327,13 +327,13 @@ padding: 0;
   height: auto;
   width: 100%;
   color: #fff;
-  overflow-y: auto;
-  background: #0c0c18;
+  overflow-y: hidden;
+  background: radial-gradient(at center bottom, #123, #112);
 }
 
 .feed a
 {
-   font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #fff;
   font-size: 16px;
 }
@@ -341,6 +341,24 @@ padding: 0;
 .fedbox
 {
   padding: 0;
+
+}
+
+.fedbox.avatar
+{
+  height: 3em;
+  float: left;
+}
+
+.fedbox.text
+{
+  float: left;
+  height: 3em;
+}
+
+.fedbox p
+{
+  font-size: 12px;
 }
 
 
@@ -348,7 +366,7 @@ padding: 0;
 {
   height: 100%;
   background-color: #fff;
- 
+
 }
 
 .first
@@ -380,7 +398,7 @@ padding: 0;
 
 .add-mod-btn:hover
 {
-  height: 6em;
+  height: 4em;
 }
 
 .ease
@@ -388,7 +406,7 @@ padding: 0;
   transition: all 0.5s ease;
 }
 
-.add-mod-btn a 
+.add-mod-btn a
 {
   color: #fff;
   line-height: 1em;
@@ -412,13 +430,13 @@ padding: 0;
 }
 
 
-.modu 
+.modu
 {
- margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 
-.text 
+.text
 {
   position: absolute;
   top: 0;
@@ -456,7 +474,7 @@ padding: 0;
   border: 1px solid #000;
 }
 
-.item 
+.item
 {
   border: none !important;
   padding: 1em;
@@ -466,26 +484,26 @@ padding: 0;
 
 @media only screen and (max-width: 640px) {
 
-.text 
-{
-  padding: 5% 10%;
-}
+  .text
+  {
+    padding: 5% 10%;
+  }
 
 
 
-.avatar
-{
-  /*display: none; <--- Med eller utan avatar i mobile?*/
-  opacity: 0.2;
-}
+  .avatar
+  {
+    /*display: none; <--- Med eller utan avatar i mobile?*/
+    opacity: 0.2;
+  }
 
- .top 
- {
-  position: relative;
-  top: 0;
-  left: 0;
-  height: 10em;
- }
+  .top
+  {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 10em;
+  }
 
   .sidebar
   {
@@ -496,21 +514,20 @@ padding: 0;
     width: 85%;
     z-index: 200;
     height: auto;
-    background: #112;
   }
 
 
-.mobile-menu-btn
-{
-  color: #123;
-  display: inline-block;
-  float: left;
-  width: 15%;
-  padding: 1em;
-  top: 2em;
-  z-index: 200;
-}
-  
+  .mobile-menu-btn
+  {
+    color: #123;
+    display: inline-block;
+    float: left;
+    width: 15%;
+    padding: 1em;
+    top: 2em;
+    z-index: 200;
+  }
+
 
   .menu-btn-mobile
   {
@@ -521,19 +538,29 @@ padding: 0;
   }
 
   .login-logo
-{
-  background: radial-gradient(at center bottom, #123, #112);
-  width: 200px;
-  height: 200px;
-  border-radius: 200px;
-  border: 3px solid #fff;
-}
-.login-logo h2
-{
-  font-family: 'Roboto', sans-serif;
-  font-size: 4em;
-  color: #fff;
-  line-height: 200px;
-}
+  {
+    background: radial-gradient(at center bottom, #123, #112);
+    width: 200px;
+    height: 200px;
+    border-radius: 200px;
+    border: 3px solid #fff;
+  }
+  .login-logo h2
+  {
+    font-family: 'Roboto', sans-serif;
+    font-size: 4em;
+    color: #fff;
+    line-height: 200px;
+  }
+
+  .text
+  {
+    padding: 20% 5%;
+  }
+
+  .text h1
+  {
+    font-size: 2em;
+  }
 
 }
