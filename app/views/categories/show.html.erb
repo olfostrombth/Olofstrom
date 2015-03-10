@@ -39,7 +39,6 @@
     <br>
    <% end %>
 
-
 <% @examinations.each do |e| %>
     <%= e.name %><br>
     <%= e.desc %>
@@ -47,27 +46,38 @@
 <br>
 
 <h4>Kommentarer</h4>
-   <div class="comments-container">
-<% @comments.each_with_index do |x,y| %>
-         <% if x.parent_id == nil %>
-             <div class="comments">
+<% @comments.each do |x,y| %>
+       <div class="comments-container">
+     <% if x.parent_id == nil %>
+             <div class="comments panel">
                <% if @user %>
                    <br> <strong><%= @user.name %></strong><br>
                <% end %>
-         <% else %>
-             <div class="replies">
-               <% if @user %>
-                   <br> <strong><%= @user.name %></strong><br>
+               <%= x.msg %><br>
+               <%= x.id %>
+             </div>
+         <% end %>
+         <% @commentsxx.each do |c, z| %>
+            <% if z.parent_id == x.id  %>
+                   <% if z.parent_id %>
+                     <div class="replies panel">
+                       <% if @user %>
+                           <br> <strong><%= @user.name %></strong><br>
+                       <% end %>
+                  <%= z.msg %>
+                       <% end %>
+                 </div>
                <% end %>
          <% end %>
-         <%= x.msg %><br>
-         <button id="reply_toggle" class="button success radius tiny">Svara</button>
-         <div id="reply_form">
-           <%= render :partial => '/comments/reply', :locals => {:parent_id => x.id, :position => y+2}  %>
-         </div>
-         </div>
+         <% if x.parent_id == nil %>
+             <button id="reply_toggle" class="button success radius tiny">Svara</button>
+             <div id="reply_form">
+               <%= render :partial => '/comments/reply', :locals => {:parent_id => x.id, :position => 0}  %>
+             </div>
+         <% end %>
+       </div>
 <% end %>
-   </div>
+
 <br>
 
 <button id="comment_toggle" class="button success radius">Kommentera</button>
@@ -77,7 +87,8 @@
 </div>
 <br>
 
-</div></div>
+</div>
+</div>
 <% if current_user.admin? %>
 <%= link_to 'Edit', edit_caturl_path(@category.name) %> |
 <%= link_to 'Back', categories_path %>

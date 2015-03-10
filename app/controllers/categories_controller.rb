@@ -21,16 +21,17 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     @category = Category.where(name: Category.normalize_cat(params[:category_name]))
-    @comment_items = []
+    @comment_items = {}
     @category.each do |x|
       @comments = Comment.rank(:row_order).where(category_id: x.id)
       #@comments = x.comments.order('row_order ASC')
       @comments.each do |c|
         @commentx = c
-        if @commentx
-          @comment_items.push(@commentx)
-        end
+        @comment_items[c.id] = c
+        #@comment_items.push(c)
       end
+      @commentsxx = Hash[@comment_items.to_a.reverse]
+      #@comment_items.reverse
       if @commentx
         @user = User.find(@commentx.user_id)
       end
