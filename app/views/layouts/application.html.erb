@@ -7,8 +7,6 @@
   <title><%= @title ? @title: "Olofström  - OIKT" %></title>
 
   <%= stylesheet_link_tag    "application" %>
-  <link rel="stylesheet" href="css/foundation.css" />
-  <link rel="stylesheet" href="css/style.css" />
   <%= javascript_include_tag "vendor/modernizr" %>
   <%= Gon::Base.render_data({}) %>
   <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
@@ -18,7 +16,7 @@
 </head>
 
 <body>
-   
+
   <div class="row container">
     <div class="large-12 columns wrapper">
       <% if current_user %>
@@ -41,7 +39,7 @@
               </div>
               <div class="medium-12 large-12 columns side"><p><%= link_to "Logga ut", signout_path, id: "sign_out" %></p></div>
               <div class="medium-12 large-12 columns side">
-                <li class="has-form side"> 
+                <li class="has-form side">
                   <div class="row">
                     <div class="medium-12 large-12 columns">
                       <div class="row collapse">
@@ -59,8 +57,8 @@
                 </li>
 
 
-                  
-                  
+
+
 
 
                 <div class="medium-12 large-12 columns">
@@ -76,30 +74,30 @@
                        <%= activity.key.html_safe %></div>
                   </div>
 
-                  
+
             </div>
           <% end %>
 
-      
+
     </div>
           </div>
 
-       
+
   </div>
   </div>
       <div class="medium-9 large-9 columns content in">
-          
+
                 <% end %>
                 <%= yield %>
-               
-              
+
+
         </div>
   </div>
 </div>
 
-  
-   
-  
+
+
+
 
   <!--<div id="menu-bar">
     <%= link_to '<div class="logotype"></div>'.html_safe, root_path %>
@@ -116,7 +114,7 @@
           <%= link_to "Logga ut", signout_path, id: "sign_out" %>
         </li>
       </ul>
-    
+
     <%end %>
 </div>-->
 </body>
