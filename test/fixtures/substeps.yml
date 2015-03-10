@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  sid: 1
+  placement: MyString
+  Step_id: 
+
+two:
+  type: 
+  sid: 1
+  placement: MyString
+  Step_id: 

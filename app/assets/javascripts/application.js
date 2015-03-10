@@ -42,13 +42,13 @@ $(function(){
 	// MOBIL MENY JS
 	$(".mobile-menu-btn").click(function(){
 		if(btn){
-			$(".mobile-menu-btn").animate({left: '0'}, 1000);
+			$(".mobile-menu-btn").animate({left: '0'}, 500);
 			btn=false;
 		}else{
-			$(".mobile-menu-btn").animate({left: '85%'}, 1000);
+			$(".mobile-menu-btn").animate({left: '85%'}, 500);
 			btn=true
 		}
-        $(".sidebar").animate({width: 'toggle' }, 1000);
+        $(".sidebar").animate({width: 'toggle' }, 500);
         
 
     });
