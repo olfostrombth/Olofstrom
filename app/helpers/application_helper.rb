@@ -1,4 +1,4 @@
-module ApplicationHelper
+  module ApplicationHelper
   def shuffle_hash
     Hash[self.to_a.sample(self.length)]
   end
@@ -22,6 +22,12 @@ module ApplicationHelper
 
   def find_quiz(qid)
     return Quiz.find(qid)
+  end
+
+  def hash_revert
+    r = Hash.new {|h,k| h[k] = []}
+    each {|k,v| r[v] << k}
+    r
   end
 
 end

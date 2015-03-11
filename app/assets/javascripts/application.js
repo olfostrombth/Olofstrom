@@ -24,7 +24,12 @@
 //= require_tree .
 
 $(function(){ 
+
+	var btn = false;
+
 	$(document).foundation(); 
+
+	// Archivement badges show
 	
 	$(".arch-toggle").click(function(){
 		$(".arch").slideToggle("slow");
@@ -33,6 +38,27 @@ $(function(){
 	$(".add-mod-btn2").click(function(){
 		$(".feeed").slideToggle("slow");
 	});
+
+	// MOBIL MENY JS
+	$(".mobile-menu-btn").click(function(){
+		if(btn){
+			$(".mobile-menu-btn").animate({left: '0'}, 500);
+			btn=false;
+		}else{
+			$(".mobile-menu-btn").animate({left: '85%'}, 500);
+			btn=true
+		}
+        $(".sidebar").animate({width: 'toggle' }, 500);
+        
+
+    });
+
+
+
+	//$(".fisk").click(function(){
+	//	$(".sidebar").animate({left: '500px'});
+		//var sideWidth = $(".sidebar").css("width");
+		
 
 
 });

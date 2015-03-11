@@ -38,7 +38,7 @@ class SessionsController < ApplicationController
     respond_to do |format|
       @user = User.find(params[:id])
       if @user.destroy
-        format.html {redirect_to root_path, notice: "Delteed account"}
+        format.html {redirect_to root_path, notice: "Deleted account"}
       else
         format.html {redirect_to root_path, notice: "Failed delete"}
       end

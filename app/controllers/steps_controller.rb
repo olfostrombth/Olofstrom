@@ -78,11 +78,13 @@ class StepsController < ApplicationController
         guide = Guide.find(x.sid)
         guidex = guide.attributes
         guidex['uid'] = x.id
+        guidex['guide_type'] = 'guide_tx'
         @step_items.push(guidex)
       elsif x.typex == "assignment"
         assignment = Assignment.find(x.sid)
         assignmentx = assignment.attributes
         assignmentx['uid'] = x.id
+        assignmentx['assignment_type'] = 'assignment_tx'
         @step_items.push(assignmentx)
       elsif x.typex == "quiz"
         quix = Quiz.find(x.sid)
@@ -179,9 +181,10 @@ class StepsController < ApplicationController
   # DELETE /steps/1
   # DELETE /steps/1.json
   def destroy
+    cat = Category.find(@step.category_id)
     @step.destroy
     respond_to do |format|
-      format.html { redirect_to root_url, notice: 'Step was successfully destroyed.' }
+      format.html { redirect_to category_path(cat.name), notice: 'Step was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
