@@ -16,21 +16,39 @@
 		<p>Kontakta mig: <button id="" class="button success small"><%= mail_to @user.email%></button></p>
 	</div>
 
+	<h3>---Completion---</h3>
+
 	<div class="medium-3 columns">
-		<p>---Completion---</p>
+		<% @completion.each do |modul, modulValue|%>
+			<% modulValue.each do|step, stepValue|%>
+				<% stepValue.each do|substep, substepValue|%>
 
-		<% JSON.parse(current_user.completion).each do |completion|%>
-			<% completion.each do|c, b|%>
-				<div class="panel feed">
+					<div>
+						<p>
+						|namn|<%=@user.name%> <br>
+						|substep| <%=substep%> <br>
+						|step| <%=step%> <br>
+						|modul| <b><%=modul%></b></p>
+					</div>
+				<% end %>
 
-				<%= completion %>
-
+				<div>
+					<p>
+					|namn|<%=@user.name%> <br>
+					|step|<%=step%> <br>
+					|modul|<b><%=modul%></b></p>
 				</div>
 			<% end %>
+
+			<div>
+				<p><b>
+				|namn|<%=@user.name%>
+				|modul|<%=modul%></b></p>
+			</div>
 		<% end %>
 	</div>
 
-	<div class="medium-4 columns">
+		<div class="medium-4 columns">
 		<h3>Flöde??</h3>
 		<div class="panel feed">
 
@@ -43,5 +61,5 @@
 
 		</div>
 	</div>
-</div>
 
+</div>

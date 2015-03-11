@@ -11,21 +11,7 @@
     </div>
   </div>
 
-    <div class="medium-6 large-4 columns">
-      <div class="panel feed">
-        <p>
 
-          <% @activities.each do |activity| %>
-
-            <%= activity.owner.name %>
-            <%= activity.trackable.id %>
-
-              <%= link_to image_tag(activity.owner.image).html_safe, session_path(activity.owner) %>
-            <strong><%=link_to activity.owner.name, session_path(activity.owner) %></strong>
-              <%= activity.key.html_safe %><br>
-          <% end %>
-
-        </p>
 
   <!-- MODULER -->
   <div class="large-12 columns contents">
