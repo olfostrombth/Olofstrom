@@ -176,7 +176,7 @@
               <% end %>
             </div>
           </div>
-        </div>
+        
             <br>
             <%= link_to '<i class="fi-x small"></i>'.html_safe, delete_quiz_path(:quiz_name => item['name']), method: :delete, data: { confirm: 'Are you sure?' } %>
             <%= link_to '<i class="fi-pencil small"></i>'.html_safe, edit_quiz_path(:quiz_name => item['name']), method: :get %>
@@ -200,7 +200,6 @@
               <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
             </div>
           </div>
-        </div>
           <% end %>
           <% end %>
           <% if current_user.admin? %>
@@ -232,11 +231,10 @@
         </div>
         <% end %>
         <% end %>
+        </div>
       </div>
-    </div>
-    <br>            
+    </div>         
     <% if current_user.admin? %>
 
-    <%= link_to 'Edit', edit_step_path(@catname,@step.name) %> |
-    <%= link_to 'Back', steps_path %>
+    <%= link_to 'Edit', edit_step_path(@catname,@step.name) %>
     <% end %>

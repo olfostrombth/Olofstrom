@@ -1,29 +1,26 @@
 <% v = find_quiz(quiz)%>
     <% if v.id? %>
+        <h4><%= v.name %>, id: <%= v.id %></h4>
         <div class="quiz" id='quiz_<%= v.id %>'>
         <% v.questions.each do |q| %>
             <%= form_for @question, :html => { :id => "#{q.id}"} do |f| %>
+                Fråga id: <%= q.id %><br>
                 <div class="question" id="question_<%= q.id %>">
-                  <div class="large-6 columns panel">
                   <% if q.question %>
-                  <div class="large-12 columns qa">
-                      <%= q.question %>
-                  </div>
+                      <%= q.question %><br>
                       <% options = {"option1" => q.option1, "option2" => q.option2, "correct" => q.answer}
                          options = Hash[options.to_a.sample(options.length)]
                          options.each do |key, z| %>
-                         <div class="large-8 columns">
                          <div class="field">
                            <%= f.label z %>
                            <%= f.radio_button :answer, z, class: key, id: key %><br>
                          </div>
-                       </div><p></p>
                      <% end %>
                   <% end %>
               </div>
+                <br>
             <% end %>
         <% end %>
-        </div>
           <button id="submit_quiz" quiz="<%= v.id %>" class="quiz_test">Rätta Quiz</button>
         </div>
     <% end %>
