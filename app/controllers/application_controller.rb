@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :breadcrumbs
-  def breadcrums
+  def breadcrumbs
     home = "hj"
   end
 

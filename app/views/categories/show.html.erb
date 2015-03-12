@@ -1,102 +1,93 @@
 <%= include_gon %>
-<p id="notice"><%= notice %></p>
+
 <div class="row">
- <div class="medium-6 large-8 columns">
-<p>
+
+    <!--  TOPBAR -->
+    <div class="medium-12 large-12 columns topbar">
+      <div class="input-search left">
+        <%= text_field_tag :query, params[:query], class: "form-control", id: "user_search", autocomplete: "on" %>
+                      <%= form_tag search_path, class: "form-inline", method: :get do %>
+
+<!--<div class="input-group-btn ease"> <%= submit_tag 'sök' %></div>-->
+        <% end %>
+      </div>
 
 
-   <h3><%= @category.name %></h3>
+
+      <div class="bread left">START > MODULER > Steg 2</div>
+      <% if current_user.admin? %>
+      <button id="examination_toggle" class="button redbtn ease right">Lägg till examination</button>
+      <button id="step_toggle" class="button redbtn ease right">Lägg till steg</button>
+      <% end %>
+    </div>
+    <div class="step_form">
+      <%= render :partial => '/steps/steps' %>
+    </div>
+    <div class="examination_form">
+      <%= render '/examinations/form' %>
+    </div>
+
+    <!--    RUBRIK  -->
 
 
-<br>
-<h4>Steg</h4>
+  </div>
+  <p id="notice"><%= notice %></p>
+<div class="row">
+ <div class="large-12 columns">
+  <div class="large-12 columns headline">
+    <h3><%= @category.name %></h3>
+  </div>
+
+<div class="large-8 columns">
 
 <div id="steps">
     <% @steps.each do |s| %>
         <% if s.name? %>
-
-           <% done = 0 %>
-           <% count = 0 %>
-          <%= link_to s.name, step_path(:category_name => params[:category_name], :step_name => s.name) %>
-          <%#= @completion %>
-          <% @completion.each do |x,y| %>
-            <% if x == @category.name %>
-            <% y.each do |z,a| %>
-              <% if z == s.name %>
-              <% count = a.length %>
-                 <% a.each do |u,i| %>
-                  <% if(i) then done = done+1 end %>
-                 <% end %>
-              <% end %>
-            <% end %>
-
-          <%
-            end
-
-            %>
-
-          <% end %>
-
-          <%= done %> / <%= count %>
-          <%= done / count * 100 %>%
-          <% if done == count %>
-          <i class="fi-check large" style="color: green;"></i>
-          <% end %>
+        <div id="step_<%= s.id %>" class="large-12 columns step-comp step">
+          <h2><%= link_to s.name, step_path(:category_name => params[:category_name], :step_name => s.name) %></h2>
           <% if current_user.admin? %>
-              <%= link_to '<i class="fi-x small"></i>'.html_safe, delete_step_path(:category_name => params[:category_name], :step_name => s.name), method: :delete, data: { confirm: 'Are you sure?' } %>
-              <%= link_to '<i class="fi-pencil small"></i>'.html_safe, edit_step_path(:category_name => params[:category_name], :step_name => s.name), method: :get %>
+              <%= link_to '<i class="fi-x"></i>'.html_safe, delete_step_path(:category_name => params[:category_name], :step_name => s.name), method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= link_to '<i class="fi-pencil"></i>'.html_safe, edit_step_path(:category_name => params[:category_name], :step_name => s.name), method: :get %>
           <% end %>
-          <br>
+          <div class="step-bottom"><p>25% avklarad</p></div>
+          </div><p></p>
         <% end %>
     <% end %>
 </div>
-<br>
-   <% if current_user.admin? %>
-    <button id="step_toggle" class="button success radius">Lägg till steg</button>
-    <br>
-    <div class="step_form">
-      <%= render :partial => '/steps/steps' %>
-    </div>
-    <br>
-    <button id="examination_toggle" class="button success radius">Lägg till examination</button>
-    <br>
-    <div class="examination_form">
-      <%= render '/examinations/form' %>
-    </div>
-    <br>
-   <% end %>
-
-<% @examinations.each do |e| %>
-    <%= e.name %><br>
-    <%= e.desc %>
-<% end %>
-<br>
-
-<h4>Kommentarer</h4>
+</div>
+<div class="large-4 columns form-style">
+  <h4>Kommentarer</h4>
+  <button id="comment_toggle" class="button form-btn">Kommentera</button>
+<div class="comment_form">
+  <%= render :partial => '/comments/form', :locals => {:position => @comments.length+1 } %>
+</div>
 <% @comments.each do |x,y| %>
        <div class="comments-container">
      <% if x.parent_id == nil %>
-             <div class="comments panel">
+             <div class="comments">
                <% if @user %>
                    <br> <strong><%= @user.name %></strong><br>
                <% end %>
-               <%= x.msg %><br>
+               <%= x.msg %>
+               <div id="answer-btn" class="answer-btn right"><i class="fa fa-plus"></i></div>
+               <hr>
              </div>
          <% end %>
          <% @commentsxx.each do |c, z| %>
             <% if z.parent_id == x.id  %>
                    <% if z.parent_id %>
-                     <div class="replies panel">
+                     <div class="replies" id="replies">
                        <% if @user %>
                            <br> <strong><%= @user.name %></strong><br>
                        <% end %>
                   <%= z.msg %>
+                  <hr>
                        <% end %>
                  </div>
                <% end %>
          <% end %>
          <% if x.parent_id == nil %>
-             <button id="reply_toggle" class="button success radius tiny">Svara</button>
+             <button id="reply_toggle" class="button form-btn tiny">Svara</button>
              <div id="reply_form">
                <%= render :partial => '/comments/reply', :locals => {:parent_id => x.id, :position => 0}  %>
              </div>
@@ -104,18 +95,12 @@
        </div>
 <% end %>
 
-<br>
+</div>
+</div>
+</div>
 
-<button id="comment_toggle" class="button success radius">Kommentera</button>
-<br>
-<div class="comment_form">
-  <%= render :partial => '/comments/form', :locals => {:position => @comments.length+1 } %>
-</div>
-<br>
-
-</div>
-</div>
-<% if current_user.admin? %>
-<%= link_to 'Edit', edit_caturl_path(@category.name) %> |
-<%= link_to 'Back', categories_path %>
+<% @examinations.each do |e| %>
+    <%= e.name %><br>
+    <%= e.desc %>
 <% end %>
+<br>

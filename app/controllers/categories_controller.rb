@@ -8,9 +8,8 @@ class CategoriesController < ApplicationController
     if current_user
       @categories = Category.all
       @user = User.find(current_user.id)
-      @completion = JSON.parse(@user.completion)
-      @colors = ["#56adba", "#7ab292", "#fba61f", "#ec529a"]
-      @images = ["blur.png", "blurpink.png", "blurorange.png", "blurgreen.png"]
+      @colors = ["#56adba", "#ec529a", "#fba61f", "#7ab292"]
+      @darkcolors = ["#388f9c", "#d0327e", "#dd8801", "#5c9474"]
     else
       redirect_to login_url
     end
@@ -29,7 +28,7 @@ class CategoriesController < ApplicationController
     end
     @comment_items = {}
     @category.each do |x|
-      @comments = Comment.rank(:row_order).where(category_id: x.id)
+      @comments = x.comments.order('created_at desc')
       #@comments = x.comments.order('row_order ASC')
       @comments.each do |c|
         @commentx = c
