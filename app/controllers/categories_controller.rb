@@ -7,6 +7,7 @@ class CategoriesController < ApplicationController
     @activities = PublicActivity::Activity.order("created_at desc")
     if current_user
       @categories = Category.all
+      @user = User.find(current_user.id)
       @colors = ["#56adba", "#ec529a", "#fba61f", "#7ab292"]
       @darkcolors = ["#388f9c", "#d0327e", "#dd8801", "#5c9474"]
       @category = @categories.new
@@ -22,6 +23,10 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     @category = Category.where(name: Category.normalize_cat(params[:category_name]))
+    if current_user
+      @completion = User.find(current_user.id).completion
+      @completion = JSON.parse(@completion)
+    end
     @comment_items = {}
     @category.each do |x|
       @comments = x.comments.order('created_at desc')
