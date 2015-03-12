@@ -4,6 +4,16 @@
 
     <!--  TOPBAR -->
     <div class="medium-12 large-12 columns topbar">
+      <div class="input-search left"> 
+        <%= text_field_tag :query, params[:query], class: "form-control", id: "user_search", autocomplete: "on" %>
+                      <%= form_tag search_path, class: "form-inline", method: :get do %>
+
+<!--<div class="input-group-btn ease"> <%= submit_tag 'sök' %></div>-->
+        <% end %>
+      </div>
+     
+
+      
       <div class="bread left">START > MODULER > Steg 2</div>
       <% if current_user.admin? %>
       <button id="examination_toggle" class="button redbtn ease right">Lägg till examination</button>

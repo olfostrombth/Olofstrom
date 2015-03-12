@@ -1,15 +1,24 @@
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,300italic|Oswald:400,300|Montserrat);
+
+/*
+font-family: 'Montserrat', sans-serif;
+font-family: 'Oswald', sans-serif;
+font-family: 'Roboto', sans-serif;
+*/
+
 body {
 
   background: #fff;
   overflow: none;
   color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: Roboto, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
 }
 
 p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: Roboto, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
 }
@@ -74,7 +83,7 @@ div {
   padding: 0;
 }
 
-.twitter-typeahead
+span.twitter-typeahead
 {
   width: 100% !important;
 }
