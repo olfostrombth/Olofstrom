@@ -45,8 +45,6 @@
         <% if s.name?
           substeps = Substep.where({step_id: s.id}) %>
         <% percent = get_steps_info(params[:category_name], s.name, @completion, substeps.length) %>
-        <%= percent["done"] %>|
-        <%= percent["percent"][0] %>%
         <div id="step_<%= s.id %>" class="large-12 columns step">
 
                       <div class="step-comp" style="width:<%= percent["percent"][0] %>%;"></div>
