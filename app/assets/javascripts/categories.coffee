@@ -5,10 +5,12 @@
 $ ->
   $(document).on "click", "#step_toggle", ->
     $('.step_form').slideToggle('show')
+    $('.examination_form').hide()
 
 $ ->
   $(document).on "click", "#examination_toggle", ->
     $('.examination_form').slideToggle('show')
+    $('.step_form').hide()
 
 $ ->
   $(document).on "click", "#module_toggle", ->
