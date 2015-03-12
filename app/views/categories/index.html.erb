@@ -1,30 +1,45 @@
 <div class="row">
 
-    <!--    RUBRIK  -->
-    <div class="large-6 columns first">
-      <h1>Övningar</h1>
+    <!--  TOPBAR -->
+    <div class="medium-12 large-12 columns topbar">
+      <input type="text" class="search_form left" placeholder="Sök användare" style="width:300px; margin-left:-15px; height:100%;">
+      <div class="bread left">START > MODULER > Steg 2</div>
+      <% if current_user.admin? %>
+          <button id="module_toggle" class="button redbtn ease right">Lägg till modul</button>
     </div>
-    <!--  LÄGG TILL MODUL KNAPP -->
+    <div class="module_form">
+        <%= render :partial => 'module' %>
+    </div>
+      <% end %>
+    <div class="medium-12 large-12 columns sliderimg">
+      <div class="large-12 columns imageslider"> <%= image_tag("sliderblur.png") %></div>
+      <div class="medium-12 large-12 columns slider">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>Enim cum harum cumque tempore ducimus autem,<br> non obcaecati reiciendis quo fugiat voluptatum culpa libero maiores <br>  distinctio temporibus quae praesentium nulla officiis <br> iste ea error. Quasi ullam vitae corporis veritatis quaerat, <br> sunt possimus accusamus aliquid sit, et quam unde voluptate minima iure.</div>
+    </div>
 
-      <div class="large-6 columns first">
-        <% if current_user.admin? %>
-            <%= link_to '<div class="add-mod-btn ease"><p>Lägg till modul</p></div>'.html_safe, new_category_path %>
-         <% end %>
-      </div>
+    <!--    RUBRIK  -->
+    
+
   </div>
 
 
   <!-- MODULER -->
-  <div class="large-12 columns contents">
-    <div class="row">
-      <% @categories.each_with_index do |cat, index| %>
-      <div class="large-6 columns modu">
+  <div class="row fw contents">
+      <div class="large-12 columns moduwrapper">
+            <% @categories.each_with_index do |cat, index| %>
+      <div class="medium-5 large-5 columns modu">
         <a href="<%= category_path(cat.name) %>">
-          <%= link_to image_tag(@images[index % 4]).html_safe, category_path(cat.name) %>
-        <div class="text">
-          <h1><%= cat.name.titleize %></h1>
-          <p><%= cat.desc %></p> 
-        </div></a>
+        <div class="mod-desc" style="background-color:<%= @colors[index%4] %>;">
+          <div class="desc-p"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit voluptas eveniet animi eum odit quae doloribus fuga voluptatum et ab.
+          <%= cat.desc %></p>
+          </div> 
+        </div>
+        <div class="mod-headline" style="background-color:<%= @darkcolors[index%4] %>;">
+          <div class="headline-p">
+            <h1><%= cat.name.titleize %></h1>
+          </div>
+        </div>
+
+      </a>
 
         <div class="crud">
           <% if current_user.admin? %>
@@ -33,8 +48,9 @@
           <% end %>
               </div>
       </div>
-
+        
       <% end %>
+    <p></p>
     </div>
   </div>
 
