@@ -69,7 +69,16 @@
                    <br> <strong><%= @user.name %></strong><br>
                <% end %>
                <%= x.msg %>
-               <div id="answer-btn" class="answer-btn right"><i class="fa fa-plus"></i></div>
+               <% if Comment.where({parent_id: x.id}).first %>
+                 <div id="answer-btn" class="answer-btn right"><i class="fa fa-plus"></i></div>
+              <% end %>
+              <% if x.parent_id == nil %>
+              <br>
+             <button id="reply_toggle" class="button form-btn tiny">Svara</button>
+             <div id="reply_form">
+               <%= render :partial => '/comments/reply', :locals => {:parent_id => x.id, :position => 0}  %>
+             </div>
+         <% end %>
                <hr>
              </div>
          <% end %>
@@ -86,12 +95,7 @@
                  </div>
                <% end %>
          <% end %>
-         <% if x.parent_id == nil %>
-             <button id="reply_toggle" class="button form-btn tiny">Svara</button>
-             <div id="reply_form">
-               <%= render :partial => '/comments/reply', :locals => {:parent_id => x.id, :position => 0}  %>
-             </div>
-         <% end %>
+         
        </div>
 <% end %>
 
