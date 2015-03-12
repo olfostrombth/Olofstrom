@@ -5,9 +5,12 @@
       <input type="text" class="search_form left" placeholder="Sök användare" style="width:300px; margin-left:-15px; height:100%;">
       <div class="bread left">START > MODULER > Steg 2</div>
       <% if current_user.admin? %>
-      <%= link_to '<div class="button redbtn ease right"><p>Skapa modul</p></div>'.html_safe, new_category_path %>
-      <% end %>
+          <button id="module_toggle" class="button redbtn ease right">Lägg till modul</button>
     </div>
+    <div class="module_form">
+        <%= render :partial => 'module' %>
+    </div>
+      <% end %>
     <div class="medium-12 large-12 columns sliderimg">
       <div class="large-12 columns imageslider"> <%= image_tag("sliderblur.png") %></div>
       <div class="medium-12 large-12 columns slider">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>Enim cum harum cumque tempore ducimus autem,<br> non obcaecati reiciendis quo fugiat voluptatum culpa libero maiores <br>  distinctio temporibus quae praesentium nulla officiis <br> iste ea error. Quasi ullam vitae corporis veritatis quaerat, <br> sunt possimus accusamus aliquid sit, et quam unde voluptate minima iure.</div>
