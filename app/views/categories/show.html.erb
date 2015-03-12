@@ -14,7 +14,34 @@
 <div id="steps">
     <% @steps.each do |s| %>
         <% if s.name? %>
+
+           <% done = 0 %>
+           <% count = 0 %>
           <%= link_to s.name, step_path(:category_name => params[:category_name], :step_name => s.name) %>
+          <%#= @completion %>
+          <% @completion.each do |x,y| %>
+            <% if x == @category.name %>
+            <% y.each do |z,a| %>
+              <% if z == s.name %>
+              <% count = a.length %>
+                 <% a.each do |u,i| %>
+                  <% if(i) then done = done+1 end %>
+                 <% end %>
+              <% end %>
+            <% end %>
+
+          <%
+            end
+
+            %>
+
+          <% end %>
+
+          <%= done %> / <%= count %>
+          <%= done / count * 100 %>%
+          <% if done == count %>
+          <i class="fi-check large" style="color: green;"></i>
+          <% end %>
           <% if current_user.admin? %>
               <%= link_to '<i class="fi-x small"></i>'.html_safe, delete_step_path(:category_name => params[:category_name], :step_name => s.name), method: :delete, data: { confirm: 'Are you sure?' } %>
               <%= link_to '<i class="fi-pencil small"></i>'.html_safe, edit_step_path(:category_name => params[:category_name], :step_name => s.name), method: :get %>

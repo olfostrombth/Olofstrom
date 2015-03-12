@@ -28,7 +28,9 @@ class StepsController < ApplicationController
       substeps.each do |x,y|
         puts completion
         puts completion[category_name]
-        puts completion[category_name][step_name]
+        unless completion[category_name][step_name]
+          completion[category_name][step_name] = {}
+        end
         completion[category_name][step_name][x] = y
       end
       completion[category_name]["examination"] = {}
@@ -50,6 +52,7 @@ class StepsController < ApplicationController
     gon.catname = Category.normalize_cat(params[:category_name])
     gon.completion = current_user.completion if current_user
     @user = User.find(current_user.id)
+    @completion = @user.completion
 
     unless current_user.completion[gon.catname]
       user = User.find(current_user.id)
