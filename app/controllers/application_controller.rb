@@ -27,7 +27,18 @@ class ApplicationController < ActionController::Base
 
   helper_method :breadcrumbs
   def breadcrumbs
-    home = "hj"
+    modul = params[:category_name] if params[:category_name]
+    step = params[:step_name] if params[:step_name]
+    home = view_context.link_to "Home", root_path
+    if modul
+      modulee = view_context.link_to modul, category_path(modul)
+      if step
+        stepp = view_context.link_to step, step_path(:category_name => modul, :step_name => step)
+        return home +" > "+ modulee + " > " + stepp
+      end
+      return home +" > "+ modulee
+    end
+    return home
   end
 
 end
