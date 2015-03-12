@@ -73,7 +73,10 @@
                <% if @user %>
                    <br> <strong><%= @user.name %></strong><br>
                <% end %>
-               <%= x.msg %>
+
+               <% if x.user_id = current_user.id %>
+                   <%= best_in_place Comment.find(x.id), :msg, :as => :textarea, :ok_button => 'Spara', :ok_button_class => 'button form-btn tiny', :cancel_button => 'Avbryt', :cancel_button_class => 'button form-btn cancel-btn tiny', :class => 'fi-pencil bip-text'%>
+               <% end %>
                <% if Comment.where({parent_id: x.id}).first %>
                 <div id="answer-btn" class="answer-btn right"><i class="fa fa-plus"></i></div>
                <% end %>
@@ -87,7 +90,9 @@
                        <% if @user %>
                            <br> <strong><%= @user.name %></strong><br>
                        <% end %>
-                  <%= z.msg %>
+                       <% if z.user_id = current_user.id %>
+                           <%= best_in_place Comment.find(z.id), :msg, :as => :textarea, :ok_button => 'Spara', :ok_button_class => 'button form-btn tiny', :cancel_button => 'Avbryt', :cancel_button_class => 'button form-btn cancel-btn tiny', :class => 'fi-pencil bip-text'%>
+                       <% end %>
                   <hr>
                        <% end %>
                  </div>
