@@ -24,4 +24,10 @@ class ApplicationController < ActionController::Base
   def get_activities
     @activities = PublicActivity::Activity.order("created_at desc")
   end
+
+  helper_method :breadcrumbs
+  def breadcrums
+    home = "hj"
+  end
+
 end
