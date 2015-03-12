@@ -175,11 +175,11 @@
               <%= render :partial => 'questions', :locals => {:parent_quiz_id => questions_idxx} %><br>
               <% end %>
             </div>
-          </div>
-        
             <br>
             <%= link_to '<i class="fi-x small"></i>'.html_safe, delete_quiz_path(:quiz_name => item['name']), method: :delete, data: { confirm: 'Are you sure?' } %>
             <%= link_to '<i class="fi-pencil small"></i>'.html_safe, edit_quiz_path(:quiz_name => item['name']), method: :get %>
+          </div>
+            
           <div class="quiz-fix">
             <div class="checkbox-container">
               <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
