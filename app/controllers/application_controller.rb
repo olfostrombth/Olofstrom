@@ -71,5 +71,4 @@ class ApplicationController < ActionController::Base
     end
     return home
   end
-
 end
