@@ -1,10 +1,8 @@
 <% v = find_quiz(quiz)%>
-    <% if v.id? %>
-        <h4><%= v.name %>, id: <%= v.id %></h4>
-        <div class="quiz" id='quiz_<%= v.id %>'>
+    <% if v.id? %> 
+     <div class="quiz" id='quiz_<%= v.id %>'>
         <% v.questions.each do |q| %>
             <%= form_for @question, :html => { :id => "#{q.id}"} do |f| %>
-                Fråga id: <%= q.id %><br>
                 <div class="question" id="question_<%= q.id %>">
                   <% if q.question %>
                       <%= q.question %><br>
