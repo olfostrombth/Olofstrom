@@ -12,197 +12,227 @@
     </div>
     <div class="bread left">START > MODULER > Steg 2</div>
   </div>
-  <!-- If you change this file hell is going to break loose. -->
   <p id="notice"><%= notice %></p>
 
+  <div class="row">
+    <div class="large-12 columns headline">
+      <h3><%= @step.name %></h3>
+    </div>
+    <div class="large-12 columns headline">
+      <h6><%= @step.desc %></h6>
+    </div>
 
-  <h3><%= @step.name %></h3>
-
-  <h6><%= @step.desc %></h6>
-  <br>
-
-  <% if current_user.admin? %>
-  <div class="drop_down_menu" id="drop_down_menu">
-    <select id="select_999">
-      <option value="">Lägg till</option>
-      <option value="video_form_999">Video</option>
-      <option value="guide_form_999">Guide</option>
-      <option value="assignment_form_999">Uppdrag</option>
-      <option value="quiz_form_999">Quiz</option>
-    </select>
   </div>
-  <br>
-  <div class="forms" id="forms>">
-    <div id="video_form_999" class="video_form">
-      <%= render :partial => '/videos/create_form', :locals => {:position => 0} %>
-    </div>
-    <div id="guide_form_999" class="guide_form">
-      <%= render :partial => '/guides/create_form', :locals => {:position => 0} %>
-    </div>
-    <div id="assignment_form_999" class="assignment_form">
-      <%= render :partial => '/assignments/create_form', :locals => {:position => 0} %>
-    </div>
-    <div id="quiz_form_999" class="quiz_form" step_item="999">
-      <%= render :partial => '/quizzes/create_form', :locals => {:position => 0} %>
-    </div>
-  </div>
-  <% end %>
 
+  <!-- SLUTA LÄS KOD HÄR (för eget bästa)-->
+  <div class="large-12 columns">
+    <% if current_user.admin? %>
+    <div class="drop_down_menu" id="drop_down_menu">
+      <select id="select_999">
+        <option value="">Lägg till</option>
+        <option value="video_form_999">Video</option>
+        <option value="guide_form_999">Guide</option>
+        <option value="assignment_form_999">Uppdrag</option>
+        <option value="quiz_form_999">Quiz</option>
+      </select>
+    </div>
+    <br>
+    <div class="forms" id="forms>">
+      <div id="video_form_999" class="video_form">
+        <%= render :partial => '/videos/create_form', :locals => {:position => 0} %>
+      </div>
+      <div id="guide_form_999" class="guide_form">
+        <%= render :partial => '/guides/create_form', :locals => {:position => 0} %>
+      </div>
+      <div id="assignment_form_999" class="assignment_form">
+        <%= render :partial => '/assignments/create_form', :locals => {:position => 0} %>
+      </div>
+      <div id="quiz_form_999" class="quiz_form" step_item="999">
+        <%= render :partial => '/quizzes/create_form', :locals => {:position => 0} %>
+      </div>
+    </div>
+    <% end %>
 
-  <% if current_user.admin? %>
-  <div class="table" id="sortable"> <!-- #sortable makes .table sortable with jquery-ui if you're admin -->
-    <% else %>
-    <div class="table">
-      <% end %>
+    <% if current_user.admin? %>
+    <div class="table" id="sortable"> <!-- #sortable makes .table sortable with jquery-ui if you're admin -->
+      <% else %>
+      <div class="table">
+        <% end %>
 
-      <% @step_items.each_with_index do |item, i| %>
-      <% if item['uid'] %><br>
-      <div class="item" data-item-id="<%= item['uid'].to_s %>" >
-        <div class="td">
-          <h4><%= item['name'] %></h4>
+        <!-- If you change this file hell is going to break loose. -->
+
+        <% @step_items.each_with_index do |item, i| %>
+        <% if item['uid'] %><br>
+        <div class="item" data-item-id="<%= item['uid'].to_s %>" >
+          <div class="td td-headline">
+            <h4><%= item['name'] %></h4>
+          </div>
+          <% if current_user.admin? %> <!-- this makes you able to show only name for step item if your admin, easier for drag and drop -->
+          <% if item['guide_type'] %>
+          <div class="td td-content">
+            <button id="show_desc" class="small tiny">Visa mer</button>
+            <div id="desc" class="hidden">
+              <%= item['desc'].html_safe %>
+            </div>
+            <br>
+            <%= link_to '<i class="fi-x small"></i>'.html_safe, delete_guide_path(:guide_name => item['name']), method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to '<i class="fi-pencil small"></i>'.html_safe, edit_guide_path(:guide_name => item['name']), method: :get %>
+          </div>
+          <% end %>
+          <% else %>
+          <% if item['desc']%>
+          <div class="td td-content">
+            <div id="desc">
+              <%= item['desc'].html_safe %>
+            </div>
+          </div>
+          <% end %>
+          <% end %>
+          <% if current_user.admin? %> <!-- this makes you able to show only name for step item if your admin, easier for drag and drop -->
+          <% if item['assignment_type'] %>
+          <div class="td td-content">
+            <button id="show_desc" class="small tiny">Visa mer</button>
+            <div id="desc" class="hidden">
+              <%= item['desc'].html_safe %>
+            </div>
+            <br>
+            <%= link_to '<i class="fi-x small"></i>'.html_safe, delete_assignment_path(:assignment_name => item['name']), method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to '<i class="fi-pencil small"></i>'.html_safe, edit_assignment_path(:assignment_name => item['name']), method: :get %>
+          </div>
+          <% end %>
+          <% else %>
+          <% if item['desc']%>
+          <div class="td td-content">
+            <div id="desc">
+              <%= item['desc'].html_safe %>
+            </div>
+          </div>
+          <% end %>
+          <% end %>
+          <% if current_user.admin? %>
+          <% if item['url'] %>
+          <div class="td td-content">
+            <button id="show_video" class="small tiny">Visa mer</button>
+            <div id="video_url" class="hidden">
+              <%= raw(youtube_embed(item['url'])) %>
+            </div>
+            <br>
+            <%= link_to '<i class="fi-x small"></i>'.html_safe, delete_video_path(:video_name => item['name']), method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to '<i class="fi-pencil small"></i>'.html_safe, edit_video_path(:video_name => item['name']), method: :get %>
+          </div>
+          <% end %>
+          <% else %>
+          <% if item['url'] %>
+          <div class="td td-content">
+            <div id="video_url">
+              <%= raw(youtube_embed(item['url'])) %><br>
+            </div>
+          </div>
+          <% end %>
+          <% end %>
+          <% if item['name'] %>
+          <% if @user.completion[@step.category.name] %>
+          <% completion = JSON.parse(@user.completion) %>
+          <% if completion[@step.category.name][@step.name] %>
+          <% if completion[@step.category.name][@step.name]["substep_"+item['uid'].to_s] == "true" %>
+          <p>Du är nu klar med detta substeget</p>
+          <% end %>
+          <% end %>
+
+          <% if current_user.admin? %> <!-- Jag vet det är sinnessjukt -->
+          <% if item['quiz_type'] %>
+
+          <% else %>
+          <div class="checkbox-container">
+            <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
+          </div>
+          <% end %>
+          <% else %>
+          <% if item['quiz_type'] %>
+
+          <% else %>
+          <div class="checkbox-container">
+            <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
+          </div>
+          <% end %>
+          <% end %>
+          <% else %>
+          <% end %>
+          <% end %>
+
+          <% if current_user.admin? %>
+          <% if item['quiz_type'] %>
+          <div class="td td-content">
+            <button id="show_questions" class="small tiny">Visa mer</button>
+            <div id="quiz_questions" class="hidden">
+              <% if questions_idx = find_questions(item['uid']) %>
+              <%= render 'quiz', :quiz => questions_idx %><br>
+              <% end %>
+            </div>
+            <button id ="show_questions_form" class="small tiny">Lägg till frågor</button>
+            <div id="questions_formx" class="hidden">
+              <% if questions_idxx = find_questions(item['uid']) %>
+              <%= render :partial => 'questions', :locals => {:parent_quiz_id => questions_idxx} %><br>
+              <% end %>
+            </div>
+          </div>
         </div>
-        <% if current_user.admin? %> <!-- this makes you able to show only name for step item if your admin, easier for drag and drop -->
-        <% if item['guide_type'] %>
-        <div class="td">
-          <button id="show_desc" class="small">Visa mer</button>
-          <div id="desc" class="hidden">
-            <%= item['desc'].html_safe %>
+            <br>
+            <%= link_to '<i class="fi-x small"></i>'.html_safe, delete_quiz_path(:quiz_name => item['name']), method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to '<i class="fi-pencil small"></i>'.html_safe, edit_quiz_path(:quiz_name => item['name']), method: :get %>
+          <div class="quiz-fix">
+            <div class="checkbox-container">
+              <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
+            </div>
+          </div>
+          <% end %>
+          <% else %>
+          <% if item['quiz_type'] %>
+          <div class="td td-content">
+            <div id="questions" class="question-fix">
+              <% if questions_idx = find_questions(item['uid']) %>
+              <%= render :partial => 'quiz', :locals => {:quiz => questions_idx} %><br>
+              <% end %>
+            </div>
+          </div>
+          <div class="quiz-fix">
+            <div class="checkbox-container">
+              <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
+            </div>
+          </div>
+        </div>
+          <% end %>
+          <% end %>
+          <% if current_user.admin? %>
+          <div class="drop_down_menu" id="drop_down_menu">
+            <select id="select_<%= item['uid'] %>" class="select">
+              <option value="">Lägg till</option>
+              <option value="video_form_<%= item['uid'] %>">Video</option>
+              <option value="guide_form_<%= item['uid'] %>">Guide</option>
+              <option value="assignment_form_<%= item['uid'] %>">Uppdrag</option>
+              <option value="quiz_form_<%= item['uid'] %>">Quiz</option>
+            </select>
           </div>
           <br>
-          <%= link_to '<i class="fi-x small"></i>'.html_safe, delete_guide_path(:guide_name => item['name']), method: :delete, data: { confirm: 'Are you sure?' } %>
-          <%= link_to '<i class="fi-pencil small"></i>'.html_safe, edit_guide_path(:guide_name => item['name']), method: :get %>
+          <div class="forms" id="forms">
+            <div class="video_form" id="video_form_<%= item['uid'] %>" step_item="<%= item['uid'] %>">
+              <%= render :partial => '/videos/create_form', :locals => {:position => i+1} %>
+            </div>
+            <div class="guide_form" id="guide_form_<%= item['uid'] %>">
+              <%= render :partial => '/guides/create_form', :locals => {:position => i+1} %>
+            </div>
+            <div class="assignment_form" id="assignment_form_<%= item['uid'] %>">
+              <%= render :partial => '/assignments/create_form', :locals => {:position => i+1} %>
+            </div>
+            <div class="quiz_form" id="quiz_form_<%= item['uid'] %>" step_item="<%= i+1 %>">
+              <%= render :partial => '/quizzes/create_form', :locals => {:position => i+1} %>
+            </div>
+          </div>
+          <% end %>
         </div>
         <% end %>
-        <% else %>
-        <% if item['desc']%>
-        <div class="td">
-          <div id="desc">
-            <%= item['desc'].html_safe %>
-          </div>
-        </div>
-        <% end %>
-        <% end %>
-        <% if current_user.admin? %> <!-- this makes you able to show only name for step item if your admin, easier for drag and drop -->
-        <% if item['assignment_type'] %>
-        <div class="td">
-          <button id="show_desc" class="small">Visa mer</button>
-          <div id="desc" class="hidden">
-            <%= item['desc'].html_safe %>
-          </div>
-          <br>
-          <%= link_to '<i class="fi-x small"></i>'.html_safe, delete_assignment_path(:assignment_name => item['name']), method: :delete, data: { confirm: 'Are you sure?' } %>
-          <%= link_to '<i class="fi-pencil small"></i>'.html_safe, edit_assignment_path(:assignment_name => item['name']), method: :get %>
-        </div>
-        <% end %>
-        <% else %>
-        <% if item['desc']%>
-        <div class="td">
-          <div id="desc">
-            <%= item['desc'].html_safe %>
-          </div>
-        </div>
-        <% end %>
-        <% end %>
-        <% if current_user.admin? %>
-        <% if item['url'] %>
-        <div class="td">
-          <button id="show_video" class="small">Visa mer</button>
-          <div id="video_url" class="hidden">
-            <%= raw(youtube_embed(item['url'])) %><br>
-          </div>
-          <br>
-          <%= link_to '<i class="fi-x small"></i>'.html_safe, delete_video_path(:video_name => item['name']), method: :delete, data: { confirm: 'Are you sure?' } %>
-          <%= link_to '<i class="fi-pencil small"></i>'.html_safe, edit_video_path(:video_name => item['name']), method: :get %>
-        </div>
-        <% end %>
-        <% else %>
-        <% if item['url'] %>
-        <div class="td">
-          <div id="video_url">
-            <%= raw(youtube_embed(item['url'])) %><br>
-          </div>
-        </div>
-        <% end %>
-        <% end %>
-        <% if item['name'] %>
-        <% if @user.completion[@step.category.name] %>
-        <% completion = JSON.parse(@user.completion) %>
-        <% if completion[@step.category.name][@step.name] %>
-        <% if completion[@step.category.name][@step.name]["substep_"+item['uid'].to_s] == "true" %>
-        <p>Du är nu klar med detta substeget :)</p>
-        <% end %>
-        <% end %>
-        <% if current_user.admin? %> <!-- Jag vet det är sinnessjukt -->
-        <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
-        <% else %>
-        <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
-        <% end %>
-        <% else %>
-        <% end %>
-        <% end %>
-
-        <% if current_user.admin? %>
-        <% if item['quiz_type'] %>
-        <div class="td">
-          <button id="show_questions" class="small">Visa mer</button>
-          <div id="quiz_questions" class="hidden">
-            <% if questions_idx = find_questions(item['uid']) %>
-            <%= render 'quiz', :quiz => questions_idx %><br>
-            <% end %>
-          </div>
-          <button id ="show_questions_form" class="small">Lägg till frågor</button>
-          <div id="questions_formx" class="hidden">
-            <% if questions_idxx = find_questions(item['uid']) %>
-            <%= render :partial => 'questions', :locals => {:parent_quiz_id => questions_idxx} %><br>
-            <% end %>
-          </div>
-          <br>
-          <%= link_to '<i class="fi-x small"></i>'.html_safe, delete_quiz_path(:quiz_name => item['name']), method: :delete, data: { confirm: 'Are you sure?' } %>
-          <%= link_to '<i class="fi-pencil small"></i>'.html_safe, edit_quiz_path(:quiz_name => item['name']), method: :get %>
-
-        </div>
-        <% end %>
-        <% else %>
-        <% if item['quiz_type'] %>
-        <div class="td">
-          <div id="questions">
-            <% if questions_idx = find_questions(item['uid']) %>
-            <%= render :partial => 'quiz', :locals => {:quiz => questions_idx} %><br>
-            <% end %>
-          </div>
-        </div>
-        <% end %>
-        <% end %>
-        <% if current_user.admin? %>
-        <div class="drop_down_menu" id="drop_down_menu">
-          <select id="select_<%= item['uid'] %>" class="select">
-            <option value="">Lägg till</option>
-            <option value="video_form_<%= item['uid'] %>">Video</option>
-            <option value="guide_form_<%= item['uid'] %>">Guide</option>
-            <option value="assignment_form_<%= item['uid'] %>">Uppdrag</option>
-            <option value="quiz_form_<%= item['uid'] %>">Quiz</option>
-          </select>
-        </div>
-        <br>
-        <div class="forms" id="forms">
-          <div class="video_form" id="video_form_<%= item['uid'] %>" step_item="<%= item['uid'] %>">
-            <%= render :partial => '/videos/create_form', :locals => {:position => i+1} %>
-          </div>
-          <div class="guide_form" id="guide_form_<%= item['uid'] %>">
-            <%= render :partial => '/guides/create_form', :locals => {:position => i+1} %>
-          </div>
-          <div class="assignment_form" id="assignment_form_<%= item['uid'] %>">
-            <%= render :partial => '/assignments/create_form', :locals => {:position => i+1} %>
-          </div>
-          <div class="quiz_form" id="quiz_form_<%= item['uid'] %>" step_item="<%= i+1 %>">
-            <%= render :partial => '/quizzes/create_form', :locals => {:position => i+1} %>
-          </div>
-        </div>
         <% end %>
       </div>
-      <% end %>
-      <hr>
-      <% end %>
     </div>
     <br>            
     <% if current_user.admin? %>
