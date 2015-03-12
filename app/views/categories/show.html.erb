@@ -42,14 +42,21 @@
 
 <div id="steps">
     <% @steps.each do |s| %>
-        <% if s.name? %>
-        <div id="step_<%= s.id %>" class="large-12 columns step-comp step">
+        <% if s.name?
+          substeps = Substep.where({step_id: s.id}) %>
+        <% percent = get_steps_info(params[:category_name], s.name, @completion, substeps.length) %>
+        <%= percent["done"] %>|
+        <%= percent["percent"][0] %>%
+        <div id="step_<%= s.id %>" class="large-12 columns step">
+
+                      <div class="step-comp" style="width:<%= percent["percent"][0] %>%;"></div>
           <h2><%= link_to s.name, step_path(:category_name => params[:category_name], :step_name => s.name) %></h2>
+
           <% if current_user.admin? %>
               <%= link_to '<i class="fi-x"></i>'.html_safe, delete_step_path(:category_name => params[:category_name], :step_name => s.name), method: :delete, data: { confirm: 'Are you sure?' } %>
               <%= link_to '<i class="fi-pencil"></i>'.html_safe, edit_step_path(:category_name => params[:category_name], :step_name => s.name), method: :get %>
           <% end %>
-          <div class="step-bottom"><p>25% avklarad</p></div>
+          <div class="step-bottom"><p><%= percent["percent"][0] %>% avklarad</p></div>
           </div><p></p>
         <% end %>
     <% end %>

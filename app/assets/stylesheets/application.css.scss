@@ -728,7 +728,13 @@ text-align: center;
 
 .step-comp
 {
-  z-index: 5;
+  z-index: -5;
+  width: 0%;
+  height:100%;
+  background:#2BAAe2;
+  position:absolute;
+  opacity:0.8;
+  border-right:1px solid black;
 }
 
 .step
@@ -736,10 +742,10 @@ text-align: center;
   display: block;
   width: 100%;
   height: 170px;
-  z-index: 10;
+  z-index: 1000;
   text-align: center;
   margin-bottom: 3em;
-  background-color: #e74c3c;
+  background-color: #333333;
   opacity: 0.9;
   padding: 0;
 }
@@ -749,7 +755,7 @@ text-align: center;
   position: absolute;
   bottom: 0;
   height: 50px;
-  background-color: #c73c2e;
+  background-color: #1A1F1D;
   z-index: 100;
   width: 100%;
 }
@@ -764,6 +770,7 @@ text-align: center;
   color: #fff;
   font-family: 'Roboto', sans-serif;
   font-size: 30px;
+  z-index:10000000;
 }
 
 .step p
@@ -771,6 +778,11 @@ text-align: center;
   color: #fff;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
+  z-index:100000;
+}
+.step h2
+{
+  z-index:100;
 }
 
 .step-gray

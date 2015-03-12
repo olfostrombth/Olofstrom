@@ -25,6 +25,37 @@ class ApplicationController < ActionController::Base
     @activities = PublicActivity::Activity.order("created_at desc")
   end
 
+  helper_method :get_steps_info
+  def get_steps_info(catname, stepname, completion, substepcount)
+    done = 0
+    completion.each do |catkey, catval|
+      if catkey == catname
+        catval.each do |stepkey, stepval|
+          if stepkey == stepname
+            stepval.each do |substepkey, substepval|
+              if substepval
+                done = done+1
+              end
+            end
+          end
+        end
+      end
+    end
+    if done == 0
+      percent = 0
+    else
+      donex = done*100
+      substepcountx = substepcount*100
+      percent = (done.to_f / substepcount)*100
+    end
+    returna = {}
+    returna["percent"] = percent.to_s.split(".")
+    returna["done"] = "#{done} / #{substepcount}"
+    returna["donea"] = done
+    returna["substeps"] = substepcount
+    return returna
+  end
+
   helper_method :breadcrumbs
   def breadcrumbs
     modul = params[:category_name] if params[:category_name]
