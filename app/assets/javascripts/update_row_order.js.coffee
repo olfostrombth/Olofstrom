@@ -29,8 +29,8 @@ $(document).ready ->
         item_id = ui.item.data('item-id')
         #console.log(item_id)
         #console.log gon.stepname
-        #console.log position
         position = ui.item.index() # this will not work with paginated items, as the index is zero on every page
+        #console.log position
         $.ajax(
           type: 'POST'
           url: '/steps/update_row_order'
