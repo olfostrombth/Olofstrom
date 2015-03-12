@@ -11,8 +11,11 @@ $(document).ready ->
       items: '.item'
       cursor: 'pointer'
 
+
       sort: (e, ui) ->
         ui.item.addClass('active-item-shadow')
+
+        #console.log ui.item.index()
         ui.item.css({
           WebkitTransform: 'rotate(3deg)',
           '-moz-transform': 'rotate(3deg)'
@@ -27,10 +30,12 @@ $(document).ready ->
         ui.item.effect('highlight', {}, 1000)
       update: (e, ui) ->
         item_id = ui.item.data('item-id')
-        #console.log(item_id)
-        #console.log gon.stepname
+        console.log(item_id)
+        console.log gon.stepname
         position = ui.item.index() # this will not work with paginated items, as the index is zero on every page
-        #console.log position
+
+        console.log position
+
         $.ajax(
           type: 'POST'
           url: '/steps/update_row_order'
