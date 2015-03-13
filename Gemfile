@@ -73,5 +73,9 @@ gem "paperclip"
 # Image upload to CKEditor
 gem 'responders', '~> 2.0'
 
+<<<<<<< HEAD
 gem "public_activity"
 
+=======
+gem 'best_in_place'
+>>>>>>> micke/master
