@@ -11,6 +11,7 @@
     <div class="bread left"><%= breadcrumbs %></div>
 
     <% if current_user %>
+
     <% if current_user.admin? %>
         <% if current_page?(root_path) %>
             <button id="module_toggle" class="button redbtn ease right">Lägg till modul</button>
@@ -19,6 +20,7 @@
             <% if current_page?(category_path(params[:category_name])) %>
                 <button id="examination_toggle" class="button redbtn ease right">Lägg till examination</button>
                 <button id="step_toggle" class="button redbtn ease right">Lägg till steg</button>
+
             <% end %>
         <% end %>
       <% end %>
