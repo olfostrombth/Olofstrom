@@ -41,8 +41,8 @@
             </div>
           </div>
         <%= link_to '<div class="small-12 medium-12 large-12 columns side"><p><i class="fa fa-sign-out"></i>Logga ut</p></div>'.html_safe, signout_path, id: "sign_out" %>
-         <!--
-          <div class="medium-12 large-12 columns side">
+         
+         <!-- <div class="medium-12 large-12 columns side search-side">
 
             <li class="has-form"> 
               <div class="row">
@@ -63,7 +63,7 @@
              </div>
            </li>
 
-         </div>
+         </div>-->
 
         
          <div class="medium-12 large-12 columns feed">
@@ -71,7 +71,7 @@
         </div>
 
          <div class="large-12 columns feed">
-          <% @activities = get_activities.first(5) %>
+          <% @activities = get_activities.first(4) %>
             <% @activities.each do |activity| name = activity.owner.name.split(" ")
             link = activity.key.split(">")
             nar = link[1].split("<") %>
@@ -80,11 +80,11 @@
             <% linkz = linkx[0][0].split(": ") %>
             <%#= linkz %>
             <% l = linkz[1]+">"+title+"</a>" %>
-          <div class="large-3 columns avtxt"><%= link_to image_tag(activity.owner.image).html_safe, session_path(activity.owner) %></div>
-          <div class="large-9 columns avtxt"><strong><%=link_to name[0], session_path(activity.owner) %></strong>
-               <%= linkz[0] + ": "%><%= l.html_safe %></div>
+          <div class="large-12 columns avtxt"><p><%=link_to name[0], session_path(activity.owner) %>
+               <%= linkz[0] + ": "%><%= l.html_safe %></p></div>
+               <hr>
            <% end %>
-         </div>-->
+         </div>
        </div>
      
      <div class="small-12 columns mobile-menu-btn"><i class="fa fa-bars fa-3x"></i></div>

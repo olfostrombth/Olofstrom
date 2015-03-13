@@ -4,14 +4,22 @@
         <% v.questions.each do |q| %>
             <%= form_for @question, :html => { :id => "#{q.id}"} do |f| %>
                 <div class="question" id="question_<%= q.id %>">
+                <div class="row">
+                <div class="large-6 columns qa-headline">
                   <% if q.question %>
-                      <%= q.question %><br>
+                      <%= q.question %>
+                </div>
+                </div>
                       <% options = {"option1" => q.option1, "option2" => q.option2, "correct" => q.answer}
                          options = Hash[options.to_a.sample(options.length)]
                          options.each do |key, z| %>
+                         <div class="row">
                          <div class="field">
+                         <div class="large-3 columns">
                            <%= f.label z %>
-                           <%= f.radio_button :answer, z, class: key, id: key %><br>
+                           <%= f.radio_button :answer, z, class: key, id: key %>
+                         </div>
+                         </div>
                          </div>
                      <% end %>
                   <% end %>
