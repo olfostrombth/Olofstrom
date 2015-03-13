@@ -2,7 +2,12 @@
 
     <!--  TOPBAR -->
     <div class="small-12 medium-12 large-12 columns topbar">
-      <input type="text" class="search_form left" placeholder="Sök användare" style="width:300px; margin-left:-15px; height:100%;">
+      <div class="searchej left">
+      <%= text_field_tag :query, params[:query], class: "search_form", id: "user_search", autocomplete: "on", placeholder: 'Sök användare' %>
+      <%= form_tag search_path, class: "form-inline", method: :get do %>
+      <div id="input_img"><%= image_submit_tag ('Search.png'), class:'input_img sbtnstyle' %></div>
+      <% end %> 
+      </div>
       <div class="bread left"><%= breadcrumbs %></div>
       <% if current_user.admin? %>
           <button id="module_toggle" class="button redbtn ease right">Lägg till modul</button>
