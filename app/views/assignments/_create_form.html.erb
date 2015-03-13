@@ -12,11 +12,11 @@
     <% end %>
 
     <div class="field">
-      <%= f.label :name %><br>
+      <%= f.label :Namn %><br>
       <%= f.text_field :name %>
     </div>
     <div class="field">
-      <%= f.label :desc %><br>
+      <%= f.label :Beskrivning %><br>
       <%= f.text_field :desc %>
     </div>
     <div class="field">
@@ -29,6 +29,6 @@
       <%= f.hidden_field :row_order_position, value: position %>
     </div>
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit :Skapa, :class => 'form-btn ease' %>
     </div>
 <% end %>

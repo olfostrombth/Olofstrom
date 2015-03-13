@@ -121,7 +121,11 @@
                     <% if current_user.admin? %> <!-- Jag vet det är sinnessjukt -->
                         <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
                     <% else %>
-                        <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
+                        <% if item['quiz_type'] %>
+                            <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
+                            <% else %>
+                            <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
+                        <% end %>
                     <% end %>
                 <% else %>
                 <% end %>
@@ -187,10 +191,9 @@
             <% end %>
           </div>
       <% end %>
-      <hr>
   <% end %>
 </div>
-<br>            
+<br>
 <% if current_user.admin? %>
 
 <%= link_to 'Edit', edit_step_path(@catname,@step.name) %> |

@@ -7,8 +7,10 @@ class CategoriesController < ApplicationController
     @activities = PublicActivity::Activity.order("created_at desc")
     if current_user
       @categories = Category.all
-      @colors = ["#56adba", "#7ab292", "#fba61f", "#ec529a"]
-      @images = ["blur.png", "blurpink.png", "blurorange.png", "blurgreen.png"]
+      @user = User.find(current_user.id)
+      @colors = ["#56adba", "#ec529a", "#fba61f", "#7ab292"]
+      @darkcolors = ["#388f9c", "#d0327e", "#dd8801", "#5c9474"]
+      @category = @categories.new
     else
       redirect_to login_url
     end
@@ -21,9 +23,13 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     @category = Category.where(name: Category.normalize_cat(params[:category_name]))
+    if current_user
+      @completion = User.find(current_user.id).completion
+      @completion = JSON.parse(@completion)
+    end
     @comment_items = {}
     @category.each do |x|
-      @comments = Comment.rank(:row_order).where(category_id: x.id)
+      @comments = x.comments.order('created_at desc')
       #@comments = x.comments.order('row_order ASC')
       @comments.each do |c|
         @commentx = c
