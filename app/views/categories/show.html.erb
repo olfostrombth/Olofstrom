@@ -74,7 +74,7 @@
                    <br> <strong><%= @user.name %></strong><br>
                <% end %>
 
-               <% if x.user_id = current_user.id %>
+               <% if x.user_id = User.find(current_user.id) %>
                    <%= link_to '<i class="fi-x fi-x-fix"></i>'.html_safe, x, method: :delete, data: { confirm: 'Are you sure?' } %>
                    <%= best_in_place Comment.find(x.id), :msg, :as => :textarea, :ok_button => 'Spara', :ok_button_class => 'button form-btn tiny', :cancel_button => 'Avbryt', :cancel_button_class => 'button form-btn cancel-btn tiny', :class => 'fi-pencil bip-text'%>
                <% end %>
@@ -91,7 +91,7 @@
                        <% if @user %>
                            <br> <strong><%= @user.name %></strong><br>
                        <% end %>
-                       <% if z.user_id = current_user.id %>
+                       <% if z.user_id = User.find(current_user.id) %>
                            <%= link_to '<i class="fi-x fi-x-fix"></i>'.html_safe, z, method: :delete, data: { confirm: 'Are you sure?' } %>
                            <%= best_in_place Comment.find(z.id), :msg, :as => :textarea, :ok_button => 'Spara', :ok_button_class => 'button form-btn tiny', :cancel_button => 'Avbryt', :cancel_button_class => 'button form-btn cancel-btn tiny', :class => 'fi-pencil bip-text'%>
                        <% end %>
