@@ -119,10 +119,10 @@
           <% if item['name'] %>
           <% if @user.completion[@step.category.name] %>
           <% completion = JSON.parse(@user.completion) %>
-          <% if completion[@step.category.name][@step.name] %>
+          <% if completion[@step.category.name] then if completion[@step.category.name][@step.name] %>
           <% if completion[@step.category.name][@step.name]["substep_"+item['uid'].to_s] == "true" %>
           <p>Du är nu klar med detta substeget</p>
-          <% end %>
+          <% end end %>
           <% end %>
 
           <% if current_user.admin? %> <!-- Jag vet det är sinnessjukt -->
