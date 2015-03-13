@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150309202317) do
+ActiveRecord::Schema.define(version: 20150309181034) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id"
@@ -71,7 +71,6 @@ ActiveRecord::Schema.define(version: 20150309202317) do
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
     t.integer  "parent_id"
-    t.integer  "row_order"
   end
 
   add_index "comments", ["category_id"], name: "index_comments_on_category_id"

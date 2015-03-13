@@ -192,9 +192,35 @@
             <div id="questions" class="question-fix">
               <% if questions_idx = find_questions(item['uid']) %>
               <%= render :partial => 'quiz', :locals => {:quiz => questions_idx} %><br>
-              <% end %>
-            </div>
-          </div>
+            <% else %>
+                <% if item['url'] %>
+                    <div class="td">
+                      <div id="video_url">
+                        <%= raw(youtube_embed(item['url'])) %><br>
+                      </div>
+                    </div>
+                <% end %>
+            <% end %>
+            <% if item['name'] %>
+              <% if @user.completion[@step.category.name] %>
+                <% completion = JSON.parse(@user.completion) %>
+                <% if completion[@step.category.name][@step.name] %>
+                  <% if completion[@step.category.name][@step.name]["substep_"+item['uid'].to_s] == "true" %>
+                    <p>Du är nu klar med detta substeget :)</p>
+                    <% end %>
+                  <% end %>
+                    <% if current_user.admin? %> <!-- Jag vet det är sinnessjukt -->
+                        <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
+                    <% else %>
+                        <% if item['quiz_type'] %>
+                            <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
+                            <% else %>
+                            <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
+                        <% end %>
+                    <% end %>
+                <% else %>
+                <% end %>
+
           <div class="quiz-fix">
             <div class="checkbox-container">
               <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
@@ -234,7 +260,10 @@
         </div>
       </div>
     </div>         
-    <% if current_user.admin? %>
+  <% end %>
+</div>
+<br>
+<% if current_user.admin? %>
 
     <%= link_to 'Edit', edit_step_path(@catname,@step.name) %>
     <% end %>

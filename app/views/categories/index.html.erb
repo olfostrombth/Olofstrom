@@ -3,7 +3,7 @@
     <!--  TOPBAR -->
     <div class="small-12 medium-12 large-12 columns topbar">
       <input type="text" class="search_form left" placeholder="Sök användare" style="width:300px; margin-left:-15px; height:100%;">
-      <div class="bread left">START > MODULER > Steg 2</div>
+      <div class="bread left"><%= breadcrumbs %></div>
       <% if current_user.admin? %>
           <button id="module_toggle" class="button redbtn ease right">Lägg till modul</button>
       <% end %>
@@ -31,7 +31,7 @@
         <div class="mod-desc" style="background-color:<%= @colors[index%4] %>;">
           <div class="desc-p"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit voluptas eveniet animi eum odit quae doloribus fuga voluptatum et ab.
           <%= cat.desc %></p>
-          </div> 
+          </div>
         </div>
         <div class="mod-headline" style="background-color:<%= @darkcolors[index%4] %>;">
           <div class="headline-p">
@@ -48,7 +48,7 @@
           <% end %>
               </div>
       </div>
-        
+
       <% end %>
     <p></p>
     </div>

@@ -4,17 +4,17 @@
 
     <!--  TOPBAR -->
     <div class="medium-12 large-12 columns topbar">
-      <div class="input-search left"> 
+      <div class="input-search left">
         <%= text_field_tag :query, params[:query], class: "form-control", id: "user_search", autocomplete: "on" %>
                       <%= form_tag search_path, class: "form-inline", method: :get do %>
 
 <!--<div class="input-group-btn ease"> <%= submit_tag 'sök' %></div>-->
         <% end %>
       </div>
-     
 
-      
-      <div class="bread left">START > MODULER > Steg 2</div>
+
+
+      <div class="bread left"><%= breadcrumbs %></div>
       <% if current_user.admin? %>
       <button id="examination_toggle" class="button redbtn ease right">Lägg till examination</button>
       <button id="step_toggle" class="button redbtn ease right">Lägg till steg</button>
@@ -28,7 +28,7 @@
     </div>
 
     <!--    RUBRIK  -->
-    
+
 
   </div>
   <p id="notice"><%= notice %></p>
@@ -39,17 +39,22 @@
   </div>
 
 <div class="large-8 columns">
-  
+
 <div id="steps">
     <% @steps.each do |s| %>
-        <% if s.name? %>
-        <div id="step_<%= s.id %>" class="large-12 columns step-comp step">
+        <% if s.name?
+          substeps = Substep.where({step_id: s.id}) %>
+        <% percent = get_steps_info(params[:category_name], s.name, @completion, substeps.length) %>
+        <div id="step_<%= s.id %>" class="large-12 columns step">
+
+                      <div class="step-comp" style="width:<%= percent["percent"][0] %>%;"></div>
           <h2><%= link_to s.name, step_path(:category_name => params[:category_name], :step_name => s.name) %></h2>
+
           <% if current_user.admin? %>
               <%= link_to '<i class="fi-x"></i>'.html_safe, delete_step_path(:category_name => params[:category_name], :step_name => s.name), method: :delete, data: { confirm: 'Are you sure?' } %>
               <%= link_to '<i class="fi-pencil"></i>'.html_safe, edit_step_path(:category_name => params[:category_name], :step_name => s.name), method: :get %>
           <% end %>
-          <div class="step-bottom"><p>25% avklarad</p></div>
+          <div class="step-bottom"><p><%= percent["percent"][0] %>% avklarad</p></div>
           </div><p></p>
         <% end %>
     <% end %>
@@ -68,7 +73,11 @@
                <% if @user %>
                    <br> <strong><%= @user.name %></strong><br>
                <% end %>
-               <%= x.msg %>
+
+               <% if x.user_id = current_user.id %>
+                   <%= link_to '<i class="fi-x fi-x-fix"></i>'.html_safe, x, method: :delete, data: { confirm: 'Are you sure?' } %>
+                   <%= best_in_place Comment.find(x.id), :msg, :as => :textarea, :ok_button => 'Spara', :ok_button_class => 'button form-btn tiny', :cancel_button => 'Avbryt', :cancel_button_class => 'button form-btn cancel-btn tiny', :class => 'fi-pencil bip-text'%>
+               <% end %>
                <% if Comment.where({parent_id: x.id}).first %>
                  <div id="answer-btn" class="answer-btn right"><i class="fa fa-plus"></i></div>
               <% end %>
@@ -89,7 +98,10 @@
                        <% if @user %>
                            <br> <strong><%= @user.name %></strong><br>
                        <% end %>
-                  <%= z.msg %>
+                       <% if z.user_id = current_user.id %>
+                           <%= link_to '<i class="fi-x fi-x-fix"></i>'.html_safe, z, method: :delete, data: { confirm: 'Are you sure?' } %>
+                           <%= best_in_place Comment.find(z.id), :msg, :as => :textarea, :ok_button => 'Spara', :ok_button_class => 'button form-btn tiny', :cancel_button => 'Avbryt', :cancel_button_class => 'button form-btn cancel-btn tiny', :class => 'fi-pencil bip-text'%>
+                       <% end %>
                   <hr>
                        <% end %>
                  </div>
@@ -108,5 +120,3 @@
     <%= e.desc %>
 <% end %>
 <br>
-
-
