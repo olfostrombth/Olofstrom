@@ -39,6 +39,9 @@ $(function(){
 	$(".arch-toggle").click(function(){
 		$(".arch").slideToggle("slow");
 	});
+	$(".fed").click(function(){
+		$(".fed-toggle").slideToggle("slow");
+	});
 
 	$(".add-mod-btn2").click(function(){
 		$(".feeed").slideToggle("slow");
