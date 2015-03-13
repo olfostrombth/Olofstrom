@@ -4,11 +4,17 @@
 
 $ ->
   $(document).on "click", "#step_toggle", ->
-    $('.step_form').toggle('show')
+    $('.step_form').slideToggle(500)
+    $('.examination_form').hide()
 
 $ ->
   $(document).on "click", "#examination_toggle", ->
-    $('.examination_form').toggle('show')
+    $('.examination_form').slideToggle(500)
+    $('.step_form').hide()
+
+$ ->
+  $(document).on "click", "#module_toggle", ->
+    $('.module_form').slideToggle(500)
 
 $ ->
   $(document).on "click", "#reply_toggle", ->
@@ -18,6 +24,15 @@ $ ->
   $(document).on "click", "#comment_toggle", ->
     $('.comment_form').toggle('show')
     $('html, body').animate({scrollTop:$(document).height()}, 'slow')
+
+$ ->
+  $(document).on "click", "#answer-btn", ->
+  	$(this).parent().parent().children('#replies').slideToggle('show')
+
+
+  	if $(this).html() == '<i class="fa fa-plus"></i>' then $(this).html('<i class="fa fa-minus"></i>') else $(this).html('<i class="fa fa-plus"></i>')
+
+
 
 
 

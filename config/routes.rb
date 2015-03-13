@@ -69,6 +69,9 @@ Rails.application.routes.draw do
   delete "/questions/:question_name" => "questions#destroy", :as => :delete_question
   get "/questions/new" => "quizzes#new"
 
+  put "/comments" => "comments#update"
+  patch "/comments" => "comments#update"
+
 
   resources :sessions
   #, only: [:create, :destroy]

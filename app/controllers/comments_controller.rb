@@ -43,13 +43,16 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json
   def update
+    @comment = Comment.find(params[:id])
     respond_to do |format|
       if @comment.update(comment_params)
         format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @comment }
+        #format.json { render :show, status: :ok, location: @comment }
+        format.json { respond_with_bip(@comment) }
       else
         format.html { render :edit }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
+        #format.json { render json: @comment.errors, status: :unprocessable_entity }
+        format.json { respond_with_bip(@comment) }
       end
     end
   end
@@ -57,9 +60,10 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
+    cat = Category.find(@comment.category_id)
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
+      format.html { redirect_to category_path(cat.name), notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -72,6 +76,6 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:msg, :category_id, :user_id, :parent_id, :row_order_position)
+      params.require(:comment).permit(:msg, :category_id, :user_id, :parent_id)
     end
 end

@@ -21,7 +21,12 @@
 //= require foundation
 //= require jquery.turbolinks
 //= require ckeditor/init
+
+//= require best_in_place
+//= require best_in_place.jquery-ui
 //= require_tree .
+
+
 
 $(function(){ 
 
