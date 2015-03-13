@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
     gon.completion = @user.completion
     @completion = Hash[JSON.parse(gon.completion).to_a.reverse]
 
-    #@comments = @user.comments
+    #@comments = @user.comments     .last(2)
     #@comments.each do |x|
     #  @category = Category.find(x.category_id)
     #end

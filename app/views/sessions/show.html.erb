@@ -20,31 +20,21 @@
 
 	<div class="medium-3 columns">
 		<% @completion.each do |modul, modulValue|%>
-			<% modulValue.each do|step, stepValue|%>
-				<% stepValue.each do|substep, substepValue|%>
+			<% modulValue.each do |step, stepValue|%>
+				<% stepValue.each do |substep, substepValue|%>
 
-					<div>
-						<p>
-						|namn|<%=@user.name%> <br>
-						|substep| <%=substep%> <br>
-						|step| <%=step%> <br>
-						|modul| <b><%=modul%></b></p>
-					</div>
+					<% if substepValue %>
+						<div>
+							<p>
+							|namn| <%=@user.name%> <br>
+							|substep| <%=substep%> <br>
+							|step| <%=step%> <br>
+							<b>
+							|modul| <%=modul%></b></p>
+						</div>
+					<% end %>
 				<% end %>
-
-				<div>
-					<p>
-					|namn|<%=@user.name%> <br>
-					|step|<%=step%> <br>
-					|modul|<b><%=modul%></b></p>
-				</div>
-			<% end %>
-
-			<div>
-				<p><b>
-				|namn|<%=@user.name%>
-				|modul|<%=modul%></b></p>
-			</div>
+			<% end %>			
 		<% end %>
 	</div>
 
