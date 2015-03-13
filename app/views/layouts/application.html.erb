@@ -111,7 +111,9 @@
         <div class="medium-10 large-10 columns content in">
 
     <% end %>
+    <% if current_user %>
     <%= render :partial => '/categories/topbar' %>
+    <% end %>
     <%= yield %>
 
 
