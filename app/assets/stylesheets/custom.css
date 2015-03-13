@@ -217,7 +217,7 @@ li.headline
 .feed
 {
 	width: 100%;
-	background-color: #fff;
+	background-color: #1f1f1f;
 	overflow-y: auto;
 	max-height: 70vh;
 
@@ -279,7 +279,7 @@ button, .button.dropdown
 
 .login-logo
 {
-	background: radial-gradient(at center bottom, #123, #112);
+    background-color: #1a1f1d;
 	width: 300px;
 	height: 300px;
 	border-radius: 300px;
