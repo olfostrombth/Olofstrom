@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  require 'gitkit_client'
   require 'cgi'
 
 
