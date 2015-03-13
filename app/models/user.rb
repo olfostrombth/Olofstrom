@@ -7,7 +7,28 @@ class User < ActiveRecord::Base
              suggest: ['name']
 
   def self.from_omniauth(auth)
-    array = {"test" => "test"}
+    array = {
+        "Testmodul1" => {
+            "Steg1" => {
+                "Video_1" => true,
+                "Video_2" => true,
+                "Quiz_1" => true,
+                "Uppdrag_1" => true,
+                "Quiz_2" => true
+            },
+            "Steg2" => {
+                "Video_3" => true,
+                "Video_4" => true,
+                "Quiz_3" => true,
+                "Uppdrag_2" => true,
+                "Quiz_4" => true
+            },
+            "Examination" => {
+                "Rattad" => true,
+                "Klar" => true
+            }
+        }
+    }
     where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
       user.provider = auth.provider
       user.uid = auth.uid
@@ -15,7 +36,7 @@ class User < ActiveRecord::Base
       user.email = auth.info.email
       user.image = auth.info.image
       user.admin = true
-      user.completion = if User.where({uid:user.email}).first then User.where({uid:user.email}).first else array.to_json end
+      user.completion = if User.where({uid:auth.uid}).first then User.where({uid:auth.uid}).first else array.to_json end
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.save!
@@ -24,7 +45,27 @@ class User < ActiveRecord::Base
 
 
   def self.import(file)
-    array = {"test" => "test"
+    array = {
+        "Testmodul1" => {
+            "Steg1" => {
+                "Video_1" => true,
+                "Video_2" => true,
+                "Quiz_1" => true,
+                "Uppdrag_1" => true,
+                "Quiz_2" => true
+            },
+            "Steg2" => {
+                "Video_3" => true,
+                "Video_4" => true,
+                "Quiz_3" => true,
+                "Uppdrag_2" => true,
+                "Quiz_4" => true
+            },
+            "Examination" => {
+                "Rattad" => true,
+                "Klar" => true
+            }
+        }
     }
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(1)
