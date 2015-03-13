@@ -25,7 +25,9 @@ class CategoriesController < ApplicationController
     @category = Category.where(name: Category.normalize_cat(params[:category_name]))
     if current_user
       @completion = User.find(current_user.id).completion
-      @completion = JSON.parse(@completion)
+      if @completion
+        @completion = JSON.parse(@completion)
+      end
     end
     @comment_items = {}
     @category.each do |x|
