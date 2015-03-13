@@ -24,6 +24,19 @@ font-family: 'Montserrat', sans-serif;
 font-family: 'Oswald', sans-serif;
 font-family: 'Roboto', sans-serif;
 */
+.bip-text {
+  font-size: 14px!important;
+}
+
+.fi-x-fix {
+  color: #000;
+  font-size: 14px!important;
+}
+
+.cancel-btn {
+  margin-left: 5px;
+  border-radius: 0;
+}
 
 #reply_form {
   display: none;
@@ -49,7 +62,7 @@ font-family: 'Roboto', sans-serif;
 
 
 a:link, a:active, a:hover, a:visited {
-  color: #000;
+  color: #ccc;
 }
 
 
@@ -114,7 +127,7 @@ a:link, a:active, a:hover, a:visited {
   background-color: #EDEAE8;
   height: auto;
   display: none;
-  z-index: 999;
+  z-index: 999999;
   border: 0 0 1px 1px solid #C9C7C5;
   border-radius: 0 0 0 3px;
   -webkit-box-shadow: 0px 0px 14px 0px rgba(50, 50, 50, 0.3);
@@ -165,7 +178,7 @@ box-shadow:         0px 0px 14px 0px rgba(50, 50, 50, 0.3);
   display: none;
 }
 
-.examination_form {
+.module_form {
   position: absolute;
   width: 500px;
   top: 50px;
@@ -175,6 +188,23 @@ box-shadow:         0px 0px 14px 0px rgba(50, 50, 50, 0.3);
   height: auto;
   display: none;
   z-index: 999;
+  border: 1px solid #C9C7C5;
+  border-radius: 0 0 0 3px;
+  -webkit-box-shadow: 0px 0px 14px 0px rgba(50, 50, 50, 0.3);
+  -moz-box-shadow:    0px 0px 14px 0px rgba(50, 50, 50, 0.3);
+  box-shadow:         0px 0px 14px 0px rgba(50, 50, 50, 0.3);
+}
+
+.examination_form {
+  position: absolute;
+  width: 500px;
+  top: 50px;
+  right: 0;
+  padding: 5%;
+  background-color: #EDEAE8;
+  height: auto;
+  display: none;
+  z-index: 999999;
   border: 1px solid #C9C7C5;
   border-radius: 0 0 0 3px;
   -webkit-box-shadow: 0px 0px 14px 0px rgba(50, 50, 50, 0.3);

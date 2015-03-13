@@ -4,11 +4,17 @@
 
 $ ->
   $(document).on "click", "#step_toggle", ->
-    $('.step_form').slideToggle('show')
+    $('.step_form').slideToggle(500)
+    $('.examination_form').hide()
 
 $ ->
   $(document).on "click", "#examination_toggle", ->
-    $('.examination_form').slideToggle('show')
+    $('.examination_form').slideToggle(500)
+    $('.step_form').hide()
+
+$ ->
+  $(document).on "click", "#module_toggle", ->
+    $('.module_form').slideToggle(500)
 
 $ ->
   $(document).on "click", "#reply_toggle", ->

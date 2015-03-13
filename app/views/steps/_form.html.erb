@@ -12,17 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :Namn %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :desc %><br>
+    <%= f.label :Beskrivning %><br>
     <%= f.text_field :desc %>
   </div>
   <div class="field">
     <%= f.hidden_field :category_id %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.button :Spara, :class => 'form-btn ease' %>
   </div>
 <% end %>

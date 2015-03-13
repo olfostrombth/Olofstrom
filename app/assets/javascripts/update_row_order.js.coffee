@@ -35,6 +35,7 @@ $(document).ready ->
         position = ui.item.index() # this will not work with paginated items, as the index is zero on every page
 
         console.log position
+
         $.ajax(
           type: 'POST'
           url: '/steps/update_row_order'

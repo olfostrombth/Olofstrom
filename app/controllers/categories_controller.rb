@@ -10,6 +10,7 @@ class CategoriesController < ApplicationController
       @user = User.find(current_user.id)
       @colors = ["#56adba", "#ec529a", "#fba61f", "#7ab292"]
       @darkcolors = ["#388f9c", "#d0327e", "#dd8801", "#5c9474"]
+      @category = @categories.new
     else
       redirect_to login_url
     end
