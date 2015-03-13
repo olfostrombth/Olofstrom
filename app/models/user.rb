@@ -7,8 +7,7 @@ class User < ActiveRecord::Base
              suggest: ['name']
 
   def self.from_omniauth(auth)
-    array = {
-    }
+    array = {}
     where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
       user.provider = auth.provider
       user.uid = auth.uid
@@ -16,7 +15,7 @@ class User < ActiveRecord::Base
       user.email = auth.info.email
       user.image = auth.info.image
       user.admin = true
-      user.completion = if User.where({uid:user.email}).first then User.where({uid:user.email}).first else array.to_json 
+      user.completion = if User.where({uid:user.email}).first then User.where({uid:user.email}).first else array.to_json end
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.save!
