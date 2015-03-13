@@ -214,34 +214,35 @@
           </div>
           <% end %>
           <% end %>
-          <% if current_user.admin? %>
-          <div class="drop_down_menu" id="drop_down_menu">
-            <select id="select_<%= item['uid'] %>" class="select">
-              <option value="">Lägg till</option>
-              <option value="video_form_<%= item['uid'] %>">Video</option>
-              <option value="guide_form_<%= item['uid'] %>">Guide</option>
-              <option value="assignment_form_<%= item['uid'] %>">Uppdrag</option>
-              <option value="quiz_form_<%= item['uid'] %>">Quiz</option>
-            </select>
-          </div>
-          <br>
-          <div class="forms" id="forms">
-            <div class="video_form" id="video_form_<%= item['uid'] %>" step_item="<%= item['uid'] %>">
-              <%= render :partial => '/videos/create_form', :locals => {:position => i+1} %>
-            </div>
-            <div class="guide_form" id="guide_form_<%= item['uid'] %>">
-              <%= render :partial => '/guides/create_form', :locals => {:position => i+1} %>
-            </div>
-            <div class="assignment_form" id="assignment_form_<%= item['uid'] %>">
-              <%= render :partial => '/assignments/create_form', :locals => {:position => i+1} %>
-            </div>
-            <div class="quiz_form" id="quiz_form_<%= item['uid'] %>" step_item="<%= i+1 %>">
-              <%= render :partial => '/quizzes/create_form', :locals => {:position => i+1} %>
-            </div>
-          </div>
-          <% end %>
+
         </div>
         <% end %>
+        <% end %>
+        <% if current_user.admin? %>
+            <div class="drop_down_menu" id="drop_down_menu">
+              <select id="select_<%= item['uid'] %>" class="select">
+                <option value="">Lägg till</option>
+                <option value="video_form_<%= item['uid'] %>">Video</option>
+                <option value="guide_form_<%= item['uid'] %>">Guide</option>
+                <option value="assignment_form_<%= item['uid'] %>">Uppdrag</option>
+                <option value="quiz_form_<%= item['uid'] %>">Quiz</option>
+              </select>
+            </div>
+            <br>
+            <div class="forms" id="forms">
+              <div class="video_form" id="video_form_<%= item['uid'] %>" step_item="<%= item['uid'] %>">
+                <%= render :partial => '/videos/create_form', :locals => {:position => i+1} %>
+              </div>
+              <div class="guide_form" id="guide_form_<%= item['uid'] %>">
+                <%= render :partial => '/guides/create_form', :locals => {:position => i+1} %>
+              </div>
+              <div class="assignment_form" id="assignment_form_<%= item['uid'] %>">
+                <%= render :partial => '/assignments/create_form', :locals => {:position => i+1} %>
+              </div>
+              <div class="quiz_form" id="quiz_form_<%= item['uid'] %>" step_item="<%= i+1 %>">
+                <%= render :partial => '/quizzes/create_form', :locals => {:position => i+1} %>
+              </div>
+            </div>
         <% end %>
         </div>
 
