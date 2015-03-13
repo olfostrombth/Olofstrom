@@ -1,36 +1,5 @@
 <%= include_gon %>
 
-<div class="row">
-
-    <!--  TOPBAR -->
-    <div class="medium-12 large-12 columns topbar">
-      <div class="input-search left">
-        <%= text_field_tag :query, params[:query], class: "form-control", id: "user_search", autocomplete: "on" %>
-                      <%= form_tag search_path, class: "form-inline", method: :get do %>
-
-<!--<div class="input-group-btn ease"> <%= submit_tag 'sök' %></div>-->
-        <% end %>
-      </div>
-
-
-
-      <div class="bread left"><%= breadcrumbs %></div>
-      <% if current_user.admin? %>
-      <button id="examination_toggle" class="button redbtn ease right">Lägg till examination</button>
-      <button id="step_toggle" class="button redbtn ease right">Lägg till steg</button>
-      <% end %>
-    </div>
-    <div class="step_form">
-      <%= render :partial => '/steps/steps' %>
-    </div>
-    <div class="examination_form">
-      <%= render '/examinations/form' %>
-    </div>
-
-    <!--    RUBRIK  -->
-
-
-  </div>
   <p id="notice"><%= notice %></p>
 <div class="row">
  <div class="large-12 columns">
