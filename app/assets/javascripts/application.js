@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery-ui
 //= require autocomplete-rails
@@ -19,7 +20,6 @@
 //= require jquery-ui/effect-highlight
 
 //= require foundation
-//= require jquery.turbolinks
 //= require ckeditor/init
 
 //= require best_in_place

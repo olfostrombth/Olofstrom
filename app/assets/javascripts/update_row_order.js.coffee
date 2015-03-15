@@ -10,8 +10,7 @@ $(document).ready ->
       axis: 'y'
       items: '.item'
       cursor: 'pointer'
-
-
+      #containment: 'document' vill ha det egentligen för att undvika för långa scrollningar, men då går item ej att lägga underst.
       sort: (e, ui) ->
         ui.item.addClass('active-item-shadow')
 
