@@ -52,7 +52,8 @@ getSubStep = (thiss) ->
 #This will call the function to see if every box is checked after
 #Should send the updates to the local json object and then update DB with the values
 
-#detta fuckar all javascript i ett steg, cannot read property 'steg1' of undefined
+
+
 $ ->
   if gon.completion
     substeps = $.parseJSON(gon.completion)
@@ -60,42 +61,43 @@ $ ->
       substepsx = substeps[gon.catname][gon.stepname]
       console.log substeps
       console.log gon.stepname
+      console.log substepsx
       for x,y of substepsx
         if y == "true"
           $("#"+x).prop("checked", true)
         else if y == "false"
           $("#"+x).prop("checked", false)
 
+$(document).on "click", ".donebox", ->
+  #console.log ""
+  substeps = getSubStep(this)
+  console.log substeps
+  category_name = gon.catname
+  step_name = gon.stepname
+  completion = gon.completion
+  #Update completion <<< Here
+  #Update database <<< Here
+  $.ajax(
+    type: 'POST'
+    url: '/steps/update_completion'
+    dataType: 'json'
+    data: { step: {name:category_name, step_name:step_name, substepsx: substeps } }
+  )
+    #Should be done through AjAX probably best way
+    #LEts see what we can do.
 
-  $(document).on "click", ".donebox", ->
-    #console.log ""
-    substeps = getSubStep(this)
-    console.log substeps
-    category_name = gon.catname
-    step_name = gon.stepname
-    completion = gon.completion
-    #Update completion <<< Here
-    #Update database <<< Here
-    $.ajax(
-      type: 'POST'
-      url: '/steps/update_completion'
-      dataType: 'json'
-      data: { step: {name:category_name, step_name:step_name, substepsx: substeps } }
-    )
-      #Should be done through AjAX probably best way
-      #LEts see what we can do.
+  tese = getAllDone()
+  if getAllChecked()
+    alert "Du är klar med det här steget nu!"
+    #Update completion for Step is done fully <<
+    #Update database for Step is done fully <<<
+    #Should be done through AJAX probably
+  #for x,y in tese
+  #  if $(x).is(":checked")
+  #    console.log x + " is checked"
+  #  else
+  #    console.log x + " is not checked"
 
-    tese = getAllDone()
-    if getAllChecked()
-      alert "Du är klar med det här steget nu!"
-      #Update completion for Step is done fully <<
-      #Update database for Step is done fully <<<
-      #Should be done through AJAX probably
-    #for x,y in tese
-    #  if $(x).is(":checked")
-    #    console.log x + " is checked"
-    #  else
-    #    console.log x + " is not checked"
 
 $(document).on "click", "#show_video", ->
   video = $(this).parent().find('#video_url')

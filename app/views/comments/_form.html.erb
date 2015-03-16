@@ -10,6 +10,10 @@
       </ul>
     </div>
   <% end %>
+  <div class="field">
+    <%= f.label :user_id%>
+    <%= f.text_field :user_id, value: current_user.id%>
+  </div>
 
   <div class="field">
     <%= f.label :Kommentar %><br>
@@ -28,6 +32,6 @@
       <%= f.hidden_field :row_order_position, value: position %>
     </div>
   <div class="actions">
-    <%= f.button :Skicka, :class => 'form-btn ease' %>
+    <%= f.button :Skicka, :class => 'form-btn tiny ease' %>
   </div>
 <% end %>
