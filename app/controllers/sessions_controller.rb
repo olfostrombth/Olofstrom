@@ -22,8 +22,15 @@ class SessionsController < ApplicationController
   def show
     @usersearch = User.find(params[:id])
     @user = User.find(params[:id])
-
+    @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: @user)
     gon.completion = @user.completion
+    @completion = Hash[JSON.parse(gon.completion).to_a.reverse]
+
+    #@comments = @user.comments     .last(2)
+    #@comments.each do |x|
+    #  @category = Category.find(x.category_id)
+    #end
+
   end
 
   def delUser

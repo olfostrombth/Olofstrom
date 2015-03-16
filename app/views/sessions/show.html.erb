@@ -1,3 +1,54 @@
-<%= @user.completion %>
-<button type="button" id="appendToArray">click me !</button>
-hej
+<div>
+	<div class="medium-5 columns">
+		<h3><%= @user.name%></h3>
+
+		<%if (@user.admin)%>
+			<p>Du är admin</p>
+		<%else%>
+			<p>du är inte admin</p>
+		<%end%>
+
+		<p>Email: <%= @user.email%></p>
+
+		<p>---Achivements??---</p>
+
+
+		<p>Kontakta mig: <button id="" class="button success small"><%= mail_to @user.email%></button></p>
+	</div>
+
+	<h3>---Completion---</h3>
+
+	<div class="medium-3 columns">
+		<% @completion.each do |modul, modulValue|%>
+			<% modulValue.each do |step, stepValue|%>
+				<% stepValue.each do |substep, substepValue|%>
+				
+					<% if substepValue %>
+						<div>
+							<p>
+							|namn| <%=@user.name%> <br>
+							|substep| <%=substep%> <br>
+							|step| <%=step%> <br>
+							|modul| <%=modul%></b></p>
+						</div>
+					<% end %>
+				<% end %>
+			<% end %>			
+		<% end %>
+	</div>
+
+		<div class="medium-4 columns">
+		<h3>Flöde??</h3>
+		<div class="panel feed">
+
+			<% @activities.each do |activity|%>
+				<div class="activity">						
+					<%= link_to activity.owner.name, activity.owner if activity.owner%>
+					<%= link_to activity.key.html_safe, activity.key%>
+				</div>
+			<% end %>
+
+		</div>
+	</div>
+
+</div>
