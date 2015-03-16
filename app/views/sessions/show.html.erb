@@ -39,10 +39,9 @@
 
 		<div class="medium-4 columns">
 		<h3>Flöde??</h3>
-		<div class="panel feed">
-
+		<div class="panel">
 			<% @activities.each do |activity|%>
-				<div class="activity">						
+				<div class="activity">
 					<%= link_to activity.owner.name, activity.owner if activity.owner%>
 					<%= link_to activity.key.html_safe, activity.key%>
 				</div>

@@ -30,8 +30,8 @@ class SessionsController < ApplicationController
 
   def autocomplete
     render json: User.search(params[:query], autocomplete: false, limit: 10).map(&:name)
-
   end
+
   def show
     @split = params[:name_url].split("-")
     @user = User.find(@split[1])
