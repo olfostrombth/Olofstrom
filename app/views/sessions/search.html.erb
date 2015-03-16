@@ -2,7 +2,7 @@
 
 <%= will_paginate @usersearch %>
 <% @usersearch.each do |x,y| %>
-	<%= x.name %> <br>
+	<%= link_to x.name, user_path(x.name.split(" ")[0]+'-'+x.id.to_s) %><br>
 	<%= x.email %> <br><br>
 <% end %>
 
