@@ -3,8 +3,9 @@
   <!--  TOPBAR -->
   <div class="small-12 medium-12 large-12 columns topbar">
     <div class="searchej left">
-      <%= text_field_tag :query, params[:query], class: "search_form", id: "user_search", autocomplete: "on", placeholder: 'Sök användare' %>
       <%= form_tag search_path, class: "form-inline", method: :get do %>
+          <%= text_field_tag :query, params[:query], class: "search_form", id: "user_search", autocomplete: "on", placeholder: 'Sök användare' %>
+
           <div id="input_img"><%= image_submit_tag ('Search.png'), class:'input_img sbtnstyle' %></div>
       <% end %>
     </div>

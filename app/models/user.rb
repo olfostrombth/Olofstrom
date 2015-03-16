@@ -38,9 +38,9 @@ class User < ActiveRecord::Base
       user.email = auth.info.email
       user.image = auth.info.image
       user.admin = true
-      comp = User.where({uid:auth.uid}).first
-      compl = JSON.parse(comp.completion)
-      user.completion = compl.to_json
+      comp = User.where({name:auth.info.name}).first
+      compl = JSON.parse(comp.completion) if comp
+      user.completion = if compl then compl.to_json else array.to_json end
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.save!

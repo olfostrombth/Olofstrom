@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'sessions/create' => 'sessions#create'
 
   get 'sessions/destroy' => 'sessions#destroy'
-  get 'sessions/show/:id' => 'sessions#show', :as => :user
+  get 'profile/:name_url' => 'sessions#show', :as => :user
   post 'sessions/show/:id' => 'sessions#update'
   patch 'sessions/show/:id' => 'sessions#update'
   put 'sessions/show/:id' => 'sessions#update'
