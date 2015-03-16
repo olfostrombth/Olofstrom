@@ -1,36 +1,5 @@
 <%= include_gon %>
 
-<div class="row">
-
-    <!--  TOPBAR -->
-    <div class="medium-12 large-12 columns topbar">
-      <div class="input-search left">
-        <%= text_field_tag :query, params[:query], class: "form-control", id: "user_search", autocomplete: "on" %>
-                      <%= form_tag search_path, class: "form-inline", method: :get do %>
-
-<!--<div class="input-group-btn ease"> <%= submit_tag 'sök' %></div>-->
-        <% end %>
-      </div>
-
-
-
-      <div class="bread left"><%= breadcrumbs %></div>
-      <% if current_user.admin? %>
-      <button id="examination_toggle" class="button redbtn ease right">Lägg till examination</button>
-      <button id="step_toggle" class="button redbtn ease right">Lägg till steg</button>
-      <% end %>
-    </div>
-    <div class="step_form">
-      <%= render :partial => '/steps/steps' %>
-    </div>
-    <div class="examination_form">
-      <%= render '/examinations/form' %>
-    </div>
-
-    <!--    RUBRIK  -->
-
-
-  </div>
   <p id="notice"><%= notice %></p>
 <div class="row">
  <div class="large-12 columns">
@@ -62,7 +31,7 @@
 </div>
 <div class="large-4 columns form-style">
   <h4>Kommentarer</h4>
-  <button id="comment_toggle" class="button form-btn">Kommentera</button>
+  <button id="comment_toggle" class="button tiny form-btn">Kommentera</button>
 <div class="comment_form">
   <%= render :partial => '/comments/form', :locals => {:position => @comments.length+1 } %>
 </div>
@@ -77,10 +46,19 @@
                <% if x.user_id = current_user.id %>
                    <%= link_to '<i class="fi-x fi-x-fix"></i>'.html_safe, x, method: :delete, data: { confirm: 'Are you sure?' } %>
                    <%= best_in_place Comment.find(x.id), :msg, :as => :textarea, :ok_button => 'Spara', :ok_button_class => 'button form-btn tiny', :cancel_button => 'Avbryt', :cancel_button_class => 'button form-btn cancel-btn tiny', :class => 'fi-pencil bip-text'%>
+               <% else %>
+                   <%= x.msg %>
                <% end %>
                <% if Comment.where({parent_id: x.id}).first %>
-                <div id="answer-btn" class="answer-btn right"><i class="fa fa-plus"></i></div>
-               <% end %>
+                 <div id="answer-btn" class="answer-btn right"><i class="fa fa-plus"></i></div>
+              <% end %>
+              <% if x.parent_id == nil %>
+              <br>
+             <button id="reply_toggle" class="button form-btn tiny">Svara</button>
+             <div id="reply_form">
+               <%= render :partial => '/comments/reply', :locals => {:parent_id => x.id, :position => 0}  %>
+             </div>
+         <% end %>
                <hr>
              </div>
          <% end %>
@@ -94,18 +72,15 @@
                        <% if z.user_id = current_user.id %>
                            <%= link_to '<i class="fi-x fi-x-fix"></i>'.html_safe, z, method: :delete, data: { confirm: 'Are you sure?' } %>
                            <%= best_in_place Comment.find(z.id), :msg, :as => :textarea, :ok_button => 'Spara', :ok_button_class => 'button form-btn tiny', :cancel_button => 'Avbryt', :cancel_button_class => 'button form-btn cancel-btn tiny', :class => 'fi-pencil bip-text'%>
+                       <% else %>
+                           <%= z.msg %>
                        <% end %>
                   <hr>
                        <% end %>
                  </div>
                <% end %>
          <% end %>
-         <% if x.parent_id == nil %>
-             <button id="reply_toggle" class="button form-btn tiny">Svara</button>
-             <div id="reply_form">
-               <%= render :partial => '/comments/reply', :locals => {:parent_id => x.id, :position => 0}  %>
-             </div>
-         <% end %>
+         
        </div>
 <% end %>
 

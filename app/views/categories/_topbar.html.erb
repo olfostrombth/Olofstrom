@@ -1,0 +1,55 @@
+<div class="row">
+
+  <!--  TOPBAR -->
+  <div class="small-12 medium-12 large-12 columns topbar">
+    <div class="searchej left">
+      <%= form_tag search_path, class: "form-inline", method: :get do %>
+          <%= text_field_tag :query, params[:query], class: "search_form", id: "user_search", autocomplete: "on", placeholder: 'Sök användare' %>
+
+          <div id="input_img"><%= image_submit_tag ('Search.png'), class:'input_img sbtnstyle' %></div>
+      <% end %>
+    </div>
+    <div class="bread left"><%= breadcrumbs %></div>
+
+    <% if current_user %>
+
+    <% if current_user.admin? %>
+        <% if current_page?(root_path) %>
+            <button id="module_toggle" class="button redbtn ease right">Lägg till modul</button>
+        <% end %>
+        <% if params[:category_name] %>
+            <% if current_page?(category_path(params[:category_name])) %>
+                <button id="examination_toggle" class="button redbtn ease right">Lägg till examination</button>
+                <button id="step_toggle" class="button redbtn ease right">Lägg till steg</button>
+
+            <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+  <% if current_page?(root_path) %>
+      <div class="module_form">
+        <%= render :partial => 'module' %>
+      </div>
+  <% end %>
+  <% if params[:category_name] %>
+      <% if current_page?(category_path(params[:category_name])) %>
+          <div class="step_form">
+            <%= render :partial => '/steps/steps' %>
+          </div>
+          <div class="examination_form">
+            <%= render '/examinations/form' %>
+          </div>
+      <% end %>
+  <% end %>
+
+  <div class="medium-12 large-12 columns sliderimg">
+    <div class="large-12 columns imageslider"> <%= image_tag("sliderblur.png") %></div>
+    <div class="medium-12 large-12 columns slider"> <div class="medium-6 large-6 columns"><h2>Rubrik</h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero repellendus aperiam quibusdam alias dolorem cum, architecto dicta natus aliquam nesciunt ipsa facilis tempora doloribus, neque sunt officiis est iste sint, incidunt molestiae ipsum. Reprehenderit, magni quis! Debitis exercitationem, fugiat sapiente quas dolorum consequuntur eaque atque sint, ex totam. Et, fugiat!</div><div class="medium-6 large-6 columns"><h2>Nyheter</h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe pariatur numquam veritatis fugit inventore molestias odit ducimus ab officiis quae nesciunt impedit qui voluptatem hic ea assumenda, magnam officia? Officiis aliquid nesciunt recusandae, ad error iusto. Odio ducimus commodi quis saepe neque, tenetur consectetur totam, amet ad aliquam, illo facilis assumenda voluptas obcaecati repudiandae animi dolor veniam aspernatur. Eius temporibus distinctio consequatur quod vero labore. Laudantium velit, ipsa ab repellat?</div></div>
+  </div>
+
+  <!--    RUBRIK  -->
+<% if params[:step_name] %>
+  <% else %>
+    </div>
+<% end %>

@@ -65,12 +65,14 @@ end
 gem 'formtastic', '~> 3.0'
 
 # Texteditor using CKEditor
-gem 'ckeditor', github: 'galetahub/ckeditor'
+#gem 'ckeditor'
 
 # Image upload to CKEditor
-gem "paperclip"
+#gem "paperclip"
 
 # Image upload to CKEditor
-gem 'responders', '~> 2.0'
+#gem 'responders', '~> 2.0'
+
+gem "public_activity"
 
 gem 'best_in_place'
