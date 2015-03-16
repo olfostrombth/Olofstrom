@@ -58,7 +58,6 @@ $ ->
     substeps = $.parseJSON(gon.completion)
     if substepsx
       substepsx = substeps[gon.catname][gon.stepname]
-    end
     console.log substepsx
     for x,y of substepsx
       if y == "true"
