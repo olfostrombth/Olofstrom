@@ -27,7 +27,7 @@
         <div class="medium-2 large-2 columns sidebar">
 
 
-          <a href="#"><div class="small-12 medium-12 large-12 columns side"><p><i class="fa fa-user"></i>&nbsp;<%= current_user.name %></p></div></a>
+          <%= link_to "<div class='small-12 medium-12 large-12 columns side'><p><i class='fa fa-user'></i>&nbsp;#{current_user.name}</p></div>".html_safe, session_path(current_user.id) %>
           <div class="small-12 medium-12 large-12 columns side arch-toggle"><p><i class="fa fa-trophy"></i>Badges</p></div>
           <div class="large-12 columns arch">
             <div class="row">

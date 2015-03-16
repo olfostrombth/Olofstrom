@@ -1,31 +1,3 @@
-
-<div class="row">
-
-    <!--  TOPBAR -->
-    <div class="small-12 medium-12 large-12 columns topbar">
-      <input type="text" class="search_form left" placeholder="Sök användare" style="width:300px; margin-left:-15px; height:100%;">
-      <div class="bread left"><%= breadcrumbs %></div>
-      <% if current_user.admin? %>
-          <button id="module_toggle" class="button redbtn ease right">Lägg till modul</button>
-      <% end %>
-    </div>
-    <div class="module_form">
-        <%= render :partial => 'module' %>
-    </div>
-    <div class="medium-12 large-12 columns sliderimg">
-      <div class="large-12 columns imageslider"> <%= image_tag("sliderblur.png") %></div>
-      <div class="medium-12 large-12 columns slider"> <div class="medium-6 large-6 columns"><h2>Rubrik</h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero repellendus aperiam quibusdam alias dolorem cum, architecto dicta natus aliquam nesciunt ipsa facilis tempora doloribus, neque sunt officiis est iste sint, incidunt molestiae ipsum. Reprehenderit, magni quis! Debitis exercitationem, fugiat sapiente quas dolorum consequuntur eaque atque sint, ex totam. Et, fugiat!</div><div class="medium-6 large-6 columns"><h2>Nyheter</h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe pariatur numquam veritatis fugit inventore molestias odit ducimus ab officiis quae nesciunt impedit qui voluptatem hic ea assumenda, magnam officia? Officiis aliquid nesciunt recusandae, ad error iusto. Odio ducimus commodi quis saepe neque, tenetur consectetur totam, amet ad aliquam, illo facilis assumenda voluptas obcaecati repudiandae animi dolor veniam aspernatur. Eius temporibus distinctio consequatur quod vero labore. Laudantium velit, ipsa ab repellat?</div></div>
-    </div>
-
-    <!--    RUBRIK  -->
-
-
-  </div>
-
-
-
-
-
   <div class="row fw contents">
       <div class="large-12 columns moduwrapper">
             <% @categories.each_with_index do |cat, index| %>
