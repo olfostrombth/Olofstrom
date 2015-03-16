@@ -52,19 +52,19 @@ getSubStep = (thiss) ->
 #This will call the function to see if every box is checked after
 #Should send the updates to the local json object and then update DB with the values
 
-#detta fuckar all javascript i ett steg, cannot read property 'steg1' of undefined
+
+
 $ ->
   if gon.completion
     substeps = $.parseJSON(gon.completion)
-    if substepsx
+    if substeps
       substepsx = substeps[gon.catname][gon.stepname]
-    console.log substepsx
-    for x,y of substepsx
-      if y == "true"
-        $("#"+x).prop("checked", true)
-      else if y == "false"
-        $("#"+x).prop("checked", false)
-
+      console.log substepsx
+      for x,y of substepsx
+        if y == "true"
+          $("#"+x).prop("checked", true)
+        else if y == "false"
+          $("#"+x).prop("checked", false)
 
 $(document).on "click", ".donebox", ->
   #console.log ""
