@@ -22,14 +22,13 @@
 		<% @completion.each do |modul, modulValue|%>
 			<% modulValue.each do |step, stepValue|%>
 				<% stepValue.each do |substep, substepValue|%>
-
+				
 					<% if substepValue %>
 						<div>
 							<p>
 							|namn| <%=@user.name%> <br>
 							|substep| <%=substep%> <br>
 							|step| <%=step%> <br>
-							<b>
 							|modul| <%=modul%></b></p>
 						</div>
 					<% end %>
