@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
   def index
     @sessions = User.paginate(page: params[:page])
   end
+
   def search
     if params[:query].present?
       @usersearch = User.search(params[:query],
@@ -14,14 +15,27 @@ class SessionsController < ApplicationController
     else
       @usersearch = User.all.page params[:page]
     end
+
+    if @usersearch.length == 1
+      @results = @usersearch.results
+      @results.each do |x|
+        @user_name = x.name
+      end
+      @user_name.split("-")
+      @user = User.find(@usersearch.first.id)
+      redirect_to user_path(@user.name.split(" ")[0]+'-'+@user.id.to_s)
+      return
+    end
   end
+
   def autocomplete
     render json: User.search(params[:query], autocomplete: false, limit: 10).map(&:name)
 
   end
   def show
-    @usersearch = User.find(params[:id])
-    @user = User.find(params[:id])
+    @split = params[:name_url].split("-")
+    @user = User.find(@split[1])
+    @usersearch = @user
 
     gon.completion = @user.completion
   end
