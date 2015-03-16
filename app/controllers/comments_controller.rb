@@ -30,7 +30,9 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        @comment.create_activity :create, owner: @owner, key: "har kommenterat en modul: #{view_context.link_to(@category, category_path(@category))}".html_safe
+        @comment.create_activity :create, owner: current_user
+        @comment.create_activity :create, owner: @owner, key: "har kommenterat på en modul: #{view_context.link_to(@category, category_path(@category))}".html_safe
+
         format.html { redirect_to category_path(@category), notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else

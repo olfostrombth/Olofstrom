@@ -3,6 +3,8 @@ require 'csv'
 class User < ActiveRecord::Base
   has_many :comments
 
+
+
   searchkick autocomplete: ['name'],
              suggest: ['name']
 
