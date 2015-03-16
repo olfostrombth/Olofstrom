@@ -26,7 +26,7 @@
         <div class="medium-2 large-2 columns sidebar">
 
 
-          <a href="#"><div class="small-12 medium-12 large-12 columns side"><p><i class="fa fa-user"></i>&nbsp;<%= current_user.name %></p></div></a>
+          <%= link_to "<div class='small-12 medium-12 large-12 columns side'><p><i class='fa fa-user'></i>&nbsp;#{current_user.name}</p></div>".html_safe, user_path(current_user.name.split(" ")[0]+'-'+current_user.id.to_s) %>
           <div class="small-12 medium-12 large-12 columns side arch-toggle"><p><i class="fa fa-trophy"></i>Badges</p></div>
           <div class="large-12 columns arch">
             <div class="row">
@@ -44,7 +44,7 @@
         <% end %>
         <div class="small-12 medium-12 large-12 columns side"><p><i class="fa fa-question"></i> &nbsp;FAQ</p></div>
         <%= link_to '<div class="small-12 medium-12 large-12 columns side"><p><i class="fa fa-sign-out"></i>Logga ut</p></div>'.html_safe, signout_path, id: "sign_out" %>
-          <a href="#"><div class="small-12 medium-12 large-12 columns side fed"><p><i class="fa fa-comment-o"></i>Flöde</p></div></a>
+          <a href="#"><div class="small-12 medium-12 large-12 columns side fed"><p><i class="fa fa-comment"></i>Flöde</p></div></a>
           <div class="large-12 columns fed-toggle">
             <div class="row">
               <div class="small-6 large-6 columns flod">
