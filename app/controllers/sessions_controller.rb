@@ -11,6 +11,13 @@ class SessionsController < ApplicationController
       @usersearch = User.search(params[:query],
                                 fields: [:name],
                                 page: params[:page])
+      respond_to do |format|
+        if @usersearch.length == 1
+          @usersearch.split("-")
+          @user = User.find(@usersearch[1])
+          format.html { redirect_to user_path(@user.name.split(" ")[0]+'-'+@user.id.to_s) }
+        end
+      end
     else
       @usersearch = User.all.page params[:page]
     end
@@ -20,8 +27,9 @@ class SessionsController < ApplicationController
 
   end
   def show
-    @usersearch = User.find(params[:id])
-    @user = User.find(params[:id])
+    @split = params[:name_url].split("-")
+    @user = User.find(@split[1])
+    @usersearch = @user
 
     gon.completion = @user.completion
   end

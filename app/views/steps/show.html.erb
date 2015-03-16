@@ -7,7 +7,7 @@
   <div class="large-12 columns headline">
     <h6><%= @step.desc %></h6>
   </div>
-
+  <%= link_to current_user.name, user_path(current_user.name.split(" ")[0]+'-'+current_user.id.to_s) %>
 </div>
 
 <!-- SLUTA LÄS KOD HÄR (för eget bästa)-->
