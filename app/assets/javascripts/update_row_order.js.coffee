@@ -1,4 +1,4 @@
-$(document).ready ->
+$ ->
   if $('#sortable').length > 0
     #table_width = $('#sortable').width()
     #cells = $('.table').find('tr')[0].cells.length

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  mount Ckeditor::Engine => '/ckeditor'
+  #mount Ckeditor::Engine => '/ckeditor'
   get 'sessions/create' => 'sessions#create'
 
   get 'sessions/destroy' => 'sessions#destroy'
