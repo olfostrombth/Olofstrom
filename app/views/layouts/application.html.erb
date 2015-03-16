@@ -6,10 +6,10 @@
 
   <title><%= @title ? @title: "Olofström  - OKIT" %></title>
 
-  <%= stylesheet_link_tag    "application" %>
+
   <link rel="stylesheet" type="text/css" media="only screen and (max-width: 640px)" href="mobile.css.scss" />
+  <%= stylesheet_link_tag    "application", 'data-turbolinks-track' => true %>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="mobile.css">
   <%= javascript_include_tag "vendor/modernizr" %>
   <%= Gon::Base.render_data({}) %>
   <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
