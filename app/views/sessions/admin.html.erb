@@ -1,21 +1,24 @@
-<% if current_user.admin? %>
+<div class="small-12 medium-12 large-12 columns">
+	<% if current_user.admin? %>
+	<div class="small-12 medium-12 large-12 columns headline">
+		<h2> admin</h2>
+	</div>
 
-<h1>Hello admin</h1>
+	<h3>Importera användare i .CSV fomat</h3>
 
-<h2>Importera användare i .CSV fomat</h2>
+	<%= form_tag import_users_path, multipart: true do %>
+	  <%= file_field_tag :file %>
+	  <%= submit_tag "Importera", class: 'button form-btn tiny' %>
+	<% end %>
 
-<%= form_tag import_users_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
-<% end %>
-
-<%= will_paginate %>
-<h3>Användare: </h3>
-<div id="users">
-<ul>
-<% @sessions.each do |x| %>
-  <li>Name: <%= x.name %> - Admin: <%= form_for x, :remote => true do |f| f.check_box :admin end %> - <%= link_to "delete", user_del_path(x) %></li>
-<% end %>
-</ul>
+	<%= will_paginate %>
+	<h3>Användare: </h3>
+	<div id="users">
+	<ul>
+	<% @sessions.each do |x| %>
+	  <li>Name: <%= x.name %> - Admin: <%= form_for x, :remote => true do |f| f.check_box :admin end %> - <%= link_to "delete", user_del_path(x) %></li>
+	  <% end %>
+	</ul>
+	</div>
+	<% end %>
 </div>
-<% end %>
