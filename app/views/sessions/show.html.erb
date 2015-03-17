@@ -42,7 +42,10 @@
 				<br>
 			<% end %>
 			</div>
-			<div class="large-12 columns comments-content">Comments</div>
+			<div class="large-12 columns comments-content">
+			  <% @comments.each do |x| %>
+				  <%= x.msg %>
+			  <% end %></div>
 			<div class="large-12 columns badge-content">Badge
 			<div class="badges-holder">
 						<%= image_tag 'badgegold.png' %>
