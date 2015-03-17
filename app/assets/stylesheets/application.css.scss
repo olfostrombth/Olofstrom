@@ -1072,6 +1072,7 @@ text-align: center;
 .activity-content
 {
   padding: 20px;
+  display: none;
 }
 
 .comments-content
@@ -1082,8 +1083,25 @@ text-align: center;
 
 .badge-content
 {
-  display: none;  
   padding: 20px;
+}
+
+.badges-holder
+{
+  width: 80%;
+  height: 80%;
+}
+
+.badges-holder img 
+{
+  max-width: 150px !important;
+  height: auto;
+}
+
+.badges-holder img:hover
+{
+  transform: scale(2);
+  z-index: 10;
 }
 
 /*------------- END PROFILE CONTENT -------------*/

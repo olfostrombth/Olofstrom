@@ -6,8 +6,9 @@
 	<div class="medium-12 large-12 columns">
 		<div class=" medium-3 large-3 columns admin-area">
 			<div class="admin-avatar">
-				<%= image_tag(current_user.image) %>
-				<!--<img src="http://www.american.edu/uploads/profiles/large/chris_palmer_profile_11.jpg" alt="">-->
+
+				<%= image_tag current_user.image %>
+
 			</div>
 			<p><%= @user.name%></p>
 
@@ -42,7 +43,15 @@
 			<% end %>
 			</div>
 			<div class="large-12 columns comments-content">Comments</div>
-			<div class="large-12 columns badge-content">Badge</div>
+			<div class="large-12 columns badge-content">Badge
+			<div class="badges-holder">
+						<%= image_tag 'badgegold.png' %>
+						<%= image_tag 'badgeblue.png' %>
+						<%= image_tag 'badgepink.png' %>
+						<%= image_tag 'badgeorange.png' %>
+						<%= image_tag 'badgegreen.png' %>
+					</div>
+			</div>
 		</div>
 	</div>
 </div>
