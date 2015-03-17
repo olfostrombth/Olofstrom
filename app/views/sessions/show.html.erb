@@ -42,14 +42,16 @@
 			<% end %>
 			</div>
 			<div class="large-12 columns comments-content">
+			  <% if @comments %>
 			  <% @comments.each do |x| %>
 				  <% if x %>
 					  <%= x.msg %>
-				  <% else %>
-					  Användaren har inte skrivit några kommentarer
 				  <% end %>
-			  <% end %></div>
-
+			  <% end %>
+			  <% else %>
+				  <p>Användaren har inte skrivit några kommentarer</p>
+			  <% end %>
+			</div>
 			<div class="large-12 columns badge-content">Badge
 			<div class="badges-holder">
 						<%= image_tag 'badgegold.png' %>
