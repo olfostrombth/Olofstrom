@@ -43,7 +43,3 @@ $ ->
           data: { substep: {substep_id: item_id, row_order_position: position, name: gon.stepname } }
         )
     )
-
-getId = (thiss) ->
-  fvalue = $(thiss).attr("id")
-  return fvalue
