@@ -29,7 +29,6 @@ $ ->
         ui.item.effect('highlight', {}, 1000)
       update: (e, ui) ->
         item_id = ui.item.data('item-id')
-        console.log $(ui).attr('id')
         #console.log(item_id)
         #console.log gon.stepname
         position = ui.item.index() # this will not work with paginated items, as the index is zero on every page
