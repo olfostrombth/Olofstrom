@@ -33,14 +33,12 @@ class CategoriesController < ApplicationController
       #@comments = x.comments.order('row_order ASC')
       @comments.each do |c|
         @commentx = c
+        @user = User.find(@commentx.id)
         @comment_items[c.id] = c
         #@comment_items.push(c)
       end
       @commentsxx = Hash[@comment_items.to_a.reverse]
       #@comment_items.reverse
-      if @commentx
-        @user = User.find(@commentx.user_id)
-      end
 
       @comment = @comments.new
       @steps = x.steps

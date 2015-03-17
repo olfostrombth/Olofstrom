@@ -93,6 +93,14 @@ a:link, a:active, a:hover, a:visited {
   height: auto;
 }
 
+.hidden-item:first-child {
+  display: block;
+}
+
+.hidden-item {
+  display: none;
+}
+
 .item:first-child {
   border-top: 1px solid #999;
 }

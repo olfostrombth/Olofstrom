@@ -62,13 +62,49 @@ $ ->
       for x,y of substepsx
         if y == "true"
           $("#"+x).prop("checked", true)
+          completed = $("#"+x).parent().parent() #FIXA FÖRIHELVETE FÖR QUIZ
+          if completed.attr('class') == 'quiz-fix'
+            completed_quiz = completed.parent()
+            completed_quiz.removeClass('hidden-item')
+          completed.removeClass('hidden-item')
         else if y == "false"
           $("#"+x).prop("checked", false)
+
 
 $(document).on "click", ".donebox", ->
   #console.log ""
   substeps = getSubStep(this)
-  console.log substeps
+  substep = $(this).parent().parent()
+  if substep.attr('class') == 'quiz-fix'
+    substep = $(this).parent().parent().parent()
+    #console.log substep
+    substep_attr = substep.attr('id') #div id för substep
+    substep_s = substep_attr.split('_')[0]+('_') #strängen step_ för substep
+    substep_id = substep_attr.split('_')[1] #id som sträng för substep
+    substep_id_int = parseInt(substep_id) #gör om id sträng till int
+    substep_id_next = substep_id_int+1 #plus ett för att kunna remova hidden class för nästa substep
+    next_substep_s = String(substep_s)+(substep_id_next) #Strängen för att leta upp rätt riv
+    next_substep_div = $(this).parent().parent().parent().parent().children('#'+next_substep_s) #Här är rätt div
+    #console.log next_substep_div
+  else
+    substep = $(this).parent().parent()
+    #console.log substep
+    substep_attr = substep.attr('id') #div id för substep
+    substep_s = substep_attr.split('_')[0]+('_') #strängen step_ för substep
+    substep_id = substep_attr.split('_')[1] #id som sträng för substep
+    substep_id_int = parseInt(substep_id) #gör om id sträng till int
+    substep_id_next = substep_id_int+1 #plus ett för att kunna remova hidden class för nästa substep
+    next_substep_s = String(substep_s)+(substep_id_next) #Strängen för att leta upp rätt riv
+    next_substep_div = $(this).parent().parent().parent().children('#'+next_substep_s) #Här är rätt div
+    #console.log next_substep_div
+
+  #console.log next_substep_div
+  #console.log next_substep_div
+  next_substep_div.removeClass('hidden-item') #remove hidden class to show next substep
+  $('html, body').animate({scrollTop:$(document).height()}, 1000)
+  #console.log substep_s
+  #console.log substep_id
+  #console.log substep_id_next
   category_name = gon.catname
   step_name = gon.stepname
   completion = gon.completion
