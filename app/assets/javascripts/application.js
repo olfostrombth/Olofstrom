@@ -58,15 +58,8 @@ $(function(){
 			btn=true
 		}
         $(".sidebar").animate({width: 'toggle' }, 500);
-        
-
     });
 
-
-
-	//$(".fisk").click(function(){
-	//	$(".sidebar").animate({left: '500px'});
-		//var sideWidth = $(".sidebar").css("width");
 		
 
 
