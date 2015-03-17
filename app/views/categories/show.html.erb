@@ -38,9 +38,7 @@
        <div class="comments-container">
      <% if x.parent_id == nil %>
              <div class="comments">
-               <% if @user %>
                    <br> <strong><%= User.find(x.user_id).name %></strong><br>
-               <% end %>
 
                <% if x.user_id == current_user.id %>
                    <%= link_to '<i class="fi-x fi-x-fix"></i>'.html_safe, x, method: :delete, data: { confirm: 'Are you sure?' } %>

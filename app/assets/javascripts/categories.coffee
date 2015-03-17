@@ -30,8 +30,6 @@ $(document).on "click", "#answer-btn", ->
   if $(this).html() == '<i class="fa fa-plus"></i>' then $(this).html('<i class="fa fa-minus"></i>') else $(this).html('<i class="fa fa-plus"></i>')
 
 
-
-
 # Archivement badges show
 $(document).on "click", ".arch-toggle", ->
   $('.arch').slideToggle 'slow'
