@@ -53,15 +53,16 @@
               if activity
               name = activity.owner.name.split(" ")
             link = activity.key.split(">")
+            if link[1]
             nar = link[1].split("<") %>
             <% title = nar[0].truncate(15)
             linkx = link.split(": ") %>
-            <% linkz = linkx[0][0].split(": ") end %>
-            <%#= linkz %>
+            <% linkz = linkx[0][0].split(": ") %>
+            <% if linkz[1] %>
             <% l = linkz[1]+">"+title+"</a>" %>
           <div class="large-12 columns avtxt"><p><%=link_to name[0], session_path(activity.owner)%>
                <%= linkz[0] + ": "%><%= l.html_safe %></p></div>
-           <% end %>
+           <% end end end end %>
               </div>
             </div>
           </div>
@@ -91,4 +92,3 @@
 </body>
 
 </html>
-
