@@ -47,11 +47,9 @@ $(document).on "click", "#module_toggle", ->
 $(document).on "click", "#reply_toggle", ->
   $(this).parent().children('#reply_form').toggle('show')
 
-$ ->
-  $(document).on "click", "#comment_toggle", ->
-    $('.comment_form').slideToggle(500)
 
-
+$(document).on "click", "#comment_toggle", ->
+  $('.comment_form').slideToggle(500)
 
 $(document).on "click", "#answer-btn", ->
   $(this).parent().parent().children('#replies').slideToggle('show')
