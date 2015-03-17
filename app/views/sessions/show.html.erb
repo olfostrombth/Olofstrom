@@ -17,8 +17,7 @@
 		<%else%>
 			<p>Status: Användare</p>
 		<%end%>
-
-		<p>Kommentarer: <%= @comments.length %></p>
+		<p>Kommentarer: <% if @comments %><%= @comments.length %><% end %></p>
 		<p>Senast inloggad: </p>
 
 		  <%= mail_to @user.email do %>
@@ -44,7 +43,11 @@
 			</div>
 			<div class="large-12 columns comments-content">
 			  <% @comments.each do |x| %>
-				  <%= x.msg %>
+				  <% if x %>
+					  <%= x.msg %>
+				  <% else %>
+					  <p>Användaren har inte skrivit några kommentarer</p>
+				  <% end %>
 			  <% end %></div>
 
 			<div class="large-12 columns badge-content">Badge
