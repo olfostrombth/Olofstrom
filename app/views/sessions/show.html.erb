@@ -1,22 +1,55 @@
-<div>
-	<div class="medium-5 columns">
-		<h3><%= @user.name%></h3>
+<div class="row panel">
+<div class="row">
+	<div class="medium-12 large-12 columns headline"><h2><%= @user.name%></h2></div>
+</div>
+<div class="row panel admincontent">
+	<div class="medium-12 large-12 columns">
+		<div class=" medium-3 large-3 columns admin-area">
+			<div class="admin-avatar">
+				<img src="http://www.american.edu/uploads/profiles/large/chris_palmer_profile_11.jpg" alt="">
+			</div>
+			<p><%= @user.name%></p>
 
 		<%if (@user.admin)%>
-			<p>Du är admin</p>
+			<p>Status: Admin</p>
 		<%else%>
-			<p>du är inte admin</p>
+			<p>Status: Användare</p>
 		<%end%>
 
-		<p>Email: <%= @user.email%></p>
+		<p>Kommentarer: 23</p>
+		<p>Senast inloggad: </p>
 
-		<p>---Achivements??---</p>
+		  <%= mail_to @user.email do %>
+			 <center> <i class='fa fa-envelope-o fa-2x'></i>&nbsp; Maila mig!</center>
+			<% end %>
 
 
-		<p>Kontakta mig: <button id="" class="button success small"><%= mail_to @user.email%></button></p>
+		</div>
+		<div class="medium-9 large-9 columns">
+			<div class="medium-3 large-3 columns tab-menu right">
+				<div class="tab com-tab">Kommentarer</div>
+				<div class="tab act-tab">Aktivitet</div>
+				<div class="tab badge-tab">Märken</div>
+			</div>
+			<div class="large-12 columns activity-content">
+			<% @activities.each do |activity|%>
+				<div class="activity">
+					<%= link_to activity.owner.name, activity.owner if activity.owner%>
+					<%= link_to activity.key.html_safe, activity.key%> 
+				</div>
+				<br>
+			<% end %>
+			</div>
+			<div class="large-12 columns comments-content">Comments</div>
+			<div class="large-12 columns badge-content">Badge</div>
+		</div>
+	</div>
+</div>
+	<div class="medium-5 columns">
+		
 	</div>
 
-	<h3>---Completion---</h3>
+	<!--<h3>---Completion---</h3>
 
 	<div class="medium-3 columns">
 		<% @completion.each do |modul, modulValue|%>
@@ -35,19 +68,11 @@
 				<% end %>
 			<% end %>			
 		<% end %>
-	</div>
+	</div>-->
 
 		<div class="medium-4 columns">
-		<h3>Flöde??</h3>
-		<div class="panel">
-			<% @activities.each do |activity|%>
-				<div class="activity">
-					<%= link_to activity.owner.name, activity.owner if activity.owner%>
-					<%= link_to activity.key.html_safe, activity.key%>
-				</div>
-			<% end %>
-
-		</div>
+		
+		
 	</div>
 
 </div>
