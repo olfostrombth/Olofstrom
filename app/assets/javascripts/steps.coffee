@@ -59,9 +59,6 @@ $ ->
     substeps = $.parseJSON(gon.completion)
     if substeps
       substepsx = substeps[gon.catname][gon.stepname]
-      console.log substeps
-      console.log gon.stepname
-      console.log substepsx
       for x,y of substepsx
         if y == "true"
           $("#"+x).prop("checked", true)
@@ -97,7 +94,6 @@ $(document).on "click", ".donebox", ->
   #    console.log x + " is checked"
   #  else
   #    console.log x + " is not checked"
-
 
 $(document).on "click", "#show_video", ->
   video = $(this).parent().find('#video_url')

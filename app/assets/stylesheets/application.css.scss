@@ -199,8 +199,8 @@ input.search_form
   position:relative; padding:0; margin:0;
 }
 
-#input_img 
-{ position:absolute; bottom:15px; right:15px; width:30px; height:30px; 
+#input_img
+{ position:absolute; bottom:15px; right:15px; width:30px; height:30px;
   cursor: pointer;
 }
 
@@ -215,6 +215,11 @@ input.search_form
 #user_search:focus
 {
   border: none;
+}
+
+.tt-suggestion
+{
+  background-color: #fff;
 }
 
 /*-------------- END SEARCH BAR --------------*/
@@ -670,7 +675,7 @@ box-shadow:         0px 0px 14px 0px rgba(50, 50, 50, 0.3);
   border-radius: 5px;
 }
 
-.avtxt p 
+.avtxt p
 {
   font-size: 12px !important;
   color: #666;
@@ -740,7 +745,7 @@ box-shadow:         0px 0px 14px 0px rgba(50, 50, 50, 0.3);
   z-index: 10;
 }
 
-.table 
+.table
 {
   width: 70%;
   height: auto;
@@ -869,7 +874,7 @@ box-shadow:         0px 0px 14px 0px rgba(50, 50, 50, 0.3);
   color: #fff;
 }
 
-.sliderimg img 
+.sliderimg img
 {
   width: 100%;
   height: 350px;
@@ -881,7 +886,7 @@ box-shadow:         0px 0px 14px 0px rgba(50, 50, 50, 0.3);
   padding: 0;
 }
 
-.slider img 
+.slider img
 {
   height: 150px;
 }
@@ -1000,7 +1005,106 @@ text-align: center;
 }
 /*------------- END PAGE HEADLINE -------------*/
 
+/*------------- PROFILE CONTENT -------------*/
 
+.admincontent
+{
+  margin-top: 20px !important;
+  width: 90% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 10px !important;
+  background-color: #fff !important;
+}
+
+.admincontent a
+{
+  color: #000;
+}
+
+.admin-area
+{
+  border-right: 1px solid #cecece;
+}
+
+.admin-area a
+{
+  color: #000;
+}
+
+.admin-avatar
+{
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
+  border: 10px solid #F4F3F3;
+  margin: -85px auto 10px auto;
+  overflow: hidden;
+}
+
+.admin-avatar img
+{
+  width: 100%;
+  height: auto;
+}
+
+/*---- PROFILE MENU TABS ----*/
+.tab
+{
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid #cecece;
+  text-align: center;
+  background-color: #fff;
+  margin: 0;
+}
+
+.tab-menu
+{
+  margin: -45px -46px 0 0;
+  width: auto;
+  display: block;
+  padding: 5px;
+}
+
+/*---- END PROFILE MENU TABS ----*/
+
+.activity-content
+{
+  padding: 20px;
+  display: none;
+}
+
+.comments-content
+{
+  display: none;
+  padding: 20px;
+}
+
+.badge-content
+{
+  padding: 20px;
+}
+
+.badges-holder
+{
+  width: 80%;
+  height: 80%;
+}
+
+.badges-holder img
+{
+  max-width: 150px !important;
+  height: auto;
+}
+
+.badges-holder img:hover
+{
+  transform: scale(2);
+  z-index: 10;
+}
+
+/*------------- END PROFILE CONTENT -------------*/
 
 /*------------- MOBILE CLASSES -------------*/
 
@@ -1096,7 +1200,7 @@ text-align: center;
         /*---- END LOGIN PAGE ----*/
 
         /*---- MOBILE TOPBAR ----*/
-        .bread 
+        .bread
         {
           display: none;
         }
@@ -1143,6 +1247,3 @@ text-align: center;
 }
 
 /*------------- END MOBILE MEDIA QUERY -------------*/
-
-
-
