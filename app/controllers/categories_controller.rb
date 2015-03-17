@@ -33,7 +33,6 @@ class CategoriesController < ApplicationController
       #@comments = x.comments.order('row_order ASC')
       @comments.each do |c|
         @commentx = c
-        @user = User.find(@commentx.id)
         @comment_items[c.id] = c
         #@comment_items.push(c)
       end
