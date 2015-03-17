@@ -31,6 +31,7 @@ $(document).on "click", "#answer-btn", ->
 
 
 
+
 # Archivement badges show
 $(document).on "click", ".arch-toggle", ->
   $('.arch').slideToggle 'slow'
@@ -58,6 +59,3 @@ $(document).on "click", ".mobile-menu-btn", ->
     $('.sidebar').animate { width: 'toggle' }, 500
   return
 return
-
-
-
