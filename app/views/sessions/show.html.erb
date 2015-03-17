@@ -3,11 +3,11 @@
 	<div class="medium-12 large-12 columns headline"><h2><%= @user.name%></h2></div>
 </div>
 <div class="row panel admincontent">
-	<div class="medium-12 large-12 columns">
-		<div class=" medium-3 large-3 columns admin-area">
+	<div class="small-12 medium-12 large-12 columns">
+		<div class="small-12 medium-3 large-3 columns admin-area">
 			<div class="admin-avatar">
 
-				<%= image_tag current_user.image %>
+				<%= image_tag @user.image %>
 
 			</div>
 			<p><%= @user.name%></p>
@@ -29,9 +29,9 @@
 		</div>
 		<div class="medium-9 large-9 columns">
 			<div class="medium-3 large-3 columns tab-menu right">
-				<div class="tab com-tab">Kommentarer</div>
-				<div class="tab act-tab">Aktivitet</div>
-				<div class="tab badge-tab">Märken</div>
+			<a href="#"><div class="tab com-tab">Kommentarer</div></a>
+			<a href="#"><div class="tab act-tab">Aktivitet</div></a>
+			<a href="#"><div class="tab tabActive badge-tab active">Märken</div></a>
 			</div>
 			<div class="large-12 columns activity-content">
 			<% @activities.each do |activity|%>
@@ -42,7 +42,8 @@
 				<br>
 			<% end %>
 			</div>
-			<div class="large-12 columns comments-content">Comments</div>
+			<div class="large-12 columns comments-content">
+			</div>
 			<div class="large-12 columns badge-content">Badge
 			<div class="badges-holder">
 						<%= image_tag 'badgegold.png' %>
@@ -80,9 +81,6 @@
 		<% end %>
 	</div>-->
 
-		<div class="medium-4 columns">
 		
-		
-	</div>
 
 </div>

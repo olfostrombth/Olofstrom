@@ -3,7 +3,7 @@
 	<div class="small-12 medium-12 large-12 columns headline">
 		<h2> admin</h2>
 	</div>
-
+	<div class="row adminrow">
 	<h3>Importera användare i .CSV fomat</h3>
 
 	<%= form_tag import_users_path, multipart: true do %>
@@ -20,5 +20,7 @@
 	  <% end %>
 	</ul>
 	</div>
+	</div>
 	<% end %>
+	
 </div>

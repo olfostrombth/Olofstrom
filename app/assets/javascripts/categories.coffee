@@ -57,7 +57,29 @@ $(document).on "click", "#answer-btn", ->
 
   if $(this).html() == '<i class="fa fa-plus"></i>' then $(this).html('<i class="fa fa-minus"></i>') else $(this).html('<i class="fa fa-plus"></i>')
 
+ 
+$(document).on 'click', ".tab", ->
+  $(".tab").removeClass 'tabActive'
+  $(this).addClass 'tabActive'
+
+ $(document).on "click", ".com-tab", ->
+  $('.comments-content').show(500)
+  $('.badge-content').hide()
+  $('.activity-content').hide()
 
 
+ $(document).on "click", ".act-tab", ->
+  $(this).addClass 'tabActive'
+  $('.activity-content').show(500)
+  $('.badge-content').hide()
+  $('.comments-content').hide()
+
+ $(document).on "click", ".badge-tab", ->
+  $(this).addClass 'tabActive'
+  $('.badge-content').show(500)
+  $('.activity-content').hide()
+  $('.comments-content').hide()
+
+ 
 
 

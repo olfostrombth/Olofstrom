@@ -292,6 +292,7 @@ box-shadow:         0px 0px 14px 0px rgba(50, 50, 50, 0.3);
 {
   height: 100%;
   background-color: #F4F3F3;
+  overflow-x: hidden; 
 }
 
 .container
@@ -1055,17 +1056,29 @@ text-align: center;
   padding: 5px 10px;
   border: 1px solid #cecece;
   text-align: center;
-  background-color: #fff;
+  background-color: #f2f2f2;
   margin: 0;
+}
+
+.tabActive
+{
+  background-color: #fff;
+  color: #000;
+  z-index: 200;
+  height: 50px;
+  border: none;
 }
 
 .tab-menu
 {
-  margin: -45px -46px 0 0;
+  margin: -45px -40px 0 0;
   width: auto;
+  height: 50px;
   display: block;
   padding: 5px;
 }
+
+
 
 /*---- END PROFILE MENU TABS ----*/
 
@@ -1088,7 +1101,7 @@ text-align: center;
 
 .badges-holder
 {
-  width: 80%;
+  width: 100%;
   height: 80%;
 }
 
@@ -1102,6 +1115,15 @@ text-align: center;
 {
   transform: scale(2);
   z-index: 10;
+}
+
+.row.adminrow
+{
+  width: 80%;
+  margin: 60px auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #cecece;
 }
 
 /*------------- END PROFILE CONTENT -------------*/
@@ -1129,6 +1151,7 @@ text-align: center;
             top: 0;
             left: 0;
             height: 10em;
+            margin: 0;
           }
           /*---- END LOGO ----*/
 
@@ -1242,7 +1265,190 @@ text-align: center;
         }
 
         /*---- END MOBILE SLIDER NONE ----*/
+      .headline
+      {
+        display: none;
+      }
+      .topbar
+      {
+        height: 100px;
+      }
+      .table 
+        {
+          width: 100%;
+          height: auto;
+          margin-left: auto;
+          margin-right: auto;
 
+        }
+      /*----- MOBILE DROPDOWN FORMS -----*/
+      .module_form 
+      {
+        position: absolute;
+        width: 100%;
+        top: 100px;
+        right: 0;
+        padding: 5%;
+        background-color: #EDEAE8;
+        height: auto;
+        display: none;
+        z-index: 999;
+        border: 1px solid #C9C7C5;
+        border-radius: 0 0 0 3px;
+        -webkit-box-shadow: 0px 0px 14px 0px rgba(50, 50, 50, 0.3);
+        -moz-box-shadow:    0px 0px 14px 0px rgba(50, 50, 50, 0.3);
+        box-shadow:         0px 0px 14px 0px rgba(50, 50, 50, 0.3);
+      }
+
+      .step_form 
+      {
+        position: absolute;
+        width: 100%;
+        top: 100px;
+        right: 0;
+        padding: 5%;
+        background-color: #EDEAE8;
+        height: auto;
+        display: none;
+        z-index: 999999;
+        border: 0 0 1px 1px solid #C9C7C5;
+        border-radius: 0 0 0 3px;
+        -webkit-box-shadow: 0px 0px 14px 0px rgba(50, 50, 50, 0.3);
+      -moz-box-shadow:    0px 0px 14px 0px rgba(50, 50, 50, 0.3);
+      box-shadow:         0px 0px 14px 0px rgba(50, 50, 50, 0.3);
+      }
+
+      .examination_form 
+      {
+        position: absolute;
+        width: 100%;
+        top: 100px;
+        right: 0;
+        padding: 5%;
+        background-color: #EDEAE8;
+        height: auto;
+        display: none;
+        z-index: 999999;
+        border: 1px solid #C9C7C5;
+        border-radius: 0 0 0 3px;
+        -webkit-box-shadow: 0px 0px 14px 0px rgba(50, 50, 50, 0.3);
+      -moz-box-shadow:    0px 0px 14px 0px rgba(50, 50, 50, 0.3);
+      box-shadow:         0px 0px 14px 0px rgba(50, 50, 50, 0.3);
+      }
+
+      /*------ END MOBILE DROPDOWN FORMS -------*/
+
+      /*----------- MOBILE PROFILE CONTENT ----------*/
+      .admincontent
+      {
+        margin-top: 60px !important;
+        width: 90% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding: 10px !important;
+        background-color: #fff !important;
+      }
+
+      .admincontent a 
+      {
+        color: #000;
+      }
+
+      .admin-area
+      {
+        border: none;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #cecece;
+      }
+
+      .admin-area a 
+      {
+        color: #000;
+      }
+
+      .admin-avatar
+      {
+        width: 150px;
+        height: 150px;
+        border-radius: 150px;
+        border: 10px solid #F4F3F3;
+        margin: -85px auto 10px auto;
+        overflow: hidden;
+      }
+
+      .admin-avatar img 
+      {
+        width: 100%;
+        height: auto;
+      }
+
+      /*---- PROFILE MENU TABS ----*/
+      .tab 
+      {
+        display: inline-block;
+        width: 100%;
+        border: 1px solid #cecece;
+        text-align: center;
+        background-color: #333;
+        margin: 0;
+        color: #fff;
+      }
+
+      .tab-menu
+      {
+        margin: 0;
+        width: 100%;
+        display: block;
+      }
+
+      /*---- END PROFILE MENU TABS ----*/
+
+      .activity-content
+      {
+        padding: 20px;
+        display: none;
+      }
+
+      .comments-content
+      {
+        display: none;
+        padding: 20px;
+      }
+
+      .badge-content
+      {
+        padding: 20px;
+      }
+
+      .badges-holder
+      {
+        width: 80%;
+        height: 80%;
+      }
+
+      .badges-holder img 
+      {
+        max-width: 50px !important;
+        height: auto;
+      }
+
+      .badges-holder img:hover
+      {
+        transform: scale(2);
+        z-index: 10;
+      }
+
+      .row.adminrow
+      {
+        width: 100%;
+        margin: 60px auto;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #cecece;
+      }
+
+      /*------------- END PROFILE CONTENT -------------*/
 
 }
 
