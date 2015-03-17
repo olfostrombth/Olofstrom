@@ -74,8 +74,14 @@ class SessionsController < ApplicationController
 
     if current_user
       if current_user.admin?
+        if params[:query].present?
+          @sessions = User.search(params[:query],
+                                  fields: [:name],
+                                  page: params[:page])
+        else
+          @sessions = User.all.page params[:page]
+        end
         #do stuff
-        @sessions = User.paginate(page: params[:page])
 
         gon.completion = @current_user.completion
       else
