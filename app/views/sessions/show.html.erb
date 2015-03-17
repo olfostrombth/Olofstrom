@@ -1,88 +1,58 @@
 <div class="row panel">
-<div class="row">
-	<div class="medium-12 large-12 columns headline"><h2><%= @user.name%></h2></div>
-</div>
-<div class="row panel admincontent">
-	<div class="medium-12 large-12 columns">
-		<div class=" medium-3 large-3 columns admin-area">
-			<div class="admin-avatar">
+	<div class="row">
+		<div class="medium-12 large-12 columns headline"><h2><%= @user.name%></h2></div>
+	</div>
+	<div class="row panel admincontent">
+		<div class="medium-12 large-12 columns">
+			<div class=" medium-3 large-3 columns admin-area">
+				<div class="admin-avatar">
 
-				<%= image_tag current_user.image %>
+					<%= image_tag current_user.image %>
 
-			</div>
-			<p><%= @user.name%></p>
-
-		<%if (@user.admin)%>
-			<p>Status: Admin</p>
-		<%else%>
-			<p>Status: Användare</p>
-		<%end%>
-
-		<p>Kommentarer: 23</p>
-		<p>Senast inloggad: </p>
-
-		  <%= mail_to @user.email do %>
-			 <center> <i class='fa fa-envelope-o fa-2x'></i>&nbsp; Maila mig!</center>
-			<% end %>
-
-
-		</div>
-		<div class="medium-9 large-9 columns">
-			<div class="medium-3 large-3 columns tab-menu right">
-				<div class="tab com-tab">Kommentarer</div>
-				<div class="tab act-tab">Aktivitet</div>
-				<div class="tab badge-tab">Märken</div>
-			</div>
-			<div class="large-12 columns activity-content">
-			<% @activities.each do |activity|%>
-				<div class="activity">
-					<%= link_to activity.owner.name, activity.owner if activity.owner%>
-					<%= link_to activity.key.html_safe, activity.key%> 
 				</div>
-				<br>
-			<% end %>
+				<p><%= @user.name%></p>
+
+			<%if (@user.admin)%>
+				<p>Status: Admin</p>
+			<%else%>
+				<p>Status: Användare</p>
+			<%end%>
+
+			<p>Kommentarer: 23</p>
+			<p>Senast inloggad: </p>
+
+			  <%= mail_to @user.email do %>
+				 <center> <i class='fa fa-envelope-o fa-2x'></i>&nbsp; Maila mig!</center>
+				<% end %>
+
+
 			</div>
-			<div class="large-12 columns comments-content">Comments</div>
-			<div class="large-12 columns badge-content">Badge
-			<div class="badges-holder">
-						<%= image_tag 'badgegold.png' %>
-						<%= image_tag 'badgeblue.png' %>
-						<%= image_tag 'badgepink.png' %>
-						<%= image_tag 'badgeorange.png' %>
-						<%= image_tag 'badgegreen.png' %>
+			<div class="medium-9 large-9 columns">
+				<div class="medium-3 large-3 columns tab-menu right">
+					<div class="tab com-tab">Kommentarer</div>
+					<div class="tab act-tab">Aktivitet</div>
+					<div class="tab badge-tab">Märken</div>
+				</div>
+				<div class="large-12 columns activity-content">
+				<% @activities.each do |activity|%>
+					<div class="activity">
+						<%= link_to activity.owner.name, activity.owner if activity.owner%>
+						<%= link_to activity.key.html_safe, activity.key%> 
 					</div>
+					<br>
+				<% end %>
+				</div>
+				<div class="large-12 columns comments-content">Comments</div>
+				<div class="large-12 columns badge-content">Badge
+				<div class="badges-holder">
+							<%= image_tag 'badgegold.png' %>
+							<%= image_tag 'badgeblue.png' %>
+							<%= image_tag 'badgepink.png' %>
+							<%= image_tag 'badgeorange.png' %>
+							<%= image_tag 'badgegreen.png' %>
+						</div>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
-	<div class="medium-5 columns">
-		
-	</div>
-
-	<!--<h3>---Completion---</h3>
-
-	<div class="medium-3 columns">
-		<% @completion.each do |modul, modulValue|%>
-			<% modulValue.each do |step, stepValue|%>
-				<% stepValue.each do |substep, substepValue|%>
-				
-					<% if substepValue %>
-						<div>
-							<p>
-							|namn| <%=@user.name%> <br>
-							|substep| <%=substep%> <br>
-							|step| <%=step%> <br>
-							|modul| <%=modul%></b></p>
-						</div>
-					<% end %>
-				<% end %>
-			<% end %>			
-		<% end %>
-	</div>-->
-
-		<div class="medium-4 columns">
-		
-		
-	</div>
-
 </div>
