@@ -28,11 +28,6 @@
 //= require_tree .
 
 
+//= require magnific-popup
 
 $(document).foundation();
-
-
-
-
-
-
