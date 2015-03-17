@@ -50,8 +50,6 @@ $(document).on "click", "#reply_toggle", ->
 $(document).on "click", "#comment_toggle", ->
   $('.comment_form').slideToggle(500)
 
-
-
 $(document).on "click", "#answer-btn", ->
   $(this).parent().parent().children('#replies').slideToggle('show')
 
