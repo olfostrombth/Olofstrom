@@ -217,6 +217,11 @@ input.search_form
   border: none;
 }
 
+.tt-suggestion
+{
+  background-color: #fff;
+}
+
 /*-------------- END SEARCH BAR --------------*/
 
 .video_form {
@@ -1000,7 +1005,88 @@ text-align: center;
 }
 /*------------- END PAGE HEADLINE -------------*/
 
+/*------------- PROFILE CONTENT -------------*/
 
+.admincontent
+{
+  margin-top: 20px !important;
+  width: 90% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 10px !important;
+  background-color: #fff !important;
+}
+
+.admincontent a 
+{
+  color: #000;
+}
+
+.admin-area
+{
+  border-right: 1px solid #cecece;
+}
+
+.admin-area a 
+{
+  color: #000;
+}
+
+.admin-avatar
+{
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
+  border: 10px solid #F4F3F3;
+  margin: -85px auto 10px auto;
+  overflow: hidden;
+}
+
+.admin-avatar img 
+{
+  width: 100%;
+  height: auto;
+}
+
+/*---- PROFILE MENU TABS ----*/
+.tab 
+{
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid #cecece;
+  text-align: center;
+  background-color: #fff;
+  margin: 0;
+}
+
+.tab-menu
+{
+  margin: -45px -46px 0 0;
+  width: auto;
+  display: block;
+  padding: 5px;
+}
+
+/*---- END PROFILE MENU TABS ----*/
+
+.activity-content
+{
+  padding: 20px;
+}
+
+.comments-content
+{
+  display: none;
+  padding: 20px;
+}
+
+.badge-content
+{
+  display: none;  
+  padding: 20px;
+}
+
+/*------------- END PROFILE CONTENT -------------*/
 
 /*------------- MOBILE CLASSES -------------*/
 
