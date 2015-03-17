@@ -39,7 +39,7 @@
      <% if x.parent_id == nil %>
              <div class="comments">
                <% if @user %>
-                   <br> <strong><%= @user.name %></strong><br>
+                   <br> <strong><%= User.find(x.user_id).name %></strong><br>
                <% end %>
 
                <% if x.user_id = current_user.id %>
