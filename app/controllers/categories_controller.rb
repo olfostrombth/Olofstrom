@@ -38,9 +38,6 @@ class CategoriesController < ApplicationController
       end
       @commentsxx = Hash[@comment_items.to_a.reverse]
       #@comment_items.reverse
-      if @commentx
-        @user = User.find(@commentx.user_id)
-      end
 
       @comment = @comments.new
       @steps = x.steps

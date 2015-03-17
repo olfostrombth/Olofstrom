@@ -36,6 +36,7 @@ class SessionsController < ApplicationController
     @split = params[:name_url].split("-")
     @user = User.find(@split[1])
     @usersearch = @user
+    @comments = @user.comments
     @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: @user)
     gon.completion = @user.completion
     @completion = Hash[JSON.parse(gon.completion).to_a.reverse]

@@ -93,6 +93,14 @@ a:link, a:active, a:hover, a:visited {
   height: auto;
 }
 
+.hidden-item:first-child {
+  display: block;
+}
+
+.hidden-item {
+  display: none;
+}
+
 .item:first-child {
   border-top: 1px solid #999;
 }
@@ -199,8 +207,8 @@ input.search_form
   position:relative; padding:0; margin:0;
 }
 
-#input_img 
-{ position:absolute; bottom:15px; right:15px; width:30px; height:30px; 
+#input_img
+{ position:absolute; bottom:15px; right:15px; width:30px; height:30px;
   cursor: pointer;
 }
 
@@ -676,7 +684,7 @@ box-shadow:         0px 0px 14px 0px rgba(50, 50, 50, 0.3);
   border-radius: 5px;
 }
 
-.avtxt p 
+.avtxt p
 {
   font-size: 12px !important;
   color: #666;
@@ -746,7 +754,7 @@ box-shadow:         0px 0px 14px 0px rgba(50, 50, 50, 0.3);
   z-index: 10;
 }
 
-.table 
+.table
 {
   width: 70%;
   height: auto;
@@ -875,7 +883,7 @@ box-shadow:         0px 0px 14px 0px rgba(50, 50, 50, 0.3);
   color: #fff;
 }
 
-.sliderimg img 
+.sliderimg img
 {
   width: 100%;
   height: 350px;
@@ -887,7 +895,7 @@ box-shadow:         0px 0px 14px 0px rgba(50, 50, 50, 0.3);
   padding: 0;
 }
 
-.slider img 
+.slider img
 {
   height: 150px;
 }
@@ -1018,7 +1026,7 @@ text-align: center;
   background-color: #fff !important;
 }
 
-.admincontent a 
+.admincontent a
 {
   color: #000;
 }
@@ -1028,7 +1036,7 @@ text-align: center;
   border-right: 1px solid #cecece;
 }
 
-.admin-area a 
+.admin-area a
 {
   color: #000;
 }
@@ -1043,14 +1051,14 @@ text-align: center;
   overflow: hidden;
 }
 
-.admin-avatar img 
+.admin-avatar img
 {
   width: 100%;
   height: auto;
 }
 
 /*---- PROFILE MENU TABS ----*/
-.tab 
+.tab
 {
   display: inline-block;
   padding: 5px 10px;
@@ -1105,7 +1113,7 @@ text-align: center;
   height: 80%;
 }
 
-.badges-holder img 
+.badges-holder img
 {
   max-width: 150px !important;
   height: auto;
@@ -1223,7 +1231,7 @@ text-align: center;
         /*---- END LOGIN PAGE ----*/
 
         /*---- MOBILE TOPBAR ----*/
-        .bread 
+        .bread
         {
           display: none;
         }
@@ -1453,6 +1461,3 @@ text-align: center;
 }
 
 /*------------- END MOBILE MEDIA QUERY -------------*/
-
-
-
