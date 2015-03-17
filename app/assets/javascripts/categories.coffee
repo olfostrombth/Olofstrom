@@ -29,7 +29,7 @@ $(document).on "click", "#answer-btn", ->
 
   if $(this).html() == '<i class="fa fa-plus"></i>' then $(this).html('<i class="fa fa-minus"></i>') else $(this).html('<i class="fa fa-plus"></i>')
 
-<<<<<<< HEAD
+
  
 $(document).on 'click', ".tab", ->
   $(".tab").removeClass 'tabActive'
@@ -54,7 +54,7 @@ $(document).on 'click', ".tab", ->
   $('.comments-content').hide()
 
  
-=======
+
 
 # Archivement badges show
 $(document).on "click", ".arch-toggle", ->
@@ -64,7 +64,7 @@ $(document).on "click", ".arch-toggle", ->
 $(document).on "click", ".fed", ->
   $('.fed-toggle').slideToggle 'slow'
   return
->>>>>>> micke/master
+
 
 $(document).on "click", ".add-mod-btn2", ->
   $('.feeed').slideToggle 'slow'
