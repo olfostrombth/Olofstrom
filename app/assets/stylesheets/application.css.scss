@@ -1098,6 +1098,12 @@ text-align: center;
   height: auto;
 }
 
+.badges-holder img:hover
+{
+  transform: scale(2);
+  z-index: 10;
+}
+
 /*------------- END PROFILE CONTENT -------------*/
 
 /*------------- MOBILE CLASSES -------------*/
