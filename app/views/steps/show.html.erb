@@ -65,7 +65,7 @@
                     </div>
                 <% end %>
             <% else %>
-                <% if item['desc']%>
+                <% if item['guide_type']%>
                     <div class="td td-content">
                       <div id="desc">
                         <%= item['desc'].html_safe %>
@@ -86,7 +86,7 @@
                     </div>
                 <% end %>
             <% else %>
-                <% if item['desc']%>
+                <% if item['assignment_type']%>
                     <div class="td td-content">
                       <div id="desc">
                         <%= item['desc'].html_safe %>
