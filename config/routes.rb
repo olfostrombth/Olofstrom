@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   get 'sessions/destroy' => 'sessions#destroy'
   get 'profile/:name_url' => 'sessions#show', :as => :user
   post 'sessions/show/:id' => 'sessions#update'
-  patch 'sessions/show/:id' => 'sessions#update'
-  put 'sessions/show/:id' => 'sessions#update'
+  patch 'profile/:id' => 'sessions#update'
+  put 'profile/:id' => 'sessions#update'
   get 'sessions/show/:id/del' => 'sessions#delUser', :as => :user_del
   post 'steps/update_row_order' => 'steps#update_row_order', :as => :update_row_order_substeps
   post 'steps/update_completion' => 'steps#update_completion', :as => :update_completion

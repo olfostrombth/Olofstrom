@@ -2,6 +2,36 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+# Archivement badges show
+$(document).on "click", ".arch-toggle", ->
+  $('.arch').slideToggle 'slow'
+  return
+
+$(document).on "click", ".fed", ->
+  $('.fed-toggle').slideToggle 'slow'
+  return
+
+$(document).on "click", ".add-mod-btn2", ->
+  $('.feeed').slideToggle 'slow'
+  return
+
+btn = false
+
+# MOBIL MENY JS
+$(document).on "click", ".mobile-menu-btn", ->
+  if btn
+    $('.mobile-menu-btn').animate { left: '0' }, 500
+    btn = false
+  else
+    $('.mobile-menu-btn').animate { left: '85%' }, 500
+    btn = true
+  $('.sidebar').animate { width: 'toggle' }, 500
+  return
+return
+
+
+
+
 
 $(document).on "click", "#step_toggle", ->
   $('.step_form').slideToggle(500)

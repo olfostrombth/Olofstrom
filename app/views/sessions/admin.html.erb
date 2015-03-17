@@ -17,7 +17,7 @@
 	<ul>
 	<% @sessions.each do |x| %>
 	  <li>Name: <%= x.name %> - Admin: <%= form_for x, :remote => true do |f| f.check_box :admin end %> - <%= link_to "delete", user_del_path(x) %></li>
-	<% end %>
+	  <% end %>
 	</ul>
 	</div>
 	<% end %>
