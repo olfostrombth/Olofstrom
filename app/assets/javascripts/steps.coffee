@@ -50,7 +50,7 @@ getSubStep = (thiss) ->
 
 
 
-$ ->
+ready = ->
   if gon.completion
     substeps = $.parseJSON(gon.completion)
     if substeps
@@ -65,6 +65,8 @@ $ ->
           completed.removeClass('hidden-item')
         else if y == "false"
           $("#"+x).prop("checked", false)
+$(document).ready(ready)
+$(document).on('page:load', ready)
 
 $(document).on "click", ".donebox", ->
   #console.log ""
