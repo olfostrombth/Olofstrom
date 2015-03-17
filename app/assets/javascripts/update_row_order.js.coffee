@@ -29,8 +29,9 @@ $ ->
         ui.item.effect('highlight', {}, 1000)
       update: (e, ui) ->
         item_id = ui.item.data('item-id')
-        console.log(item_id)
-        console.log gon.stepname
+        console.log $(ui).attr('id')
+        #console.log(item_id)
+        #console.log gon.stepname
         position = ui.item.index() # this will not work with paginated items, as the index is zero on every page
 
         console.log position
@@ -42,3 +43,7 @@ $ ->
           data: { substep: {substep_id: item_id, row_order_position: position, name: gon.stepname } }
         )
     )
+
+getId = (thiss) ->
+  fvalue = $(thiss).attr("id")
+  return fvalue

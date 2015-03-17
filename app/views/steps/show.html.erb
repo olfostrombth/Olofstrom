@@ -48,7 +48,7 @@
 
   <% @step_items.each_with_index do |item, i| %>
       <% if item['uid'] %>
-          <div class="item" data-item-id="<%= item['uid'].to_s %>" >
+          <div class="item" data-item-id="<%= item['uid'].to_s %>" id="step_<%= i %>">
             <div class="td td-headline">
               <h4><%= item['name'] %></h4>
             </div>
