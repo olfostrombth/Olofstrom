@@ -54,21 +54,45 @@
 			</div>
 			<div class="large-12 columns badge-content">Badge
 			<div class="badges-holder">
-				<div class="goldbadge">
-							<div class="bheadline"><h3>Teknisk kompetens</h3></div>
-							<div class="bstep"><p>Steg-1</p></div>
-						</div>
-				<div class="bluebadge">
-							<div class="bheadline"><h3>Teknisk kompetens</h3></div>
-							<div class="bstep"><p>Steg-1</p></div>
-						</div>
+        <% comp = get_completion(@user) %>
+<% comp.each do |compkey,compval| %>
+  <%# testz = get_steps_info() %>
+  <% done = [] %>
+  <% compval.each do |stepkey, stepval| %>
+    <% if stepkey == "examination" then break end %>
+    <% step = Step.where({name:stepkey}).first %>
+    <% substeps = Substep.where({step_id: step.id}) %>
+    <% step = get_steps_info(compkey, stepkey, JSON.parse(@user.completion),substeps.length) %>
+    <% done.push(step["percent"][0]) %>
+  <% end %>
 
-						<%= image_tag 'badgegold.png', class: 'ease' %>
-						<%= image_tag 'badge_yo.png', class: 'ease' %>
-						<%= image_tag 'badgeblue.png', class: 'ease' %>
-						<%= image_tag 'badgepink.png', class: 'ease' %>
-						<%= image_tag 'badgeorange.png', class: 'ease' %>
-						<%= image_tag 'badgegreen.png', class: 'ease' %>
+  <% nothundred = 0 %>
+  <% done.each do |x| %>
+    <% if x == "100" %>
+      <% break %>
+    <% else %>
+      <% nothundred = nothundred+1 %>
+    <% end %>
+  <% end %>
+
+  <% if nothundred > 0 %>
+  <% index = 0 %>
+    <% compval.each do |stepkeyz,stepvalz| %>
+    <% index = index+1 %>
+      <div class="<%= @badges[index%4] %>">
+          <div class="bheadline"><h3><%= compkey %></h3></div>
+          <div class="bstep"><p><%= stepkeyz %></p></div>
+      </div>
+    <% end %>
+    <% else %>
+    <div class="goldbadge">
+        <div class="bheadline"><h3><%= compkey %></h3></div>
+        <div class="bstep"><p>DDD</p></div>
+    </div>
+  <% end %>
+
+<% end %>
+
 					</div>
 			</div>
 		</div>

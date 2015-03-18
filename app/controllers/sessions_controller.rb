@@ -40,6 +40,7 @@ class SessionsController < ApplicationController
     @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: @user)
     gon.completion = @user.completion
     @completion = Hash[JSON.parse(gon.completion).to_a.reverse]
+    @badges = ["bluebadge", "greenbadge", "orangebadge", "pinkbadge"]
     #@comments = @user.comments     .last(2)
     #@comments.each do |x|
     #  @category = Category.find(x.category_id)
