@@ -71,8 +71,6 @@ gem 'formtastic', '~> 3.0'
 #gem "paperclip"
 
 # Image upload to CKEditor
-#gem 'responders', '~> 2.0'
-
-gem "public_activity"
+gem 'responders', '~> 2.0'
 
 gem 'best_in_place'

@@ -6,13 +6,9 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$ ->
-  $(document).on "click", "#video_toggle", ->
-    $('.video_form').toggle('show')
-
 #Gets all checkboxes for the substep check if done part
 getAllDone = ->
-  return document.getElementsByClassName("donebox");
+  return document.getElementsByClassName("donebox")
 
 getSubSteps = ->
   raw = document.getElementsByClassName("donebox")
@@ -54,7 +50,7 @@ getSubStep = (thiss) ->
 
 
 
-$ ->
+ready = ->
   if gon.completion
     substeps = $.parseJSON(gon.completion)
     if substeps
@@ -69,7 +65,8 @@ $ ->
           completed.removeClass('hidden-item')
         else if y == "false"
           $("#"+x).prop("checked", false)
-
+$(document).ready(ready)
+$(document).on('page:load', ready)
 
 $(document).on "click", ".donebox", ->
   #console.log ""

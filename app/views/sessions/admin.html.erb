@@ -10,7 +10,14 @@
 	  <%= file_field_tag :file %>
 	  <%= submit_tag "Importera", class: 'button form-btn tiny' %>
 	<% end %>
+	  <div class="searchadmin left">
+	  <%= form_tag admin_path, class: "form-inline", method: :get do %>
+		  <%= text_field_tag :query, params[:query], class: "search_form", id: "user_search", autocomplete: "on", placeholder: 'Sök användare' %>
 
+		  <div id="input_img"><%= image_submit_tag ('Search.png'), class:'input_img sbtnstyle' %></div>
+	  <% end %>
+	</div>
+	 <br><br><br><br>
 	<%= will_paginate %>
 	<h3>Användare: </h3>
 	<div id="users">
