@@ -43,7 +43,11 @@
 </div>
 
 <% @examinations.each do |e| %>
-    <%= e.name %><br>
-    <%= e.desc %>
+    <% if e %>
+        <%= e.name %><br>
+        <% if e.desc %>
+            <%= e.desc.html_safe %>
+        <% end %>
+    <% end %>
 <% end %>
 <br>

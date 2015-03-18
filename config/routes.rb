@@ -71,7 +71,6 @@ Rails.application.routes.draw do
 
   put "/comments" => "comments#update"
   patch "/comments" => "comments#update"
-  post "/comments" => "comments#create"
 
 
   resources :sessions

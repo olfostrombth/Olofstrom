@@ -18,7 +18,7 @@
     </div>
     <div class="field">
       <%= f.label :Text %><br>
-      <%= f.cktext_area :desc %>
+      <%= f.text_area :desc, :class => "tinymce" %>
     </div>
     <div class="field">
       <%= f.hidden_field :typex, value: "guide" %>
@@ -30,5 +30,5 @@
       <%= f.button :Spara, :class => 'form-btn ease' %>
     </div>
 <% end %>
-
+<%= tinymce %>
 
