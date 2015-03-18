@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:index, :show, :edit, :update, :destroy]
 
-  respond_to :html
+  respond_to :html, :js
   # GET /comments
   # GET /comments.json
   def index
@@ -30,8 +30,15 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @category = @comment.category.name
 
+
+
     respond_to do |format|
       if @comment.save
+        @category_id = @comment.category_id
+        @categoryx = Category.find(@comment.category_id)
+        @comments = @categoryx.comments.order('created_at desc')
+
+        @commentsxx = Hash[@comments.reverse]
         @comment.create_activity :create, owner: @owner, key: "har kommenterat på en modul: #{view_context.link_to(@category, category_path(@category))}".html_safe
 
         format.html { redirect_to category_path(@category), notice: 'Comment was successfully created.' }
@@ -45,13 +52,7 @@ class CommentsController < ApplicationController
     end
   end
 
-  def create_comment
-    @comment = Comment.new(comment_params)
-    @comment.save
-    respond_to do |format|
-      format.js
-    end
-  end
+
 
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json

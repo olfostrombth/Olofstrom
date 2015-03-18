@@ -13,13 +13,7 @@
             <% if Comment.where({parent_id: x.id}).first %>
                 <div id="answer-btn" class="answer-btn right"><i class="fa fa-plus"></i></div>
             <% end %>
-            <% if x.parent_id == nil %>
-                <br>
-                <button id="reply_toggle" class="button form-btn tiny">Svara</button>
-                <div id="reply_form">
-                  <%= render :partial => '/comments/reply', :locals => {:parent_id => x.id, :position => 0}  %>
-                </div>
-            <% end %>
+
             <hr>
           </div>
       <% end %>
@@ -27,9 +21,7 @@
           <% if z.parent_id == x.id  %>
               <% if z.parent_id %>
                   <div class="replies" id="replies">
-                    <% if @user %>
-                        <br> <strong><%= @user.name %></strong><br>
-                    <% end %>
+                    <br> <strong><%= User.find(z.user_id).name %></strong><br>
                     <% if z.user_id == current_user.id %>
                         <%= link_to '<i class="fi-x fi-x-fix"></i>'.html_safe, z, method: :delete, data: { confirm: 'Are you sure?' } %>
                         <%= best_in_place Comment.find(z.id), :msg, :as => :textarea, :ok_button => 'Spara', :ok_button_class => 'button form-btn tiny', :cancel_button => 'Avbryt', :cancel_button_class => 'button form-btn cancel-btn tiny', :class => 'fi-pencil bip-text'%>

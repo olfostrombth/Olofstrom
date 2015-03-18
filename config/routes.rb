@@ -71,17 +71,14 @@ Rails.application.routes.draw do
 
   put "/comments" => "comments#update"
   patch "/comments" => "comments#update"
+  post "/comments" => "comments#create"
 
 
   resources :sessions
   #, only: [:create, :destroy]
 
 
-  resources :comments do
-    member do
-      post 'create_comment'
-    end
-  end
+  resources :comments
 
   resources :steps, only: [:create, :index]
 
