@@ -4,3 +4,14 @@
 
 $ ->
   $('.best_in_place').best_in_place()
+
+$(document).ready ->
+  $('#new_comment').submit (e) ->
+    e.preventDefault()
+    $.ajax
+      url: $(this).attr('action')
+      data: $(this).serialize()
+      method: 'POST'
+      success: ->
+    return
+  return

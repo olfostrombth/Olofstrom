@@ -1,10 +1,12 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :set_comment, only: [:index, :show, :edit, :update, :destroy]
 
+  respond_to :html
   # GET /comments
   # GET /comments.json
   def index
     @comments = Comment.all
+    respond_with(@comments)
   end
 
   # GET /comments/1
@@ -34,10 +36,20 @@ class CommentsController < ApplicationController
 
         format.html { redirect_to category_path(@category), notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
+        format.js
       end
+    end
+  end
+
+  def create_comment
+    @comment = Comment.new(comment_params)
+    @comment.save
+    respond_to do |format|
+      format.js
     end
   end
 

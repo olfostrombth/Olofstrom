@@ -34,52 +34,9 @@
 <div class="comment_form">
   <%= render :partial => '/comments/form', :locals => {:position => @comments.length+1 } %>
 </div>
-<% @comments.each do |x,y| %>
-       <div class="comments-container">
-     <% if x.parent_id == nil %>
-             <div class="comments">
-                   <br> <strong><%= User.find(x.user_id).name %></strong><br>
-
-               <% if x.user_id == current_user.id %>
-                   <%= link_to '<i class="fi-x fi-x-fix"></i>'.html_safe, x, method: :delete, data: { confirm: 'Are you sure?' } %>
-                   <%= best_in_place Comment.find(x.id), :msg, :as => :textarea, :ok_button => 'Spara', :ok_button_class => 'button form-btn tiny', :cancel_button => 'Avbryt', :cancel_button_class => 'button form-btn cancel-btn tiny', :class => 'fi-pencil bip-text'%>
-               <% else %>
-                   <%= x.msg %>
-               <% end %>
-               <% if Comment.where({parent_id: x.id}).first %>
-                 <div id="answer-btn" class="answer-btn right"><i class="fa fa-plus"></i></div>
-              <% end %>
-              <% if x.parent_id == nil %>
-              <br>
-             <button id="reply_toggle" class="button form-btn tiny">Svara</button>
-             <div id="reply_form">
-               <%= render :partial => '/comments/reply', :locals => {:parent_id => x.id, :position => 0}  %>
-             </div>
-         <% end %>
-               <hr>
-             </div>
-         <% end %>
-         <% @commentsxx.each do |c, z| %>
-            <% if z.parent_id == x.id  %>
-                   <% if z.parent_id %>
-                     <div class="replies" id="replies">
-                       <% if @user %>
-                           <br> <strong><%= @user.name %></strong><br>
-                       <% end %>
-                       <% if z.user_id == current_user.id %>
-                           <%= link_to '<i class="fi-x fi-x-fix"></i>'.html_safe, z, method: :delete, data: { confirm: 'Are you sure?' } %>
-                           <%= best_in_place Comment.find(z.id), :msg, :as => :textarea, :ok_button => 'Spara', :ok_button_class => 'button form-btn tiny', :cancel_button => 'Avbryt', :cancel_button_class => 'button form-btn cancel-btn tiny', :class => 'fi-pencil bip-text'%>
-                       <% else %>
-                           <%= z.msg %>
-                       <% end %>
-                  <hr>
-                       <% end %>
-                 </div>
-               <% end %>
-         <% end %>
-
-       </div>
-<% end %>
+<div class="comments_render">
+  <%= render 'comments/comments' %>
+</div>
 
 </div>
 </div>
