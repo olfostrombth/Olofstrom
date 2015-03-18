@@ -34,14 +34,6 @@
 <div class="comment_form">
   <%= render :partial => '/comments/form' %>
 </div>
-  <% @comments.each do |x| %>
-  <% if x.parent_id == nil %>
-      <br>
-      <button id="reply_toggle" class="button form-btn tiny">Svara</button>
-      <div id="reply_form">
-        <%= render :partial => '/comments/reply', :locals => {:parent_id => x.id, :position => 0}  %>
-      </div>
-  <% end %>
 <div class="comments_render">
   <%= render 'comments/comments' %>
 </div>
