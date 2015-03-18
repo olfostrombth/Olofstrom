@@ -60,10 +60,15 @@ class ApplicationController < ActionController::Base
   def breadcrumbs
     modul = params[:category_name] if params[:category_name]
     step = params[:step_name] if params[:step_name]
+    profile = params[:name_url] if params[:name_url]
     home = view_context.link_to "Home", root_path
     edit = if params[:video_name] then params[:video_name] elsif params[:assignment_name] then params[:assignment_name] elsif params[:quiz_name] then params[:quiz_name] elsif params[:guide_name] then params[:guide_name] elsif params[:question_name] then params[:question_name] else false end
     if edit
       edit_url = if video_path(edit) then video_path(edit) elsif assignment_path(edit) then assignment_path(edit) elsif quiz_path(edit) then quiz_path(edit) elsif guide_path(edit) then guide_path(edit) elsif question_path(edit) then question_path(edit) else false end
+    end
+    if profile
+      profilee = view_context.link_to user_path
+      return home + " > "+profilee
     end
     if edit_url
       edit_urlx = view_context.link_to edit, edit_url
