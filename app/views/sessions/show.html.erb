@@ -54,6 +54,7 @@
 			</div>
 			<div class="large-12 columns badge-content">Badge
 			<div class="badges-holder">
+			  <% if comp %>
         <% comp = get_completion(@user) %>
 <% comp.each do |compkey,compval| %>
   <%# testz = get_steps_info() %>
@@ -91,6 +92,7 @@
     </div>
   <% end %>
 
+<% end %>
 <% end %>
 					</div>
 			</div>
