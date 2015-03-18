@@ -32,6 +32,10 @@ class SessionsController < ApplicationController
     render json: User.search(params[:query], autocomplete: false, limit: 10).map(&:name)
   end
 
+  def autocomplete_admin
+    render json: User.search(params[:query], autocomplete: false, limit: 10).map(&:name)
+  end
+
   def show
     @split = params[:name_url].split("-")
     @user = User.find(@split[1])
@@ -75,8 +79,8 @@ class SessionsController < ApplicationController
 
     if current_user
       if current_user.admin?
-        if params[:query].present?
-          @sessions = User.search(params[:query],
+        if params[:admin_query].present?
+          @sessions = User.search(params[:admin_query],
                                   fields: [:name],
                                   page: params[:page])
         else
