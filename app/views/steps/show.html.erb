@@ -137,6 +137,7 @@
                         <% else %>
                             <div class="checkbox-container">
                               <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
+                              <label for="substep_<%= item['uid'] %>"><span></span></label>
                             </div>
                         <% end %>
                     <% else %>
@@ -144,7 +145,8 @@
 
                         <% else %>
                             <div class="checkbox-container">
-                              <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
+                              <input type="checkbox" style="width: 50px;" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
+                              <label for="substep_<%= item['uid'] %>"><span></span></label>
                             </div>
                         <% end %>
                     <% end %>
@@ -175,6 +177,7 @@
                     <div class="quiz-fix">
                       <div class="checkbox-container">
                         <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
+                         <label for="substep_<%= item['uid'] %>"><span></span></label>
                       </div>
                     </div>
                 <% end %>
@@ -195,10 +198,12 @@
                                 <% end %>
                                 <% if current_user.admin? %> <!-- Jag vet det är sinnessjukt -->
                                     <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
+                                     <label for="substep_<%= item['uid'] %>"><span></span></label>
                                 <% else %>
                                     <% if item['quiz_type'] %>
                                     <% else %>
                                         <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
+                                        <label for="substep_<%= item['uid'] %>"><span></span></label>
                                     <% end %>
                                 <% end %>
                             <% else %>
@@ -211,6 +216,7 @@
                     <div class="quiz-fix">
                       <div class="checkbox-container">
                         <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
+                        <label for="substep_<%= item['uid'] %>"><span></span></label>
                       </div>
                     </div>
                 <% end %>

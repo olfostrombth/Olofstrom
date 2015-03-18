@@ -17,7 +17,7 @@
     </div>
     <div class="field">
       <%= f.label :Beskrivning %><br>
-      <%= f.text_field :desc %>
+      <%= f.text_area :desc, :class => "tinymce" %>
     </div>
     <div class="field">
       <%= f.hidden_field :step_id %>
@@ -32,3 +32,4 @@
       <%= f.button :Skapa, :class => 'form-btn ease' %>
     </div>
 <% end %>
+<%= tinymce %>
