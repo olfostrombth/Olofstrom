@@ -45,7 +45,9 @@
 			  <% if @comments %>
 				  <% @comments.each do |x| %>
 					  <% if x %>
-						  <% cat = Category.find(x.category_id).name %>
+						  <% catx = Category.find_by id: x.category_id
+              if not catx then next end
+              cat = catx.name if catx %>
 						  <%= @user.name %> har kommenterat på <%= link_to cat, category_path(cat) %>: <%= x.msg %> - <%= x.created_at %>
 					  <% end %>
 					  <br>
