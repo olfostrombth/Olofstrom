@@ -20,6 +20,23 @@ class ApplicationController < ActionController::Base
     self.replace(self.shuffle)
   end
 
+  helper_method :get_completion
+  def get_completion(user)
+    if user.name
+      done = {}
+      comp = JSON.parse(user.completion)
+      if comp.length > 0
+      comp.each do |catkey,catval|
+        done[catkey] = {}
+        catval.each do |stepkey,stepval|
+          done[catkey][stepkey] = stepval
+        end
+      end
+        return done
+    end
+    end
+  end
+
   helper_method :get_activities
   def get_activities
     @activities = PublicActivity::Activity.order("created_at desc")

@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   post 'sessions/importUsers' => 'sessions#importUsers', :as => :import_users
   get '/search' => 'sessions#search', :as => :search
   get '/autocomplete' => 'sessions#autocomplete', :as => :autocomplete
+  get '/autocomplete_admin' => 'sessions#autocomplete_admin', :as => :autocomplete_admin
 
   root 'categories#index'
   get '/admin', to: 'sessions#admin', :as => :admin
