@@ -70,9 +70,8 @@ gem 'formtastic', '~> 3.0'
 # Image upload to CKEditor
 #gem "paperclip"
 
-# Image upload to CKEditor
-#gem 'responders', '~> 2.0'
+gem 'responders', '~> 2.0'
 
-gem "public_activity"
+gem 'tinymce-rails'
 
 gem 'best_in_place'

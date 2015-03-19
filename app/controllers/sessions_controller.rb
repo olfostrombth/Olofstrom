@@ -36,6 +36,7 @@ class SessionsController < ApplicationController
     @split = params[:name_url].split("-")
     @user = User.find(@split[1])
     @usersearch = @user
+    @comments = @user.comments
     @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: @user)
     gon.completion = @user.completion
     @completion = Hash[JSON.parse(gon.completion).to_a.reverse]
@@ -73,8 +74,14 @@ class SessionsController < ApplicationController
 
     if current_user
       if current_user.admin?
+        if params[:query].present?
+          @sessions = User.search(params[:query],
+                                  fields: [:name],
+                                  page: params[:page])
+        else
+          @sessions = User.all.page params[:page]
+        end
         #do stuff
-        @sessions = User.paginate(page: params[:page])
 
         gon.completion = @current_user.completion
       else

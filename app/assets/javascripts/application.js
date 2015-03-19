@@ -20,7 +20,9 @@
 //= require jquery-ui/effect-highlight
 
 //= require foundation
-//= #require ckeditor/init
+
+//= require tinymce
+//= require tinymce-jquery
 
 //= require best_in_place
 //= require best_in_place.jquery-ui
@@ -28,11 +30,4 @@
 //= require_tree .
 
 
-
 $(document).foundation();
-
-
-
-
-
-

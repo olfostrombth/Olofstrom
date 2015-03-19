@@ -81,7 +81,7 @@ Rails.application.routes.draw do
   #, only: [:create, :destroy]
 
 
-  resources :comments, only: [:edit, :create, :update, :destroy]
+  resources :comments
 
   resources :steps, only: [:create, :index]
 
