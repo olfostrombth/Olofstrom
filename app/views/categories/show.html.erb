@@ -16,7 +16,7 @@
         <div id="step_<%= s.id %>" class="large-12 columns step">
 
                       <div class="step-comp" style="width:<%= percent["percent"][0] %>%;"></div>
-          <h2><%= link_to s.name, step_path(:category_name => params[:category_name], :step_name => s.name) %></h2>
+          <h2><%= link_to s.name, step_path(:category_name => params[:category_name], :step_name => s.name), 'data-no-turbolink' => true %></h2>
 
           <% if current_user.admin? %>
               <%= link_to '<i class="fi-x"></i>'.html_safe, delete_step_path(:category_name => params[:category_name], :step_name => s.name), method: :delete, data: { confirm: 'Are you sure?' } %>
@@ -47,6 +47,11 @@
         <%= e.name %><br>
         <% if e.desc %>
             <%= e.desc.html_safe %>
+            <% if current_user.admin? %>
+                <%= link_to '<i class="fi-x small"></i>'.html_safe, delete_examination_path(:examination_name => e.name), method: :delete, data: { confirm: 'Are you sure?' } %>
+                <%= link_to '<i class="fi-pencil small"></i>'.html_safe, edit_examination_path(:examination_name => e.name), method: :get %>
+                <br><br>
+            <% end %>
         <% end %>
     <% end %>
 <% end %>
