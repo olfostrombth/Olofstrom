@@ -31,27 +31,35 @@ $(document).on "click", "#answer-btn", ->
 
 
  
-$(document).on 'click', ".tab", ->
+$(document).on 'click', ".tab",(e) ->
+  e.preventDefault()
   $(".tab").removeClass 'tabActive'
   $(this).addClass 'tabActive'
 
- $(document).on "click", ".com-tab", ->
+ $(document).on "click", ".com-tab",(e) ->
+  e.preventDefault()
+  $(this).addClass 'tabActive'
   $('.comments-content').show(500)
   $('.badge-content').hide()
   $('.activity-content').hide()
+  
 
 
- $(document).on "click", ".act-tab", ->
+ $(document).on "click", ".act-tab",(e) ->
+  e.preventDefault()
   $(this).addClass 'tabActive'
   $('.activity-content').show(500)
   $('.badge-content').hide()
   $('.comments-content').hide()
+  
 
- $(document).on "click", ".badge-tab", ->
+ $(document).on "click", ".badge-tab",(e) ->
+  e.preventDefault()
   $(this).addClass 'tabActive'
   $('.badge-content').show(500)
   $('.activity-content').hide()
   $('.comments-content').hide()
+ 
 
  
 

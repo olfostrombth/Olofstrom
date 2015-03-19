@@ -2,6 +2,11 @@
 
 
 
+.smallbadge
+{
+	display: inline-block;
+}
+
 .goldbadge{
   position: relative;
   margin-left: 200px;
@@ -62,7 +67,7 @@
 
  	.bheadline{
 	    position: absolute;
-	    top: 37%;
+	    top: 25%;
 	    left: 17%;
 	    width: 65%;
 	    height: 4em;
@@ -70,7 +75,7 @@
 	    text-align: center;
 
 		h3{
-		font-size: 1.2em;
+		font-size: 1em;
 	    line-height: 3em;
 	    padding: 0;
 	    letter-spacing: -1;
@@ -81,17 +86,15 @@
 
    	.bstep{
 	   	position: absolute;
-		top: 73%;
+		top: 68%;
 		left: 30%;
 		width: 40%;
 		height: 2em;
 		text-align: center;
 
 	    p{
-		}
-		.bstep i 
-		{
-			color: #fff;
+			font-family: 'Oswald', sans-serif;
+			font-size: 8px;
 		}
    	}
 
@@ -114,7 +117,7 @@
 
  	.bheadline{
 	    position: absolute;
-	    top: 37%;
+	    top: 25%;
 	    left: 17%;
 	    width: 65%;
 	    height: 4em;
@@ -122,7 +125,7 @@
 	    text-align: center;
 
 		h3{
-		font-size: 1.2em;
+		font-size: 1em;
 	    line-height: 3em;
 	    padding: 0;
 	    letter-spacing: -1;
@@ -133,7 +136,7 @@
 
    	.bstep{
 	   	position: absolute;
-		top: 73%;
+		top: 68%;
 		left: 30%;
 		width: 40%;
 		height: 2em;
@@ -141,6 +144,7 @@
 
 	    p{
 			font-family: 'Oswald', sans-serif;
+			font-size: 8px;
 		}
    	}
 
@@ -163,7 +167,7 @@
 
  	.bheadline{
 	    position: absolute;
-	    top: 37%;
+	    top: 25%;
 	    left: 17%;
 	    width: 65%;
 	    height: 4em;
@@ -171,7 +175,7 @@
 	    text-align: center;
 
 		h3{
-		font-size: 1.2em;
+		font-size: 1em;
 	    line-height: 3em;
 	    padding: 0;
 	    letter-spacing: -1;
@@ -182,7 +186,7 @@
 
    	.bstep{
 	   	position: absolute;
-		top: 73%;
+		top: 68%;
 		left: 30%;
 		width: 40%;
 		height: 2em;
@@ -190,6 +194,7 @@
 
 	    p{
 			font-family: 'Oswald', sans-serif;
+			font-size: 8px;
 		}
    	}
 
@@ -212,7 +217,7 @@
 
  	.bheadline{
 	    position: absolute;
-	    top: 37%;
+	    top: 25%;
 	    left: 17%;
 	    width: 65%;
 	    height: 4em;
@@ -220,7 +225,7 @@
 	    text-align: center;
 
 		h3{
-		font-size: 1.2em;
+		font-size: 1em;
 	    line-height: 3em;
 	    padding: 0;
 	    letter-spacing: -1;
@@ -231,7 +236,7 @@
 
    	.bstep{
 	   	position: absolute;
-		top: 73%;
+		top: 68%;
 		left: 30%;
 		width: 40%;
 		height: 2em;
@@ -239,6 +244,7 @@
 
 	    p{
 			font-family: 'Oswald', sans-serif;
+			font-size: 8px;
 		}
    	}
 

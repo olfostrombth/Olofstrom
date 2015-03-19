@@ -18,8 +18,8 @@
 			<p>Status: Användare</p>
 		<%end%>
 		<p>Kommentarer: <% if @comments %><%= @comments.length %><% end %></p>
-		<p>Senast inloggad: </p>
-
+		<p>Senast inloggad: <%= current_user.updated_at %></p>
+			<br>
 		  <%= mail_to @user.email do %>
 			 <center> <i class='fa fa-envelope-o fa-2x'></i>&nbsp; Maila mig!</center>
 			<% end %>
@@ -28,9 +28,9 @@
 		</div>
 		<div class="medium-9 large-9 columns">
 			<div class="medium-3 large-3 columns tab-menu right">
-			<a href="#"><div class="tab com-tab">Kommentarer</div></a>
-			<a href="#"><div class="tab act-tab">Aktivitet</div></a>
-			<a href="#"><div class="tab tabActive badge-tab active">Märken</div></a>
+			<div class="tab com-tab">Kommentarer</div>
+			<div class="tab act-tab">Aktivitet</div>
+			<div class="tab tabActive badge-tab active">Märken</div>
 			</div>
 			<div class="large-12 columns activity-content">
 			<% @activities.each do |activity|%>
@@ -80,13 +80,13 @@
   <% index = 0 %>
     <% compval.each do |stepkeyz,stepvalz| %>
     <% index = index+1 %>
-      <div class="<%= @badges[index%4] %>">
+      <div class="<%= @badges[index%4] %> left">
           <div class="bheadline"><h3><%= compkey %></h3></div>
           <div class="bstep"><p><%= stepkeyz %></p></div>
       </div>
     <% end %>
     <% else %>
-    <div class="goldbadge">
+    <div class="goldbadge left">
         <div class="bheadline"><h3><%= compkey %></h3></div>
         <div class="bstep"><p>DDD</p></div>
     </div>
