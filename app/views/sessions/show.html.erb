@@ -60,22 +60,23 @@
   <%# testz = get_steps_info() %>
   <% done = [] %>
   <% compval.each do |stepkey, stepval| %>
-    <% if stepkey == "examination" then break end %>
+    <% if stepkey == "examination" then next end %>
     <% step = Step.where({name:stepkey}).first %>
     <% substeps = Substep.where({step_id: step.id}) %>
     <% step = get_steps_info(compkey, stepkey, JSON.parse(@user.completion),substeps.length) %>
+    <% step["percent"][0] %>
     <% done.push(step["percent"][0]) %>
   <% end %>
 
   <% nothundred = 0 %>
   <% done.each do |x| %>
     <% if x == "100" %>
-      <% break %>
+      <% next %>
     <% else %>
       <% nothundred = nothundred+1 %>
     <% end %>
   <% end %>
-
+  <%= nothundred %>
   <% if nothundred > 0 %>
   <% index = 0 %>
     <% compval.each do |stepkeyz,stepvalz| %>
