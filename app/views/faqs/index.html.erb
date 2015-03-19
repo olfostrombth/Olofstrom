@@ -1,0 +1,27 @@
+
+<% if current_user.admin? %>
+  <%= form_for(@faq) do |f| %>
+
+    <div>
+    <%= link_to '<i class="button redbtn">Lägg till FAQ</i>'.html_safe, new_faq_path(f)%>
+    </div>
+
+  <% end %>
+<% end %>
+
+<% @faqs.each do |f| %>
+
+  <div class="field">
+    <%= f.frequent_questions%><br>
+    <%= f.frequent_answers.html_safe %><br>
+    <% if current_user.admin? %>
+      <div class="crud">
+      
+        <%= link_to '<i class="fi-x small"></i>'.html_safe, f, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to '<i class="fi-pencil small"></i>'.html_safe, edit_faq_path(f), method: :get %>
+
+      </div>
+    <% end %>
+  </div>
+
+<% end %> 

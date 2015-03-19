@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :faqs
+
+
+
   #mount Ckeditor::Engine => '/ckeditor'
   get 'sessions/create' => 'sessions#create'
 
