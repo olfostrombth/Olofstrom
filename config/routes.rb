@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   post 'sessions/importUsers' => 'sessions#importUsers', :as => :import_users
   get '/search' => 'sessions#search', :as => :search
   get '/autocomplete' => 'sessions#autocomplete', :as => :autocomplete
+  get '/autocomplete_admin' => 'sessions#autocomplete_admin', :as => :autocomplete_admin
 
   root 'categories#index'
   get '/admin', to: 'sessions#admin', :as => :admin
@@ -69,6 +70,13 @@ Rails.application.routes.draw do
   delete "/questions/:question_name" => "questions#destroy", :as => :delete_question
   get "/questions/new" => "quizzes#new"
 
+  get "/examinations/:examination_name" => "examinations#show", :as => :examination
+  get "/examinations/:examination_name/edit" => "examinations#edit", :as => :edit_examination
+  put "/examinations/:examination_name" => "examinations#update"
+  patch "/examinations/:examination_name" => "examinations#update"
+  delete "/examinations/:examination_name" => "examinations#destroy", :as => :delete_examination
+  get "/examinations/new" => "examinations#new"
+
   put "/comments" => "comments#update"
   patch "/comments" => "comments#update"
 
@@ -77,7 +85,7 @@ Rails.application.routes.draw do
   #, only: [:create, :destroy]
 
 
-  resources :comments, only: [:edit, :create, :update, :destroy]
+  resources :comments
 
   resources :steps, only: [:create, :index]
 
@@ -91,7 +99,7 @@ Rails.application.routes.draw do
 
   resources :questions, only: [:create, :index]
 
-  resources :examinations, only: [:edit, :create, :update, :destroy]
+  resources :examinations, only: [:create, :index]
 
   resources :categories, only: [:create, :index, :new]
 

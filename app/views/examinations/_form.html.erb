@@ -1,4 +1,4 @@
-<%= form_for(@examination) do |f| %>
+<%= form_for(@examination, as: :examination, url: examination_path(@examination.name)) do |f| %>
   <% if @examination.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@examination.errors.count, "error") %> prohibited this examination from being saved:</h2>
@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :Text %><br>
-    <%= f.text_field :desc %>
+    <%= f.text_area :desc, :class => "tinymce" %>
   </div>
   <div class="field">
     <%= f.hidden_field :category_id %>
@@ -26,8 +26,5 @@
   <div class="actions">
      <%= f.button :Skapa, :class => 'form-btn ease' %>
   </div>
-
-
-
-
 <% end %>
+<%= tinymce %>

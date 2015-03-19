@@ -6,7 +6,7 @@
         <a href="<%= category_path(cat.name) %>">
         <div class="mod-desc" style="background-color:<%= @colors[index%4] %>;">
           <div class="desc-p">
-            <p><%= cat.desc %></p>
+            <p><%= cat.desc.html_safe %></p>
           </div>
         </div>
         <div class="mod-headline" style="background-color:<%= @darkcolors[index%4] %>;">

@@ -1,16 +1,25 @@
+
 <div class="small-12 medium-12 large-12 columns">
 	<% if current_user.admin? %>
 	<div class="small-12 medium-12 large-12 columns headline">
 		<h2> admin</h2>
 	</div>
-
+	<div class="row">
+		<div class="small-6 medium-6 large-6 columns adminrow">
 	<h3>Importera användare i .CSV fomat</h3>
 
 	<%= form_tag import_users_path, multipart: true do %>
 	  <%= file_field_tag :file %>
 	  <%= submit_tag "Importera", class: 'button form-btn tiny' %>
 	<% end %>
+	  <div class="searchadmin left">
+	  <%= form_tag admin_path, class: "form-inline", method: :get do %>
+		  <%= text_field_tag :admin_query, params[:admin_query], class: "search_form", id: "user_search", autocomplete: "on", placeholder: 'Sök användare' %>
 
+		  <div id="input_img"><%= image_submit_tag ('Search.png'), class:'input_img sbtnstyle' %></div>
+	  <% end %>
+	</div>
+	 <br><br><br><br>
 	<%= will_paginate %>
 	<h3>Användare: </h3>
 	<div id="users">
@@ -20,5 +29,10 @@
 	  <% end %>
 	</ul>
 	</div>
+	</div>
 	<% end %>
+	<div class="small-6 medium-6 large-6 columns adminrow">
+		<h3>Hantera slidern</h3>
+	</div>
+	</div>
 </div>
