@@ -69,18 +69,15 @@ $(document).on "click", ".add-mod-btn2", ->
 
 
 btn = false
-console.log btn
 
 $(document).on "click", ".mobile-menu-btn", ->
   if btn
     $('.mobile-menu-btn').animate { left: '0' }, 500
     $('.sidebar').animate { width: 'toggle' }, 500
-    console.log btn
     btn = false
   else
     $('.mobile-menu-btn').animate { left: '85%' }, 500
     $('.sidebar').animate { width: 'toggle' }, 500
-    console.log btn
     btn = true
     return
   return
