@@ -42,7 +42,7 @@
         <% if current_user.admin? %>
        <%= link_to '<div class="small-12 medium-12 large-12 columns side"><p><i class="fa fa-user-secret"></i>&nbsp;Admin</p></div>'.html_safe, admin_path %>
         <% end %>
-        <div class="small-12 medium-12 large-12 columns side"><p><i class="fa fa-question"></i> &nbsp;FAQ</p></div>
+        <%= link_to '<div class="small-12 medium-12 large-12 columns side"><p><i class="fa fa-question"></i> &nbsp;FAQ</p></div>'.html_safe, faqs_path %>
         <%= link_to '<div class="small-12 medium-12 large-12 columns side"><p><i class="fa fa-sign-out"></i>Logga ut</p></div>'.html_safe, signout_path, id: "sign_out" %>
           <a href="#"><div class="small-12 medium-12 large-12 columns side fed"><p><i class="fa fa-comment"></i>Flöde</p></div></a>
           <div class="large-12 columns fed-toggle">
