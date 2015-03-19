@@ -17,9 +17,10 @@
   </div>
   <div class="field">
     <%= f.label :frequent_answers %><br>
-    <%= f.text_field :frequent_answers %>
+    <%= f.text_area :frequent_answers, :class => "tinymce" %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+<%= tinymce %>

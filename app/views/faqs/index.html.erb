@@ -1,20 +1,19 @@
 
 <% if current_user.admin? %>
   <%= form_for(@faq) do |f| %>
-    <div>
 
+    <div>
     <%= link_to '<i class="button redbtn">Lägg till FAQ</i>'.html_safe, new_faq_path(f)%>
-    
     </div>
+
   <% end %>
 <% end %>
 
 <% @faqs.each do |f| %>
+
   <div class="field">
-
     <%= f.frequent_questions%><br>
-    <%= f.frequent_answers %><br>
-
+    <%= f.frequent_answers.html_safe %><br>
     <% if current_user.admin? %>
       <div class="crud">
       
@@ -24,4 +23,5 @@
       </div>
     <% end %>
   </div>
+
 <% end %> 
