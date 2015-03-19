@@ -1,0 +1,30 @@
+<%= form_for(@examination) do |f| %>
+    <% if @examination.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@examination.errors.count, "error") %> prohibited this examination from being saved:</h2>
+
+          <ul>
+            <% @examination.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :Namn %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :Text %><br>
+      <%= f.text_area :desc, :class => "tinymce" %>
+    </div>
+    <div class="field">
+      <%= f.hidden_field :category_id %>
+
+    </div>
+    <div class="actions">
+      <%= f.button :Skapa, :class => 'form-btn ease' %>
+    </div>
+<% end %>
+<%= tinymce %>

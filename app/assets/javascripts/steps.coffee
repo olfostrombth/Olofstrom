@@ -22,6 +22,12 @@ getSubSteps = ->
       substeps[id] = false
       console.log "Checked is false: " + JSON.stringify(substeps)
   return substeps
+#$(document).on('page:before-change', getSubSteps)
+$(document).on('page:before-unload', getSubSteps)
+$(document).on('page:fetch', getSubSteps)
+$(document).on('page:receive', getSubSteps)
+$(document).on('page:change', getSubSteps)
+$(document).ready(getSubSteps)
 
 
 #returns if all the checkboxes for the substep check is checked or not (true/false)
@@ -65,11 +71,14 @@ ready = ->
           completed.removeClass('hidden-item')
         else if y == "false"
           $("#"+x).prop("checked", false)
+#$(document).on('page:before-change', ready)
+$(document).on('page:before-unload', getSubSteps)
+$(document).on('page:fetch', ready)
+$(document).on('page:receive', ready)
+$(document).on('page:change', ready)
 $(document).ready(ready)
-$(document).on('page:load', ready)
 
 $(document).on "click", ".donebox", ->
-  #console.log ""
   substeps = getSubStep(this)
   substep = $(this).parent().parent()
   if substep.attr('class') == 'quiz-fix'
