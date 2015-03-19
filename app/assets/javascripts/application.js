@@ -20,7 +20,6 @@
 //= require jquery-ui/effect-highlight
 
 //= require foundation
-
 //= require tinymce
 //= require tinymce-jquery
 

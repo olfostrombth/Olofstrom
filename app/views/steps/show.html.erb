@@ -126,7 +126,6 @@
                             <% if completion[@step.category.name][@step.name]["substep_"+item['uid'].to_s] == "true" %>
                               <% if item['quiz_type'] %>
                                   <% else %>
-                                  <p>Du är nu klar med detta substeget</p>
                                   <% end %>
                             <% end end %>
                     <% end %>
@@ -193,7 +192,7 @@
                                 <% completion = JSON.parse(@user.completion) %>
                                 <% if completion[@step.category.name][@step.name] %>
                                     <% if completion[@step.category.name][@step.name]["substep_"+item['uid'].to_s] == "true" %>
-                                        <p>Du är nu klar med detta substeget :)</p>
+
                                     <% end %>
                                 <% end %>
                                 <% if current_user.admin? %> <!-- Jag vet det är sinnessjukt -->

@@ -798,22 +798,22 @@ box-shadow:         0px 0px 14px 0px rgba(50, 50, 50, 0.3);
 }
 
 input[type="checkbox"] {
-    display:none;
+  display:none;
 }
 input[type="checkbox"] + label span {
-    display:inline-block;
-    width:25px;
-    height:25px;
-    margin:-1px 4px 0 0;
-    vertical-align:middle;
-    cursor:pointer;
-    background: url('uncheck.png');
-    border-radius: 4px;
-    box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+  display:inline-block;
+  width:25px;
+  height:25px;
+  margin:-1px 4px 0 0;
+  vertical-align:middle;
+  cursor:pointer;
+  background: url('uncheck.png');
+  border-radius: 4px;
+  box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
 }
 
 input[type="checkbox"]:checked + label span {
-    background: url('check.png') no-repeat;
+  background: url('check.png') no-repeat;
 }
 
 /*---- STEP MODULES ----*/
