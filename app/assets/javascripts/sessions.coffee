@@ -16,6 +16,7 @@ $ ->
     remote: "/autocomplete?query=%QUERY"
 
 
+
 $ ->
   $(document).on "click", ".edit_user", (e) ->
     submit(this, e)
