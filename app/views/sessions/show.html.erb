@@ -1,6 +1,6 @@
 <div class="row">
   <div class="row">
-	<div class="medium-12 large-12 columns headline"><h2><%= @user.name%></h2></div>
+        <div class="medium-12 large-12 columns headline"><h2><%= @user.name%></h2></div>
 </div>
 <div class="row panel admincontent">
 	<div class="small-12 medium-12 large-12 columns">
@@ -18,7 +18,7 @@
 			<p>Status: Användare</p>
 		<%end%>
 		<p>Kommentarer: <% if @comments %><%= @comments.length %><% end %></p>
-		<p>Senast inloggad: <%= current_user.updated_at %></p>
+		<p>Senast inloggad: <%= current_user.updated_at.to_s.split(" ")[0] %></p>
 			<br>
 		  <%= mail_to @user.email do %>
 			 <center> <i class='fa fa-envelope-o fa-2x'></i>&nbsp; Maila mig!</center>
@@ -45,7 +45,9 @@
 			  <% if @comments %>
 				  <% @comments.each do |x| %>
 					  <% if x %>
-						  <% cat = Category.find(x.category_id).name %>
+						  <% catx = Category.find_by id: x.category_id
+              if not catx then next end
+              cat = catx.name if catx %>
 						  <%= @user.name %> har kommenterat på <%= link_to cat, category_path(cat) %>: <%= x.msg %> - <%= x.created_at %>
 					  <% end %>
 					  <br>
@@ -134,4 +136,5 @@
 
 
 
+</div>
 </div>
