@@ -47,6 +47,11 @@
         <%= e.name %><br>
         <% if e.desc %>
             <%= e.desc.html_safe %>
+            <% if current_user.admin? %>
+                <%= link_to '<i class="fi-x small"></i>'.html_safe, delete_examination_path(:examination_name => e.name), method: :delete, data: { confirm: 'Are you sure?' } %>
+                <%= link_to '<i class="fi-pencil small"></i>'.html_safe, edit_examination_path(:examination_name => e.name), method: :get %>
+                <br><br>
+            <% end %>
         <% end %>
     <% end %>
 <% end %>

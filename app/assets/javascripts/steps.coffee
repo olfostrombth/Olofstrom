@@ -50,7 +50,7 @@ getSubStep = (thiss) ->
 
 
 
-ready = ->
+$(document).live 'pageload', ->
   if gon.completion
     substeps = $.parseJSON(gon.completion)
     if substeps
@@ -65,8 +65,11 @@ ready = ->
           completed.removeClass('hidden-item')
         else if y == "false"
           $("#"+x).prop("checked", false)
-$(document).ready(ready)
-$(document).on('page:load', ready)
+          return
+        return
+      return
+    return
+  return
 
 $(document).on "click", ".donebox", ->
   #console.log ""

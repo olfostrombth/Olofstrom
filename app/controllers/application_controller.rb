@@ -83,8 +83,18 @@ class ApplicationController < ActionController::Base
     if edit
       edit_url = if video_path(edit) then video_path(edit) elsif assignment_path(edit) then assignment_path(edit) elsif quiz_path(edit) then quiz_path(edit) elsif guide_path(edit) then guide_path(edit) elsif question_path(edit) then question_path(edit) else false end
     end
+    if params[:action] == 'admin'
+      admin = view_context.link_to 'Admin', admin_path
+      return home + " > "+admin
+    end
+    if params[:action] == 'faqs'
+      faqs = view_context.link_to 'Faq', faq_path
+      return home + " > "+faqs
+    end
     if profile
-      profilee = view_context.link_to user_path
+      profile_split = params[:name_url].split('/')[0]
+      profile_name = profile_split.split('-')[0]
+      profilee = view_context.link_to profile_name, user_path
       return home + " > "+profilee
     end
     if edit_url
