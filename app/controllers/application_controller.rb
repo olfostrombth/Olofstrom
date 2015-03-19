@@ -52,7 +52,7 @@ class ApplicationController < ActionController::Base
         catval.each do |stepkey, stepval|
           if stepkey == stepname
             stepval.each do |substepkey, substepval|
-              if substepval
+              if substepval == "done"
                 done = done+1
               end
             end
