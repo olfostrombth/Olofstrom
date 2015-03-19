@@ -28,9 +28,11 @@ class ApplicationController < ActionController::Base
       if comp.length > 0
       comp.each do |catkey,catval|
         done[catkey] = {}
+        if catval
         catval.each do |stepkey,stepval|
           done[catkey][stepkey] = stepval
         end
+      end
       end
         return done
     end
