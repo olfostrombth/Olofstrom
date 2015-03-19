@@ -27,12 +27,14 @@ class ApplicationController < ActionController::Base
       comp = JSON.parse(user.completion)
       if comp.length > 0
       comp.each do |catkey,catval|
+        if catkey
         done[catkey] = {}
         if catval
         catval.each do |stepkey,stepval|
           done[catkey][stepkey] = stepval
         end
       end
+    end
       end
         return done
     end
