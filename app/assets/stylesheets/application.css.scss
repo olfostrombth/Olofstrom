@@ -797,7 +797,7 @@ box-shadow:         0px 0px 14px 0px rgba(50, 50, 50, 0.3);
   background-color: #e55d5d!important;
 }
 
-input[type="checkbox"] {
+input[type="checkbox"].donebox {
   display:none;
 }
 input[type="checkbox"] + label span {

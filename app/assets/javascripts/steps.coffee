@@ -107,7 +107,7 @@ $(document).on "click", ".donebox", ->
   #console.log next_substep_div
   #console.log next_substep_div
   next_substep_div.removeClass('hidden-item') #remove hidden class to show next substep
-  if gon.admin
+  if gon.admin == false
     $('html, body').animate({scrollTop:$(document).height()}, 1000)
   #console.log substep_s
   #console.log substep_id
