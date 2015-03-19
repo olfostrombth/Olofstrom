@@ -1,19 +1,31 @@
-
+<div class="row">
+<div class="small-12 medium-12 large-12 columns headline">
+  <h2>FAQ</h2>
+</div>
+</div>
 <% if current_user.admin? %>
   <%= form_for(@faq) do |f| %>
 
     <div>
-    <%= link_to '<i class="button redbtn">Lägg till FAQ</i>'.html_safe, new_faq_path(f)%>
+    <%= link_to '<i class="button form-btn tiny">Lägg till FAQ</i>'.html_safe, new_faq_path(f)%>
     </div>
 
   <% end %>
 <% end %>
-
+<div class="small-12 medium-12 large-12 columns faqrow">
 <% @faqs.each do |f| %>
 
   <div class="field">
-    <%= f.frequent_questions%><br>
-    <%= f.frequent_answers.html_safe %><br>
+    <div class="faqheadline">
+    <h5><%= f.frequent_questions%></h5>
+    </div><br>
+    <div class="large-12 columns faqanswer-toggle">
+      <div class="faqanswer">
+      <div class="arrow"></div>
+    <p><%= f.frequent_answers.html_safe %></p>
+  </div>
+  </div>
+</div>
     <% if current_user.admin? %>
       <div class="crud">
       
@@ -22,6 +34,5 @@
 
       </div>
     <% end %>
-  </div>
-
 <% end %> 
+</div>
