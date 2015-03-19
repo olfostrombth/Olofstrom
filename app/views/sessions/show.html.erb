@@ -18,7 +18,7 @@
 			<p>Status: Användare</p>
 		<%end%>
 		<p>Kommentarer: <% if @comments %><%= @comments.length %><% end %></p>
-		<p>Senast inloggad: <%= current_user.updated_at.to_s.split(" ")[0] %></p>
+		<p>Senast inloggad: <%= @user.updated_at.to_s.split(" ")[0] %></p>
 			<br>
 		  <%= mail_to @user.email do %>
 			 <center> <i class='fa fa-envelope-o fa-2x'></i>&nbsp; Maila mig!</center>
