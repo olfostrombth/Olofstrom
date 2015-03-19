@@ -51,6 +51,7 @@ class StepsController < ApplicationController
     gon.stepname = Category.normalize_cat(params[:step_name])
     gon.catname = Category.normalize_cat(params[:category_name])
     gon.completion = current_user.completion if current_user
+    gon.admin = @current_user.admin
     @user = User.find(current_user.id)
     @completion = @user.completion
 
