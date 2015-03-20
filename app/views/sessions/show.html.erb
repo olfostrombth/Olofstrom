@@ -28,11 +28,12 @@
 		</div>
 		<div class="medium-9 large-9 columns">
 			<div class="medium-3 large-3 columns tab-menu right">
-			<a href="#"><div class="tab com-tab">Kommentarer</div></a>
-			<a href="#"><div class="tab act-tab">Aktivitet</div></a>
-			<a href="#"><div class="tab tabActive badge-tab active">Märken</div></a>
+			<div class="tab com-tab">Kommentarer</div>
+			<div class="tab act-tab">Aktivitet</div>
+			<div class="tab tabActive badge-tab active">Märken</div>
 			</div>
 			<div class="large-12 columns activity-content">
+			  aktivitiet
 			<% @activities.each do |activity|%>
 				<div class="activity">
 					<%= link_to activity.owner.name, activity.owner if activity.owner%>
@@ -42,6 +43,7 @@
 			<% end %>
 			</div>
 			<div class="large-12 columns comments-content">
+			  comment
 			  <% if @comments %>
 				  <% @comments.each do |x| %>
 					  <% if x %>
@@ -54,46 +56,55 @@
 			</div>
 			<div class="large-12 columns badge-content">Badge
 			<div class="badges-holder">
-        <% comp = get_completion(@user) %>
-	  <% if comp %>
-<% comp.each do |compkey,compval| %>
-  <%# testz = get_steps_info() %>
-  <% done = [] %>
-  <% compval.each do |stepkey, stepval| %>
-    <% if stepkey == "examination" then break end %>
-    <% step = Step.where({name:stepkey}).first %>
-    <% substeps = Substep.where({step_id: step.id}) %>
-    <% step = get_steps_info(compkey, stepkey, JSON.parse(@user.completion),substeps.length) %>
-    <% done.push(step["percent"][0]) %>
-  <% end %>
+			  <% comp = get_completion(@user) %>
+			  <% if comp %>
+				  <% comp.each do |compkey,compval| %>
+					  <%# testz = get_steps_info() %>
+					  <% done = [] %>
+					  <% compval.each do |stepkey, stepval| %>
+						  <% if stepkey == "examination" then next end %>
+						  <% step = Step.where({name:stepkey}).first %>
+						  <% substeps = Substep.where({step_id: step.id}) %>
+						  <% step = get_steps_info(compkey, stepkey, JSON.parse(@user.completion),substeps.length) %>
+						  <% step["percent"][0] %>
+						  <% done.push(step["percent"][0]) %>
+					  <% end %>
 
-  <% nothundred = 0 %>
-  <% done.each do |x| %>
-    <% if x == "100" %>
-      <% break %>
-    <% else %>
-      <% nothundred = nothundred+1 %>
-    <% end %>
-  <% end %>
+					  <% nothundred = 0 %>
+					  <% done.each do |x| %>
+						  <% if x == "100" %>
+							  <% next %>
+						  <% else %>
+							  <% nothundred = nothundred+1 %>
+						  <% end %>
+					  <% end %>
+					  <% if nothundred > 0 %>
+						  <% index = 0 %>
+						  <div class="large-6 columns sbadge right">
+							<% compval.each do |stepkeyz,stepvalz| %>
+								<% index = index+1 %>
 
-  <% if nothundred > 0 %>
-  <% index = 0 %>
-    <% compval.each do |stepkeyz,stepvalz| %>
-    <% index = index+1 %>
-      <div class="<%= @badges[index%4] %>">
-          <div class="bheadline"><h3><%= compkey %></h3></div>
-          <div class="bstep"><p><%= stepkeyz %></p></div>
-      </div>
-    <% end %>
-    <% else %>
-    <div class="goldbadge">
-        <div class="bheadline"><h3><%= compkey %></h3></div>
-        <div class="bstep"><p>DDD</p></div>
-    </div>
-  <% end %>
+								<div class="large-4 columns ">
+								  <div class="<%= @badges[index%4] %>">
+									<div class="bheadline"><h3><%= compkey %></h3></div>
+									<div class="bstep"><p><%= stepkeyz %></p></div>
+								  </div>
+								</div>
 
-<% end %>
-<% end %>
+							<% end %>
+						  </div>
+					  <% else %>
+						  <div class="large-2 columns gbadge left">
+							<div class="goldbadge">
+							  <div class="bheadline"><h3><%= compkey %></h3></div>
+							  <div class="bstep"><p>DDD</p></div>
+							</div>
+						  </div>
+					  <% end %>
+
+
+				  <% end %>
+			  <% end %>
 					</div>
 			</div>
 		</div>
@@ -102,27 +113,6 @@
 	<div class="medium-5 columns">
 
 	</div>
-
-	<!--<h3>---Completion---</h3>
-
-	<div class="medium-3 columns">
-		<% @completion.each do |modul, modulValue|%>
-			<% modulValue.each do |step, stepValue|%>
-				<% stepValue.each do |substep, substepValue|%>
-
-					<% if substepValue %>
-						<div>
-							<p>
-							|namn| <%=@user.name%> <br>
-							|substep| <%=substep%> <br>
-							|step| <%=step%> <br>
-							|modul| <%=modul%></b></p>
-						</div>
-					<% end %>
-				<% end %>
-			<% end %>
-		<% end %>
-	</div>-->
 
 
 
