@@ -72,7 +72,7 @@ ready = ->
         else if y == "notdone"
           $("#"+x).prop("checked", false)
 #$(document).on('page:before-change', ready)
-$(document).on('page:before-unload', getSubSteps)
+$(document).on('page:before-unload', ready)
 $(document).on('page:fetch', ready)
 $(document).on('page:receive', ready)
 $(document).on('page:change', ready)
@@ -107,7 +107,8 @@ $(document).on "click", ".donebox", ->
   #console.log next_substep_div
   #console.log next_substep_div
   next_substep_div.removeClass('hidden-item') #remove hidden class to show next substep
-  $('html, body').animate({scrollTop:$(document).height()}, 1000)
+  if gon.admin == false
+    $('html, body').animate({scrollTop:$(document).height()}, 1000)
   #console.log substep_s
   #console.log substep_id
   #console.log substep_id_next
@@ -136,6 +137,11 @@ $(document).on "click", ".donebox", ->
   #    console.log x + " is checked"
   #  else
   #    console.log x + " is not checked"
+$(document).on "click", "#continue", ->
+  substep_class = $(this).siblings('.hidden-item')
+  next_substep = $(substep_class).first()
+  next_substep.removeClass('hidden-item')
+  $(this).hide()
 
 $(document).on "click", "#show_video", ->
   video = $(this).parent().find('#video_url')

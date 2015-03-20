@@ -25,43 +25,35 @@ $(document).on "click", "#comment_toggle", ->
 
 $(document).on "click", "#answer-btn", ->
   $(this).parent().parent().children('#replies').slideToggle('show')
-
-
   if $(this).html() == '<i class="fa fa-plus"></i>' then $(this).html('<i class="fa fa-minus"></i>') else $(this).html('<i class="fa fa-plus"></i>')
 
 
- 
+
 $(document).on 'click', ".tab",(e) ->
   e.preventDefault()
   $(".tab").removeClass 'tabActive'
   $(this).addClass 'tabActive'
 
- $(document).on "click", ".com-tab",(e) ->
-  e.preventDefault()
-  $(this).addClass 'tabActive'
+$(document).on "click", ".com-tab", ->
   $('.comments-content').show(500)
   $('.badge-content').hide()
   $('.activity-content').hide()
-  
 
 
- $(document).on "click", ".act-tab",(e) ->
-  e.preventDefault()
+
+$(document).on "click", ".act-tab", ->
   $(this).addClass 'tabActive'
   $('.activity-content').show(500)
   $('.badge-content').hide()
   $('.comments-content').hide()
-  
 
- $(document).on "click", ".badge-tab",(e) ->
-  e.preventDefault()
+
+$(document).on "click", ".badge-tab", ->
   $(this).addClass 'tabActive'
   $('.badge-content').show(500)
   $('.activity-content').hide()
   $('.comments-content').hide()
- 
 
- 
 
 
 # Archivement badges show
@@ -77,18 +69,19 @@ $(document).on "click", ".fed", ->
 $(document).on "click", ".add-mod-btn2", ->
   $('.feeed').slideToggle 'slow'
   return
+# MOBIL MENY JS
+
 
 btn = false
-
-# MOBIL MENY JS
 
 $(document).on "click", ".mobile-menu-btn", ->
   if btn
     $('.mobile-menu-btn').animate { left: '0' }, 500
+    $('.sidebar').animate { width: 'toggle' }, 500
     btn = false
   else
     $('.mobile-menu-btn').animate { left: '85%' }, 500
-    btn = true
     $('.sidebar').animate { width: 'toggle' }, 500
+    btn = true
+    return
   return
-return
