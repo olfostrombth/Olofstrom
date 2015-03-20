@@ -144,6 +144,8 @@ $(document).on "click", ".donebox", ->
   #    console.log x + " is checked"
   #  else
   #    console.log x + " is not checked"
+
+
 $(document).on "click", "#continue", ->
   substep_class = $(this).siblings('.hidden-item')
   next_substep = $(substep_class).first()

@@ -33,7 +33,6 @@
 			<div class="tab tabActive badge-tab active">Märken</div>
 			</div>
 			<div class="large-12 columns activity-content">
-			  aktivitiet
 			<% @activities.each do |activity|%>
 				<div class="activity">
 					<%= link_to activity.owner.name, activity.owner if activity.owner%>
@@ -43,7 +42,6 @@
 			<% end %>
 			</div>
 			<div class="large-12 columns comments-content">
-			  comment
 			  <% if @comments %>
 				  <% @comments.each do |x| %>
 					  <% if x %>
@@ -54,7 +52,7 @@
 				  <% end %>
 			  <% end %>
 			</div>
-			<div class="large-12 columns badge-content">Badge
+			<div class="large-12 columns badge-content">
 			<div class="badges-holder">
 			  <% comp = get_completion(@user) %>
 			  <% if comp %>
