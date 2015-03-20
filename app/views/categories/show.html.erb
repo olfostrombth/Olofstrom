@@ -17,7 +17,12 @@
 
                       <div class="step-comp" style="width:<%= percent["percent"][0] %>%;"></div>
           <h2><%= link_to s.name, step_path(:category_name => params[:category_name], :step_name => s.name), 'data-no-turbolink' => true %></h2>
-
+          <% if percent["percent"][0].to_i > 0 %>
+          <div class="<%= badges[s.id%4] %>">
+              <div class="bheadline"><h3><%= s.name %></h3></div>
+              <div class="bstep"><p><%= @category.name %></p></div>
+          </div>
+          <% end %>
           <% if current_user.admin? %>
               <%= link_to '<i class="fi-x"></i>'.html_safe, delete_step_path(:category_name => params[:category_name], :step_name => s.name), method: :delete, data: { confirm: 'Are you sure?' } %>
               <%= link_to '<i class="fi-pencil"></i>'.html_safe, edit_step_path(:category_name => params[:category_name], :step_name => s.name), method: :get %>
