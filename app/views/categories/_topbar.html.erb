@@ -1,3 +1,9 @@
+<script type="text/javascript" src="../javascripts/jssor.core.js"></script>
+<script type="text/javascript" src="../javascripts/jssor.utils.js"></script>
+<script type="text/javascript" src="../javascripts/jssor.slider.js"></script>
+<script type="text/javascript" src="../javascripts/slider.js"></script>
+
+
 <div class="row">
 
   <!--  TOPBAR -->
@@ -46,8 +52,27 @@
   <div class="medium-12 large-12 columns sliderimg">
     <div class="large-12 columns imageslider"> <%= image_tag("sliderblur.png") %></div>
     <div class="medium-12 large-12 columns slider"> 
-    <div class="medium-12 large-12 columns swop"> 
-    <div class="medium-6 large-6 columns"><h2>Rubrik</h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero repellendus aperiam quibusdam alias dolorem cum, architecto dicta natus aliquam nesciunt ipsa facilis tempora doloribus, neque sunt officiis est iste sint, incidunt molestiae ipsum. Reprehenderit, magni quis! Debitis exercitationem, fugiat sapiente quas dolorum consequuntur eaque atque sint, ex totam. Et, fugiat!</div><div class="medium-6 large-6 columns"><h2>Nyheter</h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe pariatur numquam veritatis fugit inventore molestias odit ducimus ab officiis quae nesciunt impedit qui voluptatem hic ea assumenda, magnam officia? Officiis aliquid nesciunt recusandae, ad error iusto. Odio ducimus commodi quis saepe neque, tenetur consectetur totam, amet ad aliquam, illo facilis assumenda voluptas obcaecati repudiandae animi dolor veniam aspernatur. Eius temporibus distinctio consequatur quod vero labore. Laudantium velit, ipsa ab repellat?</div></div>
+        
+
+         <div id="slider1_container" style="position: relative; top: 2px; left: 10px; width: 600px;
+              height: 300px;">
+        <!-- Slides Container -->
+        <div u="slides" style="cursor: move; position: absolute; left: 120px; top: 2px; width: 600px; height: 300px;
+                overflow: hidden;">
+          <div class="large-12 columns"><h2>Rubrik1</h2><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis impedit dicta harum quidem vel explicabo eos perspiciatis reiciendis animi minus.</p></div>
+          <div class="large-12 columns"><h2>Rubrik2</h2><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis impedit dicta harum quidem vel explicabo eos perspiciatis reiciendis animi minus.</p></div>
+          <div><%= image_tag("http://lorempixel.com/600/150/") %></div>
+          <div class="large-12 columns"><h2>Rubrik3</h2><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis impedit dicta harum quidem vel explicabo eos perspiciatis reiciendis animi minus.</p></div>
+          <div><%= image_tag("http://lorempixel.com/600/150/") %></div>
+        </div>
+        <script>
+            jssor_slider1_starter('slider1_container');
+        </script>
+
+      </div>
+
+
+   
   </div>
   </div>
 

@@ -17,7 +17,13 @@
 
   <div class="field">
     <div class="faqheadline">
-    <h5><%= f.frequent_questions%></h5>
+    <h5><%= f.frequent_questions%> 
+      <% if current_user.admin? %>
+      <div class="crud">
+        <%= link_to '<i class="fi-x small"></i>'.html_safe, f, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to '<i class="fi-pencil small"></i>'.html_safe, edit_faq_path(f), method: :get %>
+      </div>
+    <% end %></h5>
     </div><br>
     <div class="large-12 columns faqanswer-toggle">
       <div class="faqanswer">
@@ -26,13 +32,6 @@
   </div>
   </div>
 </div>
-    <% if current_user.admin? %>
-      <div class="crud">
-      
-        <%= link_to '<i class="fi-x small"></i>'.html_safe, f, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <%= link_to '<i class="fi-pencil small"></i>'.html_safe, edit_faq_path(f), method: :get %>
-
-      </div>
-    <% end %>
+    
 <% end %> 
 </div>
