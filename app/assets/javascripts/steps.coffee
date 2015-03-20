@@ -144,6 +144,28 @@ $(document).on "click", ".donebox", ->
   #    console.log x + " is checked"
   #  else
   #    console.log x + " is not checked"
+hideContinue = ->
+  done = 0
+  not_done = 0
+  if gon.completion
+    substeps = $.parseJSON(gon.completion)
+    if substeps
+      substepsx = substeps[gon.catname][gon.stepname]
+      for x,y of substepsx
+        if y == "done"
+          done++
+        else if y == "notdone"
+          not_done++
+      if done == 0 and not_done > 0
+        $('#continue').hide()
+      else if not_done == 0 and done > 0
+        $('#continue').hide()
+
+$(document).on('page:before-unload', hideContinue)
+$(document).on('page:fetch', hideContinue)
+$(document).on('page:receive', hideContinue)
+$(document).on('page:change', hideContinue)
+$(document).ready(hideContinue)
 
 
 $(document).on "click", "#continue", ->
