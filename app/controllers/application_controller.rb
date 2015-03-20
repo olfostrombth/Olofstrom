@@ -20,6 +20,11 @@ class ApplicationController < ActionController::Base
     self.replace(self.shuffle)
   end
 
+  helper_method :badges
+  def badges
+    return ["bluebadge", "greenbadge", "orangebadge", "pinkbadge"]
+  end
+
   helper_method :get_completion
   def get_completion(user)
     if user.name
