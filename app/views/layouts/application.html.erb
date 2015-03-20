@@ -62,6 +62,8 @@ o o o o    oo"  o"      "o    $$o$"     o o$""  o$      "$  "oo   o o o o
                   <% if stepkey == "examination" then next end %>
                   <% step = Step.where({name:stepkey}).first %>
                   <% substeps = Substep.where({step_id: step.id}) %>
+                  <% if step
+                   if substeps %>
                   <% step = get_steps_info(compkey, stepkey, JSON.parse(current_user.completion),substeps.length) %>
                   <% step["percent"][0] %>
                   <% done.push(step["percent"][0]) %>
@@ -100,7 +102,7 @@ o o o o    oo"  o"      "o    $$o$"     o o$""  o$      "$  "oo   o o o o
                 <% end %>
 
 
-              <% end %>
+              <% end end end %>
               <% end %>
             </div>
             </div>
