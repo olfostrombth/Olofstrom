@@ -58,6 +58,8 @@
         <% comp = get_completion(@user) %>
 	  <% if comp %>
 <% comp.each do |compkey,compval| %>
+
+<% if compkey == "javascripts" then next end %>
   <%# testz = get_steps_info() %>
   <% done = [] %>
   <% compval.each do |stepkey, stepval| %>
