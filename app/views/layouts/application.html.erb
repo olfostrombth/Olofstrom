@@ -126,7 +126,7 @@ o o o o    oo"  o"      "o    $$o$"     o o$""  o$      "$  "oo   o o o o
             <% linkz = linkx[0][0].split(": ") %>
             <% if linkz[1] %>
             <% l = linkz[1]+">"+title+"</a>" %>
-          <div class="large-12 columns avtxt"><p><%=link_to name[0], session_path(activity.owner)%>
+          <div class="large-12 columns avtxt"><p><%=link_to name[0], user_path(name[0]+"-"+activity.owner.id.to_s)%>
                <%= linkz[0] + ": "%><%= l.html_safe %></p></div>
            <% end end end end %>
               </div>
