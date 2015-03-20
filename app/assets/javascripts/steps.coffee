@@ -16,10 +16,10 @@ getSubSteps = ->
   for x,y in raw
     id = $(x).attr("id")
     if $(x).is(":checked")
-      substeps[id] = true
+      substeps[id] = "done"
       console.log "Checked is true: " + JSON.stringify(substeps)
     else
-      substeps[id] = false
+      substeps[id] = "notdone"
       console.log "Checked is false: " + JSON.stringify(substeps)
   return substeps
 #$(document).on('page:before-change', getSubSteps)
@@ -48,7 +48,7 @@ getAllChecked = ->
 
 getSubStep = (thiss) ->
   substep = {}
-  substep[$(thiss).attr("id")] = if $(thiss).is(":checked") then true else false
+  substep[$(thiss).attr("id")] = if $(thiss).is(":checked") then "done" else "notdone"
   return substep
 #What happens when you check one of the substep checkboxes?
 #This will call the function to see if every box is checked after
@@ -62,14 +62,14 @@ ready = ->
     if substeps
       substepsx = substeps[gon.catname][gon.stepname]
       for x,y of substepsx
-        if y == "true"
+        if y == "done"
           $("#"+x).prop("checked", true)
           completed = $("#"+x).parent().parent() #FIXA FÖRIHELVETE FÖR QUIZ
           if completed.attr('class') == 'quiz-fix'
             completed_quiz = completed.parent()
             completed_quiz.removeClass('hidden-item')
           completed.removeClass('hidden-item')
-        else if y == "false"
+        else if y == "notdone"
           $("#"+x).prop("checked", false)
 #$(document).on('page:before-change', ready)
 $(document).on('page:before-unload', ready)

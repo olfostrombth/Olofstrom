@@ -1,0 +1,49 @@
+
+
+.faqrow
+{
+  padding: 30px;
+  margin-bottom: 30px;
+  background-color: #fff;
+  border: 1px solid #cecece;
+}
+
+.arrow
+{
+	margin-top: -16px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    transform: rotate(225deg);
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+    z-index: 10;
+}
+
+.faqheadline
+{
+	display: inline-block;
+	padding: 5px 10px;
+	cursor: pointer;
+}
+
+.faqheadline h5:hover
+{
+	color: #40BABF;
+}
+
+.faqanswer-toggle
+{
+	display: none;
+	padding: 10px;
+}
+
+.faqanswer
+{
+	position: relative;
+	margin-top: 10px;
+	padding: 5px 30px;
+	border: 1px solid #000;
+	border-radius: 10px;
+	display: inline-block;
+}

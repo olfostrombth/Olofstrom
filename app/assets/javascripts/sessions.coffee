@@ -37,5 +37,3 @@ $(document).on "click", "#appendToArray", (e) ->
     }
 
   console.log(completion)
-
-

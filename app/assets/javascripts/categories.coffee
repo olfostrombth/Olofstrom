@@ -28,8 +28,9 @@ $(document).on "click", "#answer-btn", ->
   if $(this).html() == '<i class="fa fa-plus"></i>' then $(this).html('<i class="fa fa-minus"></i>') else $(this).html('<i class="fa fa-plus"></i>')
 
 
- 
-$(document).on 'click', ".tab", ->
+
+$(document).on 'click', ".tab",(e) ->
+  e.preventDefault()
   $(".tab").removeClass 'tabActive'
   $(this).addClass 'tabActive'
 
@@ -40,6 +41,7 @@ $(document).on "click", ".com-tab", ->
   return false
 
 
+
 $(document).on "click", ".act-tab", ->
   $(this).addClass 'tabActive'
   $('.activity-content').show(500)
@@ -47,12 +49,14 @@ $(document).on "click", ".act-tab", ->
   $('.comments-content').hide()
   return false
 
+
 $(document).on "click", ".badge-tab", ->
   $(this).addClass 'tabActive'
   $('.badge-content').show(500)
   $('.activity-content').hide()
   $('.comments-content').hide()
   return false
+
 
 
 # Archivement badges show

@@ -49,7 +49,7 @@ class StepsController < ApplicationController
   def show
     puts "ASDASDASDASD"
     gon.stepname = Category.normalize_cat(params[:step_name])
-    gon.catname = Category.normalize_cat(params[:category_name])
+    gon.catname = params[:category_name]
     gon.completion = current_user.completion if current_user
     gon.admin = current_user.admin if current_user
     @user = User.find(current_user.id)
@@ -73,6 +73,17 @@ class StepsController < ApplicationController
     puts "HHHHHHHHEEELLOOOO"
     puts "SUBSTEP: " + @substep.to_s
     @substep.each do |x|
+        user = User.find(current_user.id)
+        compfe = JSON.parse(user.completion)
+
+              if not compfe[params[:category_name]][params[:step_name]]
+                compfe[params[:category_name]][params[:step_name]] = {}
+              end
+              if not compfe[params[:category_name]][params[:step_name]]["substep_"+x.id.to_s]
+                compfe[gon.catname][gon.stepname]["substep_"+x.id.to_s] = "notdone"
+      end
+
+      user.update({completion:compfe.to_json})
       if x.typex == "video"
         video = Video.find(x.sid)
         videox = video.attributes

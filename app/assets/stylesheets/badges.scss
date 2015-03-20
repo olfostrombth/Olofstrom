@@ -1,10 +1,22 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,300italic|Oswald:400,300|Montserrat);
 
+.gbadge
+{
+	clear: both;
+}
 
+.sbadge
+{
+	display: inline-block;
+}
+
+.smallbadge
+{
+	display: inline-block;
+}
 
 .goldbadge{
   position: relative;
-  margin-left: 200px;
   width: 200px;
   height: 200px;
   background: url("badgegold.png");
@@ -53,7 +65,6 @@
 
 .bluebadge{
   position: relative;
-  margin-left: 200px;
   width: 100px;
   height: 100px;
   background: url("badgeblue.png");
@@ -62,7 +73,7 @@
 
  	.bheadline{
 	    position: absolute;
-	    top: 37%;
+	    top: 30%;
 	    left: 17%;
 	    width: 65%;
 	    height: 4em;
@@ -70,7 +81,7 @@
 	    text-align: center;
 
 		h3{
-		font-size: 1.2em;
+		font-size: 10px;
 	    line-height: 3em;
 	    padding: 0;
 	    letter-spacing: -1;
@@ -81,17 +92,15 @@
 
    	.bstep{
 	   	position: absolute;
-		top: 73%;
+		top: 68%;
 		left: 30%;
 		width: 40%;
 		height: 2em;
 		text-align: center;
 
 	    p{
-		}
-		.bstep i 
-		{
-			color: #fff;
+			font-family: 'Oswald', sans-serif;
+			font-size: 8px;
 		}
    	}
 
@@ -105,7 +114,6 @@
 
 .pinkbadge{
   position: relative;
-  margin-left: 200px;
   width: 100px;
   height: 100px;
   background: url("badgepink.png");
@@ -114,7 +122,7 @@
 
  	.bheadline{
 	    position: absolute;
-	    top: 37%;
+	    top: 30%;
 	    left: 17%;
 	    width: 65%;
 	    height: 4em;
@@ -122,7 +130,7 @@
 	    text-align: center;
 
 		h3{
-		font-size: 1.2em;
+		font-size: 10px;
 	    line-height: 3em;
 	    padding: 0;
 	    letter-spacing: -1;
@@ -133,7 +141,7 @@
 
    	.bstep{
 	   	position: absolute;
-		top: 73%;
+		top: 68%;
 		left: 30%;
 		width: 40%;
 		height: 2em;
@@ -141,6 +149,7 @@
 
 	    p{
 			font-family: 'Oswald', sans-serif;
+			font-size: 8px;
 		}
    	}
 
@@ -154,7 +163,6 @@
 
 .orangebadge{
   position: relative;
-  margin-left: 200px;
   width: 100px;
   height: 100px;
   background: url("badgeorange.png");
@@ -163,7 +171,7 @@
 
  	.bheadline{
 	    position: absolute;
-	    top: 37%;
+	    top: 30%;
 	    left: 17%;
 	    width: 65%;
 	    height: 4em;
@@ -171,7 +179,7 @@
 	    text-align: center;
 
 		h3{
-		font-size: 1.2em;
+		font-size: 10px;
 	    line-height: 3em;
 	    padding: 0;
 	    letter-spacing: -1;
@@ -182,7 +190,7 @@
 
    	.bstep{
 	   	position: absolute;
-		top: 73%;
+		top: 68%;
 		left: 30%;
 		width: 40%;
 		height: 2em;
@@ -190,6 +198,7 @@
 
 	    p{
 			font-family: 'Oswald', sans-serif;
+			font-size: 8px;
 		}
    	}
 
@@ -203,7 +212,6 @@
 
 .greenbadge{
   position: relative;
-  margin-left: 200px;
   width: 100px;
   height: 100px;
   background: url("badgegreen.png");
@@ -212,7 +220,7 @@
 
  	.bheadline{
 	    position: absolute;
-	    top: 37%;
+	    top: 30%;
 	    left: 17%;
 	    width: 65%;
 	    height: 4em;
@@ -220,7 +228,7 @@
 	    text-align: center;
 
 		h3{
-		font-size: 1.2em;
+		font-size: 10px;
 	    line-height: 3em;
 	    padding: 0;
 	    letter-spacing: -1;
@@ -231,7 +239,7 @@
 
    	.bstep{
 	   	position: absolute;
-		top: 73%;
+		top: 68%;
 		left: 30%;
 		width: 40%;
 		height: 2em;
@@ -239,6 +247,7 @@
 
 	    p{
 			font-family: 'Oswald', sans-serif;
+			font-size: 8px;
 		}
    	}
 

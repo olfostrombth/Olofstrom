@@ -16,6 +16,9 @@
  */
 @import 'foundation-icons';
 @import 'badges';
+@import 'slider';
+@import 'faq';
+@import 'mobile';
 
 /*  FONTS  */
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,300italic|Oswald:400,300|Montserrat);
@@ -1140,22 +1143,10 @@ text-align: center;
   height: 80%;
 }
 
-.badges-holder img
-{
-  max-width: 150px !important;
-  height: auto;
-}
 
-.badges-holder img:hover
-{
-  transform: scale(2);
-  z-index: 10;
-}
 
-.row.adminrow
+.adminrow
 {
-  width: 80%;
-  margin: 60px auto;
   padding: 30px;
   background-color: #fff;
   border: 1px solid #cecece;
@@ -1308,7 +1299,7 @@ text-align: center;
       {
         height: 100px;
       }
-      .table 
+      .table
         {
           width: 100%;
           height: auto;
@@ -1317,7 +1308,7 @@ text-align: center;
 
         }
       /*----- MOBILE DROPDOWN FORMS -----*/
-      .module_form 
+      .module_form
       {
         position: absolute;
         width: 100%;
@@ -1335,7 +1326,7 @@ text-align: center;
         box-shadow:         0px 0px 14px 0px rgba(50, 50, 50, 0.3);
       }
 
-      .step_form 
+      .step_form
       {
         position: absolute;
         width: 100%;
@@ -1353,7 +1344,7 @@ text-align: center;
       box-shadow:         0px 0px 14px 0px rgba(50, 50, 50, 0.3);
       }
 
-      .examination_form 
+      .examination_form
       {
         position: absolute;
         width: 100%;
@@ -1384,7 +1375,7 @@ text-align: center;
         background-color: #fff !important;
       }
 
-      .admincontent a 
+      .admincontent a
       {
         color: #000;
       }
@@ -1397,7 +1388,7 @@ text-align: center;
         border-bottom: 1px solid #cecece;
       }
 
-      .admin-area a 
+      .admin-area a
       {
         color: #000;
       }
@@ -1412,14 +1403,14 @@ text-align: center;
         overflow: hidden;
       }
 
-      .admin-avatar img 
+      .admin-avatar img
       {
         width: 100%;
         height: auto;
       }
 
       /*---- PROFILE MENU TABS ----*/
-      .tab 
+      .tab
       {
         display: inline-block;
         width: 100%;
@@ -1466,7 +1457,7 @@ text-align: center;
         height: 80%;
       }
 
-      .badges-holder img 
+      .badges-holder img
       {
         max-width: 50px !important;
         height: auto;
