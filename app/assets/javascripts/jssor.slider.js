@@ -2574,7 +2574,7 @@ new function () {
             $Loop: true,                    //[Optional] Enable loop(circular) of carousel or not, default value is true
             $NaviQuitDrag: true,
             $AutoPlaySteps: 1,              //[Optional] Steps to go of every play (this options applys only when slideshow disabled), default value is 1
-            $AutoPlayInterval: 3000,        //[Optional] Interval to play next slide since the previous stopped if a slideshow is auto playing, default value is 3000
+            $AutoPlayInterval: 5000,        //[Optional] Interval to play next slide since the previous stopped if a slideshow is auto playing, default value is 3000
             $PauseOnHover: 3,               //[Optional] Whether to pause when mouse over if a slider is auto playing, 0 no pause, 1 pause for desktop, 2 pause for touch device, 3 pause for desktop and touch device, default value is 0
             $HwaMode: 1,                    //[Optional] Hardware acceleration mode, 0 disabled, 1 enabled, default value is 1
 
