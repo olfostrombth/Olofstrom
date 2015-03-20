@@ -38,6 +38,7 @@ $(document).on "click", ".com-tab", ->
   $('.comments-content').show(500)
   $('.badge-content').hide()
   $('.activity-content').hide()
+  return false
 
 
 
@@ -46,6 +47,7 @@ $(document).on "click", ".act-tab", ->
   $('.activity-content').show(500)
   $('.badge-content').hide()
   $('.comments-content').hide()
+  return false
 
 
 $(document).on "click", ".badge-tab", ->
@@ -53,6 +55,7 @@ $(document).on "click", ".badge-tab", ->
   $('.badge-content').show(500)
   $('.activity-content').hide()
   $('.comments-content').hide()
+  return false
 
 
 

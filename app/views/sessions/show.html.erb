@@ -33,6 +33,7 @@
 			<div class="tab tabActive badge-tab active">Märken</div>
 			</div>
 			<div class="large-12 columns activity-content">
+			  aktivitiet
 			<% @activities.each do |activity|%>
 				<div class="activity">
 					<%= link_to activity.owner.name, activity.owner if activity.owner%>
@@ -42,6 +43,7 @@
 			<% end %>
 			</div>
 			<div class="large-12 columns comments-content">
+			  comment
 			  <% if @comments %>
 				  <% @comments.each do |x| %>
 					  <% if x %>
@@ -54,7 +56,9 @@
 				  <% end %>
 			  <% end %>
 			</div>
+
 			<div class="large-12 columns badge-content">
+        <div id="badges-holder">
         <% comp = get_completion(@user) %>
 	  <% if comp %>
 <% comp.each do |compkey,compval| %>
@@ -106,7 +110,7 @@
 
 <% end %>
 <% end %>
-
+</div>
 			</div>
 		</div>
 	</div>
@@ -114,27 +118,6 @@
 	<div class="medium-5 columns">
 
 	</div>
-
-	<!--<h3>---Completion---</h3>
-
-	<div class="medium-3 columns">
-		<% @completion.each do |modul, modulValue|%>
-			<% modulValue.each do |step, stepValue|%>
-				<% stepValue.each do |substep, substepValue|%>
-
-					<% if substepValue %>
-						<div>
-							<p>
-							|namn| <%=@user.name%> <br>
-							|substep| <%=substep%> <br>
-							|step| <%=step%> <br>
-							|modul| <%=modul%></b></p>
-						</div>
-					<% end %>
-				<% end %>
-			<% end %>
-		<% end %>
-	</div>-->
 
 
 

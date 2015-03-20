@@ -128,7 +128,14 @@ $(document).on "click", ".donebox", ->
 
   tese = getAllDone()
   if getAllChecked()
-    alert "Du är klar med det här steget nu!"
+    $('#dialog').dialog()
+    # Shows the new alert box.
+    domain_val = document.getElementsByName('domain')
+    if domain_val[0].value.length > 0
+      return true
+    $('#dialog').dialog()
+    false
+
     #Update completion for Step is done fully <<
     #Update database for Step is done fully <<<
     #Should be done through AJAX probably
