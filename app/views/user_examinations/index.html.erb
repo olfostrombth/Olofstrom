@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing User Examinations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Examination</th>
+      <th>User</th>
+      <th>Msg</th>
+      <th>Corrected</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_examinations.each do |user_examination| %>
+      <tr>
+        <td><%= user_examination.examination %></td>
+        <td><%= user_examination.user %></td>
+        <td><%= user_examination.msg %></td>
+        <td><%= user_examination.corrected %></td>
+        <td><%= link_to 'Show', user_examination %></td>
+        <td><%= link_to 'Edit', edit_user_examination_path(user_examination) %></td>
+        <td><%= link_to 'Destroy', user_examination, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User examination', new_user_examination_path %>

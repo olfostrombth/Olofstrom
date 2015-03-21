@@ -76,6 +76,7 @@ class SessionsController < ApplicationController
   #Admin page
   def admin
     @user = User.new
+    @user_examinations = UserExamination.where({corrected: false})
 
     if current_user
       if current_user.admin?

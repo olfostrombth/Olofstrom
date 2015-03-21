@@ -48,16 +48,28 @@
 </div>
 
 <% @examinations.each do |e| %>
-    <% if e %>
-        <%= e.name %><br>
+    <% if e
+      if e.name %>
+      <div id="" class="large-12 columns step">
+        <% if not @completion[@category.name]["examination"]["done"] %>
+        <%= link_to e.name, examination_path(:examination_name => e.name) %><br>
+        <% else %>
+        <%= e.name %>
+        <% end %>
+        <% if @completion[@category.name]["examination"]["done"] %>
+        <div class="<%= badges[e.id%4] %>">
+            <div class="bheadline"><h3><%= e.name %></h3></div>
+            <div class="bstep"><p><%= @category.name %></p></div>
+        </div>
+        <% end %>
         <% if e.desc %>
             <%= e.desc.html_safe %>
             <% if current_user.admin? %>
                 <%= link_to '<i class="fi-x small"></i>'.html_safe, delete_examination_path(:examination_name => e.name), method: :delete, data: { confirm: 'Are you sure?' } %>
                 <%= link_to '<i class="fi-pencil small"></i>'.html_safe, edit_examination_path(:examination_name => e.name), method: :get %>
                 <br><br>
-            <% end %>
-        <% end %>
+            <% end %></div>
+        <% end end %>
     <% end %>
 <% end %>
 <br>

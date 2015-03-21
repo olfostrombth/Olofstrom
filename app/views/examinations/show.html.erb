@@ -10,10 +10,7 @@
   <%= @examination.desc %>
 </p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @examination.category %>
-</p>
+  <%= render :partial => '/user_examinations/form' %>
 
 <%= link_to 'Edit', edit_examination_path(@examination) %> |
 <%= link_to 'Back', examinations_path %>
