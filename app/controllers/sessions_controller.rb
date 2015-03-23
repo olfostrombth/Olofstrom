@@ -25,6 +25,7 @@ class SessionsController < ApplicationController
       @user = User.find(@usersearch.first.id)
       redirect_to user_path(@user.name.split(" ")[0]+'-'+@user.id.to_s)
       return
+
     end
   end
 
@@ -76,6 +77,9 @@ class SessionsController < ApplicationController
   #Admin page
   def admin
     @user = User.new
+    @slideritem = Slideritem.new
+    @slideritems =Slideritem.all
+
 
     if current_user
       if current_user.admin?
@@ -96,6 +100,7 @@ class SessionsController < ApplicationController
       redirect_to root_path
     end
   end
+
 
   #POST
   def importUsers

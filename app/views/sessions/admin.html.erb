@@ -31,9 +31,16 @@
 	</div>
 	</div>
 	<% end %>
+
 	<div class="small-5 medium-5 large-5 columns adminrow">
-		<div class="large-12 columns"><h3>Hantera slidern</h3></div>
-		<div class="large-12 columns"></div>
+		<div class="large-12 columns"><h3>Hantera slidern</h3>
+          <%= render :partial => '/slideritems/form' %>
+
+          <%= link_to 'Alla slides', slideritems_path%>
+
+        </div>
+
 	</div>
 	</div>
+
 </div>
