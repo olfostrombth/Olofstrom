@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Slideritems</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rubrik</th>
+      <th>Text</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @slideritems.each do |slideritem| %>
+      <tr>
+        <td><%= slideritem.text.html_safe%></td>
+        <td><%= slideritem.rubrik.html_safe %></td>
+        <td><%= link_to 'Show', slideritem %></td>
+        <td><%= link_to 'Edit', edit_slideritem_path(slideritem) %></td>
+        <td><%= link_to 'Destroy', slideritem, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Slideritem', new_slideritem_path %>
