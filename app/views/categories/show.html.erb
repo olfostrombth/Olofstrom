@@ -51,12 +51,13 @@
     <% if e
       if e.name %>
       <div id="" class="large-12 columns step">
-        <% if not @completion[@category.name]["examination"]["done"] %>
+        <% if @completion[@category.name] %>
+        <% if not @completion[@category.name]["examination"] && @completion[@category.name]["examination"]["done"] %>
         <%= link_to e.name, examination_path(:examination_name => e.name) %><br>
         <% else %>
         <%= e.name %>
         <% end %>
-        <% if @completion[@category.name]["examination"]["done"] %>
+        <% if @completion[@category.name]["examination"] %>
         <div class="<%= badges[e.id%4] %>">
             <div class="bheadline"><h3><%= e.name %></h3></div>
             <div class="bstep"><p><%= @category.name %></p></div>
@@ -69,7 +70,7 @@
                 <%= link_to '<i class="fi-pencil small"></i>'.html_safe, edit_examination_path(:examination_name => e.name), method: :get %>
                 <br><br>
             <% end %></div>
-        <% end end %>
+        <% end end end %>
     <% end %>
 <% end %>
 <br>
