@@ -31,6 +31,8 @@ o o o o    oo"  o"      "o    $$o$"     o o$""  o$      "$  "oo   o o o o
 
   <%= stylesheet_link_tag    "application", 'data-turbolinks-track' => true %>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.21/themes/base/jquery-ui.css" type="text/css" media="all" />
+
   <%= javascript_include_tag "vendor/modernizr" %>
   <%= Gon::Base.render_data({}) %>
   <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
@@ -58,12 +60,15 @@ o o o o    oo"  o"      "o    $$o$"     o o$""  o$      "$  "oo   o o o o
                 <% comp = get_completion(current_user) %>
               	  <% if comp %>
               <% comp.each do |compkey,compval| %>
+              <% if compkey == "javascripts" then next end %>
                 <%# testz = get_steps_info() %>
                 <% done = [] %>
                 <% compval.each do |stepkey, stepval| %>
                   <% if stepkey == "examination" then next end %>
                   <% step = Step.where({name:stepkey}).first %>
                   <% substeps = Substep.where({step_id: step.id}) %>
+                  <% if step
+                   if substeps %>
                   <% step = get_steps_info(compkey, stepkey, JSON.parse(current_user.completion),substeps.length) %>
                   <% step["percent"][0] %>
                   <% done.push(step["percent"][0]) %>
@@ -102,7 +107,7 @@ o o o o    oo"  o"      "o    $$o$"     o o$""  o$      "$  "oo   o o o o
                 <% end %>
 
 
-              <% end %>
+              <% end end end %>
               <% end %>
             </div>
             </div>
@@ -127,7 +132,7 @@ o o o o    oo"  o"      "o    $$o$"     o o$""  o$      "$  "oo   o o o o
             <% linkz = linkx[0][0].split(": ") %>
             <% if linkz[1] %>
             <% l = linkz[1]+">"+title+"</a>" %>
-          <div class="large-12 columns avtxt"><p><%=link_to name[0], session_path(activity.owner)%>
+          <div class="large-12 columns avtxt"><p><%=link_to name[0], user_path(name[0]+"-"+activity.owner.id.to_s)%>
                <%= linkz[0] + ": "%><%= l.html_safe %></p></div>
            <% end end end end %>
               </div>

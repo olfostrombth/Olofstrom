@@ -1,0 +1,33 @@
+<%= form_for(@user_examination) do |f| %>
+  <% if @user_examination.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user_examination.errors.count, "error") %> prohibited this user_examination from being saved:</h2>
+
+      <ul>
+      <% @user_examination.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field hidden">
+    <%= f.label :examination_id %><br>
+    <%= f.text_field :examination_id, :value => @examination.id %>
+  </div>
+  <div class="field hidden">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id, :value => current_user.id %>
+  </div>
+  <div class="field">
+    <%= f.label :msg, :class => "tinymce" %><br>
+    <%= f.text_field :msg, :class => "tinymce" %>
+  </div>
+  <div class="field hidden">
+    <%= f.label :corrected %><br>
+    <%= f.check_box :corrected, :value => false %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Skicka in', :id => "send_examination" %>
+  </div>
+<% end %>

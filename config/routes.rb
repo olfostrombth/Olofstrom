@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :slideritems
 
+  resources :slideritems
+  resources :user_examinations
   resources :faqs
 
 
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
   get 'sessions/show/:id/del' => 'sessions#delUser', :as => :user_del
   post 'steps/update_row_order' => 'steps#update_row_order', :as => :update_row_order_substeps
   post 'steps/update_completion' => 'steps#update_completion', :as => :update_completion
+  post 'steps/update_examination' => 'steps#update_examination', :as => :update_examination
   post 'sessions/importUsers' => 'sessions#importUsers', :as => :import_users
   get '/search' => 'sessions#search', :as => :search
   get '/autocomplete' => 'sessions#autocomplete', :as => :autocomplete

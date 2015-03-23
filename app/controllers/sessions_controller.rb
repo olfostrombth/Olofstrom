@@ -80,6 +80,8 @@ class SessionsController < ApplicationController
     @slideritem = Slideritem.new
     @slideritems =Slideritem.all
 
+    @user_examinations = UserExamination.where({corrected: false})
+
 
     if current_user
       if current_user.admin?
