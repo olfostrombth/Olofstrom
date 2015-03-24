@@ -259,7 +259,7 @@ $(document).on "click", "#submit_quiz", (e) ->
     #Check if 'wrong' has anything in it
     if wrong.present()
       for o,i in wrong
-        $('#'+o).css('color', 'red')
+        $("#"+o).css('color', 'red')
 
         console.log o
         console.log "This quiz is wrong.. This is bad!"
