@@ -207,7 +207,6 @@ $(document).on "click", "#submit_quiz", (e) ->
     #Iterate if id = submit_quiz
     if $(z).attr('id') == 'submit_quiz'
       break
-
     #Get children of a question
     question = $(z).children()
 
@@ -227,14 +226,15 @@ $(document).on "click", "#submit_quiz", (e) ->
 
         #Loop the options and check if they're correct, if it's wrong, push it to a variable 'wrong' for later use
         for d,i in options
-          child = $(d).children()[1]
-          if $(child).is(":checked")
-            window.checked+=1
-            if $(child).attr('id') == 'correct'
-              correct = $(child).attr('id')
-            else
-              $(child).css("color", "red")
-              wrong.push $(u).attr('id')
+          if $(d).attr("id")?
+            child = $(d)
+            if $(child).is(":checked")
+              window.checked+=1
+              if $(child).attr('id') == 'correct'
+                correct = $(child).attr('id')
+              else
+                $(child).css("color", "red")
+                wrong.push $(u).attr('id')
 
     #Check if 'wrong' has anything in it
     if wrong.present()
