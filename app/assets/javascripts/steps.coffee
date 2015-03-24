@@ -128,13 +128,8 @@ $(document).on "click", ".donebox", ->
 
   tese = getAllDone()
   if getAllChecked()
-    $('#somedialog').dialog()
-    # Shows the new alert box.
-    domain_val = document.getElementsByName('domain')
-    if domain_val[0].value.length > 0
-      return true
-    $('#somedialog').dialog()
-    false
+    $('#complete').show()
+    getDialog()
 
     #Update completion for Step is done fully <<
     #Update database for Step is done fully <<<
@@ -160,6 +155,7 @@ hideContinue = ->
         $('#continue').hide()
       else if not_done == 0 and done > 0
         $('#continue').hide()
+        $('#complete').show()
 
 $(document).on('page:before-unload', hideContinue)
 $(document).on('page:fetch', hideContinue)
@@ -396,6 +392,7 @@ do (window) ->
   # add to global namespace
   window.DialogFx = DialogFx
   return
+
 
 getDialog = ->
   dlgtrigger = document.querySelector('[data-dialog]')
