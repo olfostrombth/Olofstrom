@@ -169,6 +169,7 @@ $(document).on "click", "#continue", ->
   next_substep = $(substep_class).first()
   next_substep.removeClass('hidden-item')
   $(this).hide()
+  $('html, body').animate({scrollTop:$(document).height()}, 1000)
 
 $(document).on "click", "#show_video", ->
   video = $(this).parent().find('#video_url')
