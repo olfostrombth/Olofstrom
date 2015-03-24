@@ -72,7 +72,7 @@ ready = ->
         else if y == "notdone"
           $("#"+x).prop("checked", false)
 #$(document).on('page:before-change', ready)
-$(document).on('page:before-unload', getSubSteps)
+$(document).on('page:before-unload', ready)
 $(document).on('page:fetch', ready)
 $(document).on('page:receive', ready)
 $(document).on('page:change', ready)
@@ -107,7 +107,8 @@ $(document).on "click", ".donebox", ->
   #console.log next_substep_div
   #console.log next_substep_div
   next_substep_div.removeClass('hidden-item') #remove hidden class to show next substep
-  $('html, body').animate({scrollTop:$(document).height()}, 1000)
+  if gon.admin == false
+    $('html, body').animate({scrollTop:$(document).height()}, 1000)
   #console.log substep_s
   #console.log substep_id
   #console.log substep_id_next
@@ -127,7 +128,9 @@ $(document).on "click", ".donebox", ->
 
   tese = getAllDone()
   if getAllChecked()
-    alert "Du är klar med det här steget nu!"
+    $('#complete').show()
+    getDialog()
+
     #Update completion for Step is done fully <<
     #Update database for Step is done fully <<<
     #Should be done through AJAX probably
@@ -136,6 +139,37 @@ $(document).on "click", ".donebox", ->
   #    console.log x + " is checked"
   #  else
   #    console.log x + " is not checked"
+hideContinue = ->
+  done = 0
+  not_done = 0
+  if gon.completion
+    substeps = $.parseJSON(gon.completion)
+    if substeps
+      substepsx = substeps[gon.catname][gon.stepname]
+      for x,y of substepsx
+        if y == "done"
+          done++
+        else if y == "notdone"
+          not_done++
+      if done == 0 and not_done > 0
+        $('#continue').hide()
+      else if not_done == 0 and done > 0
+        $('#continue').hide()
+        $('#complete').show()
+
+$(document).on('page:before-unload', hideContinue)
+$(document).on('page:fetch', hideContinue)
+$(document).on('page:receive', hideContinue)
+$(document).on('page:change', hideContinue)
+$(document).ready(hideContinue)
+
+
+$(document).on "click", "#continue", ->
+  substep_class = $(this).siblings('.hidden-item')
+  next_substep = $(substep_class).first()
+  next_substep.removeClass('hidden-item')
+  $(this).hide()
+  $('html, body').animate({scrollTop:$(document).height()}, 1000)
 
 $(document).on "click", "#show_video", ->
   video = $(this).parent().find('#video_url')
@@ -194,7 +228,6 @@ $(document).on "click", "#submit_quiz", (e) ->
     #Iterate if id = submit_quiz
     if $(z).attr('id') == 'submit_quiz'
       break
-
     #Get children of a question
     question = $(z).children()
 
@@ -214,19 +247,20 @@ $(document).on "click", "#submit_quiz", (e) ->
 
         #Loop the options and check if they're correct, if it's wrong, push it to a variable 'wrong' for later use
         for d,i in options
-          child = $(d).children()[1]
-          if $(child).is(":checked")
-            window.checked+=1
-            if $(child).attr('id') == 'correct'
-              correct = $(child).attr('id')
-            else
-              $(child).css("color", "red")
-              wrong.push $(u).attr('id')
+          if $(d).attr("id")?
+            child = $(d)
+            if $(child).is(":checked")
+              window.checked+=1
+              if $(child).attr('id') == 'correct'
+                correct = $(child).attr('id')
+              else
+                $(child).css("color", "red")
+                wrong.push $(u).attr('id')
 
     #Check if 'wrong' has anything in it
     if wrong.present()
       for o,i in wrong
-        $('#'+o).css('color', 'red')
+        $("#"+o).css('color', 'red')
 
         console.log o
         console.log "This quiz is wrong.. This is bad!"
@@ -275,3 +309,100 @@ normalize = (name) ->
 getStepItems = (item) ->
   fvalue = $(item).attr("step_item")
   return fvalue
+
+
+do (window) ->
+
+  extend = (a, b) ->
+    for key of b
+      if b.hasOwnProperty(key)
+        a[key] = b[key]
+    a
+
+  DialogFx = (el, options) ->
+    @el = el
+    @options = extend({}, @options)
+    extend @options, options
+    @ctrlClose = @el.querySelector('[data-dialog-close]')
+    @isOpen = false
+    @_initEvents()
+    return
+
+  'use strict'
+  support = animations: Modernizr.cssanimations
+  animEndEventNames =
+    'WebkitAnimation': 'webkitAnimationEnd'
+    'OAnimation': 'oAnimationEnd'
+    'msAnimation': 'MSAnimationEnd'
+    'animation': 'animationend'
+  animEndEventName = animEndEventNames[Modernizr.prefixed('animation')]
+
+  onEndAnimation = (el, callback) ->
+
+    onEndCallbackFn = (ev) ->
+      if support.animations
+        if ev.target != this
+          return
+        @removeEventListener animEndEventName, onEndCallbackFn
+      if callback and typeof callback == 'function'
+        callback.call()
+      return
+
+    if support.animations
+      el.addEventListener animEndEventName, onEndCallbackFn
+    else
+      onEndCallbackFn()
+    return
+
+  DialogFx::options =
+    onOpenDialog: ->
+      false
+    onCloseDialog: ->
+      false
+
+  DialogFx::_initEvents = ->
+    self = this
+    # close action
+    @ctrlClose.addEventListener 'click', @toggle.bind(this)
+    # esc key closes dialog
+    document.addEventListener 'keydown', (ev) ->
+      keyCode = ev.keyCode or ev.which
+      if keyCode == 27 and self.isOpen
+        self.toggle()
+      return
+    @el.querySelector('.dialog__overlay').addEventListener 'click', @toggle.bind(this)
+    return
+
+  DialogFx::toggle = ->
+    self = this
+    if @isOpen
+      classie.remove @el, 'dialog--open'
+      classie.add self.el, 'dialog--close'
+      onEndAnimation @el.querySelector('.dialog__content'), ->
+        classie.remove self.el, 'dialog--close'
+        return
+      # callback on close
+      @options.onCloseDialog this
+    else
+      classie.add @el, 'dialog--open'
+      # callback on open
+      @options.onOpenDialog this
+    @isOpen = !@isOpen
+    return
+
+  # add to global namespace
+  window.DialogFx = DialogFx
+  return
+
+
+getDialog = ->
+  dlgtrigger = document.querySelector('[data-dialog]')
+  somedialog = document.getElementById(dlgtrigger.getAttribute('data-dialog'))
+  dlg = new DialogFx(somedialog)
+  dlgtrigger.addEventListener 'click', dlg.toggle.bind(dlg)
+  return
+$(document).on('page:before-unload', getDialog)
+$(document).on('page:fetch', getDialog)
+$(document).on('page:receive', getDialog)
+$(document).on('page:change', getDialog)
+$(document).ready(getDialog)

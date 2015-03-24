@@ -12,6 +12,11 @@ class ExaminationsController < ApplicationController
   # GET /examinations/1
   # GET /examinations/1.json
   def show
+    @user_examination = UserExamination.new
+    @examination = Examination.where(name: params[:examination_name])
+    @examination.each do |x|
+      @examination = x
+    end
   end
 
   # GET /examinations/new

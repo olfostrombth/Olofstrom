@@ -5,6 +5,8 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
+
+
     @activities = PublicActivity::Activity.order("created_at desc")
     if current_user
       @categories = Category.all
@@ -47,6 +49,10 @@ class CategoriesController < ApplicationController
       @examinations = @category.examinations
       @examination = @examinations.new
       gon.catname = x.name
+
+
+
+
     end
 
     #cat = @category.to_json
