@@ -1,5 +1,5 @@
 <% v = find_quiz(quiz)%>
-    <% if v.id? %> 
+    <% if v.id? %>
      <div class="quiz" id='quiz_<%= v.id %>'>
         <% v.questions.each do |q| %>
             <%= form_for @question, :html => { :id => "#{q.id}"} do |f| %>
@@ -13,14 +13,8 @@
                       <% options = {"option1" => q.option1, "option2" => q.option2, "correct" => q.answer}
                          options = Hash[options.to_a.sample(options.length)]
                          options.each do |key, z| %>
-                         <div class="row">
-                         <div class="field">
-                         <div class="large-3 columns">
                            <%= f.label z %>
                            <%= f.radio_button :answer, z, class: key, id: key %>
-                         </div>
-                         </div>
-                         </div>
                      <% end %>
                   <% end %>
               </div>
