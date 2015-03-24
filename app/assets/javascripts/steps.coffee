@@ -128,12 +128,12 @@ $(document).on "click", ".donebox", ->
 
   tese = getAllDone()
   if getAllChecked()
-    $('#dialog').dialog()
+    $('#somedialog').dialog()
     # Shows the new alert box.
     domain_val = document.getElementsByName('domain')
     if domain_val[0].value.length > 0
       return true
-    $('#dialog').dialog()
+    $('#somedialog').dialog()
     false
 
     #Update completion for Step is done fully <<
@@ -312,3 +312,99 @@ normalize = (name) ->
 getStepItems = (item) ->
   fvalue = $(item).attr("step_item")
   return fvalue
+
+
+do (window) ->
+
+  extend = (a, b) ->
+    for key of b
+      if b.hasOwnProperty(key)
+        a[key] = b[key]
+    a
+
+  DialogFx = (el, options) ->
+    @el = el
+    @options = extend({}, @options)
+    extend @options, options
+    @ctrlClose = @el.querySelector('[data-dialog-close]')
+    @isOpen = false
+    @_initEvents()
+    return
+
+  'use strict'
+  support = animations: Modernizr.cssanimations
+  animEndEventNames =
+    'WebkitAnimation': 'webkitAnimationEnd'
+    'OAnimation': 'oAnimationEnd'
+    'msAnimation': 'MSAnimationEnd'
+    'animation': 'animationend'
+  animEndEventName = animEndEventNames[Modernizr.prefixed('animation')]
+
+  onEndAnimation = (el, callback) ->
+
+    onEndCallbackFn = (ev) ->
+      if support.animations
+        if ev.target != this
+          return
+        @removeEventListener animEndEventName, onEndCallbackFn
+      if callback and typeof callback == 'function'
+        callback.call()
+      return
+
+    if support.animations
+      el.addEventListener animEndEventName, onEndCallbackFn
+    else
+      onEndCallbackFn()
+    return
+
+  DialogFx::options =
+    onOpenDialog: ->
+      false
+    onCloseDialog: ->
+      false
+
+  DialogFx::_initEvents = ->
+    self = this
+    # close action
+    @ctrlClose.addEventListener 'click', @toggle.bind(this)
+    # esc key closes dialog
+    document.addEventListener 'keydown', (ev) ->
+      keyCode = ev.keyCode or ev.which
+      if keyCode == 27 and self.isOpen
+        self.toggle()
+      return
+    @el.querySelector('.dialog__overlay').addEventListener 'click', @toggle.bind(this)
+    return
+
+  DialogFx::toggle = ->
+    self = this
+    if @isOpen
+      classie.remove @el, 'dialog--open'
+      classie.add self.el, 'dialog--close'
+      onEndAnimation @el.querySelector('.dialog__content'), ->
+        classie.remove self.el, 'dialog--close'
+        return
+      # callback on close
+      @options.onCloseDialog this
+    else
+      classie.add @el, 'dialog--open'
+      # callback on open
+      @options.onOpenDialog this
+    @isOpen = !@isOpen
+    return
+
+  # add to global namespace
+  window.DialogFx = DialogFx
+  return
+
+getDialog = ->
+  dlgtrigger = document.querySelector('[data-dialog]')
+  somedialog = document.getElementById(dlgtrigger.getAttribute('data-dialog'))
+  dlg = new DialogFx(somedialog)
+  dlgtrigger.addEventListener 'click', dlg.toggle.bind(dlg)
+  return
+$(document).on('page:before-unload', getDialog)
+$(document).on('page:fetch', getDialog)
+$(document).on('page:receive', getDialog)
+$(document).on('page:change', getDialog)
+$(document).ready(getDialog)

@@ -9,11 +9,6 @@
   </div>
 </div>
 
-<div id="dialog" title="Grattis!" style="display:none">
-  Du har nu klarat det här steget!
-  <%= image_tag ("bluebadge") %>
-</div>
-
 <!-- SLUTA LÄS KOD HÄR (för eget bästa)-->
 <div class="large-12 columns">
   <% if current_user.admin? %>
@@ -256,8 +251,24 @@
       </div>
   <% end %>
   <button id="continue" class="form-btn ease">Fortsätt</button>
+  <button data-dialog="somedialog" class="trigger">Open Dialog</button>
   </div>
 
+  <div id="somedialog" class="dialog">
+    <div class="dialog__overlay"></div>
+    <div class="dialog__content">
+      <div class="bluebadge center_badge">
+        <div class="bheadline"><h3>Steg</h3></div>
+        <div class="bstep"></div>
+      </div>
+      <h1>Grattis!</h1>
+      <p>Du har klarat av det här steget.</p>
+      <p>Ditt nya märke finns nu på din profil.</p>
+    <div>
+      <button class="action" data-dialog-close>Close</button>
+    </div>
+  </div>
+  </div>
   <br>
   <% if current_user.admin? %>
 
