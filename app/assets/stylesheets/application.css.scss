@@ -235,6 +235,7 @@ input.search_form
 .tt-suggestion
 {
   background-color: #fff;
+  padding: 20px; background: rgb(255, 255, 255);
 }
 
 /*-------------- END SEARCH BAR --------------*/
@@ -660,7 +661,6 @@ box-shadow:         0px 0px 14px 0px rgba(50, 50, 50, 0.3);
   text-align: center;
   height: auto;
   width: 100%;
-  color: #fff;
   overflow-y: scroll;
 }
 

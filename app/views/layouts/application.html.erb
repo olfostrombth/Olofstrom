@@ -55,7 +55,9 @@ o o o o    oo"  o"      "o    $$o$"     o o$""  o$      "$  "oo   o o o o
           <div class="small-12 medium-12 large-12 columns side arch-toggle"><p><i class="fa fa-trophy"></i>Märken</p></div>
           <div class="large-12 columns arch">
             <div class="row">
-              <p>Dina märken</p>     <div class="large-12 columns">   <% comp = get_completion(current_user) %>
+              <p>Dina märken</p>     
+              <div class="large-12 columns">   
+                <% comp = get_completion(current_user) %>
               	  <% if comp %>
               <% comp.each do |compkey,compval| %>
               <% if compkey == "javascripts" then next end %>

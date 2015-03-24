@@ -28,13 +28,7 @@
 //= require turbolinks
 //= require_tree .
 
-//= require jssor.core
-//= require jssor.utils
-//= require jssor.slider
-//= require slider
 
 
 $(document).foundation();
-
-
 

@@ -21,7 +21,9 @@
 
     <% if current_user.admin? %>
         <% if current_page?(root_path) %>
+
             <button id="module_toggle" class="button redbtn ease right">Lägg till modul</button>
+
         <% end %>
         <% if params[:category_name] %>
             <% if current_page?(category_path(params[:category_name])) %>
@@ -37,6 +39,8 @@
       <div class="module_form">
         <%= render :partial => 'module' %>
       </div>
+
+
   <% end %>
   <% if params[:category_name] %>
       <% if current_page?(category_path(params[:category_name])) %>
@@ -51,35 +55,33 @@
 
   <div class="medium-12 large-12 columns sliderimg">
     <div class="large-12 columns imageslider"> <%= image_tag("sliderblur.png") %></div>
-    <div class="medium-12 large-12 columns slider">
-
-
-         <div id="slider1_container" style="position: relative; top: 2px; left: 10px; width: 600px;
-              height: 300px;">
+    <div class="medium-8 large-12 columns slider">
+         <div id="slider1_container" style="position: relative; top: 2px; left: 10%; width: 600px;
+              height: 250px;">
         <!-- Slides Container -->
         <div u="slides" style="cursor: move; position: absolute; left: 120px; top: 2px; width: 600px; height: 300px;
                 overflow: hidden;">
-          <div class="large-12 columns">
-            <h2>Rubrik1</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Quis impedit dicta harum quidem vel explicabo eos
-              perspiciatis reiciendis animi minus.</p>
-          </div>
-          <div class="large-12 columns"><h2>Rubrik2</h2><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis impedit dicta harum quidem vel explicabo eos perspiciatis reiciendis animi minus.</p></div>
-          <div><%= image_tag("http://lorempixel.com/600/150/") %></div>
-          <div class="large-12 columns"><h2>Rubrik3</h2><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis impedit dicta harum quidem vel explicabo eos perspiciatis reiciendis animi minus.</p></div>
-          <div><%= image_tag("http://lorempixel.com/600/150/") %></div>
+            <%= div_for(slideritems, :class => "large-12 columns") do|s|%>
+              <%  if  s.rubrik %>
+              <h2> <%= s.rubrik.html_safe %></h2><br>
+              <%= s.text.html_safe %>
+
+            <% end end  %>
+
         </div>
+
         <script>
             jssor_slider1_starter('slider1_container');
         </script>
-
       </div>
 
+    </div>
+
+
 
 
   </div>
-  </div>
+
 
   <!--    RUBRIK  -->
 <% if params[:step_name] %>
