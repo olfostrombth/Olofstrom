@@ -260,7 +260,7 @@ $(document).on "click", "#submit_quiz", (e) ->
     #Check if 'wrong' has anything in it
     if wrong.present()
       for o,i in wrong
-        $("#"+o).css('color', 'red')
+        $("#"+o+" h3").css('color', 'red')
 
         console.log o
         console.log "This quiz is wrong.. This is bad!"
@@ -268,6 +268,7 @@ $(document).on "click", "#submit_quiz", (e) ->
       #If it hasn't, check if all boxes are filled, if they are, the quiz is correctly answered
     else if !wrong.present() && window.checked == window.qn + 1
       console.log "This quiz is correctly answered yes guys!!!!"
+      $('.quiz_hide').show()
       #Else, not all boxes are checked
     else
       console.log "Not all boxes in this quiz checked!"
