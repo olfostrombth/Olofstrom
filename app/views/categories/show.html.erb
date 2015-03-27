@@ -51,6 +51,7 @@
     <% if e
       if e.name %>
       <div id="" class="large-12 columns step">
+        <br>
         <% if @completion[@category.name] %>
         <% if not @completion[@category.name]["examination"] && @completion[@category.name]["examination"]["done"] %>
         <%= link_to e.name, examination_path(:examination_name => e.name) %><br>

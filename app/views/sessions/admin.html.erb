@@ -21,11 +21,11 @@
 	</div>
 	 <br><br><br><br>
 	<%= will_paginate %>
-	<h3>Användare: </h3>
+	<h3>Användare</h3>
 	<div id="users">
 	<ul>
 	<% @sessions.each do |x| %>
-	  <li>Name: <%= x.name %> - Admin: <%= form_for x, :remote => true do |f| f.check_box :admin end %> - <%= link_to "delete", user_del_path(x) %></li>
+	  <li>Name: <%= x.name %> - Admin: <%= form_for x, :remote => true do |f| f.check_box :admin end %> - <%= link_to "Ta bort användare", user_del_path(x) %></li><br>
 	  <% end %>
 	</ul>
 	</div>
@@ -33,7 +33,7 @@
 	<% end %>
 
 	<div class="small-5 medium-5 large-5 columns adminrow">
-		<div class="large-12 columns"><h3>Hantera slidern</h3>
+		<div class="large-12 columns"><h3>Hantera bildspelet</h3>
           <%= render :partial => '/slideritems/form' %>
 
           <%= link_to 'Alla slides', slideritems_path%>
@@ -43,15 +43,15 @@
 	</div>
 	</div>
 
-	<h1>Listing User Examinations</h1>
+	<h1>Examinationer</h1>
 
 	<table>
 		<thead>
 			<tr>
 				<th>Examination</th>
-				<th>User</th>
-				<th>Msg</th>
-				<th>Corrected</th>
+				<th>Användare</th>
+				<th>Text</th>
+				<th>Rättad</th>
 				<th colspan="3"></th>
 			</tr>
 		</thead>
