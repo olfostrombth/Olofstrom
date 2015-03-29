@@ -1,10 +1,11 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :set_comment, only: [:index, :show, :edit, :update, :destroy]
 
   # GET /comments
   # GET /comments.json
   def index
     @comments = Comment.all
+    respond_with(@comments)
   end
 
   # GET /comments/1
@@ -30,9 +31,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        @comment.create_activity :create, owner: current_user
         @comment.create_activity :create, owner: @owner, key: "har kommenterat på en modul: #{view_context.link_to(@category, category_path(@category))}".html_safe
-
         format.html { redirect_to category_path(@category), notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
@@ -41,6 +40,8 @@ class CommentsController < ApplicationController
       end
     end
   end
+
+
 
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json

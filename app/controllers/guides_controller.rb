@@ -28,7 +28,7 @@ class GuidesController < ApplicationController
   # POST /guides
   # POST /guides.json
   def create
-    @guide = Guide.new({name: guide_params[:name], step_id: guide_params[:step_id], desc: guide_params[:desc]})
+    @guide = Guide.new({name: guide_params[:name], desc: guide_params[:desc], step_id: guide_params[:step_id]})
     @guide.save
     @stepx = Step.find(guide_params[:step_id])
     @guidex = Guide.where(name:guide_params[:name])

@@ -1,24 +1,76 @@
+
 <div class="small-12 medium-12 large-12 columns">
 	<% if current_user.admin? %>
 	<div class="small-12 medium-12 large-12 columns headline">
 		<h2> admin</h2>
 	</div>
-
+	<div class="row">
+		<div class="small-6 medium-6 large-6 columns adminrow">
 	<h3>Importera användare i .CSV fomat</h3>
 
 	<%= form_tag import_users_path, multipart: true do %>
 	  <%= file_field_tag :file %>
 	  <%= submit_tag "Importera", class: 'button form-btn tiny' %>
 	<% end %>
+	  <div class="searchadmin left">
+	  <%= form_tag admin_path, class: "form-inline", method: :get do %>
+		  <%= text_field_tag :admin_query, params[:admin_query], class: "search_form", id: "user_search", autocomplete: "on", placeholder: 'Sök användare' %>
 
+		  <div id="input_img"><%= image_submit_tag ('Search.png'), class:'input_img sbtnstyle' %></div>
+	  <% end %>
+	</div>
+	 <br><br><br><br>
 	<%= will_paginate %>
-	<h3>Användare: </h3>
+	<h3>Användare</h3>
 	<div id="users">
 	<ul>
 	<% @sessions.each do |x| %>
-	  <li>Name: <%= x.name %> - Admin: <%= form_for x, :remote => true do |f| f.check_box :admin end %> - <%= link_to "delete", user_del_path(x) %></li>
+	  <li>Name: <%= x.name %> - Admin: <%= form_for x, :remote => true do |f| f.check_box :admin end %> - <%= link_to "Ta bort användare", user_del_path(x) %></li><br>
 	  <% end %>
 	</ul>
 	</div>
+	</div>
 	<% end %>
+
+	<div class="small-5 medium-5 large-5 columns adminrow">
+		<div class="large-12 columns"><h3>Hantera bildspelet</h3>
+          <%= render :partial => '/slideritems/form' %>
+
+          <%= link_to 'Alla slides', slideritems_path%>
+
+        </div>
+
+	</div>
+	</div>
+
+	<h1>Examinationer</h1>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Examination</th>
+				<th>Användare</th>
+				<th>Text</th>
+				<th>Rättad</th>
+				<th colspan="3"></th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<% @user_examinations.each do |user_examination| %>
+				<tr>
+					<td><%= user_examination.examination.id %></td>
+					<td><%= user_examination.user.name %></td>
+					<td><%= user_examination.msg %></td>
+					<td><%= form_for user_examination, :remote => true do |f| f.check_box :corrected end %></td>
+					<td><%= link_to 'Show', user_examination %></td>
+					<td><%= link_to 'Edit', edit_user_examination_path(user_examination) %></td>
+					<td><%= link_to 'Destroy', user_examination, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+
+</div>
+
 </div>

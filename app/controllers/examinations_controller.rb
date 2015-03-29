@@ -12,6 +12,11 @@ class ExaminationsController < ApplicationController
   # GET /examinations/1
   # GET /examinations/1.json
   def show
+    @user_examination = UserExamination.new
+    @examination = Examination.where(name: params[:examination_name])
+    @examination.each do |x|
+      @examination = x
+    end
   end
 
   # GET /examinations/new
@@ -21,12 +26,16 @@ class ExaminationsController < ApplicationController
 
   # GET /examinations/1/edit
   def edit
+    @examination = Examination.where(name: params[:examination_name])
+    @examination.each do |x|
+      @examination = x
+    end
   end
 
   # POST /examinations
   # POST /examinations.json
   def create
-    @examination = Examination.new(examination_params)
+    @examination = Examination.new(name: examination_params[:name], category_id: examination_params[:category_id], desc: examination_params[:desc])
     @category = @examination.category.name
 
     respond_to do |format|
@@ -43,9 +52,10 @@ class ExaminationsController < ApplicationController
   # PATCH/PUT /examinations/1
   # PATCH/PUT /examinations/1.json
   def update
+    cat = Category.find(examination_params[:category_id])
     respond_to do |format|
-      if @examination.update(examination_params)
-        format.html { redirect_to @examination, notice: 'Examination was successfully updated.' }
+      if @examination.update({name:examination_params[:name], desc:examination_params[:desc]})
+        format.html { redirect_to category_path(cat.name), notice: 'Examination was successfully updated.' }
         format.json { render :show, status: :ok, location: @examination }
       else
         format.html { render :edit }
@@ -57,9 +67,10 @@ class ExaminationsController < ApplicationController
   # DELETE /examinations/1
   # DELETE /examinations/1.json
   def destroy
+    cat = Category.find(@examination.category_id)
     @examination.destroy
     respond_to do |format|
-      format.html { redirect_to examinations_url, notice: 'Examination was successfully destroyed.' }
+      format.html { redirect_to category_path(cat.name), notice: 'Examination was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -67,11 +78,14 @@ class ExaminationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_examination
-      @examination = Examination.find(params[:id])
+      @examination = Examination.where(name: params[:examination_name])
+      @examination.each do |x|
+        @examination = x
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def examination_params
-      params.require(:examination).permit(:name, :desc, :category_id)
+      params.require(:examination).permit(:name, :desc, :category_id, :examination_name)
     end
 end

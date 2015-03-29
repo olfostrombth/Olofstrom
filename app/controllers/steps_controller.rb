@@ -15,9 +15,29 @@ class StepsController < ApplicationController
     end
   end
 
+  def update_examination
+    if completion_params[:name]
+      category_name = completion_params[:name].to_s
+      if current_user
+        updater = User.find(current_user.id)
+        completion = JSON.parse(updater.completion)
+        unless completion[category_name]["examination"]
+          completion[category_name]["examination"] = {}
+          completion[category_name]["examination"]["done"] = false
+          completion[category_name]["examination"]["corrected"] = false
+        end
+        completion[category_name]["examination"]["done"] = true
+
+        if updater.update({completion:completion.to_json})
+          render nothing:true
+          puts "Updated EXAMINATION, plx"
+        end
+      end
+    end
+  end
+
   #Update the completion string in Database
   def update_completion
-    #Get
     substeps = completion_params[:substepsx]
     category_name = completion_params[:name].to_s
     step_name = completion_params[:step_name].to_s
@@ -33,9 +53,11 @@ class StepsController < ApplicationController
         end
         completion[category_name][step_name][x] = y
       end
-      completion[category_name]["examination"] = {}
-      completion[category_name]["examination"]["done"] = false
-      completion[category_name]["examination"]["corrected"] = false
+      unless completion[category_name]["examination"]
+        completion[category_name]["examination"] = {}
+        completion[category_name]["examination"]["done"] = false
+        completion[category_name]["examination"]["corrected"] = false
+      end
       puts substeps.to_json
       if updater.update({completion:completion.to_json})
         render nothing:true
@@ -49,8 +71,9 @@ class StepsController < ApplicationController
   def show
     puts "ASDASDASDASD"
     gon.stepname = Category.normalize_cat(params[:step_name])
-    gon.catname = Category.normalize_cat(params[:category_name])
+    gon.catname = params[:category_name]
     gon.completion = current_user.completion if current_user
+    gon.admin = current_user.admin if current_user
     @user = User.find(current_user.id)
     @completion = @user.completion
 
@@ -72,6 +95,17 @@ class StepsController < ApplicationController
     puts "HHHHHHHHEEELLOOOO"
     puts "SUBSTEP: " + @substep.to_s
     @substep.each do |x|
+        user = User.find(current_user.id)
+        compfe = JSON.parse(user.completion)
+
+              if not compfe[params[:category_name]][params[:step_name]]
+                compfe[params[:category_name]][params[:step_name]] = {}
+              end
+              if not compfe[params[:category_name]][params[:step_name]]["substep_"+x.id.to_s]
+                compfe[gon.catname][gon.stepname]["substep_"+x.id.to_s] = "notdone"
+      end
+
+      user.update({completion:compfe.to_json})
       if x.typex == "video"
         video = Video.find(x.sid)
         videox = video.attributes

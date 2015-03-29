@@ -1,10 +1,10 @@
-<div class="row panel">
 <div class="row">
-	<div class="medium-12 large-12 columns headline"><h2><%= @user.name%></h2></div>
+  <div class="row">
+        <div class="medium-12 large-12 columns headline"><h2><%= @user.name%></h2></div>
 </div>
 <div class="row panel admincontent">
-	<div class="medium-12 large-12 columns">
-		<div class=" medium-3 large-3 columns admin-area">
+	<div class="small-12 medium-12 large-12 columns">
+		<div class="small-12 medium-3 large-3 columns admin-area">
 			<div class="admin-avatar">
 
 				<%= image_tag @user.image %>
@@ -17,10 +17,9 @@
 		<%else%>
 			<p>Status: Användare</p>
 		<%end%>
-
-		<p>Kommentarer: <%= @comments.length %></p>
-		<p>Senast inloggad: </p>
-
+		<p>Kommentarer: <% if @comments %><%= @comments.length %><% end %></p>
+		<p>Senast inloggad: <%= @user.updated_at.to_s.split(" ")[0] %></p>
+			<br>
 		  <%= mail_to @user.email do %>
 			 <center> <i class='fa fa-envelope-o fa-2x'></i>&nbsp; Maila mig!</center>
 			<% end %>
@@ -29,9 +28,9 @@
 		</div>
 		<div class="medium-9 large-9 columns">
 			<div class="medium-3 large-3 columns tab-menu right">
-				<div class="tab com-tab">Kommentarer</div>
-				<div class="tab act-tab">Aktivitet</div>
-				<div class="tab badge-tab">Märken</div>
+			<div class="tab com-tab">Kommentarer</div>
+			<div class="tab act-tab">Aktivitet</div>
+			<div class="tab tabActive badge-tab active">Märken</div>
 			</div>
 			<div class="large-12 columns activity-content">
 			<% @activities.each do |activity|%>
@@ -42,15 +41,74 @@
 				<br>
 			<% end %>
 			</div>
-			<div class="large-12 columns comments-content">Comments</div>
-			<div class="large-12 columns badge-content">Badge
-			<div class="badges-holder">
-						<%= image_tag 'badgegold.png' %>
-						<%= image_tag 'badgeblue.png' %>
-						<%= image_tag 'badgepink.png' %>
-						<%= image_tag 'badgeorange.png' %>
-						<%= image_tag 'badgegreen.png' %>
-					</div>
+			<div class="large-12 columns comments-content">
+			  <% if @comments %>
+				  <% @comments.each do |x| %>
+					  <% if x %>
+						  <% catx = Category.find_by id: x.category_id
+              if not catx then next end
+              cat = catx.name if catx %>
+						  <%= @user.name %> har kommenterat på <%= link_to cat, category_path(cat) %>: <%= x.msg %> - <%= x.created_at %>
+					  <% end %>
+					  <br>
+				  <% end %>
+			  <% end %>
+			</div>
+
+			<div class="large-12 columns badge-content">
+        <div id="badges-holder">
+        <% comp = get_completion(@user) %>
+	  <% if comp %>
+<% comp.each do |compkey,compval| %>
+
+<% if compkey == "javascripts" then next end %>
+  <%# testz = get_steps_info() %>
+  <% done = [] %>
+  <% compval.each do |stepkey, stepval| %>
+    <% if stepkey == "examination" then next end %>
+    <% step = Step.where({name:stepkey}).first %>
+    <% substeps = Substep.where({step_id: step.id}) %>
+    <% step = get_steps_info(compkey, stepkey, JSON.parse(@user.completion),substeps.length) %>
+    <% step["percent"][0] %>
+    <% done.push(step["percent"][0]) %>
+  <% end %>
+
+  <% nothundred = 0 %>
+  <% done.each do |x| %>
+    <% if x == "100" %>
+      <% next %>
+    <% else %>
+      <% nothundred = nothundred+1 %>
+    <% end %>
+  <% end %>
+  <% if nothundred > 0 %>
+  <% index = 0 %>
+  <div class="large-6 columns sbadge right">
+    <% compval.each do |stepkeyz,stepvalz| %>
+    <% index = index+1 %>
+
+    <div class="large-4 columns ">
+      <div class="<%= @badges[index%4] %>">
+          <div class="bheadline"><h3><%= compkey %></h3></div>
+          <div class="bstep"><p><%= stepkeyz %></p></div>
+      </div>
+      </div>
+
+    <% end %>
+    </div>
+    <% else %>
+    <div class="large-2 columns gbadge left">
+    <div class="goldbadge">
+        <div class="bheadline"><h3><%= compkey %></h3></div>
+        <div class="bstep"><p>100%</p></div>
+    </div>
+    </div>
+  <% end %>
+
+
+<% end %>
+<% end %>
+</div>
 			</div>
 		</div>
 	</div>
@@ -59,30 +117,7 @@
 
 	</div>
 
-	<!--<h3>---Completion---</h3>
-
-	<div class="medium-3 columns">
-		<% @completion.each do |modul, modulValue|%>
-			<% modulValue.each do |step, stepValue|%>
-				<% stepValue.each do |substep, substepValue|%>
-
-					<% if substepValue %>
-						<div>
-							<p>
-							|namn| <%=@user.name%> <br>
-							|substep| <%=substep%> <br>
-							|step| <%=step%> <br>
-							|modul| <%=modul%></b></p>
-						</div>
-					<% end %>
-				<% end %>
-			<% end %>
-		<% end %>
-	</div>-->
-
-		<div class="medium-4 columns">
 
 
-	</div>
-
+</div>
 </div>

@@ -1,9 +1,12 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
+  respond_to :html
   # GET /categories
   # GET /categories.json
   def index
+
+
     @activities = PublicActivity::Activity.order("created_at desc")
     if current_user
       @categories = Category.all
@@ -38,9 +41,6 @@ class CategoriesController < ApplicationController
       end
       @commentsxx = Hash[@comment_items.to_a.reverse]
       #@comment_items.reverse
-      if @commentx
-        @user = User.find(@commentx.user_id)
-      end
 
       @comment = @comments.new
       @steps = x.steps
@@ -49,6 +49,10 @@ class CategoriesController < ApplicationController
       @examinations = @category.examinations
       @examination = @examinations.new
       gon.catname = x.name
+
+
+
+
     end
 
     #cat = @category.to_json

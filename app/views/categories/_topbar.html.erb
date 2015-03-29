@@ -1,3 +1,9 @@
+<script type="text/javascript" src="../javascripts/jssor.core.js"></script>
+<script type="text/javascript" src="../javascripts/jssor.utils.js"></script>
+<script type="text/javascript" src="../javascripts/jssor.slider.js"></script>
+<script type="text/javascript" src="../javascripts/slider.js"></script>
+
+
 <div class="row">
 
   <!--  TOPBAR -->
@@ -15,7 +21,9 @@
 
     <% if current_user.admin? %>
         <% if current_page?(root_path) %>
+
             <button id="module_toggle" class="button redbtn ease right">Lägg till modul</button>
+
         <% end %>
         <% if params[:category_name] %>
             <% if current_page?(category_path(params[:category_name])) %>
@@ -31,6 +39,8 @@
       <div class="module_form">
         <%= render :partial => 'module' %>
       </div>
+
+
   <% end %>
   <% if params[:category_name] %>
       <% if current_page?(category_path(params[:category_name])) %>
@@ -38,15 +48,40 @@
             <%= render :partial => '/steps/steps' %>
           </div>
           <div class="examination_form">
-            <%= render '/examinations/form' %>
+            <%= render '/examinations/create_form' %>
           </div>
       <% end %>
   <% end %>
 
   <div class="medium-12 large-12 columns sliderimg">
     <div class="large-12 columns imageslider"> <%= image_tag("sliderblur.png") %></div>
-    <div class="medium-12 large-12 columns slider"> <div class="medium-6 large-6 columns"><h2>Rubrik</h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero repellendus aperiam quibusdam alias dolorem cum, architecto dicta natus aliquam nesciunt ipsa facilis tempora doloribus, neque sunt officiis est iste sint, incidunt molestiae ipsum. Reprehenderit, magni quis! Debitis exercitationem, fugiat sapiente quas dolorum consequuntur eaque atque sint, ex totam. Et, fugiat!</div><div class="medium-6 large-6 columns"><h2>Nyheter</h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe pariatur numquam veritatis fugit inventore molestias odit ducimus ab officiis quae nesciunt impedit qui voluptatem hic ea assumenda, magnam officia? Officiis aliquid nesciunt recusandae, ad error iusto. Odio ducimus commodi quis saepe neque, tenetur consectetur totam, amet ad aliquam, illo facilis assumenda voluptas obcaecati repudiandae animi dolor veniam aspernatur. Eius temporibus distinctio consequatur quod vero labore. Laudantium velit, ipsa ab repellat?</div></div>
+    <div class="medium-8 large-12 columns slider">
+         <div id="slider1_container" style="position: relative; top: 2px; left: 10%; width: 600px;
+              height: 250px;">
+        <!-- Slides Container -->
+        <div u="slides" style="cursor: move; position: absolute; left: 120px; top: 2px; width: 600px; height: 300px;
+                overflow: hidden;">
+            <%= div_for(slideritems, :class => "large-12 columns") do|s|%>
+              <%  if  s.rubrik %>
+              <h2> <%= s.rubrik.html_safe %></h2><br>
+              <%= s.text.html_safe %>
+
+            <% end end  %>
+
+        </div>
+
+        <script>
+            jssor_slider1_starter('slider1_container');
+        </script>
+      </div>
+
+    </div>
+
+
+
+
   </div>
+
 
   <!--    RUBRIK  -->
 <% if params[:step_name] %>

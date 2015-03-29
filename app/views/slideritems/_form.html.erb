@@ -1,0 +1,26 @@
+<%= form_for(@slideritem) do |f| %>
+  <% if @slideritem.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@slideritem.errors.count, "error") %> prohibited this slideritem from being saved:</h2>
+
+      <ul>
+      <% @slideritem.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :rubrik %><br>
+    <%= f.text_area :rubrik %>
+    <%= f.label :text %><br>
+    <%= f.text_area :text, :class => "tinymce" %>
+  </div>
+  <div class="actions">
+    <%= f.button :Skapa, :class => 'form-btn ease tiny'  %>
+  </div>
+<% end %>
+<%= tinymce %>
+
+

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Examination:</strong>
+  <%= @user_examination.examination %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_examination.user %>
+</p>
+
+<p>
+  <strong>Msg:</strong>
+  <%= @user_examination.msg %>
+</p>
+
+<p>
+  <strong>Corrected:</strong>
+  <%= @user_examination.corrected %>
+</p>
+
+<%= link_to 'Edit', edit_user_examination_path(@user_examination) %> |
+<%= link_to 'Back', user_examinations_path %>

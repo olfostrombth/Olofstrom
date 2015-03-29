@@ -1,3 +1,5 @@
+<% require 'securerandom' %>
+<% random_id = SecureRandom.hex %>
 <%= form_for @guide, :html => {:id => "new_guide_"+position.to_s} do |f| %>
     <% if @guide.errors.any? %>
         <div id="error_explanation">
@@ -17,9 +19,13 @@
     </div>
     <div class="field">
       <%= f.label :Text %><br>
-      <%= f.text_field :desc %>
-
+      <%= f.text_area :desc, :id => random_id %>
     </div>
+    <script type="text/javascript">
+        tinyMCE.init({
+            selector: 'textarea#<%= random_id %>'
+        });
+    </script>
     <div class="field">
       <%= f.hidden_field :typex, value: "guide" %>
     </div>
@@ -33,5 +39,5 @@
       <%= f.button :Skapa, :class => 'form-btn ease' %>
     </div>
 <% end %>
-
+<%= tinymce %>
 

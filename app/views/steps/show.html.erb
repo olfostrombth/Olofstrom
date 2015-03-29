@@ -1,3 +1,4 @@
+
 <p id="notice"><%= notice %></p>
 
 <div class="row">
@@ -24,7 +25,7 @@
       <br>
       <div class="forms" id="forms>">
         <div id="video_form_999" class="video_form">
-          <%= render :partial => '/videos/create_form', :locals => {:position => 0} %>
+          <%= render :partial => '/videos/create_form', :locals => {:position => 0 } %>
         </div>
         <div id="guide_form_999" class="guide_form">
           <%= render :partial => '/guides/create_form', :locals => {:position => 0} %>
@@ -48,8 +49,12 @@
 
   <% @step_items.each_with_index do |item, i| %>
       <% if item['uid'] %>
-          <div class="item" data-item-id="<%= item['uid'].to_s %>" >
-            <div class="td td-headline">
+          <% if current_user.admin? %>
+              <div class="item" data-item-id="<%= item['uid'].to_s %>" id="step_<%= i %>">
+          <% else %>
+              <div class="item hidden-item" data-item-id="<%= item['uid'].to_s %>" id="step_<%= i %>">
+          <% end %>
+              <div class="td td-headline">
               <h4><%= item['name'] %></h4>
             </div>
             <% if current_user.admin? %> <!-- this makes you able to show only name for step item if your admin, easier for drag and drop -->
@@ -120,7 +125,9 @@
                     <% completion = JSON.parse(@user.completion) %>
                     <% if completion[@step.category.name] then if completion[@step.category.name][@step.name] %>
                             <% if completion[@step.category.name][@step.name]["substep_"+item['uid'].to_s] == "true" %>
-                                <p>Du är nu klar med detta substeget</p>
+                              <% if item['quiz_type'] %>
+                                  <% else %>
+                                  <% end %>
                             <% end end %>
                     <% end %>
 
@@ -130,6 +137,7 @@
                         <% else %>
                             <div class="checkbox-container">
                               <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
+                              <label for="substep_<%= item['uid'] %>"><span></span></label>
                             </div>
                         <% end %>
                     <% else %>
@@ -137,7 +145,8 @@
 
                         <% else %>
                             <div class="checkbox-container">
-                              <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
+                              <input type="checkbox" style="width: 50px;" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
+                              <label for="substep_<%= item['uid'] %>"><span></span></label>
                             </div>
                         <% end %>
                     <% end %>
@@ -166,8 +175,9 @@
                     </div>
 
                     <div class="quiz-fix">
-                      <div class="checkbox-container">
+                      <div class="checkbox-container quiz_hide">
                         <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
+                         <label for="substep_<%= item['uid'] %>"><span></span></label>
                       </div>
                     </div>
                 <% end %>
@@ -183,15 +193,17 @@
                                 <% completion = JSON.parse(@user.completion) %>
                                 <% if completion[@step.category.name][@step.name] %>
                                     <% if completion[@step.category.name][@step.name]["substep_"+item['uid'].to_s] == "true" %>
-                                        <p>Du är nu klar med detta substeget :)</p>
+
                                     <% end %>
                                 <% end %>
                                 <% if current_user.admin? %> <!-- Jag vet det är sinnessjukt -->
                                     <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
+                                     <label for="substep_<%= item['uid'] %>"><span></span></label>
                                 <% else %>
                                     <% if item['quiz_type'] %>
                                     <% else %>
                                         <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
+                                        <label for="substep_<%= item['uid'] %>"><span></span></label>
                                     <% end %>
                                 <% end %>
                             <% else %>
@@ -202,8 +214,9 @@
 
                     </div>
                     <div class="quiz-fix">
-                      <div class="checkbox-container">
+                      <div class="checkbox-container quiz_hide">
                         <input type="checkbox" class="donebox" id="substep_<%= item['uid'] %>" name="donebox" value="yes" />
+                        <label for="substep_<%= item['uid'] %>"><span></span></label>
                       </div>
                     </div>
                 <% end %>
@@ -238,8 +251,25 @@
       <% end %>
       </div>
   <% end %>
+  <button id="continue" class="form-btn ease">Fortsätt</button>
+  <button data-dialog="somedialog" id="complete" class="trigger">Slutför steg</button>
   </div>
 
+  <div id="somedialog" class="dialog">
+    <div class="dialog__overlay"></div>
+    <div class="dialog__content">
+      <div class="bluebadge center_badge">
+        <div class="bheadline"><h3>Steg</h3></div>
+        <div class="bstep"></div>
+      </div>
+      <h1>Grattis!</h1>
+      <p>Du har klarat av det här steget.</p>
+      <p>Ditt nya märke finns nu på din profil.</p>
+    <div>
+      <button class="action" data-dialog-close>Close</button>
+    </div>
+  </div>
+  </div>
   <br>
   <% if current_user.admin? %>
 
